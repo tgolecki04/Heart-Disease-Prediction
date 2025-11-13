@@ -1,0 +1,439 @@
+---
+title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
+subtitle: "Zapoznanie I Praca Z Danymi"
+format: html
+editor: visual
+warning: false
+---
+
+## Rozpoczęcie
+
+Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos himenaeos orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus donec rhoncus eros lobortis nulla molestie mattis scelerisque maximus eget fermentum odio phasellus non purus est efficitur laoreet mauris pharetra vestibulum fusce dictum risus blandit quis suspendisse aliquet nisi sodales consequat magna ante condimentum neque at luctus nibh finibus facilisis dapibus etiam interdum tortor ligula congue sollicitudin erat viverra ac tincidunt nam porta elementum a enim euismod quam justo lectus commodo augue arcu dignissim velit aliquam imperdiet mollis nullam volutpat porttitor ullamcorper rutrum gravida cras eleifend turpis fames primis vulputate ornare sagittis vehicula praesent dui felis.
+
+### Biblioteki
+
+```{r}
+#| echo: false
+#| output: false
+library(readr)
+library(skimr)
+library(knitr)
+library(tidyverse)
+library(corrplot)
+library(ggthemes)
+library(hrbrthemes)
+library(kableExtra)
+library(rlang)
+library(gridExtra)
+library(patchwork)
+library(mice)
+library(psych)
+```
+
+### Zapoznanie z danymi
+
+Wczytanie pliku z rozszerzeniem `csv` do zmiennej o nazwie `data`.
+
+```{r}
+data <- read.csv2("data/badania.csv", sep=",")
+```
+
+Sprawdźmy jak wyglądają nasze dane. Użyjemy do tego funkcji `head()` oraz `tail()` do podglądu kilku pierwszych i ostatnich obserwacji w naszym zbiorze danych. Pierwsze 10 obserwacji ma postać:
+
+```{r}
+head(data)
+```
+
+Natomiast kilka ostatnich obserwcji nad którymi bedziemy pracować mają postać:
+
+```{r}
+tail(data)
+```
+
+Spradźmy rozmiary naszej ramki danych. W tym celu posłużymy się funkcjami `nrow()` oraz `ncol()`, które zawracają odpowiednio **liczbę wierszy** oraz **liczbę kolumn**.
+
+```{r}
+nrow(data)
+ncol(data)
+```
+
+Widzimy że mamy ponad 4200 obserwacji i 16 zmiennych, które posłużą nam do stworzenia kilku modeli predykcyjnych i wyboru tego, który najlepiej będzie oceniał ryzyko zawału serca. Jest to naprawdę duży zasób danych, które mogą odpowiedzieć na wiele interesujących pytań. Nadszedł czas sprawdzić zmienne, które posiadamy. Użyjemy do tego funkcji `colnames().`
+
+```{r}
+colnames(data)
+```
+
+Okazuje się, że nasz zbiór zawiera cenne informacje medyczne takie jak:
+
+1.  Tętno
+
+2.  BMI
+
+3.  Ciśnienie skurczowe i rozkurczowe
+
+4.  Poziom cholesterolu i glukozy
+
+5.  Informacje o tym, czy pacjent był palaczem, czy też nie
+
+Dokładniej przyjrzymy się naszym zmiennym w dalszej części analizy zbioru danych. Wyjaśnimy dokładniej cechy poszczególnych kolumn zbioru danych oraz ich podstawowe statystyki. Czas sprawdzić podstawowe statystki dotyczące danych oraz to z jakimi typami danych będziemy pracować.
+
+```{r}
+skim(data)
+```
+
+Tak jak widać na powyższym raporcie, zaczytując dane otrzymujemy 3 zmienne typu `character` oraz 13 zmiennych typu `numeric`. Taki podział ze względu na typ zmiennych nie jest odpowiedni. Wszystkie cechy typu `character` mają w naszym przypadku błędne formatowanie. Dodatkowo będziemy musieli dodać nowe typy zmiennych takie jak `boolean` oraz `factor`, aby móc szybko i praktycznie pracować z danymi. Odpowiedni wybór typów zmiennych jest podstawowym krokiem rozpczynając analizę zbioru danych. Zrobimy to w następujący sposób.
+
+badania_sorted \<- badania\[order(is.na(badania\$glucose), decreasing = TRUE), \]
+
+```{r}
+badania <- data |> 
+  mutate(
+    sysBP = as.numeric(sysBP),
+    diaBP = as.numeric(diaBP),
+    BMI = as.numeric(BMI),
+    sex = factor(male, levels = c(0, 1), labels = c("Female", "Male")),
+    education = factor(education, ordered = TRUE),
+    currentSmoker = factor(currentSmoker, labels = c("No", "Yes")),
+    BPMeds = factor(BPMeds, labels = c("No", "Yes")),
+    prevalentStroke = factor(prevalentStroke, labels = c("No", "Yes")),
+    prevalentHyp = factor(prevalentHyp, labels = c("No", "Yes")),
+    diabetes = factor(diabetes, labels = c("No", "Yes")),
+    TenYearCHD = factor(TenYearCHD, labels = c("No", "Yes"))
+  ) |> dplyr::select(-male)   
+
+badania <- badania[order(is.na(badania$glucose), decreasing = TRUE), ]
+```
+
+W tym momencie wszystkie zmienne mają przypisane odpowiednie typy danych, co pozwoli zaoszczędzić czas podczas przeprowadzania obliczeń i analizy nad nimi. Dla wygody uporządkujemy teraz kolumny w odpowiedniej dla nas kolejności, tak aby informacje powiązane ze sobą były obok siebie (Np. zmienna `glucose` obok zmiennej `diabetes`)
+
+```{r}
+badania <- dplyr::select(badania, c(1, 16, 2, 10, 11, 13, 12, 9, 14, 8, 4, 3, 5:7, 15))
+head(badania)
+```
+
+Zrobione. Teraz możemy przejść do wyjaśnienia zmiennych, aby było jasne z czym pracujemy oraz na czym możemy polegać podczas wykonywania analizy.
+
+### Opis i wyjaśnienie zmiennych
+
+Poniżej znajduje się tabela zawierająca wszystkie cechy wraz z ich wytłumaczeniem.
+
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| Zmienna           | Opis                                                                 | Jednostka                                                    | Typ         |
++:=================:+:====================================================================:+:============================================================:+:===========:+
+| `age`             | Wiek (w latach)                                                      | Lata                                                         | `int`       |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `sex`             | Płeć (1 - Mężczyzna, 0 - Kobieta)                                    | Brak                                                         | `factor`    |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `education`       | Wykształcenie                                                        | Brak                                                         | `factor`    |
+|                   |                                                                      |                                                              |             |
+|                   | (1 - Brak ukończonej szkoły średniej,                                |                                                              |             |
+|                   |                                                                      |                                                              |             |
+|                   | 2 - Ukończona szkoła średnia,                                        |                                                              |             |
+|                   |                                                                      |                                                              |             |
+|                   | 3 - Nieukończone studia lub ukończona szkoła zawodowa,               |                                                              |             |
+|                   |                                                                      |                                                              |             |
+|                   | 4 - Wykształcenie Wyższe)                                            |                                                              |             |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `sysBP`           | Wartość ciśnienia skurczowego (Średnia ostatnich dwóch pomiarów)     | mmHg                                                         | `numerical` |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `diaBP`           | Wartość ciśnienia rozkurczowego (Średnia ostatnich dwóch pomiarów)   | mmHg                                                         | `numerical` |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `heartRate`       | Poziom tętna ()                                                      | Uderzeń na minutę                                            | `int`       |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `BMI`             | Wartość współczynnika BMI                                            | $\displaystyle \frac{\text{masa (kg)}}{\text{wzrost (m)}^2}$ | `float`     |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `totalChol`       | Wartość poziomu cholesterolu ()                                      | $\displaystyle \frac{\text{mg}}{\text{dL}}$                  | `int`       |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `glucose`         | Poziom glukozy we krwi ()                                            | $\displaystyle \frac{\text{mg}}{\text{dL}}$                  | `int`       |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `diabetes`        | Fakt czy pacjent jest cukrzykiem\                                    | brak                                                         | `factor`    |
+|                   | (1 - Tak, 0 - Nie)                                                   |                                                              |             |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `cigsPerDay`      | Średnia liczba palonych dziennie papierosów                          | sztuki                                                       | `int`       |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `currentSmoker`   | Fakt czy pacjent jest palaczem\                                      | brak                                                         | `factor`    |
+|                   | (1- Tak, 0 - Nie)                                                    |                                                              |             |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `BMPmeds`         | Fakt czy pacjent leczy się na nadciśnienie krwi (1 - Tak, 0 - Nie)   | brak                                                         | `factor`    |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `prevalentStroke` | Wskazuje czy pacjent przeżył udar mózgu. (1 - Tak, 0 - Nie)          | brak                                                         | `factor`    |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `prevalentHyp`    | Wskazuje czy u pacjenta występowało nadciśnienie.\                   | brak                                                         | `factor`    |
+|                   | (1 - Tak, 0 - Nie)                                                   |                                                              |             |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+| `TenYearCHD`      | Wskazuje 10-letnie ryzyko wystąpienia choroby wieńcowej u pacjenta.\ | brak                                                         | `factor`    |
+|                   | (1- Tak, 0-Nie)                                                      |                                                              |             |
++-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
+
+### Uzupełnienie brakujących wartości
+
+Zastanówmy się co zrobić z brakami danych w naszym zbiorze badań. Przedstawmy ilość wartości `NA` dla każdej zmiennej, w której takie wartości wystepują.
+
+```{r}
+#| warning: false
+NA_count <- colSums(is.na(badania))[colSums(is.na(badania)) > 0] |> 
+  data.frame()
+
+names(NA_count) <- "count"
+NA_count$var = rownames(NA_count)
+rownames(NA_count) <- NULL
+NA_count <- select(NA_count, c(2,1))
+
+p <- ggplot(NA_count, aes(x = var, y = count, fill = "#fc9d03")) +
+  geom_col(show.legend = FALSE) +
+  theme_ipsum() +
+  geom_text(aes(label = count), vjust = -0.5) + 
+  expand_limits(y = max(NA_count$count) * 1.1) +
+  labs(title = "Liczba wartości NA w zmiennych")
+
+ggsave("images/plots/na_count_before.png", p)
+```
+
+![](images/plots/na_count_before.png){fig-align="center"}
+
+Widzimy, że mamy kilka zmiennych, które zawierają braki danych. Liczby wartośći `NA` w poszczególnych kolumnach są zazwyczaj mniejsze lub równe około 100, jedynym wyjątkiem z aż 388 wartościami `NA` jest zmienna `glucose` oznaczająca poziom glukozy we krwi pacjenta. Zanim uzupełnimy braki danych odpowiednią techniką spróbujemy dowiedzieć się w jaki sposób rozkładają się wartości `NA` tzn. czy braki te wystepują u różnych pacjentów, czy też jeden pacjent posiada brak informacji w więcej niż tylko jednej zmiennej.
+
+```{r}
+NA_df <- data.frame(NA_w_wierszu = rowSums(is.na(badania))) |> 
+  group_by(NA_w_wierszu) |> 
+  summarise(liczebnosc = n())
+
+p <- NA_df |> ggplot(aes(NA_w_wierszu, liczebnosc, fill = "#fc9d03")) +
+  geom_col(show.legend = FALSE) +
+  theme_ipsum() +
+  geom_text(aes(label = liczebnosc), vjust = -0.5) + 
+  expand_limits(y = max(NA_df$liczebnosc) * 1.1) +
+  labs(title = "Liczba wartości NA w rekordach")
+
+ggsave("images/plots/NA_count_perRow.png", p)
+```
+
+![](images/plots/NA_count.png){fig-align="center"}
+
+Do uzupełniania wartości brakujących przyjeliśmy następującą metodykę:
+
+-   Rekordy posiadające dokładnie jedną wartość `NA` uzupełnimy na podstawie metody wielokrotnej imputacji
+
+-   Rekordy posiadające więcej niż jedną wartość `NA` odrzucamy, aby nie bazować na znacznie brakujących danych
+
+W zmiennej `badania` wybieramy te wiersze, w których znajduje się co najwyżej jedna wartość `NA`.
+
+```{r}
+badania <- badania[rowSums(is.na(badania)) <= 1, ]
+```
+
+```{r}
+#| warning: false
+#| echo: false
+NA_count <- colSums(is.na(badania))[colSums(is.na(badania)) > 0] |> 
+  data.frame()
+
+names(NA_count) <- "count"
+NA_count$var = rownames(NA_count)
+rownames(NA_count) <- NULL
+NA_count <- select(NA_count, c(2,1))
+
+p <- ggplot(NA_count, aes(x = var, y = count, fill = "#fc9d03")) +
+  geom_col(show.legend = FALSE) +
+  theme_ipsum() +
+  geom_text(aes(label = count), vjust = -0.5) + 
+  expand_limits(y = max(NA_count$count) * 1.1) +
+  labs(title = "Liczba wartości NA w zmiennych")
+
+ggsave("images/plots/na_count_after.png", p)
+```
+
+Wizualizacja liczby brakujących danych ma postać:
+
+::: panel-tabset
+#### Po wczytaniu danych
+
+![](images/plots/na_count_before.png){fig-align="center"}
+
+#### Po wstępnym usunięciu brakujących danych
+
+![](images/plots/na_count_after.png){fig-align="center"}
+:::
+
+W tym momencie przeprowadzimy proces uzupełniania zmiennych przy pomocy funkcji `mice` - metodą wielokrotnej imputacji. Braki danych znajdują się w kolumnach o różnych typach zmiennych.
+
+**Zmienne kategoryczne:**
+
+-   `BPMeds`
+
+-   `education`
+
+**Zmienne numeryczne:**
+
+-   `BMI`
+
+-   `cigsPerDay`
+
+-   `glucose`
+
+-   `heartRate`
+
+-   `totChol`
+
+Ze względu na typy zmiennych oraz rozkłady, jakimi te zmienne się charakteryzują decydujemy się użyć metodę `pmm` (Predictive Mean Matching) dla zmiennych numerycznych oraz metodę `logreg` dla `BPMeds` oraz `polr` dla `education`.
+
+**Uzasadnienie:** `pmm` zachowuje rozkłady i wybiera realne obserwacje jako wartości wejściowe, co jest szczególnie ważne przy zmiennych o rozkładzie ciągłym. Dla zmiennych kategorycznych używamy odpowiednich regresji klasyfikacyjnych w zależności od cech zmiennej.
+
+```{r}
+statystyki_przed <- describe(badania[NA_count$var])
+metody <- make.method(badania)
+
+metody["BPMeds"] <- "logreg"        #
+metody["education"] <- "polr" 
+metody["BMI"] <- "pmm"
+metody["cigsPerDay"] <- "pmm"
+metody["glucose"] <- "pmm"
+metody["heartRate"] <- "pmm"
+metody["totChol"] <- "pmm"
+uzupelnienia <- mice(badania,
+                m = 5,
+                method = metody,
+                seed = 2025)
+badania <- complete(uzupelnienia)
+
+statystyki_po <- describe(badania[NA_count$var])
+
+```
+
+Po uzupełnieniu brakujących wartości porównajmy statystyki dla naszych zmiennych.
+
+::: panel-tabset
+#### Przed uzupełnieniem danych
+
+```{r}
+data.frame(statystyki_przed)
+```
+
+#### Po uzupełnieniu danych
+
+```{r}
+data.frame(t(statystyki_po))
+```
+:::
+
+### Wizualizacja danych
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum sapien sit amet diam tristique, sed placerat ante hendrerit. Vestibulum ut leo vitae turpis consequat lobortis. Praesent ultricies ligula lorem, vel feugiat elit finibus sit amet. Nam placerat rhoncus tellus, sit amet condimentum mi. Pellentesque vitae justo dolor. Pellentesque et mi enim. Cras maximus elit vitae dictum egestas. Proin laoreet velit nibh, quis interdum leo efficitur vitae. Duis placerat malesuada vehicula. Ut at eros sit amet sem dictum fringilla quis.
+
+#### Funkcja tworzenia wykresów
+
+```{r}
+#| warning: false
+zmienna_wykres <- function(dane, typ_zmiennej, typ_wykresu) {
+  my_plots = list()
+  if (typ_zmiennej == "kategoryczna") {
+    dane <- dane |> 
+      dplyr::select(where(is.factor))
+  } else if (typ_zmiennej == "numeryczna") {
+    dane <- dane |> 
+      dplyr::select(where(is.numeric))
+  } else {
+    # nic nie robimy
+  }
+  
+  for (i in 1:ncol(dane)) {
+    kolumna <- colnames(dane)[i]
+    if (typ_wykresu == "barplot") {
+    p <- ggplot(dane, aes(x = !!sym(kolumna))) +
+      geom_bar(fill = "steelblue") +
+      theme_ipsum() +
+      ggtitle(kolumna)
+    
+    } else if (typ_wykresu == "pie") {
+      p <- dane %>%
+        dplyr::count(!!sym(kolumna)) %>%
+        ggplot(aes(x = "", y = n, fill = !!sym(kolumna))) +
+        geom_bar(stat = "identity", width = 1, color = "white") +
+        coord_polar(theta = "y") +
+        theme_void() +
+        ggtitle(kolumna)
+      
+    } else if (typ_wykresu == "histogram") {
+      p <- ggplot(dane, aes(x = !!sym(kolumna))) +
+        geom_histogram(fill = "darkorange", bins = 20) +
+        theme_ipsum() +
+        ggtitle(kolumna)
+      
+    } else if (typ_wykresu == "violin") {
+      p <- ggplot(dane, aes(x = "", y = !!sym(kolumna))) +
+        geom_violin(fill = "lightgreen") +
+        theme_ipsum() +
+        ggtitle(kolumna)
+    } else {
+      next  # pomiń jeśli nieznany typ wykresu
+    }
+    my_plots[[i]] <- p
+  } 
+
+  
+gotowy_wykres_1 <- (my_plots[[1]] + my_plots[[2]]) / (my_plots[[3]] + my_plots[[4]]) 
+gotowy_wykres_2 <- (my_plots[[5]] + my_plots[[6]]) / (my_plots[[7]] + my_plots[[8]])
+ggsave(paste0("images/plots/", typ_zmiennej, "_", typ_wykresu, "1.png"), gotowy_wykres_1)
+ggsave(paste0("images/plots/", typ_zmiennej, "_", typ_wykresu, "2.png"), gotowy_wykres_2)
+}
+```
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce elementum sapien sit amet diam tristique, sed placerat ante hendrerit. Vestibulum ut leo vitae turpis consequat lobortis. Praesent ultricies ligula lorem, vel feugiat elit finibus sit amet. Nam placerat rhoncus tellus, sit amet condimentum mi. Pellentesque vitae justo dolor.
+
+#### Zmienne Kategoryczne
+
+```{r}
+zmienna_wykres(badania, "kategoryczna", "barplot")
+zmienna_wykres(badania, "kategoryczna", "pie")
+```
+
+::: panel-tabset
+## Barplot
+
+![](images/plots/kategoryczna_barplot1.png){fig-align="center"}
+
+![](images/plots/kategoryczna_barplot2.png){fig-align="center"}
+
+## Pie
+
+![](images/plots/kategoryczna_pie1.png){fig-align="center"}
+
+![](images/plots/kategoryczna_pie2.png){fig-align="center"}
+:::
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius non lacus eget pellentesque. Morbi sed nunc vel est interdum tempus eget vel felis. Morbi posuere mattis magna, et ornare lacus gravida sed. Nullam nulla mauris, aliquam et faucibus quis, ultrices id nisl. Quisque eu dolor at odio vulputate hendrerit. Morbi ut fringilla eros, ac dapibus velit. Aenean facilisis lacinia facilisis. Morbi ultricies urna a nibh molestie gravida. Aenean et tincidunt tortor. Sed ut nisi lacinia, volutpat ipsum quis, tristique ligula.
+
+Donec bibendum, erat quis scelerisque placerat, urna erat suscipit elit, a semper lorem ex sit amet sem. Pellentesque accumsan, turpis non dapibus aliquet, nisi erat maximus ex, at scelerisque lorem dolor a turpis. Aliquam volutpat eros sit amet iaculis ultrices. Ut diam ipsum, ultrices vel dolor egestas, rhoncus fringilla.
+
+#### Zmienne Numeryczne
+
+```{r}
+zmienna_wykres(badania, "numeryczna", "violin")
+zmienna_wykres(badania, "numeryczna", "histogram")
+```
+
+::: panel-tabset
+## Violin
+
+![](images/plots/numeryczna_violin1.png){fig-align="center"}
+
+![](images/plots/numeryczna_violin2.png){fig-align="center"}
+
+## Histogram
+
+![](images/plots/numeryczna_histogram1.png){fig-align="center"}
+
+![](images/plots/numeryczna_histogram2.png){fig-align="center"}
+:::
+
+Morbi posuere mattis magna, et ornare lacus gravida sed. Nullam nulla mauris, aliquam et faucibus quis, ultrices id nisl. Quisque eu dolor at odio vulputate hendrerit. Morbi ut fringilla eros, ac dapibus velit. Aenean facilisis lacinia facilisis. Morbi ultricies urna a nibh molestie gravida. Aenean et tincidunt tortor. Sed ut nisi lacinia, volutpat ipsum quis, tristique ligula.
+
+```{r}
+skim(badania)
+```
+
+<div>
+
+![](images/article/to_use/picture_2.png){style="margin-top: 25px;" fig-align="center"}
+
+</div>

@@ -1,0 +1,79 @@
+project:
+  type: website
+
+website:
+  back-to-top-navigation: true
+  reader-mode: false
+  page-footer:
+    left:
+      - text: "IAD III 2025"
+    right:
+      - text: "© 2025 Tomasz Golecki | Tomasz Hanusek | Damian Spodar"
+    center:
+      - text: "Projekt z Zakresu Analizy Danych"
+  page-navigation: true
+  navbar:
+    left:
+      - text: "Strona Główna"
+        href: index.qmd
+        icon: box-seam
+      - text: "Aplikacja"
+        href: aplikacja.qmd
+        icon: code-slash
+      - text: "Sprawozdanie"
+        href: sprawozdanie.qmd
+        icon: book
+      - text: "Dataset"
+        href: "https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study"
+        icon: database
+      - text: "Politechnika Lubelska"
+        href: "https://pollub.pl/"
+        icon: rocket-takeoff
+      - text: "Kontakt"
+        href: kontakt.qmd
+        icon: people
+    right:
+      - href: "#"
+        icon: github
+  sidebar:
+    search: true
+    style: "docked"
+    logo: "images/article/logo_pollub.jpg"
+    contents:
+      - text: "Wstęp"
+        href: index.qmd
+      - text: "1. Plan Projektu"
+        href: plan.qmd
+      - text: "2. Dane"
+        href: dane.qmd
+      - text: "3. Wizualizacje"
+        href: wizualizacje.qmd
+      - text: "4. Modele"
+        href: modele.qmd
+      - text: "5. Wnioski"
+        href: wnioski.qmd
+      - text: "6. Zakończenie"
+        href: zakonczenie.qmd 
+      - text: "Literatura"
+        href: literatura.qmd 
+    
+
+format:
+  html:
+    author: "Tomasz Golecki | Tomasz Hanusek | Damian Spodar"
+    date: "12.12.2025"
+    theme:
+      light: sandstone
+      dark: flatly
+    fontsize: 16px
+    css: styles.css
+    toc: true
+    toc-title: "Spis treści"
+    number-sections: true
+    include-in-header: "_html/favicon.html"
+    title-block-banner: "#947E76"
+    title-block-banner-color: "#fcfffd"
+    code-fold: show
+    code-tools: true
+    code-summary: "Pokaż/Ukryj Kod"
+df-print: kable

@@ -1,0 +1,35 @@
+---
+title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
+format: html
+editor: visual
+---
+
+## Źródła
+
+Na potrzeby projektu korzystaliśmy z poniższych źródeł:
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+
+Dodatkowo użyliśmy:
+
+-   <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">Heart icons created by Kroffle - Flaticon</a>
+
+<div>
+
+![](images/article/to_use/picture_2.png){style="margin-top: 25px;" fig-align="center"}
+
+</div>

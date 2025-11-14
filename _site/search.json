@@ -242,7 +242,7 @@
     "href": "kontakt.html",
     "title": "Kontakt",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Projekt został stworzony przy współpracy 3 osób. Jest połączeniem różnych dziedzin nauki oraz języków programowania. Każda osoba miała istotny wpływ na ostateczną wersję projektu. Zachęcamy do zapoznania się z każdym autorem, aby móc lepiej nas poznać oraz dowiedzieć się o naszych umiejętnościach i zainteresowaniach. Do zespołu należą:\n\nTomasz Golecki\nTomasz Hanusek\nDamian Spodar\n\nPoniżej znajdują się informacje kontaktowe i wiele więcej na temat każdego z nas!"
   },
   {
     "objectID": "kontakt.html#quarto",
@@ -685,5 +685,33 @@
       "Strona Główna",
       "2. Dane"
     ]
+  },
+  {
+    "objectID": "kontakt.html#tomasz-hanusek",
+    "href": "kontakt.html#tomasz-hanusek",
+    "title": "Kontakt",
+    "section": "Tomasz Hanusek",
+    "text": "Tomasz Hanusek"
+  },
+  {
+    "objectID": "kontakt.html#damian-spodar",
+    "href": "kontakt.html#damian-spodar",
+    "title": "Kontakt",
+    "section": "Damian Spodar",
+    "text": "Damian Spodar"
+  },
+  {
+    "objectID": "kontakt.html#tomasz-golecki",
+    "href": "kontakt.html#tomasz-golecki",
+    "title": "Kontakt",
+    "section": "Tomasz Golecki",
+    "text": "Tomasz Golecki"
+  },
+  {
+    "objectID": "kontakt.html#autorzy",
+    "href": "kontakt.html#autorzy",
+    "title": "Kontakt",
+    "section": "",
+    "text": "Projekt został stworzony przy współpracy 3 osób. Jest połączeniem różnych dziedzin nauki oraz języków programowania. Każda osoba miała istotny wpływ na ostateczną wersję projektu. Zachęcamy do zapoznania się z każdym autorem, aby móc lepiej nas poznać oraz dowiedzieć się o naszych umiejętnościach i zainteresowaniach. Do zespołu należą:\n\nTomasz Golecki\nTomasz Hanusek\nDamian Spodar\n\nPoniżej znajdują się informacje kontaktowe i wiele więcej na temat każdego z nas!"
   }
 ]

@@ -2,25 +2,25 @@
 title: "Kontakt"
 format: html
 editor: visual
+number-sections: false
 ---
 
-## Quarto
+## Autorzy
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Projekt został stworzony przy współpracy 3 osób. Jest połączeniem różnych dziedzin nauki oraz języków programowania. Każda osoba miała istotny wpływ na ostateczną wersję projektu. Zachęcamy do zapoznania się z każdym autorem, aby móc lepiej nas poznać oraz dowiedzieć się o naszych umiejętnościach i zainteresowaniach. Do zespołu należą:
 
-## Running Code
+-   Tomasz Golecki
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+-   Tomasz Hanusek
 
-```{r}
-1 + 1
-```
+-   Damian Spodar
 
-You can add options to executable code like this
+Poniżej znajdują się informacje kontaktowe i wiele więcej na temat każdego z nas!
 
-```{r}
-#| echo: false
-2 * 2
-```
+## Tomasz Golecki
 
-The `echo: false` option disables the printing of code (only output is displayed).
+![](images/korepetycje_wizytówka_przód.png){fig-align="center"}
+
+## Tomasz Hanusek
+
+## Damian Spodar

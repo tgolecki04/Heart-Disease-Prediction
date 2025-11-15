@@ -1,4 +1,6 @@
 # Wczesne Wykrywanie Ryzyka Zawału Serca
+[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](https://www.repostatus.org/badges/latest/concept.svg)](https://www.repostatus.org/#concept)
+<!--[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)-->
 
 ## Informacje ogólne
 <p>Projekt z zakresu analizy danych. Głównym założeniem projektu jest stworzenie nieliniowych modeli predykcyjnych zdolnych do skutecznego 
@@ -13,12 +15,16 @@
 ## Zbiór danych
 <ul>
   <li><a href=https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study>Framingham Heart Study</a></li>
-  <li>Potencjalne dane ze szpitala w Lublinie</li>
+  <li>Potencjalnie dane ze szpitala w Lublinie</li>
 </ul>
 
-## Twórcy projektu
+## Autorzy
 <ul>
   <li>Damian Spodar</li>
   <li>Tomasz Golecki</li>
   <li>Tomasz Hanusek</li>
 </ul>
+
+<a href="https://github.com/tgolecki04/team-project/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tgolecki04/team-project" />
+</a>

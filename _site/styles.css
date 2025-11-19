@@ -49,3 +49,11 @@ p:has(img) {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+.img-stack img,
+.img-stack div,
+.img-stack figure {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block;
+}

@@ -20,17 +20,17 @@ Poniżej znajdują się informacje kontaktowe i wiele więcej na temat każdego 
 ## Tomasz Golecki
 
 ::: {style="margin:0; padding:0;"}
-![](images/Mandatory.png){style="padding: 0; margin: 0; display: block;" fig-align="center"}
+![](images/Mandatory.png){fig-align="center"}
 
-![](images/clipboard-3609703868.png){style="padding: 0; margin: 0; display: block;"}
+![](images/clipboard-3609703868.png){fig-align="center"}
 
 ![](images/Contents Page.png){fig-align="center"}
 
 ![](images/clipboard-3609703868.png){fig-align="center"}
 :::
 
-## Tomasz Hanusek
+fg
 
-gg
+## Tomasz Hanusek
 
 ## Damian Spodar

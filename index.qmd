@@ -39,7 +39,7 @@ Kluczowe znaczenie w rozwoju zawału mają czynniki ryzyka, które mogą działa
 
 Z tego względu rośnie znaczenie wczesnego wykrywania ryzyka zawału serca, obejmującego zarówno ocenę kliniczną, diagnostykę laboratoryjną i obrazową, jak i zastosowanie nowoczesnych metod analizy danych. Wczesna identyfikacja osób zagrożonych pozwala na wdrożenie strategii prewencyjnych, takich jak zmiana stylu życia, kontrola ciśnienia i lipidów, farmakoterapia czy stałe monitorowanie stanu zdrowia. Skuteczna profilaktyka może znacząco zmniejszyć liczbę zawałów, ograniczyć powikłania oraz poprawić jakość i długość życia pacjentów.
 
-W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne,precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.
+W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne, precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.
 
 <div>
 

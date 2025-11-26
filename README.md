@@ -15,7 +15,7 @@
 ## Zbiór danych
 <ul>
   <li><a href=https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study>Framingham Heart Study</a></li>
-  <li>Potencjalnie dane ze szpitala w Lublinie</li>
+  <li>Potencjalnie dane ze szpitala w Lublinie.</li>
 </ul>
 
 ## Autorzy

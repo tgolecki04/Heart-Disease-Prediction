@@ -25,4 +25,6 @@
   <li>Tomasz Hanusek</li>
 </ul>
 
-
+<a href="https://github.com/tgolecki04/team-project/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=tgolecki04/team-project" />
+</a>

@@ -24,7 +24,7 @@ def simple_impute(X_train, X_test):
 
     imputer = SimpleImputer(strategy='median')
 
-    # dopasuj tylko na train
+    # Dopasowuje tylko na train
 
     imputer.fit(X_train)
     X_train_imp = pd.DataFrame(imputer.transform(X_train), columns=X_train.columns, index=X_train.index)

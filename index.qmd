@@ -19,15 +19,9 @@ library(gridExtra)
 library(patchwork)
 ```
 
-<div>
-
-![](images/clipboard-393030803.jpeg)
-
-</div>
-
 ## Wstęp / Opis / Rozpoczęcie
 
-![](images/article/to_use/picture_1.jpg){style="float: right; margin: 10px;" fig-align="right" width="306"}
+![](images/article/picture_1.jpg){fig-align="right" style="float: right; margin: 10px;" width="350"}
 
 Serce jest jednym z kluczowych narządów warunkujących funkcjonowanie organizmu ludzkiego. Jako mięsień o budowie poprzecznie prążkowanej, pracujący w sposób nieprzerwany przez całe życie, pełni rolę centralnej pompy układu krążenia. Dzięki zsynchronizowanym skurczom przedsionków i komór umożliwia przepływ krwi przez naczynia, dostarczając komórkom tlen i substancje odżywcze, a jednocześnie usuwając produkty przemiany materii. Prawidłowa praca serca zależy od harmonii wielu procesów: fizjologicznej czynności mięśnia sercowego, drożności tętnic wieńcowych, równowagi elektrolitowej, efektywnej regulacji nerwowej oraz nieprzerwanego dopływu tlenu. Zaburzenie któregokolwiek z tych elementów może prowadzić do rozwoju chorób sercowo-naczyniowych, z których jedną z najgroźniejszych jest zawał mięśnia sercowego.
 
@@ -43,6 +37,6 @@ W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz st
 
 <div>
 
-![](images/article/to_use/picture_2.png){style="margin-top: 25px;" fig-align="center"}
+![](images/article/picture_2.png){style="margin-top: 25px;" fig-align="center"}
 
 </div>

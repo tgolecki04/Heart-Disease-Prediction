@@ -30,6 +30,6 @@ Dodatkowo użyliśmy:
 
 <div>
 
-![](images/article/to_use/picture_2.png){style="margin-top: 25px;" fig-align="center"}
+![](images/article/picture_2.png){style="margin-top: 25px;" fig-align="center"}
 
 </div>

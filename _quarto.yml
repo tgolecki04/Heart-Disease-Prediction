@@ -33,7 +33,7 @@ website:
         href: kontakt.qmd
         icon: people
     right:
-      - href: "#"
+      - href: "https://github.com/tgolecki04/team-project"
         icon: github
   sidebar:
     search: true

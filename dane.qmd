@@ -10,7 +10,7 @@ warning: false
 
 Koniec z Lorem Ipsum. Test GitHub Desktop.
 
-### Biblioteki
+## Biblioteki
 
 ```{r}
 #| echo: false
@@ -31,7 +31,7 @@ library(mice)
 library(psych)
 ```
 
-### Zapoznanie z danymi
+## Zapoznanie z Danymi
 
 Wczytanie pliku z rozszerzeniem `csv` do zmiennej o nazwie `data`.
 
@@ -114,7 +114,7 @@ head(badania)
 
 Zrobione. Teraz możemy przejść do wyjaśnienia zmiennych, aby było jasne z czym pracujemy oraz na czym możemy polegać podczas wykonywania analizy.
 
-### Opis i wyjaśnienie zmiennych
+## Opis i wyjaśnienie zmiennych
 
 Poniżej znajduje się tabela zawierająca wszystkie cechy wraz z ich wytłumaczeniem.
 
@@ -166,11 +166,12 @@ Poniżej znajduje się tabela zawierająca wszystkie cechy wraz z ich wytłumacz
 |                   | (1- Tak, 0-Nie)                                                      |                                                              |             |
 +-------------------+----------------------------------------------------------------------+--------------------------------------------------------------+-------------+
 
-### Uzupełnienie brakujących wartości
+## Uzupełnienie brakujących wartości
 
 Zastanówmy się co zrobić z brakami danych w naszym zbiorze badań. Przedstawmy ilość wartości `NA` dla każdej zmiennej, w której takie wartości wystepują.
 
 ```{r}
+#| label: NA_columns
 #| warning: false
 NA_count <- colSums(is.na(badania))[colSums(is.na(badania)) > 0] |> 
   data.frame()
@@ -180,8 +181,8 @@ NA_count$var = rownames(NA_count)
 rownames(NA_count) <- NULL
 NA_count <- select(NA_count, c(2,1))
 
-p <- ggplot(NA_count, aes(x = var, y = count, fill = "#fc9d03")) +
-  geom_col(show.legend = FALSE) +
+p <- ggplot(NA_count, aes(x = var, y = count)) +
+  geom_col(show.legend = FALSE, fill = "#6AAED9") +
   theme_ipsum_rc() +
   geom_text(aes(label = count), vjust = -0.5) + 
   expand_limits(y = max(NA_count$count) * 1.1) +
@@ -192,15 +193,18 @@ ggsave("images/plots/na_count_before.png", p)
 
 ![](images/plots/na_count_before.png){fig-align="center"}
 
+![](){fig-align="center"}
+
 Widzimy, że mamy kilka zmiennych, które zawierają braki danych. Liczby wartośći `NA` w poszczególnych kolumnach są zazwyczaj mniejsze lub równe około 100, jedynym wyjątkiem z aż 388 wartościami `NA` jest zmienna `glucose` oznaczająca poziom glukozy we krwi pacjenta. Zanim uzupełnimy braki danych odpowiednią techniką spróbujemy dowiedzieć się w jaki sposób rozkładają się wartości `NA` tzn. czy braki te wystepują u różnych pacjentów, czy też jeden pacjent posiada brak informacji w więcej niż tylko jednej zmiennej.
 
 ```{r}
+#| label: NA_rows
 NA_df <- data.frame(NA_w_wierszu = rowSums(is.na(badania))) |> 
   group_by(NA_w_wierszu) |> 
   summarise(liczebnosc = n())
 
-p <- NA_df |> ggplot(aes(NA_w_wierszu, liczebnosc, fill = "#fc9d03")) +
-  geom_col(show.legend = FALSE) +
+p <- NA_df |> ggplot(aes(NA_w_wierszu, liczebnosc)) +
+  geom_col(show.legend = FALSE, fill = "#6AAED9") +
   theme_ipsum_rc() +
   geom_text(aes(label = liczebnosc), vjust = -0.5) + 
   expand_limits(y = max(NA_df$liczebnosc) * 1.1) +
@@ -209,7 +213,7 @@ p <- NA_df |> ggplot(aes(NA_w_wierszu, liczebnosc, fill = "#fc9d03")) +
 ggsave("images/plots/NA_count_perRow.png", p)
 ```
 
-![](images/plots/NA_count.png){fig-align="center"}
+![](images/plots/NA_count_perRow.png){fig-align="center"}
 
 Do uzupełniania wartości brakujących przyjeliśmy następującą metodykę:
 
@@ -234,8 +238,8 @@ NA_count$var = rownames(NA_count)
 rownames(NA_count) <- NULL
 NA_count <- select(NA_count, c(2,1))
 
-p <- ggplot(NA_count, aes(x = var, y = count, fill = "#fc9d03")) +
-  geom_col(show.legend = FALSE) +
+p <- ggplot(NA_count, aes(x = var, y = count)) +
+  geom_col(show.legend = FALSE, fill = "#6AAED9") +
   theme_ipsum_rc() +
   geom_text(aes(label = count), vjust = -0.5) + 
   expand_limits(y = max(NA_count$count) * 1.1) +
@@ -247,11 +251,11 @@ ggsave("images/plots/na_count_after.png", p)
 Wizualizacja liczby brakujących danych ma postać:
 
 ::: panel-tabset
-#### Po wczytaniu danych
+### Po wczytaniu danych
 
 ![](images/plots/na_count_before.png){fig-align="center"}
 
-#### Po wstępnym usunięciu brakujących danych
+### Po wstępnym usunięciu danych
 
 ![](images/plots/na_count_after.png){fig-align="center"}
 :::
@@ -304,20 +308,24 @@ statystyki_po <- describe(badania[NA_count$var])
 Po uzupełnieniu brakujących wartości porównajmy statystyki dla naszych zmiennych.
 
 ::: panel-tabset
-#### Przed uzupełnieniem danych
+### Przed uzupełnieniem danych
 
 ```{r}
 round(data.frame(t(statystyki_przed))[c(2:9,10:12), ], 3)
 ```
 
-#### Po uzupełnieniu danych
+### Po uzupełnieniu danych
 
 ```{r}
-round(data.frame(t(statystyki_po))[c(2:8,10:12), ], 3)
+round(data.frame(t(statystyki_po))[c(2:9,10:12), ], 3)
 ```
 :::
 
 Sprawdzając podstawowe statystki widzimy, że uzupełniając dane zachowaliśmy ich strukturę. Różnica pomiędzy wartościami statystyk polega najczęściej na zmianie części tysięcznych lub setnych, więc wartości `NA` zostały bardzo dobrze odwzorowane. Teraz możemy zrobić analizę wstępną naszego zbioru danych, aby następnie przejść do stworzenia modeli predykcyjnych oraz głębszej analizy.
+
+## Analiza Danych
+
+W trakcie wykonowynia wizualizacji bedziemy posługiwać się pacjentami, których traktujemy jako tych, którzy nie są w grupie zagrożenia oraz tych, którzy w tej grupie są. Dla ułatwienia przeprowadzania operacji stworzymy dwie ramki danych `zdrowi` oraz `chorzy` aby odwoływać się do tych grup bezpośrednio.
 
 ```{r}
 badania <- mutate(badania, ID = 1:nrow(badania))
@@ -328,15 +336,7 @@ chorzy <- badania |>
   subset(TenYearCHD == "Yes")
 ```
 
-### Wstępna Analiza
-
-#### Statystyki
-
-```{r}
-
-```
-
-#### Funkcja tworzenia wykresów
+### Funkcja Tworzenia Wykresów
 
 ```{r}
 #| warning: false
@@ -356,7 +356,7 @@ zmienna_wykres <- function(dane, typ_zmiennej, typ_wykresu) {
     kolumna <- colnames(dane)[i]
     if (typ_wykresu == "barplot") {
     p <- ggplot(dane, aes(x = !!sym(kolumna), fill = !!sym(kolumna))) +
-      geom_bar(show.legend = FALSE) +
+      geom_bar(show.legend = FALSE, width = 0.6) +
       theme_ipsum_rc() +
       ggtitle(kolumna) +
       scale_fill_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041"))
@@ -374,7 +374,7 @@ zmienna_wykres <- function(dane, typ_zmiennej, typ_wykresu) {
       
     } else if (typ_wykresu == "histogram") {
       p <- ggplot(dane, aes(x = !!sym(kolumna))) +
-        geom_histogram(bins = 20, show.legend = FALSE, fill = "#6AAED9") +
+        geom_histogram(bins = 20, show.legend = FALSE, fill = "#6AAED9", color = "black") +
         theme_ipsum_rc() +
         ggtitle(kolumna)
         
@@ -409,34 +409,33 @@ Dzięki temu możemy szybko i prosto uzyskać wiele wizualizacji na temat intere
 
 1.  Zmienne typu kategorycznego, przedstawiając liczebność ogólną oraz względem siebie, za pomocą wykresów `barplot` oraz `pie`.
 
-<!-- -->
-
 2.  Zmienne typu numerycznego, przedstawiając gęstośc oraz rozkład zmiennej, za pomocą wykresów `violin` oraz `histogram`
 
 Poniżej przedstawiamy efekty naszej pracy, gdzie przeanalizujemy poszczególne zmienne.
 
-#### Zmienne Kategoryczne
+### Zmienne Kategoryczne
 
 ```{r}
+#| label: Kategoryczne_Wstep
 zmienna_wykres(badania, "kategoryczna", "barplot")
 zmienna_wykres(badania, "kategoryczna", "pie")
 ```
 
 ::: panel-tabset
-## Barplot
+#### Barplot
 
 ![](images/plots/kategoryczna_barplot1.png){fig-align="center"}
 
 ![](images/plots/kategoryczna_barplot2.png){fig-align="center"}
 
-## Pie
+#### Pie
 
 ![](images/plots/kategoryczna_pie1.png){fig-align="center"}
 
 ![](images/plots/kategoryczna_pie2.png){fig-align="center"}
 :::
 
-Po przeanalizowaniu wykresów nasuwają się nastepujące wnioski:
+**Po przeanalizowaniu wykresów nasuwają się nastepujące wnioski:**
 
 -   Analizujemy zbiór ponad 4.000 osób, w którym kobiety lekko przewyższają swoją liczebnością mężczyzn.
 
@@ -450,28 +449,29 @@ Po przeanalizowaniu wykresów nasuwają się nastepujące wnioski:
 
 -   Zmienna predykcyjna `TenYearCHD` przewiduje potencjalne ryzyko choroby serca dla ponad 500 osób, co stanowi około 12.5% liczby wszystkich badanych. Oznacza to, że średnio co 8 badana osoba jest kwalifikowana w grupie ryzyka.
 
-#### Zmienne Numeryczne
+### Zmienne numeryczne
 
 ```{r}
+#| label: Numeryczne_Wstep
 zmienna_wykres(badania, "numeryczna", "violin")
 zmienna_wykres(badania, "numeryczna", "histogram")
 ```
 
 ::: panel-tabset
-## Violin
+#### Violin
 
 ![](images/plots/numeryczna_violin1.png){fig-align="center"}
 
 ![](images/plots/numeryczna_violin2.png){fig-align="center"}
 
-## Histogram
+#### Histogram
 
 ![](images/plots/numeryczna_histogram1.png){fig-align="center"}
 
 ![](images/plots/numeryczna_histogram2.png){fig-align="center"}
 :::
 
-Po przeanalizowaniu wykresów nasuwają się nastepujące wnioski:
+**Po przeanalizowaniu wykresów nasuwają się nastepujące wnioski:**
 
 -   Badamy grupę osób, w której większość osób ma od 35 do 65 lat.
 
@@ -485,11 +485,12 @@ Po przeanalizowaniu wykresów nasuwają się nastepujące wnioski:
 
 -   Większość zmiennych jest prawostronnie asymetryczna, ciężko mówić o normalności rozkładów ze względu na obecność wartości odstających, które są powszechne wśród danych medycznych.
 
-#### Zależności pomiędzy zmiennymi
+### Zależności pomiędzy zmiennymi
 
 Wśród naszych zmiennych mogą istnieć zależności liniowe. W celu sprawdzenia tego faktu stworzymy macierz korelacji, aby przedstawić jak wygląda korelacja pomiędzy poszczególnymi zmiennymi. Posłużymy się w tym celu zmiennymi numerycznymi.
 
 ```{r}
+#| label: Korelacja
 cor_mat <- badania %>% 
   select(where(is.numeric)) %>% 
   cor()
@@ -502,19 +503,20 @@ p <- ggcorrplot(
     outline.col = "white",
     ggtheme = ggplot2::theme_minimal(),
     colors = c("#6AAED9", "white", "#F25041") 
-)
-ggsave("images/plots/macierz_korelacji.jpg", p)
+) + ggtitle("Macierz Korelacji")
+ggsave("images/plots/korelacja.jpg", p)
 ```
 
-![](images/plots/macierz_korelacji.jpg){fig-align="center"}
+![](images/plots/korelacja.jpg){fig-align="center"}
 
 Widzimy, że istnieje duża korelacja równa 0.78 pomiędzy zmiennymi `sysBP` oraz `diaBP`. Nie powinno nas to specjalnie dziwić, ponieważ wartość ciśnienia rozkurczowego ma bezpośredni wypływ na wartość ciśnienia skurczowego. Dodatkowo poziom BMI a co za tym idzie - nasza waga ma wpływ na wartośc ciśnienia rozkurczowego oraz skurczowego. W oczy może rzucić nam się również wartość korelacji na poziomie -0.19 między zmienną `age` oraz `cigsPerDay`, która oznacza, że wraz z wiekiem palimy coraz mniej papierosów dziennie. Nie są to jednak wysokie wartości współczynnika korelacji, więc nie możemy powiedzieć, że pomiędzy tymi zmiennymi istnieje statystycznie istotna korelacja. Możemy jedna informacje traktować jako wskazówki podczas dalszej analizy i zgłębić analizę w kierunku tych zmiennych.
 
-#### Relacja pomiędzy `diaBP` oraz `sysBP`
+### Relacja pomiędzy diaBP oraz sysBP
 
 Sprawdźmy jak będzie wyglądać zestawienie wartości ciśnienia skurczowego od wartości ciśnienia rozkurczowego, dodatkowo dodamy kilka czynników, które dotakowo pokażą zależności pomiędzy większą liczbą zmiennych.
 
 ```{r}
+#| label: sysBP_wzgledem_diaBP
 p1 <- ggplot(badania, aes(x = diaBP, y = sysBP, color = sex, shape = sex)) +
   geom_point() +
   theme_ipsum_rc() +
@@ -522,35 +524,36 @@ p1 <- ggplot(badania, aes(x = diaBP, y = sysBP, color = sex, shape = sex)) +
   scale_color_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041")) +
   theme(legend.position = "bottom")
 
-ggsave("images/plots/sysBP_diaBP_bySex_point.jpg", p1)
+ggsave("images/plots/sysBP_wzgledem_diaBP.jpg", p1)
 
 ```
 
-![](images/plots/sysBP_diaBP_bySex_point.jpg){fig-align="center"}
+![](images/plots/sysBP_wzgledem_diaBP.jpg){fig-align="center"}
 
 Ze względu na dużą liczbę rekordów, punkty zaznaczone na wykresie typu `scatter plot` tworzą masywną chmurę punktów, utrudniając interpretację. Aby ułatwić analizę na podstawie wykresu posłużymy się wykresami gęstości porównując dodatkowo wpływ innych zmiennych na wartość ciśnienia rozkurczowego oraz skurczowego.
 
-#### Ciśnienie rozkurczowe
+### Ciśnienie rozkurczowe
 
 ```{r}
+#| label: diaBP
 p1 <- ggplot(badania, aes(x = diaBP, color = sex)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  ggtitle("sysBP ~ diaBP") +
+  ggtitle("Distribution of diaBP by Sex") +
   scale_color_manual(values = c("#6AAED9", "#F2A391")) +
   theme(legend.position = "bottom")
 
 p2 <- ggplot(badania, aes(x = diaBP, color = education)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  ggtitle("sysBP ~ diaBP") +
+  ggtitle("Distribution of diaBP by Education Level") +
   scale_color_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041")) +
   theme(legend.position = "bottom")
 
 p3 <- ggplot(badania, aes(x = diaBP, color = currentSmoker)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  ggtitle("sysBP ~ diaBP") +
+  ggtitle("Distribution of diaBP by Smoking") +
   scale_color_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041")) +
   theme(legend.position = "bottom")
 
@@ -560,44 +563,47 @@ ggsave("images/plots/diaBP_byCurrentSmoker.jpg", p3)
 ```
 
 ::: panel-tabset
-### Względem zmiennej sex
+#### Względem zmiennej sex
+
+![](images/clipboard-1376958334.jpeg)
 
 ![](images/plots/diaBP_bySex.jpg){fig-align="center"}
 
-### Względem zmiennej education
+#### Względem zmiennej education
 
 ![](images/plots/diaBP_byEducation.jpg){fig-align="center"}
 
-### Względem zmiennej currentSmoker
+#### Względem zmiennej currentSmoker
 
 ![](images/plots/diaBP_byCurrentSmoker.jpg){fig-align="center"}
 :::
 
-analiza::
+::analiza::
 
-#### Ciśnienie skurczowe
+### Ciśnienie skurczowe
 
 Analogicznie postepujemy dla zmiennej `sysBP`. Pamiętamy że omawiane zmienne są silnie ze sobą skorelowane, więc spodziewamy się podobnych rezultatów.
 
 ```{r}
+#| label: sysBP
 p1 <- ggplot(badania, aes(x = sysBP, color = sex)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  ggtitle("sysBP ~ diaBP") +
+  ggtitle("Distribution of sysBP by Sex") +
   scale_color_manual(values = c("#6AAED9", "#F2A391")) +
   theme(legend.position = "bottom")
 
 p2 <- ggplot(badania, aes(x = sysBP, color = education)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  ggtitle("sysBP ~ diaBP") +
+  ggtitle("Distribution of sysBP by Education Level") +
   scale_color_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041")) +
   theme(legend.position = "bottom")
 
 p3 <- ggplot(badania, aes(x = sysBP, color = currentSmoker)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  ggtitle("sysBP ~ diaBP") +
+  ggtitle("Distribution of sysBP by Smoking") +
   scale_color_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041")) +
   theme(legend.position = "bottom")
 
@@ -607,56 +613,129 @@ ggsave("images/plots/sysBP_byCurrentSmoker.jpg", p3)
 ```
 
 ::: panel-tabset
-### Względem zmiennej sex
+#### Względem zmiennej sex
 
 ![](images/plots/sysBP_bySex.jpg){fig-align="center"}
 
-### Względem zmiennej education
+#### Względem zmiennej education
 
 ![](images/plots/sysBP_byEducation.jpg){fig-align="center"}
 
-### Względem zmiennej currentSmoker
+#### Względem zmiennej currentSmoker
 
 ![](images/plots/sysBP_byCurrentSmoker.jpg){fig-align="center"}
 :::
 
 analiza::
 
-#### Zakres pracy serca, a ryzyko zawału
+### Zakres pracy serca, a ryzyko zawału
 
 ```{r}
-p <- badania |> 
+#| label: Pulse_pressure
+#| warning: false
+p1 <- badania |> 
   mutate(range_diff = sysBP - diaBP) |> 
   arrange(range_diff) |> 
   ggplot(aes(x = range_diff, color = TenYearCHD)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  labs(title = "Pulse pressure distribution", x = "sysBP - diaBP")
 
-ggsave("images/plots/range_density.jpg", p)
+p2 <- badania |> 
+  mutate(range_diff = sysBP - diaBP) |> 
+  arrange(range_diff) |> 
+  ggplot(aes(x = range_diff, color = prevalentHyp)) +
+  geom_density(lwd = 1.2) +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  labs(title = "Pulse pressure distribution", x = "sysBP - diaBP")
+
+p3 <- badania |> 
+  mutate(range_diff = sysBP - diaBP) |> 
+  arrange(range_diff) |> 
+  ggplot(aes(x = range_diff, color = diabetes)) +
+  geom_density(lwd = 1.2) +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391", "#2C5DBF", "#F25041")) +
+  labs(title = "Pulse pressure distribution", x = "sysBP - diaBP")
+
+ggsave("images/plots/pulse_pressure_1.jpg", p1)
+ggsave("images/plots/pulse_pressure_2.jpg", p2)
+ggsave("images/plots/pulse_pressure_3.jpg", p3)
 ```
 
-![](images/plots/range_density.jpg){fig-align="center"}
+::: panel-tabset
+#### Względem zmiennej TenYearCHD
 
-#### Wartość ciśnienia skurczowego jako czynnik ryzyka
+![](images/plots/pulse_pressure_1.jpg){fig-align="center"}
+
+#### Względem zmiennej prevalentHyp
+
+![](images/plots/pulse_pressure_2.jpg){fig-align="center"}
+
+#### Względem zmiennej diabetes
+
+![](images/plots/pulse_pressure_3.jpg){fig-align="center"}
+:::
 
 :analiza::
 
+### Ciśnienie serca jako przyczyna zawału serca
+
+#### Z uzględnieniem płci
+
 ```{r}
+#| label: Cisnienie_wzgledem_ryzyka
 #| warning: false
 p1 <- badania |> 
   ggplot(aes(x = TenYearCHD, y = sysBP, color = sex)) +
   geom_boxplot() +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) + 
+  ggtitle("Value of sysBP by Sex")
 
 p2 <- badania |> 
   ggplot(aes(x = TenYearCHD, y = diaBP, color = sex)) +
   geom_boxplot() +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+   ggtitle("Value of diaBP by Sex")
 
-p1; p2
+ggsave("images/plots/cisnienie_wzlgedem_ryzyka_bySex_1.png", p1)
+ggsave("images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png", p2)
+```
+
+::: panel-tabset
+##### Ciśnienie skurczowe
+
+![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_1.png){fig-align="center"}
+
+##### Ciśnienie rozkurczowe
+
+![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png){fig-align="center"}
+:::
+
+#### Z uwzględnieniem nadciśnienia
+
+```{r}
+#| label: Cisnienie_wzgledem_ryzyka_2
+p1 <- badania |> 
+  ggplot(aes(x = TenYearCHD, y = sysBP, color = prevalentHyp)) +
+  geom_boxplot() +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) + 
+  ggtitle("Value of sysBP by the fact of prevalent Hypothesis")
+
+p2 <- badania |> 
+  ggplot(aes(x = TenYearCHD, y = diaBP, color = prevalentHyp)) +
+  geom_boxplot() +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+   ggtitle("Value of diaBP by the fact of prevalent Hypothesis")
+
+ggsave("images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png", p1)
+ggsave("images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png", p2)
 ```
 
 ```{r}
@@ -733,7 +812,7 @@ p3 <- badania |>
 p1; p2; p3
 ```
 
-#### BPMeds, a ciśnienie
+### Leki na nadciśnienie i ich skutek
 
 ```{r}
 #| warning: false
@@ -752,7 +831,7 @@ p2 <- badania |>
 p1;p2
 ```
 
-#### Skutki palenia na układ krążenia
+### Skutki palenia na układ krążenia
 
 ```{r}
 osoby_palace <- badania |> 
@@ -770,18 +849,18 @@ nrow(osoby_niepalace)
 
 p1 <- badania |> 
   ggplot(aes(x = currentSmoker, fill = currentSmoker)) +
-  geom_bar(fill = c("#6AAED9", "#F2A391"), width = 0.4) +
+  geom_bar(fill = c("#6AAED9", "#F2A391"), width = 0.4, color = "black") +
   theme_ipsum_rc()
 
 p2 <- badania |> 
   ggplot(aes(x = currentSmoker, fill = sex)) +
-  geom_bar(position = "dodge") +
+  geom_bar(position = "dodge", color = "black") +
   theme_ipsum_rc() +
   scale_fill_manual(values = c("#6AAED9", "#F2A391"))
 
 p3 <- badania |> 
   ggplot(aes(x = currentSmoker, fill = TenYearCHD)) +
-  geom_bar(position = "dodge") +
+  geom_bar(position = "dodge", color = "black") +
   theme_ipsum_rc() +
   scale_fill_manual(values = c("#6AAED9", "#F2A391"))
 
@@ -934,6 +1013,10 @@ colnames(badania)
 
 ```
 
+### Model regresji logistycznej
+
+::DO PRZENIESIENIA !!!::
+
 ```{r}
 str(badania)
 
@@ -975,6 +1058,6 @@ accuracy
 
 <div>
 
-![](images/article/to_use/picture_2.png){style="margin-top: 25px;" fig-align="center"}
+![](images/article/picture_2.png){style="margin-top: 25px;" fig-align="center"}
 
 </div>

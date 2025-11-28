@@ -15,9 +15,7 @@
   połączenia części teoretycznych i praktycznych projektu.</p>
 
 ## Zbiór danych
-<ul>
-  <li><a href=https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study>Framingham Heart Study</a></li>
-</ul>
+<a href=https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study>Framingham Heart Study</a>
 
 ## Autorzy
 <ul>

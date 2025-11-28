@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   back-to-top-navigation: true

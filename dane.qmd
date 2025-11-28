@@ -567,8 +567,6 @@ ggsave("images/plots/diaBP_byCurrentSmoker.jpg", p3)
 
 ![](images/clipboard-1376958334.jpeg)
 
-![](images/plots/diaBP_bySex.jpg){fig-align="center"}
-
 #### Względem zmiennej education
 
 ![](images/plots/diaBP_byEducation.jpg){fig-align="center"}
@@ -735,28 +733,57 @@ p2 <- badania |>
    ggtitle("Value of diaBP by the fact of prevalent Hypothesis")
 
 ggsave("images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png", p1)
-ggsave("images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png", p2)
+ggsave("images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png", p2)
 ```
 
+::: panel-tabset
+##### Ciśnienie skurczowe
+
+![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png){fig-align="center"}
+
+##### Ciśnienie rozkurczowe
+
+![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png){fig-align="center"}
+:::
+
+#### Rozkład wartości ciśnienia
+
 ```{r}
+#| label: rozklad_cisnienia
 #| warning: false
 
 p1 <- badania |> 
   ggplot(aes(x = sysBP, color = TenYearCHD)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Distribution of sysBP including risk of disease")
 
 p2 <- badania |> 
   ggplot(aes(x = diaBP, color = TenYearCHD)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Distribution of diaBP including risk of disease")
+
+ggsave("images/plots/rozklad_cisnienia_1.png", p1)
+ggsave("images/plots/rozklad_cisnienia_2.png", p2)
 ```
+
+::: panel-tabset
+##### Ciśnienie skurczowe
+
+![](images/plots/rozklad_cisnienia_1.png){fig-align="center"}
+
+##### Ciśnienie rozkurczowe
+
+![](images/plots/rozklad_cisnienia_2.png){fig-align="center"}
+:::
 
 ### Analiza wartości tętna
 
 ```{r}
+#| label: poziom_tetna
 #| warning: false
 bins <- seq(min(badania$heartRate), max(badania$heartRate), length.out = 16)
 
@@ -764,17 +791,24 @@ hist_data <- badania %>%
   mutate(bin = cut(heartRate, breaks = bins, include.lowest = TRUE)) %>%
   count(TenYearCHD, bin) %>%
   mutate(count_adj = ifelse(TenYearCHD == "No", n, -n))
-# odwrócenie grupy B
+
+
 p <- hist_data |> 
   ggplot(aes(x = bin, y = count_adj, fill = TenYearCHD)) +
   geom_col(position = "identity") +
   labs(y = "Liczebność w grupie", x = "Przedziały") +
   theme_ipsum_rc() +
   scale_fill_manual(values = c("#6AAED9", "#F2A391"))
-p
+  
+ggsave("images/plots/poziom_tetna.png", p)
 ```
 
+![](images/plots/poziom_tetna.png){fig-align="center"}
+
+#### Rozkład zmiennej
+
 ```{r}
+#| label: rozklad_tetna_gestosc
 #| warning: false
 p <- badania |> 
   ggplot(aes(x = heartRate)) +
@@ -786,35 +820,61 @@ p <- badania |>
     col = "#F25041"
   ) +
   theme_ipsum_rc()
-p
+
+ggsave("images/plots/rozklad_tetna_gestosc.png", p)
 ```
 
+![](images/plots/rozklad_tetna_gestosc.png){fig-align="center"}
+
+#### Poziom tętna ze względu na inne zmienne
+
 ```{r}
+#| label: heartRate_by
 #| warning: false
 p1 <- badania |> 
   ggplot(aes(x = TenYearCHD, y = heartRate, color = sex)) +
   geom_boxplot() +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("heartRate ~ TenYearCHD")
 
 p2 <- badania |> 
   ggplot(aes(x = TenYearCHD, y = heartRate, color = currentSmoker)) +
   geom_boxplot() +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("heartRate ~ TenYearCHD")
 
 p3 <- badania |> 
   ggplot(aes(x = TenYearCHD, y = heartRate, color = BPMeds)) +
   geom_boxplot() +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("heartRate ~ TenYearCHD")
 
-p1; p2; p3
+ggsave("images/plots/heartRate_bySex.png", p1)
+ggsave("images/plots/heartRate_bycurrentSmoker.png", p2)
+ggsave("images/plots/heartRate_byBPMeds.png", p3)
 ```
+
+::: panel-tabset
+##### sex
+
+![](images/plots/heartRate_bySex.png){fig-align="center"}
+
+##### currentSmoker
+
+![](images/plots/heartRate_bycurrentSmoker.png){fig-align="center"}
+
+##### BPMeds
+
+![](images/plots/heartRate_byBPMeds.png){fig-align="center"}
+:::
 
 ### Leki na nadciśnienie i ich skutek
 
 ```{r}
+#| label: leki_nadcisnienie
 #| warning: false
 p1 <- badania |> 
   ggplot(aes(x = sysBP, color = BPMeds)) +
@@ -828,8 +888,19 @@ p2 <- badania |>
   theme_ipsum_rc() +
   scale_color_manual(values = c("#6AAED9", "#F2A391"))
 
-p1;p2
+ggsave("images/plots/leki_nadcisnienie_rozklad1.png", p1)
+ggsave("images/plots/leki_nadcisnienie_rozklad2.png", p2)
 ```
+
+::: panel-tabset
+#### Ciśnienie skurczowe
+
+![](images/plots/leki_nadcisnienie_rozklad1.png){fig-align="center"}
+
+#### Ciśnienie rozkurczowe
+
+![](images/plots/leki_nadcisnienie_rozklad2.png){fig-align="center"}
+:::
 
 ### Skutki palenia na układ krążenia
 
@@ -840,35 +911,62 @@ osoby_palace <- badania |>
 osoby_niepalace <- badania |> 
   subset(cigsPerDay == 0)
 
-nrow(osoby_palace)
-nrow(osoby_niepalace)
+data.frame(osoby_palace = nrow(osoby_palace),
+           osoby_niepalace = nrow(osoby_niepalace),
+           row.names = "Liczba osób"
+           )
 ```
+
+#### Podział pacjentów ze względu na palenie
 
 ```{r}
 #| warning: false
 
 p1 <- badania |> 
   ggplot(aes(x = currentSmoker, fill = currentSmoker)) +
-  geom_bar(fill = c("#6AAED9", "#F2A391"), width = 0.4, color = "black") +
-  theme_ipsum_rc()
+  geom_bar(fill = c("#6AAED9", "#F2A391"), width = 0.3, color = "black") +
+  theme_ipsum_rc() +
+  ggtitle("Smokers vs No Smokers")
 
 p2 <- badania |> 
   ggplot(aes(x = currentSmoker, fill = sex)) +
-  geom_bar(position = "dodge", color = "black") +
+  geom_bar(position = position_dodge(width = 0.7), color = "black",  width = 0.6) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Smoking including sex")
 
 p3 <- badania |> 
   ggplot(aes(x = currentSmoker, fill = TenYearCHD)) +
-  geom_bar(position = "dodge", color = "black") +
+  geom_bar(position = position_dodge(width = 0.7), color = "black",  width = 0.6) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Smoking including potential risk of disease")
 
-p1; p2; p3
+ggsave("images/plots/number_of_smokers.png", p1)
+ggsave("images/plots/number_of_smokers_bySex.png", p2)
+ggsave("images/plots/number_of_smokers_byTenYearCHD.png", p3)
 ```
 
+::: panel-tabset
+##### Distribution by Smoking Status
+
+![](images/plots/number_of_smokers.png){fig-align="center"}
+
+##### Number of Smokers by sex
+
+![](images/plots/number_of_smokers_bySex.png){fig-align="center"}
+
+##### Number of smokers including disease risk
+
+![](images/plots/number_of_smokers_byTenYearCHD.png){fig-align="center"}
+:::
+
+#### Nawyki palenia papierosów
+
 ```{r}
+#| label: cigs_per_Day
 #| warning: false
+
 p1 <- badania |> 
   ggplot(aes(x = cigsPerDay)) +
   geom_bar(fill = "#6AAED9") +
@@ -880,10 +978,24 @@ p2 <- osoby_palace |>
   geom_bar(fill = "#6AAED9") +
   theme_ipsum_rc()
 
-p1; p2
+ggsave("images/plots/cigsPerDay1.png", p1)
+ggsave("images/plots/cigsPerDay2.png", p2)
 ```
 
+::: panel-tabset
+##### Uwzględniając wszystkich pacjentów
+
+![](images/plots/cigsPerDay1.png){fig-align="center"}
+
+##### Uwzględnając tylko osoby palące
+
+![](images/plots/cigsPerDay2.png){fig-align="center"}
+:::
+
+#### Wpływ poziomu palenia na ryzyko choroby
+
 ```{r}
+#| label: impact_of_smkoing
 #| warning: false
 paczki <- badania |> 
   group_by(cigsPerDay, TenYearCHD) |> 
@@ -900,7 +1012,8 @@ p1 <- paczki[1:28, ] |>
     fill = "TenYearCHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Impact of smoking for potential risk")
 
 p2 <- paczki[3:28, ] |> 
   ggplot(aes(x = factor(cigsPerDay), y = n, fill = factor(TenYearCHD))) +
@@ -911,7 +1024,8 @@ p2 <- paczki[3:28, ] |>
     fill = "TenYearCHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Impact of smoking for potential risk")
 
 p3 <- paczki[29:nrow(paczki), ] |> 
   ggplot(aes(x = factor(cigsPerDay), y = n, fill = factor(TenYearCHD))) +
@@ -922,14 +1036,30 @@ p3 <- paczki[29:nrow(paczki), ] |>
     fill = "TenYearCHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Impact of smoking for potential risk")
 
-p1; p2; p3
-
-
+ggsave("images/plots/impact_of_smoking_all.png", p1)
+ggsave("images/plots/impact_of_smoking_part1.png", p2)
+ggsave("images/plots/impact_of_smoking_part2.png", p3)
 ```
 
+::: panel-tabset
+##### Uwzględniając osoby niepalące
+
+![](images/plots/impact_of_smoking_all.png){fig-align="center"}
+
+##### Osoby palące do 15 papierosów dziennie
+
+![](images/plots/impact_of_smoking_part1.png){fig-align="center"}
+
+##### Osoby palące powyżej 15 papierosów dziennie
+
+![](images/plots/impact_of_smoking_part2.png){fig-align="center"}
+:::
+
 ```{r}
+#| label: Fraction_of_risk
 #| warning: false
 paczki_procenty <- badania |> 
   group_by(cigsPerDay) |> 
@@ -952,29 +1082,50 @@ p1 <- paczki_procenty |>
     fill = "Ten-Year CHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Fraction of risk group")
 
-p1
+ggsave("images/plots/fraction.png", p1)
+
 ```
+
+![](images/plots/fraction.png){fig-align="center"}
 
 ### Relacja pomiędzy zmienną `age`, a zmienną `cigsPerDay`
 
 ```{r}
+#| label: smoking_byAge
 #| warning: false
 p1 <- badania |> 
   ggplot(aes(y = age, color = currentSmoker)) +
   geom_boxplot(lwd = 0.8) +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  theme(axis.text.x = element_blank(),
+      axis.ticks.x = element_blank()) +
+  ggtitle("Distribution of age")
 
 p2 <- badania |> 
   ggplot(aes(x = age, color = currentSmoker)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() + 
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Distribution of age")
 
-p1; p2
+ggsave("images/plots/smoking_byAge_1.png", p1)
+ggsave("images/plots/smoking_byAge_2.png", p2)
+
 ```
+
+::: panel-tabset
+##### Boxplot
+
+![](images/plots/smoking_byAge_1.png){fig-align="center"}
+
+##### Density
+
+![](images/plots/smoking_byAge_2.png){fig-align="center"}
+:::
 
 ```{r}
 #| warning: false
@@ -991,27 +1142,34 @@ p <- paczki_mean |>
   ggplot(aes(x = cigsPerDay)) +
   geom_line(aes(y = diaBP_mean), lwd = 1.2, color = "#6AAED9") +
   geom_line(aes(y = sysBP_mean), lwd = 1.2, color = "#F2A391") +
-  theme_ipsum_rc()
+  theme_ipsum_rc() +
+  ggtitle("Mean values of sysBP and diaBP including smoking")
 
-p
+ggsave("images/plots/mean_BP.png", p)
 ```
 
+![](images/plots/mean_BP.png){fig-align="center"}
+
 ```{r}
+#| label: concatenation
 #| warning: false
 library(VennDiagram)
 library(ggVennDiagram)
-ggVennDiagram(list(
+ p <- ggVennDiagram(list(
   Udar = which(badania$prevalentStroke == "Yes"),
   Nadcisnienie = which(badania$prevalentHyp == "Yes"),
   Ryzyko = which(badania$TenYearCHD== "Yes")
 ), set_size = 2.5) +
   theme_minimal() + 
   scale_fill_gradient(low = "#6AAED9", high = "#F2A391") +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  ggtitle("Concatenation of dangerous diseases")
 
-colnames(badania)
+ggsave("images/plots/concatenation.png", p)
 
 ```
+
+![](images/plots/concatenation.png){fig-align="center"}
 
 ### Model regresji logistycznej
 

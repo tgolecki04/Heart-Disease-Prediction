@@ -14,7 +14,7 @@ DATA_REL_PATH = os.path.join(os.path.dirname(__file__), '..', 'RF_model', 'frami
 MODEL_DIR = os.path.join(os.path.dirname(__file__), '..', 'models')
 os.makedirs(MODEL_DIR, exist_ok=True)
 
-USE_SMOTE = True
+USE_SMOTE = False
 SAVE_SHAP = True
 RANDOM_STATE = 123
 

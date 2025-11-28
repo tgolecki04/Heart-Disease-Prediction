@@ -992,7 +992,10 @@ ggsave("images/plots/cigsPerDay2.png", p2)
 ![](images/plots/cigsPerDay2.png){fig-align="center"}
 :::
 
+#### Wpływ poziomu palenia na ryzyko choroby
+
 ```{r}
+#| label: impact_of_smkoing
 #| warning: false
 paczki <- badania |> 
   group_by(cigsPerDay, TenYearCHD) |> 
@@ -1009,7 +1012,8 @@ p1 <- paczki[1:28, ] |>
     fill = "TenYearCHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Impact of smoking for potential risk")
 
 p2 <- paczki[3:28, ] |> 
   ggplot(aes(x = factor(cigsPerDay), y = n, fill = factor(TenYearCHD))) +
@@ -1020,7 +1024,8 @@ p2 <- paczki[3:28, ] |>
     fill = "TenYearCHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Impact of smoking for potential risk")
 
 p3 <- paczki[29:nrow(paczki), ] |> 
   ggplot(aes(x = factor(cigsPerDay), y = n, fill = factor(TenYearCHD))) +
@@ -1031,14 +1036,30 @@ p3 <- paczki[29:nrow(paczki), ] |>
     fill = "TenYearCHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Impact of smoking for potential risk")
 
-p1; p2; p3
-
-
+ggsave("images/plots/impact_of_smoking_all.png", p1)
+ggsave("images/plots/impact_of_smoking_part1.png", p2)
+ggsave("images/plots/impact_of_smoking_part2.png", p3)
 ```
 
+::: panel-tabset
+##### Uwzględniając osoby niepalące
+
+![](images/plots/impact_of_smoking_all.png){fig-align="center"}
+
+##### Osoby palące do 15 papierosów dziennie
+
+![](images/plots/impact_of_smoking_part1.png){fig-align="center"}
+
+##### Osoby palące powyżej 15 papierosów dziennie
+
+![](images/plots/impact_of_smoking_part2.png){fig-align="center"}
+:::
+
 ```{r}
+#| label: Fraction_of_risk
 #| warning: false
 paczki_procenty <- badania |> 
   group_by(cigsPerDay) |> 
@@ -1061,29 +1082,50 @@ p1 <- paczki_procenty |>
     fill = "Ten-Year CHD"
   ) +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Fraction of risk group")
 
-p1
+ggsave("images/plots/fraction.png", p1)
+
 ```
+
+![](images/plots/fraction.png){fig-align="center"}
 
 ### Relacja pomiędzy zmienną `age`, a zmienną `cigsPerDay`
 
 ```{r}
+#| label: smoking_byAge
 #| warning: false
 p1 <- badania |> 
   ggplot(aes(y = age, color = currentSmoker)) +
   geom_boxplot(lwd = 0.8) +
   theme_ipsum_rc() +
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  theme(axis.text.x = element_blank(),
+      axis.ticks.x = element_blank()) +
+  ggtitle("Distribution of age")
 
 p2 <- badania |> 
   ggplot(aes(x = age, color = currentSmoker)) +
   geom_density(lwd = 1.2) +
   theme_ipsum_rc() + 
-  scale_color_manual(values = c("#6AAED9", "#F2A391"))
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Distribution of age")
 
-p1; p2
+ggsave("images/plots/smoking_byAge_1.png", p1)
+ggsave("images/plots/smoking_byAge_2.png", p2)
+
 ```
+
+::: panel-tabset
+##### Boxplot
+
+![](images/plots/smoking_byAge_1.png){fig-align="center"}
+
+##### Density
+
+![](images/plots/smoking_byAge_2.png){fig-align="center"}
+:::
 
 ```{r}
 #| warning: false
@@ -1100,27 +1142,34 @@ p <- paczki_mean |>
   ggplot(aes(x = cigsPerDay)) +
   geom_line(aes(y = diaBP_mean), lwd = 1.2, color = "#6AAED9") +
   geom_line(aes(y = sysBP_mean), lwd = 1.2, color = "#F2A391") +
-  theme_ipsum_rc()
+  theme_ipsum_rc() +
+  ggtitle("Mean values of sysBP and diaBP including smoking")
 
-p
+ggsave("images/plots/mean_BP.png", p)
 ```
 
+![](images/plots/mean_BP.png){fig-align="center"}
+
 ```{r}
+#| label: concatenation
 #| warning: false
 library(VennDiagram)
 library(ggVennDiagram)
-ggVennDiagram(list(
+ p <- ggVennDiagram(list(
   Udar = which(badania$prevalentStroke == "Yes"),
   Nadcisnienie = which(badania$prevalentHyp == "Yes"),
   Ryzyko = which(badania$TenYearCHD== "Yes")
 ), set_size = 2.5) +
   theme_minimal() + 
   scale_fill_gradient(low = "#6AAED9", high = "#F2A391") +
-  theme(legend.position = "none")
+  theme(legend.position = "none") +
+  ggtitle("Concatenation of dangerous diseases")
 
-colnames(badania)
+ggsave("images/plots/concatenation.png", p)
 
 ```
+
+![](images/plots/concatenation.png){fig-align="center"}
 
 ### Model regresji logistycznej
 

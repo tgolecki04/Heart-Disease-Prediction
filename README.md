@@ -39,9 +39,10 @@ połączenia części teoretycznych i praktycznych projektu.
 ## 🗂 Struktura projektu
 ```
 📄 dane.qmd                # Analiza danych
+📄 aplikacja.qmd           # Interaktywny formularz z predykcją
 📄 plan.qmd                # Plan projektu, cele
 📄 wnioski.qmd             # Wnioski
-📁 _site/                  # Wygenerowane raporty HTML
+📁 doc/                    # Wygenerowane raporty HTML
 📁 data/                   # Zbiór danych
 📄 README.md
 ➕ ... (inne pliki .R, .py, .scss, .js itd.)

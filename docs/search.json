@@ -267,7 +267,7 @@
     "href": "aplikacja.html",
     "title": "Aplikacja",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Ankieta Sprawdzająca Ryzyko Zawału Serca\n\n\nWiek: \nPłeć (1 = mężczyzna, 0 = kobieta): \n\n\n\n\n\n\n\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "aplikacja.html#quarto",
@@ -281,7 +281,7 @@
     "href": "aplikacja.html#running-code",
     "title": "Aplikacja",
     "section": "2 Running Code",
-    "text": "2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nPokaż/Ukryj Kod\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+    "text": "2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n\nPokaż/Ukryj Kod\n1 + 1\n\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed).\n\n\n\nHeart Disease Prediction Web Form\n\n\nAge: \nSex (1 = male, 0 = female): \nChest Pain Type (0-3): \nResting Blood Pressure: \nSerum Cholestoral (mg/dl):"
   },
   {
     "objectID": "wstep.html",

@@ -4,23 +4,104 @@ format: html
 editor: visual
 ---
 
-## Quarto
+<style>
+.form-card {
+  max-width: 420px;
+  background: #ffffff;
+  margin: 40px auto;
+  padding: 28px 32px 22px 32px;
+  border-radius: 12px;
+  box-shadow: 0 6px 28px rgba(35,72,135,0.12);
+  border: 1px solid #e8eaf6;
+}
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+.form-title {
+  font-size: 1.5rem;
+  color: #234887;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-## Running Code
+label {
+  display: block;
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  color: #2b4257;
+  font-size: 1rem;
+}
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+input[type="number"] {
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: 6px;
+  border: 1px solid #b0bec5;
+  font-size: 1rem;
+  background: #f5f7fa;
+  margin-bottom: 8px;
+  transition: border-color 0.2s;
+}
 
-```{r}
-1 + 1
-```
+input[type="number"]:focus {
+  outline: none;
+  border-color: #234887;
+}
 
-You can add options to executable code like this
+input[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  background: #234887;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  margin-top: 18px;
+  cursor: pointer;
+  box-shadow: 0 3px 13px rgba(35,72,135,0.10);
+  transition: background 0.2s;
+}
 
-```{r}
-#| echo: false
-2 * 2
-```
+input[type="submit"]:hover {
+  background: #143059;
+}
 
-The `echo: false` option disables the printing of code (only output is displayed).
+#predictionResult {
+  margin-top: 23px;
+  text-align: center;
+  font-size: 1.08rem;
+  color: #317a39;
+  background: #e8f5e9;
+  border-radius: 8px;
+  padding: 14px;
+  font-weight: 600;
+  border: 1px solid #b9e4c3;
+}
+</style>
+
+<div class="form-card">
+  <div class="form-title">Ankieta Sprawdzająca Ryzyko Zawału Serca</div>
+  <form id="predictionForm">
+    <label for="age">Wiek:</label>
+    <input type="number" id="age" min="0" name="age" required>
+
+    <label for="sex">Płeć (1 = mężczyzna, 0 = kobieta):</label>
+    <input type="number" id="sex" name="sex" min="0" max="1" required>
+
+    <!-- Dodaj odpowiednie pola -->
+
+    <input type="submit" value="Predict">
+  </form>
+  <div id="predictionResult"></div>
+</div>
+
+<script>
+document.getElementById('predictionForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Testowo losowa wartość
+  const randomPrediction = Math.random().toFixed(2);
+  document.getElementById('predictionResult').innerHTML =
+    "Przewidywane ryzyko zawału serca: <b>" + randomPrediction*100 + "%" + "</b>";
+});
+</script>

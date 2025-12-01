@@ -13,7 +13,7 @@
 
 ## 🔗 Zobacz pełną analizę online
 Analiza projektu wraz z interaktywnymi raportami jest dostępna online:  
-**[GitHub Pages – Wczesne Wykrywanie Ryzyka Zawału Serca](https://tgolecki04.github.io/team-project/)**
+**[GitHub Pages – Wczesne Wykrywanie Ryzyka Zawału Serca](https://tgolecki04.github.io/Heart-Disease-Prediction/)**
 
 ## ℹ️ Informacje ogólne
 Projekt z zakresu analizy danych. Głównym założeniem projektu jest stworzenie nieliniowych modeli predykcyjnych zdolnych do skutecznego 

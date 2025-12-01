@@ -13,7 +13,6 @@ Koniec z Lorem Ipsum. Test GitHub Desktop.
 ## Biblioteki
 
 ```{r}
-#| echo: false
 #| output: false
 library(readr)
 library(skimr)
@@ -29,6 +28,8 @@ library(gridExtra)
 library(patchwork)
 library(mice)
 library(psych)
+library(VennDiagram)
+library(ggVennDiagram)
 ```
 
 ## Zapoznanie z Danymi
@@ -321,7 +322,11 @@ round(data.frame(t(statystyki_po))[c(2:9,10:12), ], 3)
 ```
 :::
 
-Sprawdzając podstawowe statystki widzimy, że uzupełniając dane zachowaliśmy ich strukturę. Różnica pomiędzy wartościami statystyk polega najczęściej na zmianie części tysięcznych lub setnych, więc wartości `NA` zostały bardzo dobrze odwzorowane. Teraz możemy zrobić analizę wstępną naszego zbioru danych, aby następnie przejść do stworzenia modeli predykcyjnych oraz głębszej analizy.
+Sprawdzając podstawowe statystki widzimy, że uzupełniając dane zachowaliśmy ich strukturę. Różnica pomiędzy wartościami statystyk polega najczęściej na zmianie części tysięcznych lub setnych, więc wartości `NA` zostały bardzo dobrze odwzorowane. Teraz możemy wykonać analizę wstępną naszego zbioru danych, aby następnie przejść do stworzenia modeli predykcyjnych oraz głębszej analizy. Ostatnim punktem pracy nad modyfikowaniem naszych danych jest zapisanie oszyszczonych i uzupełnionych danych do pliku `.csv`, który wykorzystamy m. in. podczas tworzenia modeli w języku programowania `R` lub `python.`
+
+```{r}
+write.csv(badania, file = "badania.csv")
+```
 
 ## Analiza Danych
 
@@ -1153,8 +1158,7 @@ ggsave("images/plots/mean_BP.png", p)
 ```{r}
 #| label: concatenation
 #| warning: false
-library(VennDiagram)
-library(ggVennDiagram)
+
  p <- ggVennDiagram(list(
   Udar = which(badania$prevalentStroke == "Yes"),
   Nadcisnienie = which(badania$prevalentHyp == "Yes"),

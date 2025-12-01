@@ -1,26 +1,278 @@
 ---
 title: "Aplikacja"
 format: html
+page-layout: full
 editor: visual
 ---
 
-## Quarto
+<style>
+  .form-card {
+    max-width: 700px;
+    background: #ffffff;
+    margin: 40px auto;
+    padding: 22px 32px 32px 32px;
+    border-radius: 12px;
+    box-shadow: 0 6px 28px rgba(35,72,135,0.12);
+    border: 1px solid #e8eaf6;
+  }
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #234887;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-## Running Code
+  .form-grid-container {
+    display: flex;
+    justify-content: center;
+  }
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 30px;
+    max-width: 690px;
+  }
 
-```{r}
-1 + 1
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+  }
+
+  label {
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #2b4257;
+    font-size: 1rem;
+  }
+
+  input[type="number"], select {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 6px;
+    border: 1px solid #b0bec5;
+    font-size: 1rem;
+    background: #f5f7fa;
+    margin-bottom: 2px;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  input[type="number"]:focus, select:focus {
+    outline: none;
+    border-color: #234887;
+    background: #ffffff;
+  }
+
+  input[type="submit"] {
+    width: 60%;
+    padding: 12px 0;
+    background: #234887;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    margin-top: 18px;
+    cursor: pointer;
+    box-shadow: 0 3px 13px rgba(35,72,135,0.10);
+    transition: background 0.2s, transform 0.1s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input[type="submit"]:hover {
+    background: #143059;
+    transform: translateY(-1px);
+  }
+
+  input[type="submit"]:active {
+    transform: translateY(0);
+  }
+
+  #predictionResult {
+    margin-top: 23px;
+    text-align: center;
+    font-size: 1.08rem;
+    color: #317a39;
+    background: #e8f5e9;
+    border-radius: 8px;
+    padding: 14px;
+    font-weight: 600;
+    border: 1px solid #b9e4c3;
+    transition: opacity 0.3s;
+  }
+
+  .disabled-field {
+    background-color: #e9ecef !important;
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 768px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+            
+    .form-card {
+      padding: 22px 20px 30px 20px;
+      margin: 20px auto;
+    }
+        
+    input[type="submit"] {
+      width: 80%;
+    }
+  }
+</style>
+
+```{=html}
+<div class="form-card">
+  <div class="form-title">Ankieta sprawdzająca ryzyko wystąpienia zawału serca</div>
+  <form id="predictionForm">
+  <div class="form-grid-container">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="male">Płeć:</label>
+        <select id="male" name="male" required>
+          <option value="">Wybierz...</option>
+          <option value="1">Mężczyzna</option>
+          <option value="0">Kobieta</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="age">Wiek:</label>
+        <input type="number" id="age" name="age" min="0" max="120" required>
+      </div>
+      <div class="form-group">
+        <label for="currentSmoker">Czy jest palaczem:</label>
+        <select id="currentSmoker" name="currentSmoker" required>
+          <option value="">Wybierz...</option>
+          <option value="1">Tak</option>
+          <option value="0">Nie</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cigsPerDay">Ile papierosów dziennie:</label>
+        <input type="number" id="cigsPerDay" name="cigsPerDay" min="0" max="100" required>
+      </div>
+      <div class="form-group">
+        <label for="BPMeds">Czy aktualnie leczy się na nadciśnienie:</label>
+        <select id="BPMeds" name="BPMeds" required>
+          <option value="">Wybierz...</option>
+          <option value="1">Tak</option>
+          <option value="0">Nie</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="prevalentStroke">Czy przeżył udar:</label>
+        <select id="prevalentStroke" name="prevalentStroke" required>
+          <option value="">Wybierz...</option>
+          <option value="1">Tak</option>
+          <option value="0">Nie</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="prevalentHyp">Czy występowało nadciśnienie:</label>
+        <select id="prevalentHyp" name="prevalentHyp" required>
+          <option value="">Wybierz...</option>
+          <option value="1">Tak</option>
+          <option value="0">Nie</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="diabetes">Czy jest cukrzykiem:</label>
+        <select id="diabetes" name="diabetes" required>
+          <option value="">Wybierz...</option>
+          <option value="1">Tak</option>
+          <option value="0">Nie</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="totChol">Poziom cholesterolu we krwi (mg/dL):</label>
+        <input type="number" id="totChol" name="totChol" min="0" max="1000" required>
+      </div>
+      <div class="form-group">
+        <label for="sysBP">Ciśnienie skurczowe (mm Hg):</label>
+        <input type="number" id="sysBP" name="sysBP" min="0" max="400" required>
+      </div>
+      <div class="form-group">
+        <label for="diaBP">Ciśnienie rozkurczowe (mm Hg):</label>
+        <input type="number" id="diaBP" name="diaBP" min="0" max="300" required>
+      </div>
+      <div class="form-group">
+        <label for="BMI">Współczynnik BMI:</label>
+        <input type="number" id="BMI" name="BMI" min="0" max="100" step="0.1" required>
+      </div>
+      <div class="form-group">
+        <label for="heartRate">Tętno (uderzeń/min):</label>
+        <input type="number" id="heartRate" name="heartRate" min="0" max="300" required>
+      </div>
+      <div class="form-group">
+        <label for="glucose">Poziom glukozy we krwi (mg/dL):</label>
+        <input type="number" id="glucose" name="glucose" min="0" max="600" required>
+      </div>
+    </div>
+  </div>
+  <input type="submit" value="Oblicz ryzyko">
+  <div id="predictionResult"></div>
+  </form>
+</div>
 ```
 
-You can add options to executable code like this
+<script>
+  // Funkcja kontroli pola ilości papierosów dziennie
+  function handleSmokingLogic() {
+    const smokerField = document.getElementById('currentSmoker');
+    const cigsPerDayField = document.getElementById('cigsPerDay');
+    
+    function updateCigsPerDayField() {
+      if (smokerField.value === '0') {
+        // Jeśli nie palący, ustaw na 0 i wyłącz
+        cigsPerDayField.value = '0';
+        cigsPerDayField.classList.add('disabled-field');
+        cigsPerDayField.disabled = true;
+      } else {
+        // W przeciwnym wypadku włącz pole
+        cigsPerDayField.classList.remove('disabled-field');
+        cigsPerDayField.disabled = false;
+        // Jeśli wartość to 0, wyczyść pole
+        if (cigsPerDayField.value === '0') {
+          cigsPerDayField.value = '';
+        }
+      }
+    }
+    
+    updateCigsPerDayField();
+    
+    smokerField.addEventListener('change', updateCigsPerDayField);
+  }
 
-```{r}
-#| echo: false
-2 * 2
-```
+  document.addEventListener('DOMContentLoaded', function() {
+    handleSmokingLogic();
+    
+    document.getElementById('predictionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Upewnienie, że 0 papierosów gdy nie palący
+      const smokerField = document.getElementById('currentSmoker');
+      const cigsPerDayField = document.getElementById('cigsPerDay');
+      
+      if (smokerField.value === '0') {
+        cigsPerDayField.value = '0';
+      }
+      
+      // Testowo losowa wartość predykcji
+      const randomPrediction = Math.random().toFixed(2);
+      document.getElementById('predictionResult').innerHTML =
+      "Przewidywane ryzyko zawału serca: <b>" + (randomPrediction*100).toFixed(0) + "%" + "</b>";
+    });
+  });
+</script>
 
-The `echo: false` option disables the printing of code (only output is displayed).
+

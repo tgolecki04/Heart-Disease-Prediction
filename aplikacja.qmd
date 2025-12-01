@@ -274,5 +274,3 @@ editor: visual
     });
   });
 </script>
-
-

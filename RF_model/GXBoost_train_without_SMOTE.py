@@ -35,6 +35,7 @@ XGB_PARAMS = dict(
 def run():
     print("==> 1) Load data")
     df = load_data(DATA_REL_PATH)
+    df = df.drop(columns=['education'])
     basic_eda(df)
 
     # 2) przygotowanie X, y
@@ -88,7 +89,7 @@ def run():
         'use_smote': USE_SMOTE,
         'features': list(X.columns)
     }
-    model_path = os.path.join(MODEL_DIR, 'xgb_baseline_joblib.pkl')
+    model_path = os.path.join(MODEL_DIR, 'xgb_baseline_without_SMOTE_joblib.pkl')
     joblib.dump(model_artifact, model_path)
     print("Saved model to:", model_path)
 

@@ -35,6 +35,7 @@ XGB_PARAMS = dict(
 def run():
     print("==> 1) Load data")
     df = load_data(DATA_REL_PATH)
+    df = df.drop(columns=['education'])
     basic_eda(df)
 
     # 2) przygotowanie X, y

@@ -22,6 +22,7 @@ def main():
 
     # 1. Wczytanie danych
     df = load_data(DATA_PATH)
+    df = df.drop(columns=['education'])
     basic_eda(df)
 
     # 2. Podział na X i y

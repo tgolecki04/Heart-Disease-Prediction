@@ -2,10 +2,15 @@ project:
   type: website
   output-dir: docs
 
+language:
+  search-text-placeholder: Szukaj
+  
 website:
   favicon: images/favicon/favicon.ico
   back-to-top-navigation: true
-  reader-mode: false
+  search:
+    location: sidebar
+    type: textbox
   page-footer:
     left:
       - text: "IAD III 2025"
@@ -15,6 +20,7 @@ website:
       - text: "Projekt z Zakresu Analizy Danych"
   page-navigation: true
   navbar:
+    pinned: true
     left:
       - text: "Strona Główna"
         href: index.qmd
@@ -38,34 +44,29 @@ website:
       - href: "https://github.com/tgolecki04/Heart-Disease-Prediction"
         icon: github
   sidebar:
-    search: true
     style: "docked"
     logo: "images/article/logo_pollub.jpg"
     contents:
-      - text: "Wstęp"
+      - text: '<i class="bi bi-dot"></i>Wstęp <i class="bi bi-chat-left-text"></i>'
         href: index.qmd
-      - text: "1. Plan Projektu"
+      - text: '<i class="bi bi-dot"></i>Plan Projektu <i class="bi bi-box-seam"></i>'
         href: plan.qmd
-      - text: "2. Dane"
+      - text: '<i class="bi bi-dot"></i>Dane & Analiza <i class="bi bi-clipboard-data"></i>'
         href: dane.qmd
-      - text: "3. Wizualizacje"
-        href: wizualizacje.qmd
-      - text: "4. Modele"
+      - text: '<i class="bi bi-dot"></i>Modele <i class="bi bi-cpu"></i>'
         href: modele.qmd
-      - text: "5. Wnioski"
+      - text: '<i class="bi bi-dot"></i>Wnioski <i class="bi bi-clipboard-check"></i>'
         href: wnioski.qmd
-      - text: "6. Zakończenie"
+      - text: '<i class="bi bi-dot"></i>Zakończenie <i class="bi bi-book"></i>'
         href: zakonczenie.qmd 
-      - text: "Literatura"
+      - text: '<i class="bi bi-dot"></i>Literatura <i class="bi bi-journal-code"></i>'
         href: literatura.qmd 
     
 
 format:
   html:
-    author: "Tomasz Golecki | Tomasz Hanusek | Damian Spodar"
-    date: "12.12.2025"
     theme:
-      light: sandstone
+      light: styles/sandstone.scss
       dark: styles/sandstone-custom.scss
     fontsize: 16px
     css: styles/styles.css

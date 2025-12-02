@@ -2,31 +2,31 @@
 title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
 format: html
 editor: visual
+number-sections: false
 ---
 
 ## Źródła
 
 Na potrzeby projektu korzystaliśmy z poniższych źródeł:
 
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+-   <https://www.kaggle.com/>
 
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+-   <https://www.framinghamheartstudy.org/>
 
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+-   <https://www.ikard.pl/strefa-pacjenta/warto-wiedziec/choroba-wiencowa.html>
 
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+-   Stabilna choroba wieńcowa — epidemiologia, diagnostyka, wybór postępowania, Anna Maria Frycz-Kurek, Piotr Buchta, Janusz Szkodziński
 
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
-
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
-
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
-
--   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mi.
+-   <https://www.czytelniamedyczna.pl/2893,choroba-wiencowa-u-kobiet.html>
 
 Dodatkowo użyliśmy:
 
 -   <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">Heart icons created by Kroffle - Flaticon</a>
+-   <https://quarto.org/>
+-   <https://bookdown.org/yihui/rmarkdown/html-widgets.html>
+-   <https://docs.pytorch.org/docs/stable/index.html>
+-   <https://r4ds.hadley.nz/>
+-   <https://jakevdp.github.io/PythonDataScienceHandbook/>
 
 <div>
 

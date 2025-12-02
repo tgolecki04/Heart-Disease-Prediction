@@ -1,14 +1,33 @@
 ---
-title: "LateX"
+title: "Zakończenie Projektu"
 toc: false
+number-sections: false
 ---
 
 ## Sprawozdanie
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Najważniejszym etapem całego projektu jest powiązanie ze sobą wszystkich najważniejszych informacji, odpowiedzi na postawione przez nas hipotezy oraz zagadnień teoretycznych w celu stworzenia sprawozdania zawierającego istotne wnioski i wskazówki na temat badanego problemu. Odwołując się do kolejnych części projektu, którymi były:
 
-<a href="reports/document.pdf" download style="padding:15px 30px; font-size:18px; background-color:#4CAF50; color:white; border-radius:8px; text-decoration:none; display:inline-block;">📄 Pobierz PDF</a>
+1.  Problem teoretyczny
 
-![](reports/pdf2png/document/document-1.png){fig-align="center"}
+2.  Postawienie hipotez
 
-![](reports/pdf2png/document/document-2.png){fig-align="center"}
+3.  Praca z danymi
+
+4.  Analiza ekspolracyjna
+
+5.  Stworzenie i ocena modeli
+
+6.  Wyciągnięcie wniosków
+
+7.  Połączenie całej struktury w całość
+
+przygotowaliśmy notatkę podsumowującą efekty naszej pracy wskazując na najważniejsze elementy w każdym etapie. Zachęcamy do zapoznania się z wynikami projektu zawartymi w pliku `.PDF`, który można pobrać klikając w przycisk poniżej lub przeczytać bezpośrednio na stronie. W trakcie pracy nad projektem mogliśmy wykorzystać wiedzę poznaną na uczelni i rozszerzyć ją o dodatkowe metody i technologie. Bardzo dziękujemy za poświęcony nam czas oraz zachęcamy do kontaktu z nami. W przypadku pytań lub zauważenia nieprawidłowośći prosimy o kontakt przez GitHub lub e-mail. Przed nami jeszcze wiele pracy, ale jesteśmy zdeterminowani, aby zdobywać nowe doświadczenie oraz otwarci na nowe wyzwania.\
+
+::: {.text-center .my-4}
+<a href="reports/Sprawozdanie.pdf" download class="btn btn-success btn-lg"> 📄 Pobierz PDF </a>
+:::
+
+![](reports/pdf2png/document-1.png)
+
+![](reports/pdf2png/document-2.png)

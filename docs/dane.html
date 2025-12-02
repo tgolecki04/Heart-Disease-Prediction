@@ -61,13 +61,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./wizualizacje.html" rel="next">
+<link href="./modele.html" rel="next">
 <link href="./plan.html" rel="prev">
 <link href="./images/favicon/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -81,22 +80,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<<<<<<< Updated upstream
 <link href="site_libs/bootstrap/bootstrap-769c07d0e25390bffab1c8e68d961bd8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-7a3561055000a4b919fcfcf599dda112.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-769c07d0e25390bffab1c8e68d961bd8.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+=======
+<link href="site_libs/bootstrap/bootstrap-be46454dd4937a74b0093c3de7f691b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-3d7a8baa8449dc7193671139c6a4a386.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-be46454dd4937a74b0093c3de7f691b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+>>>>>>> Stashed changes
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -105,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
+    "search-text-placeholder": "Szukaj",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -330,7 +334,6 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -385,7 +388,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dane.html">2. Dane</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dane.html"><i class="bi bi-dot"></i>Dane &amp; Analiza <i class="bi bi-clipboard-data"></i></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -448,37 +451,31 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1. Plan Projektu</span></a>
+ <span class="menu-text"><i class="bi bi-dot"></i>Plan Projektu <i class="bi bi-box-seam"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dane.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2. Dane</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./wizualizacje.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3. Wizualizacje</span></a>
+ <span class="menu-text"><i class="bi bi-dot"></i>Dane &amp; Analiza <i class="bi bi-clipboard-data"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./modele.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4. Modele</span></a>
+ <span class="menu-text"><i class="bi bi-dot"></i>Modele <i class="bi bi-cpu"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wnioski.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">5. Wnioski</span></a>
+ <span class="menu-text"><i class="bi bi-dot"></i>Wnioski <i class="bi bi-clipboard-check"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./zakonczenie.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">6. Zakończenie</span></a>
+ <span class="menu-text"><i class="bi bi-dot"></i>Zakończenie <i class="bi bi-book"></i></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -3925,13 +3922,13 @@ Predicted   No  Yes
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./plan.html" class="pagination-link" aria-label="1. Plan Projektu">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. Plan Projektu</span>
+      <a href="./plan.html" class="pagination-link" aria-label="<i class=&quot;bi bi-dot&quot;></i>Plan Projektu <i class=&quot;bi bi-box-seam&quot;></i>">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><i class="bi bi-dot"></i>Plan Projektu <i class="bi bi-box-seam"></i></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./wizualizacje.html" class="pagination-link" aria-label="3. Wizualizacje">
-        <span class="nav-page-text">3. Wizualizacje</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./modele.html" class="pagination-link" aria-label="<i class=&quot;bi bi-dot&quot;></i>Modele <i class=&quot;bi bi-cpu&quot;></i>">
+        <span class="nav-page-text"><i class="bi bi-dot"></i>Modele <i class="bi bi-cpu"></i></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">

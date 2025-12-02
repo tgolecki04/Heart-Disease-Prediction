@@ -5,6 +5,7 @@ page-layout: full
 editor: visual
 ---
 
+```{=html}
 <style>
   .form-card {
     max-width: 700px;
@@ -130,6 +131,7 @@ editor: visual
     }
   }
 </style>
+```
 
 ```{=html}
 <div class="form-card">
@@ -225,6 +227,7 @@ editor: visual
 </div>
 ```
 
+```{=html}
 <script>
   // Funkcja kontroli pola ilości papierosów dziennie
   function handleSmokingLogic() {
@@ -274,3 +277,7 @@ editor: visual
     });
   });
 </script>
+<<<<<<< Updated upstream
+=======
+```
+>>>>>>> Stashed changes

@@ -1,5 +1,5 @@
 ---
-title: "Kontakt"
+title: "Dane kontaktowe"
 format: html
 editor: visual
 number-sections: false
@@ -19,18 +19,66 @@ Poniżej znajdują się informacje kontaktowe i wiele więcej na temat każdego 
 
 ## Tomasz Golecki
 
-::: cv
-![](images/Mandatory.png){style="display: block; margin: 0px; padding: 0px" fig-align="center"}
+Data Engineering & Analytics Student
 
-![](images/clipboard-3609703868.png){style="display: block; margin: 0px; padding: 0px;" fig-align="center"}
+::::: container
+::: list-column
+<ul>
 
-![](images/Contents%20Page.png){style="display: block; margin: 0px; padding: 0px;" fig-align="center"}
+<li>![](images/svg/email.svg){width="20"} [tgolecki04\@gmail.com](mailto:tgolecki04@gmail.com)</li>
 
-![](images/clipboard-3609703868.png){style="display: block; margin: 0px; padding: 0px;" fig-align="center"}
+<li>![](images/svg/linkedin.svg){width="20"} [tgolecki04](https://linedin.com/tgolecki04)</li>
+
+<li>![](images/svg/github.svg){width="20"} [tgolecki04](https://github.com/tgolecki04)</li>
+
+</ul>
 :::
+
+::: image-column
+![](images/contact/8b4e78f2-793a-4329-8bae-523adc2287d6.jpg){alt="Opis zdjęcia" width="128"}
+:::
+:::::
 
 ## Tomasz Hanusek
 
-nowy css fg
+Data Engineering & Analytics Student
+
+::::: container
+::: list-column
+<ul>
+
+<li>![](images/svg/email.svg){width="20"} [s102961\@pollub.edu.pl](mailto:s102961@pollub.edu.pl)</li>
+
+<li>![](images/svg/linkedin.svg){width="20"} [Tomasz Hanusek](https://www.linkedin.com/in/tomasz-hanusek-3b9599270/?brid=F_Tq2sk1xsrq19bsSHIPdQ&fbclid=IwY2xjawOcNpJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeh-JTcecZBtsVyowEOjJBNCLAsg6g6WhqyH7_flMP6-XfEnh6Mv_kE1IEVPU_aem_pdyJhlaFYawiujPQjosiCg)</li>
+
+<li>![](images/svg/github.svg){width="20"} [arraxus](https://github.com/arraxus)</li>
+
+</ul>
+:::
+
+::: image-column
+![](images/contact/motor.png){alt="Opis zdjęcia" width="128"}
+:::
+:::::
 
 ## Damian Spodar
+
+Data Engineering & Analytics Student
+
+::::: container
+::: list-column
+<ul>
+
+<li>![](images/svg/email.svg){width="20"} [s102127\@pollub.edu.pl](mailto:s102127@pollub.edu.pl)</li>
+
+<li>![](images/svg/linkedin.svg){width="20"} [tgolecki04](https://linedin.com/tgolecki04)</li>
+
+<li>![](images/svg/github.svg){width="20"} [Dramian213](https://github.com/Dramian213)</li>
+
+</ul>
+:::
+
+::: image-column
+![](images/contact/motor.png){alt="Opis zdjęcia" width="128"}
+:::
+:::::

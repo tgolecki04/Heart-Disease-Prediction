@@ -1,6 +1,8 @@
 ---
 title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
 warning: false
+number-sections: false
+toc: false
 ---
 
 ```{r}
@@ -19,9 +21,11 @@ library(gridExtra)
 library(patchwork)
 ```
 
-## Wstęp / Opis / Rozpoczęcie
+![](images/article/logo_pollub_wmit.jpg){fig-align="left"}
 
-![](images/article/picture_1.jpg){fig-align="right" style="float: right; margin: 10px;" width="350"}
+## Wstęp
+
+![](images/article/picture_1.jpg){style="float: right; margin: 10px;" fig-align="right" width="350"}
 
 Serce jest jednym z kluczowych narządów warunkujących funkcjonowanie organizmu ludzkiego. Jako mięsień o budowie poprzecznie prążkowanej, pracujący w sposób nieprzerwany przez całe życie, pełni rolę centralnej pompy układu krążenia. Dzięki zsynchronizowanym skurczom przedsionków i komór umożliwia przepływ krwi przez naczynia, dostarczając komórkom tlen i substancje odżywcze, a jednocześnie usuwając produkty przemiany materii. Prawidłowa praca serca zależy od harmonii wielu procesów: fizjologicznej czynności mięśnia sercowego, drożności tętnic wieńcowych, równowagi elektrolitowej, efektywnej regulacji nerwowej oraz nieprzerwanego dopływu tlenu. Zaburzenie któregokolwiek z tych elementów może prowadzić do rozwoju chorób sercowo-naczyniowych, z których jedną z najgroźniejszych jest zawał mięśnia sercowego.
 
@@ -34,6 +38,10 @@ Kluczowe znaczenie w rozwoju zawału mają czynniki ryzyka, które mogą działa
 Z tego względu rośnie znaczenie wczesnego wykrywania ryzyka zawału serca, obejmującego zarówno ocenę kliniczną, diagnostykę laboratoryjną i obrazową, jak i zastosowanie nowoczesnych metod analizy danych. Wczesna identyfikacja osób zagrożonych pozwala na wdrożenie strategii prewencyjnych, takich jak zmiana stylu życia, kontrola ciśnienia i lipidów, farmakoterapia czy stałe monitorowanie stanu zdrowia. Skuteczna profilaktyka może znacząco zmniejszyć liczbę zawałów, ograniczyć powikłania oraz poprawić jakość i długość życia pacjentów.
 
 W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne, precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.
+
+{{< video https://www.youtube.com/watch?v=DTX_skjG5As >}}
+
+{{< video https://www.youtube.com/watch?v=d15oEDeoyD8 >}}
 
 <div>
 

@@ -7,7 +7,7 @@ from xgboost import XGBClassifier
 from sklearn.metrics import roc_auc_score, classification_report, confusion_matrix
 from imblearn.over_sampling import SMOTE
 
-# importujemy funkcje, które masz w preprocess.py
+# importujemy funkcje z preprocess.py
 from RF_model_preproces import load_data, basic_eda, prepare_xy, train_test_split_stratified, simple_impute
 
 DATA_REL_PATH = os.path.join(os.path.dirname(__file__), '..', 'RF_model', 'framingham_heart_study.csv')
@@ -18,7 +18,7 @@ USE_SMOTE = True
 SAVE_SHAP = True
 RANDOM_STATE = 123
 
-# hiperparametry baseline XGBoost (dobry punkt startowy)
+# hiperparametry baseline XGBoost
 XGB_PARAMS = dict(
     n_estimators=300,
     learning_rate=0.05,

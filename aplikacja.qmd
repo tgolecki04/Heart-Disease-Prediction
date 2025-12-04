@@ -5,6 +5,7 @@ page-layout: full
 editor: visual
 ---
 
+```{=html}
 <style>
   .form-card {
     max-width: 700px;
@@ -131,7 +132,8 @@ editor: visual
   }
 </style>
 
-```{=html}
+
+
 <div class="form-card">
   <div class="form-title">Ankieta sprawdzająca ryzyko wystąpienia zawału serca</div>
   <form id="predictionForm">
@@ -223,7 +225,8 @@ editor: visual
   <div id="predictionResult"></div>
   </form>
 </div>
-```
+
+
 
 <script>
   // Funkcja kontroli pola ilości papierosów dziennie
@@ -274,4 +277,4 @@ editor: visual
     });
   });
 </script>
-
+```

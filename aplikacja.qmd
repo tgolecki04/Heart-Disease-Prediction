@@ -5,22 +5,16 @@ format: html
 editor: visual
 ---
 
-<div>
+:::::: app_container
+::: left_column
+![](images/tenor.gif){fig-align="center" width="120"}
 
-::: {#heart_left}
-Tekst1
+![](images/tenor.gif){fig-align="center" width="120"}
+
+![](images/tenor.gif){fig-align="center" width="120"}
 :::
 
-::: {#form}
-Tekst2
-:::
-
-::: {#heart_right}
-Teskt3
-:::
-
-</div>
-
+::: application
 ```{=html}
 <style>
   .form-card {
@@ -294,3 +288,15 @@ Teskt3
   });
 </script>
 ```
+:::
+
+::: right_column
+![](images/tenor.gif){fig-align="center" width="120"}
+
+![](images/tenor.gif){fig-align="center" width="120"}
+
+![](images/tenor.gif){fig-align="center" width="120"}
+:::
+::::::
+
+napis testowy

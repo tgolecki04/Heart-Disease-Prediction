@@ -45,6 +45,44 @@ ul {
 }
 
 
+
+
+
+
+.app_container {
+  display: flex;
+  /* Usunięto justify-content: space-between, aby zapobiec "odjeżdżaniu" zdjęcia na skraj */
+  align-items: center; /* Dopasowuje góry kolumn */
+  gap: 15px; /* Dodaje minimalny odstęp między kolumnami, np. 15px */
+}
+
+.left_column {
+  flex-basis: 15%; /* Priorytetowa szerokość bazowa */
+  flex-grow: 0;    /* Nie pozwalamy tej kolumnie rosnąć, zachowuje 30% */
+  margin: 0;/* max-width: 500px;  Ograniczenie maksymalnej szerokości listy (opcjonalne) */
+  min-width: 0;    /* Zapewnia poprawne działanie na mniejszych ekranach */
+  text-align: center;
+}
+
+.application {
+  flex-basis: 70%; /* Priorytetowa szerokość bazowa */
+  flex-grow: 1;    /* Nie pozwalamy tej kolumnie rosnąć, zachowuje 30% */
+  margin: 0;/* max-width: 500px;  Ograniczenie maksymalnej szerokości listy (opcjonalne) */
+  min-width: 0;    /* Zapewnia poprawne działanie na mniejszych ekranach */
+}
+
+.right_column {
+  flex-basis: 15%; /* Priorytetowa szerokość bazowa */
+  flex-grow: 0;    /* Nie pozwalamy tej kolumnie rosnąć, zachowuje 30% */
+  margin: 0;/* max-width: 500px;  Ograniczenie maksymalnej szerokości listy (opcjonalne) */
+  min-width: 0;    /* Zapewnia poprawne działanie na mniejszych ekranach */
+  text-align: center;
+}
+
+
+
+
+
 .quarto-title-banner {
   background-color: #eeaa5f !important; /* Zmień na dowolny kolor, np. blue, #00ff00, rgb(255, 100, 50) */
 }
@@ -59,8 +97,6 @@ ul {
   color: #2b2d42 !important;
 }
 
-
-}
 
 .bi {
   color:#eeaa5f;

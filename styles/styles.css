@@ -46,7 +46,7 @@ ul {
 
 
 .quarto-title-banner {
-  background-color: #b42f28 !important; /* Zmień na dowolny kolor, np. blue, #00ff00, rgb(255, 100, 50) */
+  background-color: #eeaa5f !important; /* Zmień na dowolny kolor, np. blue, #00ff00, rgb(255, 100, 50) */
 }
 
 .nav-item .nav-link,
@@ -55,8 +55,15 @@ ul {
     color: white !important;
 }
 
+.title, .subtitle.lead {
+  color: #2b2d42 !important;
+}
+
+
+}
+
 .bi {
-  color: #ef233c;
+  color:#eeaa5f;
 }
 
 .btn.code-tools-button{
@@ -103,9 +110,6 @@ ul {
 }
 
 
-#quarto-sidebar{
-  margin-top: calc(100vh - 60px);
-}
 /* Treść zaczyna się dopiero pod zdjęciem */
 #start {
   margin-top: calc(95vh - 60px);      /* odsunięcie treści w dół */

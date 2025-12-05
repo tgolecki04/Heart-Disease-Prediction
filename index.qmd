@@ -2,6 +2,15 @@
 warning: false
 number-sections: false
 toc: false
+format:
+  html:
+    include-in-header:
+      - text: |
+          <style>
+          #quarto-sidebar {
+            margin-top: calc(100vh - 60px);
+          }
+          </style>
 ---
 
 ```{r}
@@ -21,9 +30,9 @@ library(patchwork)
 ```
 
 ::: hero-wrapper
-<a href="#start" class="hero-button">ZACZYNAJMY</a>
+<a id="hero" class="hero-button">ZACZYNAJMY</a>
 
-<a href="#start"> ![](images/article/Mandatory-01.png){.hero-fullscreen} </a>
+![](images/article/main.png){.hero-fullscreen}
 :::
 
 ![](images/article/logo_pollub_wmit.jpg){#start}
@@ -79,3 +88,7 @@ Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze
 ![](images/article/picture_2.png){style="margin-top: 25px;" fig-align="center"}
 
 </div>
+
+```{=html}
+<script src="script.js"></script>
+```

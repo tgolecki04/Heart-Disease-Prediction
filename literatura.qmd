@@ -23,6 +23,8 @@ Na potrzeby projektu korzystaliśmy z poniższych źródeł:
 
 -   <https://pixabay.com/>
 
+-   <http://www.freepik.com/>
+
 Dodatkowo użyliśmy:
 
 -   <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">Heart icons created by Kroffle - Flaticon</a>
@@ -32,6 +34,8 @@ Dodatkowo użyliśmy:
 -   <https://r4ds.hadley.nz/>
 -   <https://jakevdp.github.io/PythonDataScienceHandbook/>
 -   <https://tenor.com/en-GB/view/pixel-heart-gif-17305873723364263937>
+-   <https://www.canva.com/templates>
+-   <https://scikit-learn.org/stable/machine_learning_map.html>
 
 <div>
 

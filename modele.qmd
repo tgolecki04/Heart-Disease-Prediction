@@ -102,6 +102,8 @@ Każda warstwa przetwarza dane w inny sposób co pozwala na połączenie skompli
 
 **Transformers** – obecny standard w NLP, analizie języka, obrazu i wielu innych dziedzinach.
 
+halo test
+
 <div>
 
 ![](images/article/picture_2.png){style="margin-top: 25px;" fig-align="center"}

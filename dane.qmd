@@ -194,8 +194,6 @@ ggsave("images/plots/na_count_before.png", p)
 
 ![](images/plots/na_count_before.png){fig-align="center"}
 
-
-
 Widzimy, że mamy kilka zmiennych, które zawierają braki danych. Liczby wartośći `NA` w poszczególnych kolumnach są zazwyczaj mniejsze lub równe około 100, jedynym wyjątkiem z aż 388 wartościami `NA` jest zmienna `glucose` oznaczająca poziom glukozy we krwi pacjenta. Zanim uzupełnimy braki danych odpowiednią techniką spróbujemy dowiedzieć się w jaki sposób rozkładają się wartości `NA` tzn. czy braki te wystepują u różnych pacjentów, czy też jeden pacjent posiada brak informacji w więcej niż tylko jednej zmiennej.
 
 ```{r}

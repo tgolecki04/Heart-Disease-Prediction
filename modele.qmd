@@ -5,9 +5,127 @@ format: html
 editor: visual
 ---
 
-## Temat 1
+## Wstęp
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Modele predykcyjne stanowią kluczowy element analityki danych i sztucznej inteligencji. Pozwalają przewidywać przyszłe zdarzenia, klasyfikować obserwacje oraz identyfikować ukryte zależności w danych. W praktyce biznesowej i naukowej stosuje się wiele podejść modelowania – od klasycznych metod statystycznych, przez algorytmy uczenia maszynowego, aż po zaawansowane architektury sieci neuronowych.\
+
+Na tej podstronie przedstawiamy trzy popularne i często stosowane techniki modelowania predykcyjnego: **regresję logistyczną**, **las losowy** oraz **sieci neuronowe (NN)**. Każda z nich opiera się na innym mechanizmie działania i oferuje różne możliwości modelowania złożoności danych.
+
+W rozważanym zbiorze danych posiadamy zmienną predykcyjną `Ten_Year_CHD`, która jest zmienną binarną - przyjmuje wartości 0 lub 1. Wartość 0 oznacza brak zagrożenia wystąpienia choroby wieńcowej w ciągu 10 najbliższych lat, natomiast zmienna przyjmująca wartość 1, oznacza ryzyko wystąpienia choroby. Struktura naszych danych mówi jasno w jaki sposób powinniśmy tworzyć nasze modele. Zajmiemy się problemem klasyfikacji, starając się każdemu z pacjentów określić grupę do której należy - potencjalne ryzyko lub jego brak. Dodatkowo tworząc model oparty o architekturę sieci neuronowej rozszerzymy zakres naszej klasyfikacji z binarnej na wieloczynnikową. Zanim omówimy każdy z modeli osobno, chcemy poruszyć kwestię uczenia maszynowego oraz pojęć z tym związanym w celu lepszego przedstawienia problemu oraz ułatwienia zrozumienia architektury stworzonych modeli. Modele te zostały stworzone w języku programowania `python` przy użyciu bilbiotek takich jak:
+
+-   Scikit-learn
+
+-   Pandas
+
+-   Numpy
+
+-   Pytorch
+
+## Machine Learning
+
+### Wyjaśnienie
+
+**Machine Learning (ML), czyli uczenie maszynowe**, to dziedzina sztucznej inteligencji, która umożliwia komputerom **uczenie się na podstawie danych** i podejmowanie decyzji bez konieczności ręcznego programowania każdej reguły.\
+
+Model ML analizuje dostarczone mu przykłady, identyfikuje wzorce oraz uczy się przewidywać przyszłe zdarzenia, klasyfikować obiekty czy podejmować optymalne decyzje.
+
+### Diagram
+
+![](images/article/picture_4.png){fig-align="center" width="683"}
+
+### Gałęzie
+
+### **Uczenie nadzorowane (Supervised Learning)**
+
+Model uczy się na danych, dla których znamy prawidłową odpowiedź (tzw. etykietę).\
+Celem jest przewidywanie wyników dla nowych, nieznanych danych.\
+Przykłady:
+
+-   
+
+-   
+
+    klasyfikacja (np. wykrywanie spamu, diagnoza chorób),
+
+-   
+
+-   
+
+    regresja (np. prognoza cen, przewidywanie popytu).
+
+-   
+
+### 2. **Uczenie nienadzorowane (Unsupervised Learning)**
+
+Model szuka struktury w danych bez etykiet. Celem jest odkrywanie ukrytych zależności, grup lub reprezentacji danych.\
+Przykłady:
+
+-   
+
+-   
+
+    klasteryzacja (np. segmentacja klientów),
+
+-   
+
+-   
+
+    redukcja wymiarów (np. PCA),
+
+-   
+
+-   
+
+    wykrywanie anomalii.
+
+-   
+
+### 3. **Uczenie ze wzmocnieniem (Reinforcement Learning)**
+
+Agent uczy się poprzez interakcję z otoczeniem, otrzymując nagrody lub kary.\
+Celem jest opracowanie strategii maksymalizującej długoterminową nagrodę.\
+Przykłady:
+
+-   
+
+-   
+
+    sterowanie robotami,
+
+-   
+
+-   
+
+    autonomiczne pojazdy,
+
+-   
+
+-   
+
+    gry (np. AlphaGo).
+
+-   
+
+### 4. **Uczenie półnadzorowane (Semi-Supervised Learning)**
+
+Połączenie uczenia nadzorowanego i nienadzorowanego – model uczy się na niewielkiej ilości danych z etykietami i dużej ilości danych bez nich.
+
+### 5. **Uczenie samonadzorowane (Self-Supervised Learning)**
+
+Model sam generuje „pseudo-etykiety” z danych, aby uczyć się ich reprezentacji.\
+Stosowane głównie w:
+
+-   
+
+-   
+
+    przetwarzaniu języka naturalnego (np. BERT),
+
+-   
+
+-   
+
+    analizie obrazu (np. autoenkodery).
 
 <div>
 

@@ -19,6 +19,10 @@ Na potrzeby projektu korzystaliśmy z poniższych źródeł:
 
 -   <https://www.czytelniamedyczna.pl/2893,choroba-wiencowa-u-kobiet.html>
 
+-   <https://www.youtube.com/>@MarekSkoczylasPL
+
+-   <https://pixabay.com/>
+
 Dodatkowo użyliśmy:
 
 -   <a href="https://www.flaticon.com/free-icons/heart" title="heart icons">Heart icons created by Kroffle - Flaticon</a>
@@ -27,6 +31,7 @@ Dodatkowo użyliśmy:
 -   <https://docs.pytorch.org/docs/stable/index.html>
 -   <https://r4ds.hadley.nz/>
 -   <https://jakevdp.github.io/PythonDataScienceHandbook/>
+-   <https://tenor.com/en-GB/view/pixel-heart-gif-17305873723364263937>
 
 <div>
 

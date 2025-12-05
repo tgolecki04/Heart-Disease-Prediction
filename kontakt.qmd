@@ -1,5 +1,6 @@
 ---
-title: "Dane kontaktowe"
+title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
+subtitle: "Dane kontaktowe"
 format: html
 editor: visual
 number-sections: false

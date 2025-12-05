@@ -1,5 +1,6 @@
 ---
-title: "Zakończenie Projektu"
+title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
+subtitle: "Zakończenie Projektu"
 toc: false
 number-sections: false
 ---

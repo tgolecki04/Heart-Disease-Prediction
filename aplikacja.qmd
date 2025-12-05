@@ -1,9 +1,25 @@
 ---
-title: "Aplikacja"
+title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
+subtitle: "Aplikacja"
 format: html
-page-layout: full
 editor: visual
 ---
+
+<div>
+
+::: {#heart_left}
+Tekst1
+:::
+
+::: {#form}
+Tekst2
+:::
+
+::: {#heart_right}
+Teskt3
+:::
+
+</div>
 
 ```{=html}
 <style>

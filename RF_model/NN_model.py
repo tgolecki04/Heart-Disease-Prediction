@@ -21,7 +21,7 @@ y = df['TenYearCHD']
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
-    test_size=0.1,
+    test_size=0.15,
     random_state=42,
     stratify=y
 )
@@ -38,20 +38,20 @@ X_train_sm, y_train_sm = sm.fit_resample(X_train, y_train)
 #Sieć neuronowa MLP (MultiLayer Perceptron)
 #Próa dla 3 warstw oraz rozkladu warstw 128/64/32
 model = MLPClassifier(
-    hidden_layer_sizes=(32,16,8),
+    hidden_layer_sizes=(32,16),
     activation='relu',
     solver='adam',
     learning_rate_init=0.001,
     max_iter=320,
     random_state=42
 )
-weights = np.where(y_train_sm==1, 20, 1)
+weights = np.where(y_train_sm==1, 10, 1)
 model.fit(X_train_sm, y_train_sm, sample_weight=weights)
 
 
 # Wyliczanie prawdopodobieństw
 y_proba = model.predict_proba(X_test)[:, 1]
-threshold = 0.6 # im niżej, tym wyższy recall!!!
+threshold = 0.2 # im niżej, tym wyższy recall!!!
 y_pred = (y_proba >= threshold).astype(int)
 
 #Wyniki

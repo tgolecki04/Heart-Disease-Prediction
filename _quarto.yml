@@ -65,6 +65,7 @@ website:
 
 format:
   html:
+    highlight-style: styles/tango.theme
     page-layout: full
     theme:
       light: styles/sandstone.scss

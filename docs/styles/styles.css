@@ -87,9 +87,9 @@ ul {
   background-color: #eeaa5f !important; /* Zmień na dowolny kolor, np. blue, #00ff00, rgb(255, 100, 50) */
 }
 
-.nav-item .nav-link,
-.nav-item .nav-link .menu-text,
-.nav-item .nav-link i {
+.navbar-container.container-fluid .nav-item .nav-link,
+.navbar-container.container-fluid .nav-item .nav-link .menu-text,
+.navbar-container.container-fluid .nav-item .nav-link i {
     color: white !important;
 }
 
@@ -97,6 +97,9 @@ ul {
   color: #2b2d42 !important;
 }
 
+.btn.code-tools-button.dropdown-toggle .bi{
+  color: #2b2d42 !important;
+}
 
 .bi {
   color:#eeaa5f;

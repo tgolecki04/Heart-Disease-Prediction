@@ -7,11 +7,19 @@ editor: visual
 
 :::::: app_container
 ::: left_column
-![](images/tenor.gif){fig-align="center" width="120"}
+![](images/gif/tenor.gif){fig-align="center" width="120"}
 
-![](images/tenor.gif){fig-align="center" width="120"}
+![](images/gif/tenor.gif){fig-align="center" width="120"}
 
-![](images/tenor.gif){fig-align="center" width="120"}
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
 :::
 
 ::: application
@@ -291,12 +299,18 @@ editor: visual
 :::
 
 ::: right_column
-![](images/tenor.gif){fig-align="center" width="120"}
+![](images/gif/tenor.gif){fig-align="center" width="120"}
 
-![](images/tenor.gif){fig-align="center" width="120"}
+![](images/gif/tenor.gif){fig-align="center" width="120"}
 
-![](images/tenor.gif){fig-align="center" width="120"}
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
+
+![](images/gif/tenor.gif){fig-align="center" width="120"}
 :::
 ::::::
-
-napis testowy

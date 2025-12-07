@@ -1,3 +1,6 @@
+#quarto-margin-sidebar {
+  position: sticky;
+}
 .navbar {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -97,7 +100,7 @@ ul {
   color: #2b2d42 !important;
 }
 
-.btn.code-tools-button.dropdown-toggle .bi{
+.title .btn.code-tools-button.dropdown-toggle .bi{
   color: #2b2d42 !important;
 }
 
@@ -115,6 +118,10 @@ ul {
 
 .dropdown-item {
   color: #343a40 !important;
+}
+
+.header-section-number {
+  color: #eeaa5f;
 }
 
 .menu-text {
@@ -160,6 +167,9 @@ ul {
   position: relative;
 }
 
+#quarto-sidebar{
+  margin-left: 12px;
+}
 .hero-button {
   position: absolute;
   top: 50%;

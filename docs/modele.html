@@ -74,14 +74,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-0a95de2c3be981c2e03029825b16c585.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-be46454dd4937a74b0093c3de7f691b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-5bfd7f3b09aa4e3fcb5da77cc3ff45f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-be46454dd4937a74b0093c3de7f691b3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-247018db65c17c6531d189638f274423.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d3105f6778b33f3ff09d2ac6082c8e0b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-247018db65c17c6531d189638f274423.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -452,9 +452,17 @@ background: #947E76;
   <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="header-section-number">2</span> Machine Learning</a>
   <ul class="collapse">
   <li><a href="#wyjaśnienie" id="toc-wyjaśnienie" class="nav-link" data-scroll-target="#wyjaśnienie"><span class="header-section-number">2.1</span> Wyjaśnienie</a></li>
-  <li><a href="#diagram" id="toc-diagram" class="nav-link" data-scroll-target="#diagram"><span class="header-section-number">2.2</span> Diagram</a></li>
+  <li><a href="#struktura" id="toc-struktura" class="nav-link" data-scroll-target="#struktura"><span class="header-section-number">2.2</span> Struktura</a></li>
   <li><a href="#poddziedziny" id="toc-poddziedziny" class="nav-link" data-scroll-target="#poddziedziny"><span class="header-section-number">2.3</span> Poddziedziny</a></li>
+  <li><a href="#typy-zadań" id="toc-typy-zadań" class="nav-link" data-scroll-target="#typy-zadań"><span class="header-section-number">2.4</span> Typy zadań</a></li>
   </ul></li>
+  <li><a href="#rozwiązanie-problemu" id="toc-rozwiązanie-problemu" class="nav-link" data-scroll-target="#rozwiązanie-problemu"><span class="header-section-number">3</span> Rozwiązanie problemu</a>
+  <ul class="collapse">
+  <li><a href="#regresja-logistyczna" id="toc-regresja-logistyczna" class="nav-link" data-scroll-target="#regresja-logistyczna"><span class="header-section-number">3.1</span> Regresja Logistyczna</a></li>
+  <li><a href="#las-losowy" id="toc-las-losowy" class="nav-link" data-scroll-target="#las-losowy"><span class="header-section-number">3.2</span> Las Losowy</a></li>
+  <li><a href="#sieci-neuronowe" id="toc-sieci-neuronowe" class="nav-link" data-scroll-target="#sieci-neuronowe"><span class="header-section-number">3.3</span> Sieci Neuronowe</a></li>
+  </ul></li>
+  <li><a href="#podsumowanie" id="toc-podsumowanie" class="nav-link" data-scroll-target="#podsumowanie"><span class="header-section-number">4</span> Podsumowanie</a></li>
   </ul>
 </nav>
     </div>
@@ -487,8 +495,8 @@ background: #947E76;
 </p>
 <p>Model ML analizuje dostarczone mu przykłady, identyfikuje wzorce oraz uczy się przewidywać przyszłe zdarzenia, klasyfikować obiekty czy podejmować optymalne decyzje.</p>
 </section>
-<section id="diagram" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="diagram"><span class="header-section-number">2.2</span> Diagram</h3>
+<section id="struktura" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="struktura"><span class="header-section-number">2.2</span> Struktura</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/article/picture_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="683"></p>
@@ -497,52 +505,52 @@ background: #947E76;
 </section>
 <section id="poddziedziny" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="poddziedziny"><span class="header-section-number">2.3</span> Poddziedziny</h3>
-<section id="uczenie-nadzorowane-supervised-learning" class="level4" data-number="2.3.1">
-<h4 data-number="2.3.1" class="anchored" data-anchor-id="uczenie-nadzorowane-supervised-learning"><span class="header-section-number">2.3.1</span> Uczenie nadzorowane (Supervised Learning)</h4>
-<section id="wyjaśnienie-1" class="level5" data-number="2.3.1.1">
-<h5 data-number="2.3.1.1" class="anchored" data-anchor-id="wyjaśnienie-1"><span class="header-section-number">2.3.1.1</span> Wyjaśnienie</h5>
+<section id="uczenie-nadzorowane-supervised-learning" class="level4">
+<h4 class="anchored" data-anchor-id="uczenie-nadzorowane-supervised-learning">Uczenie nadzorowane (Supervised Learning)</h4>
+<section id="wyjaśnienie-1" class="level5">
+<h5 class="anchored" data-anchor-id="wyjaśnienie-1">Wyjaśnienie</h5>
 <p>Model uczy się na danych, dla których znamy prawidłową odpowiedź (tzw. etykietę).<br>
 Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 </section>
-<section id="przykłady" class="level5" data-number="2.3.1.2">
-<h5 data-number="2.3.1.2" class="anchored" data-anchor-id="przykłady"><span class="header-section-number">2.3.1.2</span> Przykłady</h5>
+<section id="przykłady" class="level5">
+<h5 class="anchored" data-anchor-id="przykłady">Przykłady</h5>
 <ul>
 <li><p>Klasyfikacja (np. wykrywanie spamu, diagnoza chorób),</p></li>
 <li><p>Regresja (np. prognoza cen, przewidywanie popytu).</p></li>
 </ul>
 </section>
 </section>
-<section id="uczenie-nienadzorowane-unsupervised-learning" class="level4" data-number="2.3.2">
-<h4 data-number="2.3.2" class="anchored" data-anchor-id="uczenie-nienadzorowane-unsupervised-learning"><span class="header-section-number">2.3.2</span> Uczenie nienadzorowane (Unsupervised Learning)</h4>
-<section id="wyjaśnienie-2" class="level5" data-number="2.3.2.1">
-<h5 data-number="2.3.2.1" class="anchored" data-anchor-id="wyjaśnienie-2"><span class="header-section-number">2.3.2.1</span> Wyjaśnienie</h5>
+<section id="uczenie-nienadzorowane-unsupervised-learning" class="level4">
+<h4 class="anchored" data-anchor-id="uczenie-nienadzorowane-unsupervised-learning">Uczenie nienadzorowane (Unsupervised Learning)</h4>
+<section id="wyjaśnienie-2" class="level5">
+<h5 class="anchored" data-anchor-id="wyjaśnienie-2">Wyjaśnienie</h5>
 <p>Model szuka struktury w danych bez etykiet. Celem jest odkrywanie ukrytych zależności, grup lub reprezentacji danych.</p>
 </section>
-<section id="przykłady-1" class="level5" data-number="2.3.2.2">
-<h5 data-number="2.3.2.2" class="anchored" data-anchor-id="przykłady-1"><span class="header-section-number">2.3.2.2</span> Przykłady</h5>
+<section id="przykłady-1" class="level5">
+<h5 class="anchored" data-anchor-id="przykłady-1">Przykłady</h5>
 <ul>
 <li><p>Klasteryzacja</p></li>
 <li><p>Redukcja Wymiarów</p></li>
 </ul>
 </section>
 </section>
-<section id="uczenie-półnadzorowane-semi-supervised-learning" class="level4" data-number="2.3.3">
-<h4 data-number="2.3.3" class="anchored" data-anchor-id="uczenie-półnadzorowane-semi-supervised-learning"><span class="header-section-number">2.3.3</span> Uczenie półnadzorowane (Semi-Supervised Learning)</h4>
-<section id="wyjaśnienie-3" class="level5" data-number="2.3.3.1">
-<h5 data-number="2.3.3.1" class="anchored" data-anchor-id="wyjaśnienie-3"><span class="header-section-number">2.3.3.1</span> Wyjaśnienie</h5>
+<section id="uczenie-półnadzorowane-semi-supervised-learning" class="level4">
+<h4 class="anchored" data-anchor-id="uczenie-półnadzorowane-semi-supervised-learning">Uczenie półnadzorowane (Semi-Supervised Learning)</h4>
+<section id="wyjaśnienie-3" class="level5">
+<h5 class="anchored" data-anchor-id="wyjaśnienie-3">Wyjaśnienie</h5>
 <p>Połączenie uczenia nadzorowanego i nienadzorowanego – model uczy się na niewielkiej ilości danych z etykietami i dużej ilości danych bez nich.</p>
 </section>
 </section>
-<section id="uczenie-ze-wzmocnieniem-reinforcement-learning" class="level4" data-number="2.3.4">
-<h4 data-number="2.3.4" class="anchored" data-anchor-id="uczenie-ze-wzmocnieniem-reinforcement-learning"><span class="header-section-number">2.3.4</span> Uczenie ze wzmocnieniem (Reinforcement Learning)</h4>
-<section id="wyjaśnienie-4" class="level5" data-number="2.3.4.1">
-<h5 data-number="2.3.4.1" class="anchored" data-anchor-id="wyjaśnienie-4"><span class="header-section-number">2.3.4.1</span> Wyjaśnienie</h5>
+<section id="uczenie-ze-wzmocnieniem-reinforcement-learning" class="level4">
+<h4 class="anchored" data-anchor-id="uczenie-ze-wzmocnieniem-reinforcement-learning">Uczenie ze wzmocnieniem (Reinforcement Learning)</h4>
+<section id="wyjaśnienie-4" class="level5">
+<h5 class="anchored" data-anchor-id="wyjaśnienie-4">Wyjaśnienie</h5>
 <p>Agent uczy się poprzez interakcję z otoczeniem, otrzymując nagrody lub kary.<br>
 </p>
 <p>Celem jest opracowanie strategii maksymalizującej długoterminową nagrodę.</p>
 </section>
-<section id="przykłady-2" class="level5" data-number="2.3.4.2">
-<h5 data-number="2.3.4.2" class="anchored" data-anchor-id="przykłady-2"><span class="header-section-number">2.3.4.2</span> Przykłady</h5>
+<section id="przykłady-2" class="level5">
+<h5 class="anchored" data-anchor-id="przykłady-2">Przykłady</h5>
 <ul>
 <li><p>Gry</p></li>
 <li><p>Sterowanie robotami</p></li>
@@ -550,8 +558,8 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 </ul>
 </section>
 </section>
-<section id="uczenie-głębokie-deep-learning" class="level4" data-number="2.3.5">
-<h4 data-number="2.3.5" class="anchored" data-anchor-id="uczenie-głębokie-deep-learning"><span class="header-section-number">2.3.5</span> Uczenie głębokie (Deep Learning)</h4>
+<section id="uczenie-głębokie-deep-learning" class="level4">
+<h4 class="anchored" data-anchor-id="uczenie-głębokie-deep-learning">Uczenie głębokie (Deep Learning)</h4>
 <p>Model wykorzystuje sieci składające się z wielu warstw przetwarzających dane. Dzięki takiemu zastosowaniu jesteśmy w stanie znajdować głębokie wzorce i zależności, które nie są możliwe do zauważenia stosując pozostałe architektury modeli. Sieć nazywamy “głęboką” ponieważ ma wiele poziomów. Wyróżniamy:</p>
 <ul>
 <li><p>warstwę wejściową</p></li>
@@ -559,12 +567,60 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 <li><p>warstwę wyjściową</p></li>
 </ul>
 <p>Każda warstwa przetwarza dane w inny sposób co pozwala na połączenie skomplikowanych obliczeń i wykrycie ważnych oraz skomplikowanych zależności.</p>
-<section id="przykłady-3" class="level5" data-number="2.3.5.1">
-<h5 data-number="2.3.5.1" class="anchored" data-anchor-id="przykłady-3"><span class="header-section-number">2.3.5.1</span> Przykłady</h5>
+<section id="przykłady-3" class="level5">
+<h5 class="anchored" data-anchor-id="przykłady-3">Przykłady</h5>
 <p><strong>CNN (Convolutional Neural Networks)</strong> – do obrazów, wideo, sygnałów.</p>
 <p><strong>RNN (Recurrent Neural Networks)</strong>, <strong>LSTM</strong>, <strong>GRU</strong> – do sekwencji, tekstu, sygnałów czasowych.</p>
 <p><strong>Transformers</strong> – obecny standard w NLP, analizie języka, obrazu i wielu innych dziedzinach.</p>
-<p>halo test</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/svg/ml_map.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="700"></p>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="typy-zadań" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="typy-zadań"><span class="header-section-number">2.4</span> Typy zadań</h3>
+<p>Uczenie maszynowe można podzielić na <strong>paradygmaty</strong> (np. supervised, unsupervised), które określają sposób, w jaki model uczy się z danych. W ramach tych paradygmatów wyróżniamy <strong>różne typy zadań</strong>, czyli konkretne problemy, które chcemy rozwiązać za pomocą algorytmów ML. Każde zadanie ma specyficzny cel i wymaga odpowiednich metod i algorytmów.</p>
+<section id="klasyfikacja" class="level4">
+<h4 class="anchored" data-anchor-id="klasyfikacja">Klasyfikacja</h4>
+<ul>
+<li><p>Cel</p>
+<ul>
+<li>Celem klasyfikacji jest przypisanie obserwacji do okreśłonej kategorii.</li>
+</ul></li>
+<li><p>Algorytmy</p>
+<ul>
+<li><p>Decision Trees / Random Forest</p></li>
+<li><p>Support Vector Machines (SVM)</p></li>
+<li><p>k-Nearest Neighbors (k-NN)</p></li>
+<li><p>Sieci neuronowe</p></li>
+</ul></li>
+<li><p>Przykłady zastosowań</p>
+<ul>
+<li><p>Rozpoznawanie spamu w wiadomościach e-mail (spam/nie-spam)</p></li>
+<li><p>Diagnoza chorób na podstawie danych medycznych</p></li>
+<li><p>Klasyfikacja zdjęć zwierząt</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="rozwiązanie-problemu" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="rozwiązanie-problemu"><span class="header-section-number">3</span> Rozwiązanie problemu</h2>
+<section id="regresja-logistyczna" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="regresja-logistyczna"><span class="header-section-number">3.1</span> Regresja Logistyczna</h3>
+</section>
+<section id="las-losowy" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="las-losowy"><span class="header-section-number">3.2</span> Las Losowy</h3>
+</section>
+<section id="sieci-neuronowe" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="sieci-neuronowe"><span class="header-section-number">3.3</span> Sieci Neuronowe</h3>
+</section>
+</section>
+<section id="podsumowanie" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="podsumowanie"><span class="header-section-number">4</span> Podsumowanie</h2>
 <div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -576,9 +632,6 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 
 <!-- -->
 
-</section>
-</section>
-</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -1089,7 +1142,7 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>Model ML analizuje dostarczone mu przykłady, identyfikuje wzorce oraz uczy się przewidywać przyszłe zdarzenia, klasyfikować obiekty czy podejmować optymalne decyzje.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Diagram</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Struktura</span></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_4.png)</span>{fig-align="center" width="683"}</span>
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
@@ -1162,13 +1215,53 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 <span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>**Transformers** – obecny standard w NLP, analizie języka, obrazu i wielu innych dziedzinach.</span>
 <span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>halo test</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/svg/ml_map.svg)</span>{fig-align="center" width="700"}</span>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Typy zadań</span></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Uczenie maszynowe można podzielić na **paradygmaty** (np. supervised, unsupervised), które określają sposób, w jaki model uczy się z danych. W ramach tych paradygmatów wyróżniamy **różne typy zadań**, czyli konkretne problemy, które chcemy rozwiązać za pomocą algorytmów ML. Każde zadanie ma specyficzny cel i wymaga odpowiednich metod i algorytmów.</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Klasyfikacja</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cel</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Celem klasyfikacji jest przypisanie obserwacji do okreśłonej kategorii.</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Algorytmy</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Decision Trees / Random Forest</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Support Vector Machines (SVM)</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>k-Nearest Neighbors (k-NN)</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Sieci neuronowe</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przykłady zastosowań</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Rozpoznawanie spamu w wiadomościach e-mail (spam/nie-spam)</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Diagnoza chorób na podstawie danych medycznych</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Klasyfikacja zdjęć zwierząt</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ocena Modeli</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rozwiązanie problemu</span></span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Regresja Logistyczna</span></span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### Las Losowy</span></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sieci Neuronowe</span></span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

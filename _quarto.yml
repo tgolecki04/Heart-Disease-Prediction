@@ -75,6 +75,7 @@ format:
     toc: true
     toc-title: "Spis treści"
     number-sections: true
+    number-depth: 3
     title-block-banner: "#947E76"
     title-block-banner-color: "#fcfffd"
     code-fold: show

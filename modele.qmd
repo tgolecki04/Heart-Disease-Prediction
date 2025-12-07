@@ -29,7 +29,7 @@ W rozważanym zbiorze danych posiadamy zmienną predykcyjną `Ten_Year_CHD`, kt�
 
 Model ML analizuje dostarczone mu przykłady, identyfikuje wzorce oraz uczy się przewidywać przyszłe zdarzenia, klasyfikować obiekty czy podejmować optymalne decyzje.
 
-### Diagram
+### Struktura
 
 ![](images/article/picture_4.png){fig-align="center" width="683"}
 
@@ -102,7 +102,47 @@ Każda warstwa przetwarza dane w inny sposób co pozwala na połączenie skompli
 
 **Transformers** – obecny standard w NLP, analizie języka, obrazu i wielu innych dziedzinach.
 
-halo test
+![](images/svg/ml_map.svg){fig-align="center" width="700"}
+
+### Typy zadań
+
+Uczenie maszynowe można podzielić na **paradygmaty** (np. supervised, unsupervised), które określają sposób, w jaki model uczy się z danych. W ramach tych paradygmatów wyróżniamy **różne typy zadań**, czyli konkretne problemy, które chcemy rozwiązać za pomocą algorytmów ML. Każde zadanie ma specyficzny cel i wymaga odpowiednich metod i algorytmów.
+
+#### Klasyfikacja
+
+-   Cel
+
+    -   Celem klasyfikacji jest przypisanie obserwacji do okreśłonej kategorii.
+
+-   Algorytmy
+
+    -   Decision Trees / Random Forest
+
+    -   Support Vector Machines (SVM)
+
+    -   k-Nearest Neighbors (k-NN)
+
+    -   Sieci neuronowe
+
+-   Przykłady zastosowań
+
+    -   Rozpoznawanie spamu w wiadomościach e-mail (spam/nie-spam)
+
+    -   Diagnoza chorób na podstawie danych medycznych
+
+    -   Klasyfikacja zdjęć zwierząt
+
+### Ocena Modeli
+
+## Rozwiązanie problemu
+
+### Regresja Logistyczna
+
+### Las Losowy
+
+### Sieci Neuronowe
+
+## Podsumowanie
 
 <div>
 

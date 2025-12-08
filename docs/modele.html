@@ -127,6 +127,35 @@ background: #947E76;
       }
 </style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -455,12 +484,12 @@ background: #947E76;
   <li><a href="#struktura" id="toc-struktura" class="nav-link" data-scroll-target="#struktura"><span class="header-section-number">2.2</span> Struktura</a></li>
   <li><a href="#poddziedziny" id="toc-poddziedziny" class="nav-link" data-scroll-target="#poddziedziny"><span class="header-section-number">2.3</span> Poddziedziny</a></li>
   <li><a href="#typy-zadań" id="toc-typy-zadań" class="nav-link" data-scroll-target="#typy-zadań"><span class="header-section-number">2.4</span> Typy zadań</a></li>
+  <li><a href="#ocena-modeli" id="toc-ocena-modeli" class="nav-link" data-scroll-target="#ocena-modeli"><span class="header-section-number">2.5</span> Ocena Modeli</a></li>
   </ul></li>
   <li><a href="#rozwiązanie-problemu" id="toc-rozwiązanie-problemu" class="nav-link" data-scroll-target="#rozwiązanie-problemu"><span class="header-section-number">3</span> Rozwiązanie problemu</a>
   <ul class="collapse">
   <li><a href="#regresja-logistyczna" id="toc-regresja-logistyczna" class="nav-link" data-scroll-target="#regresja-logistyczna"><span class="header-section-number">3.1</span> Regresja Logistyczna</a></li>
-  <li><a href="#las-losowy" id="toc-las-losowy" class="nav-link" data-scroll-target="#las-losowy"><span class="header-section-number">3.2</span> Las Losowy</a></li>
-  <li><a href="#sieci-neuronowe" id="toc-sieci-neuronowe" class="nav-link" data-scroll-target="#sieci-neuronowe"><span class="header-section-number">3.3</span> Sieci Neuronowe</a></li>
+  <li><a href="#sieci-neuronowe" id="toc-sieci-neuronowe" class="nav-link" data-scroll-target="#sieci-neuronowe"><span class="header-section-number">3.2</span> Sieci Neuronowe</a></li>
   </ul></li>
   <li><a href="#podsumowanie" id="toc-podsumowanie" class="nav-link" data-scroll-target="#podsumowanie"><span class="header-section-number">4</span> Podsumowanie</a></li>
   </ul>
@@ -582,28 +611,110 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 </section>
 <section id="typy-zadań" class="level3" data-number="2.4">
 <h3 data-number="2.4" class="anchored" data-anchor-id="typy-zadań"><span class="header-section-number">2.4</span> Typy zadań</h3>
-<p>Uczenie maszynowe można podzielić na <strong>paradygmaty</strong> (np. supervised, unsupervised), które określają sposób, w jaki model uczy się z danych. W ramach tych paradygmatów wyróżniamy <strong>różne typy zadań</strong>, czyli konkretne problemy, które chcemy rozwiązać za pomocą algorytmów ML. Każde zadanie ma specyficzny cel i wymaga odpowiednich metod i algorytmów.</p>
+<p>Uczenie maszynowe możemy podzielić na <strong>paradygmaty</strong> (np. supervised, unsupervised), które określają sposób, w jaki model uczy się informacji z danych. Omawiając te paradygmaty wyróżniamy <strong>różne typy zadań</strong>, czyli określone problemy, które chcemy rozwiązać za pomocą algorytmów uczenia maszynowego. Każde zadanie ma własny, zdefiniowany cel i wymaga użycia odpowiednich metod i algorytmów.</p>
 <section id="klasyfikacja" class="level4">
 <h4 class="anchored" data-anchor-id="klasyfikacja">Klasyfikacja</h4>
 <ul>
 <li><p>Cel</p>
 <ul>
-<li>Celem klasyfikacji jest przypisanie obserwacji do okreśłonej kategorii.</li>
+<li>Celem klasyfikacji jest przypisanie obserwacji do określonej grupy / kategorii.</li>
 </ul></li>
 <li><p>Algorytmy</p>
 <ul>
-<li><p>Decision Trees / Random Forest</p></li>
+<li><p>Decision Trees &amp; Random Forest</p></li>
 <li><p>Support Vector Machines (SVM)</p></li>
-<li><p>k-Nearest Neighbors (k-NN)</p></li>
-<li><p>Sieci neuronowe</p></li>
+<li><p>k-Nearest Neighbors</p></li>
+<li><p>Sieci Neuronowe (NN)</p></li>
+<li><p>Regresja Logistyczna</p></li>
 </ul></li>
 <li><p>Przykłady zastosowań</p>
 <ul>
 <li><p>Rozpoznawanie spamu w wiadomościach e-mail (spam/nie-spam)</p></li>
 <li><p>Diagnoza chorób na podstawie danych medycznych</p></li>
-<li><p>Klasyfikacja zdjęć zwierząt</p></li>
+<li><p>Klasyfikacja zdjęć pojazdów</p></li>
 </ul></li>
 </ul>
+</section>
+<section id="regresja" class="level4">
+<h4 class="anchored" data-anchor-id="regresja">Regresja</h4>
+<ul>
+<li><p>Cel</p>
+<ul>
+<li>Estymacja wartości liczbowych na podstawie danych</li>
+</ul></li>
+<li><p>Algorytmy</p>
+<ul>
+<li><p>Regresja Liniowa</p></li>
+<li><p>Random Forest Regression</p></li>
+<li><p>Support Vector Regression</p></li>
+<li><p>Sieci Neuronowe (NN)</p></li>
+</ul></li>
+<li><p>Przykłady zastosowań</p>
+<ul>
+<li><p>Prognozowanie cen</p></li>
+<li><p>Przewidywanie wartości opadów, temperatury, itp.</p></li>
+<li><p>Szacowanie przychodu / wydatków</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="klasteryzacja" class="level4">
+<h4 class="anchored" data-anchor-id="klasteryzacja">Klasteryzacja</h4>
+<ul>
+<li><p>Cel</p>
+<ul>
+<li>Grupowanie obserwacji na podstawie cech oraz ich podobieństwa, bez wcześniejszego określenia etykiet i grup w danych.</li>
+</ul></li>
+<li><p>Algorytmy</p>
+<ul>
+<li><p>K-means</p></li>
+<li><p>DBSCAN</p></li>
+</ul></li>
+<li><p>Przykłady zastosowań</p>
+<ul>
+<li><p>Grupowanie klientów sklepu internetowego</p></li>
+<li><p>Segmentacja dokumentów</p></li>
+<li><p>Wykrywanie nowych zależności w danych</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="redukcja-wymiarowości" class="level4">
+<h4 class="anchored" data-anchor-id="redukcja-wymiarowości">Redukcja Wymiarowości</h4>
+<ul>
+<li><p>Cel</p>
+<ul>
+<li>Zmniejszenie liczby zmiennych przy zachowaniu jak największej ilości informacji w danych. Taki zabieg ułatwia wizualizację oraz przyspiesza proces uczenia.</li>
+</ul></li>
+<li><p>Algorytmy</p>
+<ul>
+<li><p>Principal Component Analysis (PCA)</p></li>
+<li><p>Independent Component Analysis (ICA)</p></li>
+<li><p>Factor Analysis (Analiza Czynnikowa)</p></li>
+<li><p>Uniform Manifold Approximation and Projection (UMAP)</p></li>
+<li><p>t-Distributed Stochastic Neighbor Embedding (t-SNE)</p></li>
+</ul></li>
+<li><p>Przykłady zastosowań</p>
+<ul>
+<li><p>Wizualizacja danych wielowymiarowych w dwóch lub trzech wymiarach</p></li>
+<li><p>Przygotowanie danych do przeprowadzenia dalszej analizy (np. klasteryzacji lub klasyfikacji)</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="ocena-modeli" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="ocena-modeli"><span class="header-section-number">2.5</span> Ocena Modeli</h3>
+<p>Ocena modeli uczenia maszynowego polega na sprawdzeniu, <strong>jak dobrze model wykonuje swoje zadanie</strong> na danych, których wcześniej nigdy nie widział. Prawidłowa ocena pozwala wykryć przeuczenie (overfitting), niedouczenie (underfitting), porównać różne algorytmy oraz wybrać najlepszy model do wdrożenia.</p>
+<p>Sposób oceny modelu zależy od typu wykonywanego zadania, każdy rodzaj problemów ocenia się inny, odpowiedni dla danego rozwiązania sposób, ale ogólny proces oceny modelu opiera się na kilku wspólnych elementach.</p>
+<section id="podział-danych" class="level4">
+<h4 class="anchored" data-anchor-id="podział-danych">Podział Danych</h4>
+</section>
+<section id="metryki" class="level4">
+<h4 class="anchored" data-anchor-id="metryki">Metryki</h4>
+</section>
+<section id="wykresy-diagnostyczne" class="level4">
+<h4 class="anchored" data-anchor-id="wykresy-diagnostyczne">Wykresy Diagnostyczne</h4>
+</section>
+<section id="walidacja-krzyżowa" class="level4">
+<h4 class="anchored" data-anchor-id="walidacja-krzyżowa">Walidacja Krzyżowa</h4>
 </section>
 </section>
 </section>
@@ -611,12 +722,28 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 <h2 data-number="3" class="anchored" data-anchor-id="rozwiązanie-problemu"><span class="header-section-number">3</span> Rozwiązanie problemu</h2>
 <section id="regresja-logistyczna" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="regresja-logistyczna"><span class="header-section-number">3.1</span> Regresja Logistyczna</h3>
+<p>Regresja logistyczna to jeden z najprostszych i najczęściej używanych modeli uczenia maszynowego do <strong>klasyfikacji binarnej.</strong> Jest to <strong>model klasyfikacyjny</strong>, który przewiduje <strong>prawdopodobieństwo przynależności do jednej z dwóch klas.</strong> Wykorzystuje on funkcję <strong>sigmoidalną (logistyczną),</strong> której zadaniem jest przeskalowanie wyników do zakresu 0-1, czyli do postaci prawdopodobieństwa.</p>
+<p>Funkcja ta ma postać:</p>
+<p><span class="math display">\[
+\sigma(z) =\frac{1}{1+e^{-z}}
+\]</span></p>
+<p>Następnie, po otrzymaniu wartości prawdopodobieństwa, każdej obserwacji przypisujemy odpowiednią klasę przy użyciu progu odcięcia. Przyjmując próg równy 0.5, mamy:</p>
+<ul>
+<li><p>jeśli <span class="math inline">\(P\ge 0.5 \rightarrow klasa~1\)</span></p></li>
+<li><p>jeśli <span class="math inline">\(P\ge 0.5 \rightarrow klasa~0\)</span></p></li>
+</ul>
+<p>Warto pamiętać, że wybór wartości progu odcięcia zależy od konkretnego zastosowania i powinien być ustalany na podstawie biznesowych metryk</p>
+<div class="alert alert-dismissible alert-danger">
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Uwaga!</strong> Dobór wartości progu wpływa na jakość metryk, takich jak recall lub precision.</p>
+</div>
+<p>Chcąc zwiększyć dokładność modelu, możemy zoptymalizować wykorzystywane parametry. W przypadku regresji liniowej w celu znalezienia optymalnych parametrów wykorzystujemy metodę najmniejszych kwadratów. Ze względu na strukturę regresji logistycznej analogiczna metoda byłaby błędna, ponieważ regresja logistyczna przewiduje prawdopodobieństwo przynależności do określonej grupy, a nie szacuje wartość parametru. W takiej sytuacji wykorzystujemy metodę największej wiarygodności (<strong>Maximum likelihood - MLE</strong>). MLE szuka wartości parametrów, które maksymalizują funkcję wiarygodności, czyli takich, dla których obserwowane dane są najbardziej prawdopodobne. Algorytm MLE używa gradientu i kroku uczenia optymalizując funkcję wiarygodności poprzez iteracyjne aktualizowanie wartości parametrów w kierunku maksimum funkcji.</p>
+<p>Gradient to wektor nachylenia funkcji, który mówi w jaki sposób i o jaką wartość zmienić każdą wagę modelu aby zmiejszyć błąd.</p>
+<p>Learning rate to <strong>krok, o jaki przesuwamy parametry w dół gradientu</strong>, odpowiada za to jak szybko wykonujemy zmiany wag w kierunku wskazanym przez gradient.</p>
 </section>
-<section id="las-losowy" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="las-losowy"><span class="header-section-number">3.2</span> Las Losowy</h3>
-</section>
-<section id="sieci-neuronowe" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="sieci-neuronowe"><span class="header-section-number">3.3</span> Sieci Neuronowe</h3>
+<section id="sieci-neuronowe" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="sieci-neuronowe"><span class="header-section-number">3.2</span> Sieci Neuronowe</h3>
 </section>
 </section>
 <section id="podsumowanie" class="level2" data-number="4">
@@ -1219,49 +1346,155 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 <span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a><span class="fu">### Typy zadań</span></span>
 <span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Uczenie maszynowe można podzielić na **paradygmaty** (np. supervised, unsupervised), które określają sposób, w jaki model uczy się z danych. W ramach tych paradygmatów wyróżniamy **różne typy zadań**, czyli konkretne problemy, które chcemy rozwiązać za pomocą algorytmów ML. Każde zadanie ma specyficzny cel i wymaga odpowiednich metod i algorytmów.</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>Uczenie maszynowe możemy podzielić na **paradygmaty** (np. supervised, unsupervised), które określają sposób, w jaki model uczy się informacji z danych. Omawiając te paradygmaty wyróżniamy **różne typy zadań**, czyli określone problemy, które chcemy rozwiązać za pomocą algorytmów uczenia maszynowego. Każde zadanie ma własny, zdefiniowany cel i wymaga użycia odpowiednich metod i algorytmów.</span>
 <span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Klasyfikacja</span></span>
 <span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cel</span>
 <span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Celem klasyfikacji jest przypisanie obserwacji do okreśłonej kategorii.</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Celem klasyfikacji jest przypisanie obserwacji do określonej grupy / kategorii.</span>
 <span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Algorytmy</span>
 <span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Decision Trees / Random Forest</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Decision Trees &amp; Random Forest</span>
 <span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Support Vector Machines (SVM)</span>
 <span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>k-Nearest Neighbors (k-NN)</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>k-Nearest Neighbors</span>
 <span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Sieci neuronowe</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Sieci Neuronowe (NN)</span>
 <span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przykłady zastosowań</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Regresja Logistyczna</span>
 <span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Rozpoznawanie spamu w wiadomościach e-mail (spam/nie-spam)</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przykłady zastosowań</span>
 <span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Diagnoza chorób na podstawie danych medycznych</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Rozpoznawanie spamu w wiadomościach e-mail (spam/nie-spam)</span>
 <span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Klasyfikacja zdjęć zwierząt</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Diagnoza chorób na podstawie danych medycznych</span>
 <span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ocena Modeli</span></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Klasyfikacja zdjęć pojazdów</span>
 <span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rozwiązanie problemu</span></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Regresja</span></span>
 <span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### Regresja Logistyczna</span></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cel</span>
 <span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### Las Losowy</span></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Estymacja wartości liczbowych na podstawie danych</span>
 <span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sieci Neuronowe</span></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Algorytmy</span>
 <span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Regresja Liniowa</span>
 <span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Random Forest Regression</span>
 <span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Support Vector Regression</span>
 <span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Sieci Neuronowe (NN)</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przykłady zastosowań</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Prognozowanie cen</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Przewidywanie wartości opadów, temperatury, itp.</span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Szacowanie przychodu / wydatków</span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Klasteryzacja</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cel</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Grupowanie obserwacji na podstawie cech oraz ich podobieństwa, bez wcześniejszego określenia etykiet i grup w danych.</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Algorytmy</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>K-means</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>DBSCAN</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przykłady zastosowań</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Grupowanie klientów sklepu internetowego</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Segmentacja dokumentów</span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Wykrywanie nowych zależności w danych</span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Redukcja Wymiarowości</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Cel</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Zmniejszenie liczby zmiennych przy zachowaniu jak największej ilości informacji w danych. Taki zabieg ułatwia wizualizację oraz przyspiesza proces uczenia.</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Algorytmy</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Principal Component Analysis (PCA)</span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Independent Component Analysis (ICA)</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Factor Analysis (Analiza Czynnikowa)</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Uniform Manifold Approximation and Projection (UMAP)</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>t-Distributed Stochastic Neighbor Embedding (t-SNE)</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przykłady zastosowań</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Wizualizacja danych wielowymiarowych w dwóch lub trzech wymiarach</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Przygotowanie danych do przeprowadzenia dalszej analizy (np. klasteryzacji lub klasyfikacji)</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ocena Modeli</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>Ocena modeli uczenia maszynowego polega na sprawdzeniu, **jak dobrze model wykonuje swoje zadanie** na danych, których wcześniej nigdy nie widział. Prawidłowa ocena pozwala wykryć przeuczenie (overfitting), niedouczenie (underfitting), porównać różne algorytmy oraz wybrać najlepszy model do wdrożenia.</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>Sposób oceny modelu zależy od typu wykonywanego zadania, każdy rodzaj problemów ocenia się inny, odpowiedni dla danego rozwiązania sposób, ale ogólny proces oceny modelu opiera się na kilku wspólnych elementach.</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Podział Danych</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Metryki</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Wykresy Diagnostyczne</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Walidacja Krzyżowa</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="fu">## Rozwiązanie problemu</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="fu">### Regresja Logistyczna</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a>Regresja logistyczna to jeden z najprostszych i najczęściej używanych modeli uczenia maszynowego do **klasyfikacji binarnej.** Jest to **model klasyfikacyjny**, który przewiduje **prawdopodobieństwo przynależności do jednej z dwóch klas.** Wykorzystuje on funkcję **sigmoidalną (logistyczną),** której zadaniem jest przeskalowanie wyników do zakresu 0-1, czyli do postaci prawdopodobieństwa.</span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a>Funkcja ta ma postać:</span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a>\sigma(z) =\frac{1}{1+e^{-z}}</span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a>$$</span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a>Następnie, po otrzymaniu wartości prawdopodobieństwa, każdej obserwacji przypisujemy odpowiednią klasę przy użyciu progu odcięcia. Przyjmując próg równy 0.5, mamy:</span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>jeśli $P\ge 0.5 \rightarrow klasa~1$</span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>jeśli $P\ge 0.5 \rightarrow klasa~0$</span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a>Warto pamiętać, że wybór wartości progu odcięcia zależy od konkretnego zastosowania i powinien być ustalany na podstawie biznesowych metryk</span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-dismissible .alert-danger}</span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn-close"</span><span class="ot"> data-bs-dismiss</span><span class="op">=</span><span class="st">"alert"</span><span class="dt">&gt;&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span> <span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Uwaga!<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> Dobór wartości progu wpływa na jakość metryk, takich jak recall lub precision.</span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a>Chcąc zwiększyć dokładność modelu, możemy zoptymalizować wykorzystywane parametry. W przypadku regresji liniowej w celu znalezienia optymalnych parametrów wykorzystujemy metodę najmniejszych kwadratów. Ze względu na strukturę regresji logistycznej analogiczna metoda byłaby błędna, ponieważ regresja logistyczna przewiduje prawdopodobieństwo przynależności do określonej grupy, a nie szacuje wartość parametru. W takiej sytuacji wykorzystujemy metodę największej wiarygodności (**Maximum likelihood - MLE**). MLE szuka wartości parametrów, które maksymalizują funkcję wiarygodności, czyli takich, dla których obserwowane dane są najbardziej prawdopodobne. Algorytm MLE używa gradientu i kroku uczenia optymalizując funkcję wiarygodności poprzez iteracyjne aktualizowanie wartości parametrów w kierunku maksimum funkcji.</span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a>Gradient to wektor nachylenia funkcji, który mówi w jaki sposób i o jaką wartość zmienić każdą wagę modelu aby zmiejszyć błąd.</span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a>Learning rate to **krok, o jaki przesuwamy parametry w dół gradientu**, odpowiada za to jak szybko wykonujemy zmiany wag w kierunku wskazanym przez gradient.</span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sieci Neuronowe</span></span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

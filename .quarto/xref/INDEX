@@ -44,5 +44,8 @@
   "reports/test_TEST.qmd": {
     "test_TEST.tex": "96cbd4a8",
     "test_TEST.html": "fa92f7ea"
+  },
+  "data/data_merge.qmd": {
+    "data_merge.html": "c3df18d8"
   }
 }

@@ -44,9 +44,11 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.
 
 ##### Przykłady
 
--   Klasyfikacja (np. wykrywanie spamu, diagnoza chorób),
+-   Klasyfikacja (np. wykrywanie spamu, diagnoza chorób)
 
--   Regresja (np. prognoza cen, przewidywanie popytu).
+-   Regresja (np. prognoza cen, przewidywanie popytu)
+
+------------------------------------------------------------------------
 
 #### Uczenie nienadzorowane (Unsupervised Learning)
 
@@ -60,11 +62,15 @@ Model szuka struktury w danych bez etykiet. Celem jest odkrywanie ukrytych zale�
 
 -   Redukcja Wymiarów
 
+------------------------------------------------------------------------
+
 #### Uczenie półnadzorowane (Semi-Supervised Learning)
 
 ##### Wyjaśnienie
 
 Połączenie uczenia nadzorowanego i nienadzorowanego – model uczy się na niewielkiej ilości danych z etykietami i dużej ilości danych bez nich.
+
+------------------------------------------------------------------------
 
 #### Uczenie ze wzmocnieniem (Reinforcement Learning)
 
@@ -81,6 +87,8 @@ Celem jest opracowanie strategii maksymalizującej długoterminową nagrodę.
 -   Sterowanie robotami
 
 -   Autonomiczne pojazdy
+
+------------------------------------------------------------------------
 
 #### Uczenie głębokie (Deep Learning)
 
@@ -134,6 +142,8 @@ Uczenie maszynowe możemy podzielić na **paradygmaty** (np. supervised, unsuper
 
     -   Klasyfikacja zdjęć pojazdów
 
+------------------------------------------------------------------------
+
 #### Regresja
 
 -   Cel
@@ -158,6 +168,8 @@ Uczenie maszynowe możemy podzielić na **paradygmaty** (np. supervised, unsuper
 
     -   Szacowanie przychodu / wydatków
 
+------------------------------------------------------------------------
+
 #### Klasteryzacja
 
 -   Cel
@@ -177,6 +189,8 @@ Uczenie maszynowe możemy podzielić na **paradygmaty** (np. supervised, unsuper
     -   Segmentacja dokumentów
 
     -   Wykrywanie nowych zależności w danych
+
+------------------------------------------------------------------------
 
 #### Redukcja Wymiarowości
 
@@ -237,7 +251,11 @@ Następnie, po otrzymaniu wartości prawdopodobieństwa, każdej obserwacji przy
 Warto pamiętać, że wybór wartości progu odcięcia zależy od konkretnego zastosowania i powinien być ustalany na podstawie biznesowych metryk
 
 ::: {.alert .alert-dismissible .alert-danger}
-<button type="button" class="btn-close" data-bs-dismiss="alert"></button> <strong>Uwaga!</strong> Dobór wartości progu wpływa na jakość metryk, takich jak recall lub precision.
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Uwaga!</strong> Dobór wartości progu wpływa na jakość metryk, takich jak recall lub precision.
 :::
 
 Chcąc zwiększyć dokładność modelu, możemy zoptymalizować wykorzystywane parametry. W przypadku regresji liniowej w celu znalezienia optymalnych parametrów wykorzystujemy metodę najmniejszych kwadratów. Ze względu na strukturę regresji logistycznej analogiczna metoda byłaby błędna, ponieważ regresja logistyczna przewiduje prawdopodobieństwo przynależności do określonej grupy, a nie szacuje wartość parametru. W takiej sytuacji wykorzystujemy metodę największej wiarygodności (**Maximum likelihood - MLE**). MLE szuka wartości parametrów, które maksymalizują funkcję wiarygodności, czyli takich, dla których obserwowane dane są najbardziej prawdopodobne. Algorytm MLE używa gradientu i kroku uczenia optymalizując funkcję wiarygodności poprzez iteracyjne aktualizowanie wartości parametrów w kierunku maksimum funkcji.
@@ -263,6 +281,8 @@ Model szuka podziału, który **najlepiej porządkuje dane**, czyli minimalizuje
 -   Entropia
 
 -   MSE (regresja)
+
+------------------------------------------------------------------------
 
 #### Las Losowy
 

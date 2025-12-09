@@ -85,8 +85,6 @@ skim(data)
 
 Tak jak widać na powyższym raporcie, zaczytując dane otrzymujemy 3 zmienne typu `character` oraz 13 zmiennych typu `numeric`. Taki podział ze względu na typ zmiennych nie jest odpowiedni. Wszystkie cechy typu `character` mają w naszym przypadku błędne formatowanie. Dodatkowo będziemy musieli dodać nowe typy zmiennych takie jak `boolean` oraz `factor`, aby móc szybko i praktycznie pracować z danymi. Odpowiedni wybór typów zmiennych jest podstawowym krokiem rozpczynając analizę zbioru danych. Zrobimy to w następujący sposób.
 
-badania_sorted \<- badania\[order(is.na(badania\$glucose), decreasing = TRUE), \]
-
 ```{r}
 badania <- data |> 
   mutate(
@@ -323,7 +321,7 @@ round(data.frame(t(statystyki_po))[c(2:9,10:12), ], 3)
 Sprawdzając podstawowe statystki widzimy, że uzupełniając dane zachowaliśmy ich strukturę. Różnica pomiędzy wartościami statystyk polega najczęściej na zmianie części tysięcznych lub setnych, więc wartości `NA` zostały bardzo dobrze odwzorowane. Teraz możemy wykonać analizę wstępną naszego zbioru danych, aby następnie przejść do stworzenia modeli predykcyjnych oraz głębszej analizy. Ostatnim punktem pracy nad modyfikowaniem naszych danych jest zapisanie oszyszczonych i uzupełnionych danych do pliku `.csv`, który wykorzystamy m. in. podczas tworzenia modeli w języku programowania `R` lub `python.`
 
 ```{r}
-write.csv(badania, file = "data/clean_data.csv")
+write.csv(badania, file = "data/badania_clean.csv")
 ```
 
 ## Analiza Danych

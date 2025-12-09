@@ -74,6 +74,7 @@ format:
     css: styles/styles.css
     toc: true
     toc-title: "Spis treści"
+    toc-depth: 3
     number-sections: true
     number-depth: 3
     title-block-banner: "#947E76"

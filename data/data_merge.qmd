@@ -8,25 +8,24 @@ editor: visual
 
 ```{r}
 library(readr)
-badania1 <- read_csv("badania.csv")
+badania1 <- read_csv("badania_clean.csv") |> 
+  mutate(male = if_else(sex == "Male", 1, 0)) |> 
+  select(c(-1, -sex))
 badania2 <- read_csv("badania2.csv")
 
-names(badania1) <- tolower(names(badania1))
 names(badania2) <- tolower(names(badania2))
 
 
 ```
 
 ```{r}
+
+library(dplyr)
+
 calc_framingham_points <- function(male, age, ldlc, totchol, hdlc, sysbp, diabp, diabetes, smoker) {
 
   ldl_points <- 0
   chol_points <- 0
-
-  library(dplyr)
-
-calc_framingham_points <- function(male, age, ldlc, totchol, hdlc, sysbp, diabp, diabetes, smoker) {
-
   # --- Age points ---
   age_pts <- ifelse(male == 1,
                     case_when(
@@ -39,7 +38,7 @@ calc_framingham_points <- function(male, age, ldlc, totchol, hdlc, sysbp, diabp,
                       age >= 60 & age <= 64 ~ 5,
                       age >= 65 & age <= 69 ~ 6,
                       age >= 70 & age <= 74 ~ 7,
-                      TRUE ~ NA_real_
+                      TRUE ~ 7
                     ),
                     case_when(
                       age >= 30 & age <= 34 ~ -9,
@@ -51,7 +50,7 @@ calc_framingham_points <- function(male, age, ldlc, totchol, hdlc, sysbp, diabp,
                       age >= 60 & age <= 64 ~ 8,
                       age >= 65 & age <= 69 ~ 8,
                       age >= 70 & age <= 74 ~ 8,
-                      TRUE ~ NA_real_
+                      TRUE ~ 8
                     )
   )
 
@@ -157,10 +156,14 @@ calc_framingham_points <- function(male, age, ldlc, totchol, hdlc, sysbp, diabp,
   bp_pts <- pmax(sbp_pts, dbp_pts, na.rm = TRUE)
 
   # --- Diabetes points ---
-  diab_pts <- ifelse(diabetes == 1, 2, 0)
+  diab_pts <- ifelse(male == 1,
+                     ifelse(diabetes == 1, 2, 0),
+                     ifelse(diabetes == 1, 4, 0))
 
   # --- Smoker points ---
-  smoke_pts <- ifelse(smoker == 1, 2, 0)
+  smoke_pts <- ifelse(male == 1,
+                      ifelse(smoker == 1, 2, 0),
+                      ifelse(smoker == 1, 2, 0))
 
   # --- Total points ---
   total_pts <- age_pts + chol_pts + ldl_pts + hdl_pts + bp_pts + diab_pts + smoke_pts
@@ -168,29 +171,103 @@ calc_framingham_points <- function(male, age, ldlc, totchol, hdlc, sysbp, diabp,
   return(total_pts)
 }
 
-}
-
-
-df <- head(badania2)
-df$points <- calc_framingham_points(df$male, df$age, df$ldlc, df$totchol, df$hdlc,
-                                    df$sysbp, df$diabp, df$diabetes, df$smoker)
 
 ```
 
 ```{r}
-badania1 <- select(badania1, -tenyearchd)
-reszta <- badania2 |> select(c(2,14,7,8,18,19,12))
-czesc_wspolna <- badania2[, names(badania2) %in% names(badania1)]
-badania2 <- cbind(czesc_wspolna, reszta)
-
-badania1 <- badania1[, sort(names(badania1))]
-badania2 <- badania2[, sort(names(badania2))]
 
 badania2 <- badania2 |> 
   mutate(male = if_else(sex == 1, 1, 0)) |> 
   select(c(-sex))
 
-colnames(badania2) <- colnames(badania1) 
+```
 
+```{r}
+badania2_clean <- badania2[complete.cases(badania2[, c("hdlc", "ldlc", "sysbp", "diabp", "totchol", "diabetes", "cursmoke", "age", "male")]), ]
+badania2_clean$points <- calc_framingham_points(
+    badania2_clean$male,
+    badania2_clean$age,
+    badania2_clean$ldlc,
+    badania2_clean$totchol,
+    badania2_clean$hdlc,
+    badania2_clean$sysbp,
+    badania2_clean$diabp,
+    badania2_clean$diabetes,
+    badania2_clean$cursmoke
+  )
+
+badania2_clean$tenyearchd <- ifelse(
+  badania2_clean$male == 1, 
+  ifelse(badania2_clean$points >= 9, 1, 0),
+  ifelse(badania2_clean$points >= 14, 1, 0)
+)
+```
+
+```{r}
+badania2_clean |>
+  group_by(tenyearchd) |> 
+  summarise(n())
+```
+
+```{r}
+reszta <- badania2_clean |> select(c(6, 7, 11, 13, 17, 18))
+czesc_wspolna <- badania2_clean[, names(badania2_clean) %in% tolower(names(badania1))]
+badania2 <- cbind(czesc_wspolna, reszta)
+
+
+badania1 <- badania1[, sort(names(badania1))]
+badania2 <- badania2[, sort(names(badania2))]
+
+colnames(badania2) <- colnames(badania1)
+
+```
+
+```{r}
+library(mice)
+
+badania1 <- badania1 |> 
+  mutate(
+    sex = factor(male, levels = c(0, 1), labels = c("Female", "Male")),
+  ) |> 
+  dplyr::select(-male)
+badania <- badania2 |> 
+  mutate(
+    sysBP = as.numeric(sysBP),
+    diaBP = as.numeric(diaBP),
+    BMI = as.numeric(BMI),
+    sex = factor(male, levels = c(0, 1), labels = c("Female", "Male")),
+    education = factor(education, ordered = TRUE),
+    currentSmoker = factor(currentSmoker, labels = c("No", "Yes")),
+    BPMeds = factor(BPMeds, labels = c("No", "Yes")),
+    prevalentStroke = factor(prevalentStroke, labels = c("No", "Yes")),
+    prevalentHyp = factor(prevalentHyp, labels = c("No", "Yes")),
+    diabetes = factor(diabetes, labels = c("No", "Yes")),
+    TenYearCHD = factor(TenYearCHD, labels = c("No", "Yes"))
+  ) |> dplyr::select(-male) 
+
+badania <- badania[rowSums(is.na(badania)) <= 1, ]
+
+```
+
+```{r}
+metody <- make.method(badania)
+
+metody["BPMeds"] <- "logreg"        #
+metody["education"] <- "polr" 
+metody["BMI"] <- "pmm"
+metody["cigsPerDay"] <- "pmm"
+metody["glucose"] <- "pmm"
+metody["heartRate"] <- "pmm"
+uzupelnienia <- mice(badania,
+                m = 5,
+                method = metody,
+                seed = 2025)
+badania <- complete(uzupelnienia)
+
+write_csv(badania, "badania2_clean.csv")
+```
+
+```{r}
+badania_polaczone <- rbind(badania1, badania)
 
 ```

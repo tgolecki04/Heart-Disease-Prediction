@@ -15,7 +15,7 @@ Praca nad projektem obejmowała odpowiednie przygotowanie danych, eksplorację, 
 
 ------------------------------------------------------------------------
 
-Ostateczne wnioski projektu podkreślają zarówno praktyczną wartość modeli uczenia maszynowego w medycynie, jak i konieczność świadomej interpretacji uzyskanych wyników oraz uwzględnienia ograniczeń związanych z danymi. Zdobyte informacje mogą stanowić punkt wyjścia do dalszych badań, optymalizacji modeli lub rozszerzenia analizy o nowe zmienne i większe zbiory danych co pozwoli na jeszcze dokładniejsze predykcje i uzyskanie nowych informacji związanych z omawianymi danymi.
+Ostateczne wnioski projektu podkreślają zarówno praktyczną wartość modeli uczenia maszynowego w medycynie, jak i konieczność świadomej interpretacji uzyskanych wyników oraz uwzględnienia ograniczeń związanych z danymi. Zdobyte informacje mogą stanowić punkt wyjścia do dalszych badań, optymalizacji modeli lub rozszerzenia analizy o nowe zmienne i większe zbiory danych, co pozwoli na jeszcze dokładniejsze predykcje i uzyskanie nowych informacji związanych z omawianymi danymi.
 
 **Dziękujemy**.
 

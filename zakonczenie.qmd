@@ -1,21 +1,23 @@
 ---
 title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
-subtitle: "Podsumowanie Projektu I Naszej Pracy"
+subtitle: "Podsumowanie Projektu Oraz Naszej Pracy"
 format: html
 editor: visual
 ---
 
-## Temat 1
+## Zakończenie
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Projekt analizy danych z *Framingham Heart Study* pozwolił na kompleksowe rozwiązanie problemu oceny ryzyka chorób sercowo-naczyniowych z wykorzystaniem metod statystycznych oraz narzędzi uczenia maszynowego. Połączenie klasycznej analizy danych z modelami predykcyjnymi oraz testami statystycznymi umożliwiło nie tylko zrozumienie zależności obecnych w omawianym zbiorze danych, ale także ocenę, w jakim stopniu nowoczesne i zaawansowane algorytmy uczenia maszynowego potrafią przewidywać ryzyko wystąpienia choroby w oparciu o dostępne informacje kliniczne.
 
-## Temat 2
+------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Praca nad projektem obejmowała odpowiednie przygotowanie danych, eksplorację, analizę i wizualizację zależności oraz statystyk, budowę, a także porównanie kilku modeli predykcyjnych, interpretację ich wyników i wybranie najlepszego z nich w celu stworzenia aplikacji pobierającej od użytkownika dane medyczne i oszacowującej poziom ryzyka wystąpienia zawału serca. Zastosowane metody – od regresji logistycznej, przez modele drzew losowych, aż po XGBoost i sieci neuronowe – pozwoliły pokazać różnice w efektywności i charakterystyce poszczególnych typów i architektur modeli.
 
-## Temat 3
+------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Ostateczne wnioski projektu podkreślają zarówno praktyczną wartość modeli uczenia maszynowego w medycynie, jak i konieczność świadomej interpretacji uzyskanych wyników oraz uwzględnienia ograniczeń związanych z danymi. Zdobyte informacje mogą stanowić punkt wyjścia do dalszych badań, optymalizacji modeli lub rozszerzenia analizy o nowe zmienne i większe zbiory danych co pozwoli na jeszcze dokładniejsze predykcje i uzyskanie nowych informacji związanych z omawianymi danymi.
+
+**Dziękujemy**.
 
 <div>
 

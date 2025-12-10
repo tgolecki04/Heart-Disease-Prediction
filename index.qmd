@@ -55,32 +55,6 @@ Z tego względu rośnie znaczenie wczesnego wykrywania ryzyka zawału serca, obe
 
 W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne, precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.
 
-Zachęcamy do obejrzenia poniższego filmu dr. Marka Skoczylasa, który w swoim filmie omawia najważniejsze informacje dotyczące tego jak wyglądają pozątkowe etapy chorego serca, przebieg zawału oraz to co możemy zrobić w sytuacji zagrożenia naszego życia, aby zwiększyć szanse na otrzymanie pomocy na czas. W sytuacji nagłego zawału serca liczy się każda chwila, dlatego prawidłowe zachowanie w jego trakcie oraz wezwanie pomocy może uratować nam życie. Doktor Skoczylas porusza istotne czynniki, które mogą nas poinformować o tym, że jak najszybciej musimy wezwać pogotowie ratunkowe. Więcej informacji w filmie.
-
-{{< video https://www.youtube.com/watch?v=DTX_skjG5As >}}
-
-Dodatkowo chcemy przedstawić film, w którym dr. Skoczylas porusza temat nieprawidłowego działania układu sercowo naczyniowego oraz znaki jakie daje znać o sobie w momencie występowania choroby lub nieprawidłowego działania. Oznak omówione w filmie powinny wzbudzić naszą uwagę, a następnie udać się do lekarza w celu uzyskania odpowiedniej pomocy medycznej. Pamiętajmy - wykrycie nieprawidłowości organizmu lub choroby w odpowiednim i wczesnym etapie choroby zwiększa szanse na przeżycie oraz powrót do zdrowia wielokrotnie. Dbajmy o siebie i systematycznie wykonujmy podstawowe badania.
-
-{{< video https://www.youtube.com/watch?v=d15oEDeoyD8 >}}
-
-Podsumowując, sygnałami, które zaliczamy do **początkowych znaków choroby wieńcowej** są:
-
--   **Ból lub dyskomfort w klatce piersiowej** (ucisk lub pieczenie – szczególnie przy wysiłku).
-
--   **Duszność** podczas aktywności fizycznej oraz w spoczynku.
-
--   **Zmęczenie** nieadekwatne do wysiłku.
-
--   **Ból promieniujący** do ramienia, szyi, pleców i nadbrzusza.
-
--   **Kołatanie serca** lub nieregularny rytm bicia serca.
-
--   **Zawroty głowy** oraz **uczucie omdlenia**.
-
--   **Nudności i zimne poty** pojawiające się przy niewielkim wysiłku.
-
-Każdy z tych sygnałów, wykryty odpowiednio wcześnie może uratować nam życie. Pamiętajmy.
-
 Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze, zadamy pytania, na które poszukamy odpowiedzi w trakcie analizy danych oraz dokładniej omówimy kolejne etapy projektu.
 
 <div>

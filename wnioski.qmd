@@ -5,17 +5,39 @@ format: html
 editor: visual
 ---
 
-## Temat 1
+## Wnioski
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Analiza zbioru danych *Framingham Heart Study* pozwoliła nam na prześledzenie, w jaki sposób różne czynniki zdrowotne oraz styl życia wpływają bezpośrednio lub pośrednio na ryzyko wystąpienia choroby sercowo-naczyniowej w perspektywie 10 najbliższych lat. Zastosowane metody statystyczne i modele uczenia maszynowego pozwoliły na ocenę znaczenia poszczególnych zmiennych oraz sprawdzenie, które z nich mają największy wpływ na ryzyko zachorowania. W ten sposób uzyskaliśmy istotne informacje na temat głównych czynników powodujących wystąpienie choroby oraz wskazówki, na temat tego jakie środki profilaktyki powinniśmy rozważyć, aby w przyszłości zminimalizować ryzyko zawału serca.
 
-## Temat 2
+------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Przeprowadzone badania obejmowały zarówno klasyczne modele, takie jak regresja logistyczna, jak i bardziej zaawansowane techniki i algorytmy, w tym drzewa decyzyjne, Random Forest, XGBoost oraz sieci neuronowe. Dzięki temu możliwe było porównanie skuteczności różnych podejść i wskazanie modeli najlepiej dopasowanych do tego typu danych medycznych. Ostatecznie to sieci neuronowe najlepiej oddawały prawdziwą strukturę danych oraz dokonywały najlepszej predykcji zagrożenia.
 
-## Temat 3
+------------------------------------------------------------------------
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec purus porta, bibendum massa iaculis, aliquet tortor. Duis nunc sem, ornare eget sem quis, auctor fermentum erat. Donec tincidunt urna id nibh sagittis rutrum. Aliquam et ligula vel tellus convallis dapibus non ut mi. Pellentesque elementum nisl ipsum, pretium sodales sem dictum eget. Nam sollicitudin, felis in fringilla euismod, nisl lorem facilisis nibh, vel facilisis neque ipsum at elit. Proin ac tortor id augue auctor sagittis ac a neque. Quisque sit amet fermentum eros, eu aliquet enim. Maecenas ut bibendum nulla. Aenean vitae volutpat nisl. Duis ipsum risus, commodo eget consectetur nec, posuere sed nunc. Integer luctus pretium aliquet. Suspendisse et neque lacus.
+Wnioski zaprezentowane na tej stronie odnoszą się bezpośrednio do postawionych wcześniej hipotez badawczych w `PLAN PROJEKTU`. Analiza pozwala ocenić ich prawdziwość, a także wskazać najważniejsze zależności, jakie ujawniły się w danych podczas pracy z danymi – zarówno dotyczące czynników ryzyka, jak i jakości predykcyjnej zastosowanych metod.
+
+## Omówienie Hipotez
+
+### H1
+
+### H2
+
+### H3
+
+### H4
+
+## Omówienie Pytań Badawczych
+
+### P1
+
+### P2
+
+### P3
+
+### P4
+
+### P5
 
 <div>
 

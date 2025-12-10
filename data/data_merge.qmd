@@ -9,7 +9,7 @@ editor: visual
 ```{r}
 library(readr)
 badania1 <- read_csv("badania_clean.csv") |> 
-  select(c(-1))
+  dplyr::select(c(-1))
 badania2 <- read_csv("badania2.csv")
 
 names(badania2) <- tolower(names(badania2))

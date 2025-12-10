@@ -286,11 +286,79 @@ Model szuka podziału, który **najlepiej porządkuje dane**, czyli minimalizuje
 
 #### Las Losowy
 
-Las losowy jest to **duża kolekcja drzew decyzyjnych**, które uczone są w sposób losowy, a ich przewidywania są **połączone**. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcjina podstawie większej próby znacznie ulepsza jakość modelu oraz daje dokładniejszą predykcję.
+Las losowy jest to **duża kolekcja drzew decyzyjnych**, które uczone są w sposób losowy, a ich przewidywania są **połączone**. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcji na podstawie większej próby znacznie poprawia jakość modelu oraz daje dokładniejszą predykcję.
+
+##### **Koncepcje lasu losowego:**
+
+-   Bootstrap - losowanie danych z powtórzeniami. Każde drzewo uczy się na **losowej próbce danych**.
+
+-   Random subspace - losowanie podzbioru cech, dzięki temu drzewa nie są do siebie bardzo podobne.
+
+-   Agregacja wyników drzew - w przypadku klasyfikacji wybieramy modę, natomiast w przypadku regresji używamy średniej.
+
+------------------------------------------------------------------------
+
+**XGBoost (Extreme Gradient Boosting)** to wydajna i ulepszona implementacja algorytmu **gradient boosting**, używająca drzew decyzyjnych jako modeli bazowych. To jeden z najskuteczniejszych algorytmów ML. XGBoost buduje **sekwencję drzew**, z których **każde kolejne drzewo naprawia błędy poprzednich**. Model minimalizuje funkcję straty za pomocą **gradientu**.
+
+##### **Najważniejsze cechy:**
+
+-   Drzewa budowane są jedno po drugim.
+
+-   Kolejne drzewo dopasowuje się do gradientu błędu, poprawiając jakość poprzedniej predykcji.
+
+-   Wysoka wydajność dzięki równoległości i kompresji.
+
+-   Algorytm zatrzymuje się w przypadku braku poprawy swojej jakości.
+
+------------------------------------------------------------------------
+
+##### **Porównanie**
+
+Random Forest buduje wiele niezależnych drzew i uśrednia ich wyniki, dzięki czemu jest prosty, stabilny i odporny na przeuczenie. XGBoost **tworzy drzewa sekwencyjnie**, każde z nich poprawia błędy poprzednich i stosuje regularizację, dlatego zwykle osiąga najwyższą dokładność. W praktyce XGBoost jest **lepszym rozwiązaniem**, gdy zależy nam na maksymalnej jakości modelu. Dlatego też zdecydowaliśmy się na ten typ algorytmu w naszym projekcie.
 
 ### Sieci Neuronowe
 
+**Sieci neuronowe** to metoda uczenia maszynowego inspirowana działaniem ludzkiego mózgu. Składają się one z **warstw neuronów**: wejściowej, jednej lub wielu ukrytych oraz wyjściowej. Każdy neuron przetwarza odpowiednio sygnał, stosując tzw. funkcję aktywacji, a wagi między poszczególnymi neuronami są **uczone** na podstawie danych treningowych.
+
+#### Najważniejsze cechy
+
+-   Potrafią wykrywać **złożone, nieliniowe zależności** w danych.
+
+-   Wymagają rozbudowanego zbioru danych i odpowiedniego doboru parametrów.
+
+-   Są podstawą **głębokiego uczenia (Deep Learning)**, w sytuacji kiedy sieć ma wiele warstw ukrytych.
+
+#### Typy sieci neuronowych
+
+-   **Perceptron** - klasyczne sieci wykorzystywane do klasyfikacji lub regresji.
+
+-   **Sieci rekurencyjne (RNN)**, które uwzględniają zależności czasowe.
+
+-   **Konwolucyjne sieci neuronowe (CNN)** - świetnie nadają się do analizy obrazów i danych przestrzennych.
+
+-   **Sieci głębokiego wzmocnienia (Deep Reinforcment Learning)** - stosowane są w przypadku realizacji zadań w dynamicznym oraz zmiennym środowisku.
+
+#### Zastosowania
+
+-   Przetwarzanie języka naturalnego w czasie rzeczywistym.
+
+-   Systemy rekomendacyjne na stronach internetowych.
+
+-   Sterowanie robotami i gry komputerowe.
+
+-   Analiza finansowa.
+
+-   Przetwarzanie obrazów i wideo.
+
 ## Podsumowanie
+
+W tej części projektu przedstawione zostały najważniejsze modele uczenia maszynowego wykorzystywane w praktyce do rozwiązywania problemów klasyfikacyjnych. Omówiona została **regresja logistyczna**, czyli jedno z najprostszych, a jednocześnie bardzo skutecznych narzędzi do przewidywania zmiennych binarnych.
+
+Następnie opisane zostało **drzewo decyzyjne**, które dzięki swojej przejrzystej strukturze umożliwia intuicyjne podejmowanie decyzji na podstawie hierarchii warunków. Jego rozwinięciem są **metody zespołowe**, takie jak **Random Forest**, łączący wiele drzew w jeden stabilny model, oraz **XGBoost**, który buduje drzewa sekwencyjnie, stopniowo korygując błędy poprzednich i osiągając jedne z najlepszych możliwych wyników uzyskanych przy pomocy drzew decyzyjnych.
+
+Ostatnią grupą modeli były **sieci neuronowe**, inspirowane działaniem ludzkiego mózgu. Dzięki warstwowej architekturze potrafią uchwycić bardzo złożone zależności w danych i są podstawą współczesnych sukcesów w dziedzinach takich jak rozpoznawanie obrazów czy przetwarzanie języka w czasie rzeczywistym.
+
+Przedstawione modele pozwoliły w mniejszym lub większym stopniu uchwycić zależności w omawianym zbiorze danych i stały się realnym rozwiązaniem dla problemu **predykcji zagrożenia ryzyka zawału serca w ciągu najbliższych 10 lat**. Ze względu na posiadanie zmiennej predykcyjnej posłużyliśmy się klasyfikacją przy użyciu różnych metod. Od prostszej regresji logistycznej aż po zaawansowaną architekturę sieci neuronowej. Najlepsze wyniki uzyskaliśmy przy użyciu właśnie tej metody, i to właśnie z niej jesteśmy najbardziej zadowoleni. Wierzymy że predykcje osiągane za pomocą tego modelu mają faktycznie realne zastosowanie w otaczającym nas świecie, co potwierdzają **uzyskane metryki oceny jakości**. Przy pomocy tego modelu postanowiliśmy dodatkowo stworzyć ankietę, w której po uzupełnieniu odpowiednich danych medycznych, są one przetwarzane przez stworzony model. Ostatecznie każdy z nas po wypełnieniu takiej ankiety otrzymuje informacje wsteczną o przewidywanym poziomie zagrożenia zawału serca. W tym celu odsyłamy do zakładki `APLIKACJA` w górnej nawigacji strony internetowej. Teraz omówimy uzyskane do tej pory informacje i wnioski, które wyciągneliśmy w trakcie projektu oraz **odpowiemy** na postawione wcześniej **hipotezy i pytania**.
 
 <div>
 

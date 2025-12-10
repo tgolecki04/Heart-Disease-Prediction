@@ -769,15 +769,71 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 </section>
 <section id="las-losowy" class="level4">
 <h4 class="anchored" data-anchor-id="las-losowy">Las Losowy</h4>
-<p>Las losowy jest to <strong>duża kolekcja drzew decyzyjnych</strong>, które uczone są w sposób losowy, a ich przewidywania są <strong>połączone</strong>. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcjina podstawie większej próby znacznie ulepsza jakość modelu oraz daje dokładniejszą predykcję.</p>
+<p>Las losowy jest to <strong>duża kolekcja drzew decyzyjnych</strong>, które uczone są w sposób losowy, a ich przewidywania są <strong>połączone</strong>. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcji na podstawie większej próby znacznie poprawia jakość modelu oraz daje dokładniejszą predykcję.</p>
+<section id="koncepcje-lasu-losowego" class="level5">
+<h5 class="anchored" data-anchor-id="koncepcje-lasu-losowego"><strong>Koncepcje lasu losowego:</strong></h5>
+<ul>
+<li><p>Bootstrap - losowanie danych z powtórzeniami. Każde drzewo uczy się na <strong>losowej próbce danych</strong>.</p></li>
+<li><p>Random subspace - losowanie podzbioru cech, dzięki temu drzewa nie są do siebie bardzo podobne.</p></li>
+<li><p>Agregacja wyników drzew - w przypadku klasyfikacji wybieramy modę, natomiast w przypadku regresji używamy średniej.</p></li>
+</ul>
+<hr>
+<p><strong>XGBoost (Extreme Gradient Boosting)</strong> to wydajna i ulepszona implementacja algorytmu <strong>gradient boosting</strong>, używająca drzew decyzyjnych jako modeli bazowych. To jeden z najskuteczniejszych algorytmów ML. XGBoost buduje <strong>sekwencję drzew</strong>, z których <strong>każde kolejne drzewo naprawia błędy poprzednich</strong>. Model minimalizuje funkcję straty za pomocą <strong>gradientu</strong>.</p>
+</section>
+<section id="najważniejsze-cechy" class="level5">
+<h5 class="anchored" data-anchor-id="najważniejsze-cechy"><strong>Najważniejsze cechy:</strong></h5>
+<ul>
+<li><p>Drzewa budowane są jedno po drugim.</p></li>
+<li><p>Kolejne drzewo dopasowuje się do gradientu błędu, poprawiając jakość poprzedniej predykcji.</p></li>
+<li><p>Wysoka wydajność dzięki równoległości i kompresji.</p></li>
+<li><p>Algorytm zatrzymuje się w przypadku braku poprawy swojej jakości.</p></li>
+</ul>
+<hr>
+</section>
+<section id="porównanie" class="level5">
+<h5 class="anchored" data-anchor-id="porównanie"><strong>Porównanie</strong></h5>
+<p>Random Forest buduje wiele niezależnych drzew i uśrednia ich wyniki, dzięki czemu jest prosty, stabilny i odporny na przeuczenie. XGBoost <strong>tworzy drzewa sekwencyjnie</strong>, każde z nich poprawia błędy poprzednich i stosuje regularizację, dlatego zwykle osiąga najwyższą dokładność. W praktyce XGBoost jest <strong>lepszym rozwiązaniem</strong>, gdy zależy nam na maksymalnej jakości modelu. Dlatego też zdecydowaliśmy się na ten typ algorytmu w naszym projekcie.</p>
+</section>
 </section>
 </section>
 <section id="sieci-neuronowe" class="level3" data-number="3.3">
 <h3 data-number="3.3" class="anchored" data-anchor-id="sieci-neuronowe"><span class="header-section-number">3.3</span> Sieci Neuronowe</h3>
+<p><strong>Sieci neuronowe</strong> to metoda uczenia maszynowego inspirowana działaniem ludzkiego mózgu. Składają się one z <strong>warstw neuronów</strong>: wejściowej, jednej lub wielu ukrytych oraz wyjściowej. Każdy neuron przetwarza odpowiednio sygnał, stosując tzw. funkcję aktywacji, a wagi między poszczególnymi neuronami są <strong>uczone</strong> na podstawie danych treningowych.</p>
+<section id="najważniejsze-cechy-1" class="level4">
+<h4 class="anchored" data-anchor-id="najważniejsze-cechy-1">Najważniejsze cechy</h4>
+<ul>
+<li><p>Potrafią wykrywać <strong>złożone, nieliniowe zależności</strong> w danych.</p></li>
+<li><p>Wymagają rozbudowanego zbioru danych i odpowiedniego doboru parametrów.</p></li>
+<li><p>Są podstawą <strong>głębokiego uczenia (Deep Learning)</strong>, w sytuacji kiedy sieć ma wiele warstw ukrytych.</p></li>
+</ul>
+</section>
+<section id="typy-sieci-neuronowych" class="level4">
+<h4 class="anchored" data-anchor-id="typy-sieci-neuronowych">Typy sieci neuronowych</h4>
+<ul>
+<li><p><strong>Perceptron</strong> - klasyczne sieci wykorzystywane do klasyfikacji lub regresji.</p></li>
+<li><p><strong>Sieci rekurencyjne (RNN)</strong>, które uwzględniają zależności czasowe.</p></li>
+<li><p><strong>Konwolucyjne sieci neuronowe (CNN)</strong> - świetnie nadają się do analizy obrazów i danych przestrzennych.</p></li>
+<li><p><strong>Sieci głębokiego wzmocnienia (Deep Reinforcment Learning)</strong> - stosowane są w przypadku realizacji zadań w dynamicznym oraz zmiennym środowisku.</p></li>
+</ul>
+</section>
+<section id="zastosowania" class="level4">
+<h4 class="anchored" data-anchor-id="zastosowania">Zastosowania</h4>
+<ul>
+<li><p>Przetwarzanie języka naturalnego w czasie rzeczywistym.</p></li>
+<li><p>Systemy rekomendacyjne na stronach internetowych.</p></li>
+<li><p>Sterowanie robotami i gry komputerowe.</p></li>
+<li><p>Analiza finansowa.</p></li>
+<li><p>Przetwarzanie obrazów i wideo.</p></li>
+</ul>
+</section>
 </section>
 </section>
 <section id="podsumowanie" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="podsumowanie"><span class="header-section-number">4</span> Podsumowanie</h2>
+<p>W tej części projektu przedstawione zostały najważniejsze modele uczenia maszynowego wykorzystywane w praktyce do rozwiązywania problemów klasyfikacyjnych. Omówiona została <strong>regresja logistyczna</strong>, czyli jedno z najprostszych, a jednocześnie bardzo skutecznych narzędzi do przewidywania zmiennych binarnych.</p>
+<p>Następnie opisane zostało <strong>drzewo decyzyjne</strong>, które dzięki swojej przejrzystej strukturze umożliwia intuicyjne podejmowanie decyzji na podstawie hierarchii warunków. Jego rozwinięciem są <strong>metody zespołowe</strong>, takie jak <strong>Random Forest</strong>, łączący wiele drzew w jeden stabilny model, oraz <strong>XGBoost</strong>, który buduje drzewa sekwencyjnie, stopniowo korygując błędy poprzednich i osiągając jedne z najlepszych możliwych wyników uzyskanych przy pomocy drzew decyzyjnych.</p>
+<p>Ostatnią grupą modeli były <strong>sieci neuronowe</strong>, inspirowane działaniem ludzkiego mózgu. Dzięki warstwowej architekturze potrafią uchwycić bardzo złożone zależności w danych i są podstawą współczesnych sukcesów w dziedzinach takich jak rozpoznawanie obrazów czy przetwarzanie języka w czasie rzeczywistym.</p>
+<p>Przedstawione modele pozwoliły w mniejszym lub większym stopniu uchwycić zależności w omawianym zbiorze danych i stały się realnym rozwiązaniem dla problemu <strong>predykcji zagrożenia ryzyka zawału serca w ciągu najbliższych 10 lat</strong>. Ze względu na posiadanie zmiennej predykcyjnej posłużyliśmy się klasyfikacją przy użyciu różnych metod. Od prostszej regresji logistycznej aż po zaawansowaną architekturę sieci neuronowej. Najlepsze wyniki uzyskaliśmy przy użyciu właśnie tej metody, i to właśnie z niej jesteśmy najbardziej zadowoleni. Wierzymy że predykcje osiągane za pomocą tego modelu mają faktycznie realne zastosowanie w otaczającym nas świecie, co potwierdzają <strong>uzyskane metryki oceny jakości</strong>. Przy pomocy tego modelu postanowiliśmy dodatkowo stworzyć ankietę, w której po uzupełnieniu odpowiednich danych medycznych, są one przetwarzane przez stworzony model. Ostatecznie każdy z nas po wypełnieniu takiej ankiety otrzymuje informacje wsteczną o przewidywanym poziomie zagrożenia zawału serca. W tym celu odsyłamy do zakładki <code>APLIKACJA</code> w górnej nawigacji strony internetowej. Teraz omówimy uzyskane do tej pory informacje i wnioski, które wyciągneliśmy w trakcie projektu oraz <strong>odpowiemy</strong> na postawione wcześniej <strong>hipotezy i pytania</strong>.</p>
 <div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1556,17 +1612,85 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.</p>
 <span id="cb1-286"><a href="#cb1-286" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-287"><a href="#cb1-287" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Las Losowy</span></span>
 <span id="cb1-288"><a href="#cb1-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>Las losowy jest to **duża kolekcja drzew decyzyjnych**, które uczone są w sposób losowy, a ich przewidywania są **połączone**. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcjina podstawie większej próby znacznie ulepsza jakość modelu oraz daje dokładniejszą predykcję.</span>
+<span id="cb1-289"><a href="#cb1-289" aria-hidden="true" tabindex="-1"></a>Las losowy jest to **duża kolekcja drzew decyzyjnych**, które uczone są w sposób losowy, a ich przewidywania są **połączone**. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcji na podstawie większej próby znacznie poprawia jakość modelu oraz daje dokładniejszą predykcję.</span>
 <span id="cb1-290"><a href="#cb1-290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sieci Neuronowe</span></span>
+<span id="cb1-291"><a href="#cb1-291" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Koncepcje lasu losowego:**</span></span>
 <span id="cb1-292"><a href="#cb1-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb1-293"><a href="#cb1-293" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Bootstrap - losowanie danych z powtórzeniami. Każde drzewo uczy się na **losowej próbce danych**.</span>
 <span id="cb1-294"><a href="#cb1-294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-295"><a href="#cb1-295" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Random subspace - losowanie podzbioru cech, dzięki temu drzewa nie są do siebie bardzo podobne.</span>
 <span id="cb1-296"><a href="#cb1-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb1-297"><a href="#cb1-297" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Agregacja wyników drzew - w przypadku klasyfikacji wybieramy modę, natomiast w przypadku regresji używamy średniej.</span>
 <span id="cb1-298"><a href="#cb1-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-299"><a href="#cb1-299" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-300"><a href="#cb1-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-301"><a href="#cb1-301" aria-hidden="true" tabindex="-1"></a>**XGBoost (Extreme Gradient Boosting)** to wydajna i ulepszona implementacja algorytmu **gradient boosting**, używająca drzew decyzyjnych jako modeli bazowych. To jeden z najskuteczniejszych algorytmów ML. XGBoost buduje **sekwencję drzew**, z których **każde kolejne drzewo naprawia błędy poprzednich**. Model minimalizuje funkcję straty za pomocą **gradientu**.</span>
+<span id="cb1-302"><a href="#cb1-302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-303"><a href="#cb1-303" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Najważniejsze cechy:**</span></span>
+<span id="cb1-304"><a href="#cb1-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-305"><a href="#cb1-305" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Drzewa budowane są jedno po drugim.</span>
+<span id="cb1-306"><a href="#cb1-306" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-307"><a href="#cb1-307" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Kolejne drzewo dopasowuje się do gradientu błędu, poprawiając jakość poprzedniej predykcji.</span>
+<span id="cb1-308"><a href="#cb1-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-309"><a href="#cb1-309" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Wysoka wydajność dzięki równoległości i kompresji.</span>
+<span id="cb1-310"><a href="#cb1-310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-311"><a href="#cb1-311" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Algorytm zatrzymuje się w przypadku braku poprawy swojej jakości.</span>
+<span id="cb1-312"><a href="#cb1-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-313"><a href="#cb1-313" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------</span>
+<span id="cb1-314"><a href="#cb1-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-315"><a href="#cb1-315" aria-hidden="true" tabindex="-1"></a><span class="fu">##### **Porównanie**</span></span>
+<span id="cb1-316"><a href="#cb1-316" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-317"><a href="#cb1-317" aria-hidden="true" tabindex="-1"></a>Random Forest buduje wiele niezależnych drzew i uśrednia ich wyniki, dzięki czemu jest prosty, stabilny i odporny na przeuczenie. XGBoost **tworzy drzewa sekwencyjnie**, każde z nich poprawia błędy poprzednich i stosuje regularizację, dlatego zwykle osiąga najwyższą dokładność. W praktyce XGBoost jest **lepszym rozwiązaniem**, gdy zależy nam na maksymalnej jakości modelu. Dlatego też zdecydowaliśmy się na ten typ algorytmu w naszym projekcie.</span>
+<span id="cb1-318"><a href="#cb1-318" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-319"><a href="#cb1-319" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sieci Neuronowe</span></span>
+<span id="cb1-320"><a href="#cb1-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-321"><a href="#cb1-321" aria-hidden="true" tabindex="-1"></a>**Sieci neuronowe** to metoda uczenia maszynowego inspirowana działaniem ludzkiego mózgu. Składają się one z **warstw neuronów**: wejściowej, jednej lub wielu ukrytych oraz wyjściowej. Każdy neuron przetwarza odpowiednio sygnał, stosując tzw. funkcję aktywacji, a wagi między poszczególnymi neuronami są **uczone** na podstawie danych treningowych.</span>
+<span id="cb1-322"><a href="#cb1-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-323"><a href="#cb1-323" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Najważniejsze cechy</span></span>
+<span id="cb1-324"><a href="#cb1-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-325"><a href="#cb1-325" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Potrafią wykrywać **złożone, nieliniowe zależności** w danych.</span>
+<span id="cb1-326"><a href="#cb1-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-327"><a href="#cb1-327" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Wymagają rozbudowanego zbioru danych i odpowiedniego doboru parametrów.</span>
+<span id="cb1-328"><a href="#cb1-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-329"><a href="#cb1-329" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Są podstawą **głębokiego uczenia (Deep Learning)**, w sytuacji kiedy sieć ma wiele warstw ukrytych.</span>
+<span id="cb1-330"><a href="#cb1-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-331"><a href="#cb1-331" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Typy sieci neuronowych</span></span>
+<span id="cb1-332"><a href="#cb1-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-333"><a href="#cb1-333" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Perceptron** - klasyczne sieci wykorzystywane do klasyfikacji lub regresji.</span>
+<span id="cb1-334"><a href="#cb1-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-335"><a href="#cb1-335" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Sieci rekurencyjne (RNN)**, które uwzględniają zależności czasowe.</span>
+<span id="cb1-336"><a href="#cb1-336" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-337"><a href="#cb1-337" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Konwolucyjne sieci neuronowe (CNN)** - świetnie nadają się do analizy obrazów i danych przestrzennych.</span>
+<span id="cb1-338"><a href="#cb1-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-339"><a href="#cb1-339" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Sieci głębokiego wzmocnienia (Deep Reinforcment Learning)** - stosowane są w przypadku realizacji zadań w dynamicznym oraz zmiennym środowisku.</span>
+<span id="cb1-340"><a href="#cb1-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-341"><a href="#cb1-341" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Zastosowania</span></span>
+<span id="cb1-342"><a href="#cb1-342" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-343"><a href="#cb1-343" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przetwarzanie języka naturalnego w czasie rzeczywistym.</span>
+<span id="cb1-344"><a href="#cb1-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-345"><a href="#cb1-345" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Systemy rekomendacyjne na stronach internetowych.</span>
+<span id="cb1-346"><a href="#cb1-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-347"><a href="#cb1-347" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Sterowanie robotami i gry komputerowe.</span>
+<span id="cb1-348"><a href="#cb1-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-349"><a href="#cb1-349" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Analiza finansowa.</span>
+<span id="cb1-350"><a href="#cb1-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-351"><a href="#cb1-351" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Przetwarzanie obrazów i wideo.</span>
+<span id="cb1-352"><a href="#cb1-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-353"><a href="#cb1-353" aria-hidden="true" tabindex="-1"></a><span class="fu">## Podsumowanie</span></span>
+<span id="cb1-354"><a href="#cb1-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-355"><a href="#cb1-355" aria-hidden="true" tabindex="-1"></a>W tej części projektu przedstawione zostały najważniejsze modele uczenia maszynowego wykorzystywane w praktyce do rozwiązywania problemów klasyfikacyjnych. Omówiona została **regresja logistyczna**, czyli jedno z najprostszych, a jednocześnie bardzo skutecznych narzędzi do przewidywania zmiennych binarnych.</span>
+<span id="cb1-356"><a href="#cb1-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-357"><a href="#cb1-357" aria-hidden="true" tabindex="-1"></a>Następnie opisane zostało **drzewo decyzyjne**, które dzięki swojej przejrzystej strukturze umożliwia intuicyjne podejmowanie decyzji na podstawie hierarchii warunków. Jego rozwinięciem są **metody zespołowe**, takie jak **Random Forest**, łączący wiele drzew w jeden stabilny model, oraz **XGBoost**, który buduje drzewa sekwencyjnie, stopniowo korygując błędy poprzednich i osiągając jedne z najlepszych możliwych wyników uzyskanych przy pomocy drzew decyzyjnych.</span>
+<span id="cb1-358"><a href="#cb1-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-359"><a href="#cb1-359" aria-hidden="true" tabindex="-1"></a>Ostatnią grupą modeli były **sieci neuronowe**, inspirowane działaniem ludzkiego mózgu. Dzięki warstwowej architekturze potrafią uchwycić bardzo złożone zależności w danych i są podstawą współczesnych sukcesów w dziedzinach takich jak rozpoznawanie obrazów czy przetwarzanie języka w czasie rzeczywistym.</span>
+<span id="cb1-360"><a href="#cb1-360" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-361"><a href="#cb1-361" aria-hidden="true" tabindex="-1"></a>Przedstawione modele pozwoliły w mniejszym lub większym stopniu uchwycić zależności w omawianym zbiorze danych i stały się realnym rozwiązaniem dla problemu **predykcji zagrożenia ryzyka zawału serca w ciągu najbliższych 10 lat**. Ze względu na posiadanie zmiennej predykcyjnej posłużyliśmy się klasyfikacją przy użyciu różnych metod. Od prostszej regresji logistycznej aż po zaawansowaną architekturę sieci neuronowej. Najlepsze wyniki uzyskaliśmy przy użyciu właśnie tej metody, i to właśnie z niej jesteśmy najbardziej zadowoleni. Wierzymy że predykcje osiągane za pomocą tego modelu mają faktycznie realne zastosowanie w otaczającym nas świecie, co potwierdzają **uzyskane metryki oceny jakości**. Przy pomocy tego modelu postanowiliśmy dodatkowo stworzyć ankietę, w której po uzupełnieniu odpowiednich danych medycznych, są one przetwarzane przez stworzony model. Ostatecznie każdy z nas po wypełnieniu takiej ankiety otrzymuje informacje wsteczną o przewidywanym poziomie zagrożenia zawału serca. W tym celu odsyłamy do zakładki `APLIKACJA` w górnej nawigacji strony internetowej. Teraz omówimy uzyskane do tej pory informacje i wnioski, które wyciągneliśmy w trakcie projektu oraz **odpowiemy** na postawione wcześniej **hipotezy i pytania**.</span>
+<span id="cb1-362"><a href="#cb1-362" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-363"><a href="#cb1-363" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb1-364"><a href="#cb1-364" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-365"><a href="#cb1-365" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb1-366"><a href="#cb1-366" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-367"><a href="#cb1-367" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

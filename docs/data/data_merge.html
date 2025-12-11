@@ -830,9 +830,10 @@ Dołączanie pakietu: 'mice'</code></pre>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Pokaż/Ukryj Kod</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>badania_polaczone <span class="ot">&lt;-</span> <span class="fu">rbind</span>(badania1, badania)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(badania_polaczone, <span class="st">"badania1_plus_badania2_clean.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>badania <span class="ot">&lt;-</span> <span class="fu">subset</span>(badania, TenYearCHD <span class="sc">==</span> <span class="st">"Yes"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>badania_polaczone <span class="ot">&lt;-</span> <span class="fu">rbind</span>(badania1, badania)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(badania_polaczone, <span class="st">"badania1_plus_badania2_clean.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 
@@ -1558,14 +1559,16 @@ Dołączanie pakietu: 'mice'</code></pre>
 <span id="cb24-264"><a href="#cb24-264" aria-hidden="true" tabindex="-1"></a>badania <span class="ot">&lt;-</span> <span class="fu">complete</span>(uzupelnienia)</span>
 <span id="cb24-265"><a href="#cb24-265" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-266"><a href="#cb24-266" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(badania, <span class="st">"badania2_clean.csv"</span>)</span>
-<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-271"><a href="#cb24-271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a>badania_polaczone <span class="ot">&lt;-</span> <span class="fu">rbind</span>(badania1, badania)</span>
-<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(badania_polaczone, <span class="st">"badania1_plus_badania2_clean.csv"</span>)</span>
+<span id="cb24-267"><a href="#cb24-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-268"><a href="#cb24-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-269"><a href="#cb24-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-272"><a href="#cb24-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-273"><a href="#cb24-273" aria-hidden="true" tabindex="-1"></a>badania <span class="ot">&lt;-</span> <span class="fu">subset</span>(badania, TenYearCHD <span class="sc">==</span> <span class="st">"Yes"</span>)</span>
+<span id="cb24-274"><a href="#cb24-274" aria-hidden="true" tabindex="-1"></a>badania_polaczone <span class="ot">&lt;-</span> <span class="fu">rbind</span>(badania1, badania)</span>
 <span id="cb24-275"><a href="#cb24-275" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-276"><a href="#cb24-276" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb24-276"><a href="#cb24-276" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(badania_polaczone, <span class="st">"badania1_plus_badania2_clean.csv"</span>)</span>
+<span id="cb24-277"><a href="#cb24-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-278"><a href="#cb24-278" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

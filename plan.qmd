@@ -12,7 +12,7 @@ Celem projektu jest **zbadanie czynników wpływających na ryzyko wystąpienia 
 
 ## Temat
 
-Temat projektu brzmi: "Wczesne wykrywanie ryzyka zawału serca w grupie wiekowej 30+ za pomocą algorytmów uczenia maszynowego"
+Temat projektu brzmi: **"Wczesne wykrywanie ryzyka zawału serca w grupie wiekowej 30+ za pomocą algorytmów uczenia maszynowego"**
 
 ## Cel Projektu
 
@@ -24,11 +24,11 @@ Zbiór danych Framingham Heart Study zawiera informacje o uczestnikach długolet
 
 ## Hipotezy Badawcze
 
--   **H1:** Wyższy wiek pacjenta wiąże się z większym prawdopodobieństwem rozwoju CHD w ciągu 10 lat.
+-   **H1:** Istnieją zmienne, pomiędzy którymi zachodzi zależność liniowa.
 
--   **H2:** Osoby, które palą oraz mają wysokie ciśnienie krwi, posiadają wyższe ryzyko CHD niż osoby bez tych czynników.
+-   **H2:** Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.
 
--   **H3:** Wskaźnik BMI oraz glukoza istotnie wpływają na ryzyko choroby.
+-   **H3:** Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.
 
 -   **H4:** Stworzony model klasyfikacyjny pozwala na sensowną predykcję CHD mimo nierównowagi grup w zmiennej predykcyjnej.
 

@@ -4,7 +4,7 @@ project:
 
 language:
   search-text-placeholder: Szukaj
-  
+
 website:
   favicon: images/favicon/favicon.ico
   back-to-top-navigation: true
@@ -62,7 +62,7 @@ website:
       - text: '<i class="bi bi-dot"></i>Literatura <i class="bi bi-journal-code"></i>'
         href: literatura.qmd 
     
-
+lang: pl
 format:
   html:
     highlight-style: styles/tango.theme

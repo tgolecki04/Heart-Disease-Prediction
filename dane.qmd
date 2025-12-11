@@ -4,6 +4,10 @@ subtitle: "Zapoznanie I Praca Z Danymi"
 format: html
 editor: visual
 warning: false
+output: 
+  pdf_document:
+    includes:
+      in_header: polish_language.sty
 ---
 
 ## Rozpoczęcie
@@ -511,6 +515,18 @@ ggsave("images/plots/korelacja.jpg", p)
 ![](images/plots/korelacja.jpg){fig-align="center"}
 
 Widzimy, że istnieje duża korelacja równa 0.78 pomiędzy zmiennymi `sysBP` oraz `diaBP`. Nie powinno nas to specjalnie dziwić, ponieważ wartość ciśnienia rozkurczowego ma bezpośredni wypływ na wartość ciśnienia skurczowego. Dodatkowo poziom BMI a co za tym idzie - nasza waga ma wpływ na wartośc ciśnienia rozkurczowego oraz skurczowego. W oczy może rzucić nam się również wartość korelacji na poziomie -0.19 między zmienną `age` oraz `cigsPerDay`, która oznacza, że wraz z wiekiem palimy coraz mniej papierosów dziennie. Nie są to jednak wysokie wartości współczynnika korelacji, więc nie możemy powiedzieć, że pomiędzy tymi zmiennymi istnieje statystycznie istotna korelacja. Możemy jedna informacje traktować jako wskazówki podczas dalszej analizy i zgłębić analizę w kierunku tych zmiennych.
+
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Weryfikacja Hipotezy</strong>
+
+$H_0$ : Nie istnieje zależność liniowa pomiędzy jakąkolwiek parą zmiennych.
+
+<strong>Nie.</strong> Istnieje jedna para zmiennych silnie skorelowanych. Są to zmienne `sysBP` oraz `diaBP`. Wartość korelacji dla tych zmiennych wynosi 0.78.
+:::
 
 ### Relacja pomiędzy diaBP oraz sysBP
 

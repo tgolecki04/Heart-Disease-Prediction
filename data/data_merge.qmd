@@ -251,9 +251,11 @@ uzupelnienia <- mice(badania,
 badania <- complete(uzupelnienia)
 
 write_csv(badania, "badania2_clean.csv")
+
 ```
 
 ```{r}
+badania <- subset(badania, TenYearCHD == "Yes")
 badania_polaczone <- rbind(badania1, badania)
 
 write_csv(badania_polaczone, "badania1_plus_badania2_clean.csv")

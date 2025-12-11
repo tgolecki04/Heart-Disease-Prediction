@@ -2,3 +2,15 @@
 
 **/*.quarto_ipynb
 NN_models/
+RF_model/.idea/
+RF_model/__pycache__/
+
+.idea/
+.quarto/
+
+# R / RStudio artifacts
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+.Rproj.user/

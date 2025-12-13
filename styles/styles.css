@@ -1,3 +1,5 @@
+
+
 #quarto-margin-sidebar {
   position: sticky;
 }
@@ -167,9 +169,14 @@ ul {
   position: relative;
 }
 
+.navbar-nav .nav-link:hover {
+    transform: scale(1.05);        /* lekkie powiększenie */
+}
+
 #quarto-sidebar{
   margin-left: 12px;
 }
+
 .hero-button {
   position: absolute;
   top: 50%;

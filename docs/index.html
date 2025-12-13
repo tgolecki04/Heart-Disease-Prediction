@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.26">
@@ -94,17 +94,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "s"
   ],
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Brak wyników",
+    "search-matching-documents-text": "dopasowane dokumenty",
+    "search-copy-link-title": "Kopiuj link do wyszukiwania",
+    "search-hide-matches-text": "Ukryj dodatkowe dopasowania",
+    "search-more-match-text": "więcej dopasowań w tym dokumencie",
+    "search-more-matches-text": "więcej dopasowań w tym dokumencie",
+    "search-clear-button-title": "Wyczyść",
     "search-text-placeholder": "Szukaj",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Anuluj",
+    "search-submit-button-title": "Zatwierdź",
+    "search-label": "Szukaj"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
@@ -130,12 +130,7 @@ background: #947E76;
   margin-top: calc(100vh - 60px);
 }
 </style>
-
-
-<link rel="stylesheet" href="styles/styles.css">
-</head>
-
-<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+</head><body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -297,13 +292,21 @@ background: #947E76;
     } else {
       toggleColorMode(false);
     }
-  </script>
+  </script>\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+
+
+<link rel="stylesheet" href="styles/styles.css">
+
+
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Przełącz nawigację" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -348,19 +351,19 @@ background: #947E76;
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Przełącz tryb ciemny"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Przełącz pasek boczny" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><i class="bi bi-dot"></i>Wstęp <i class="bi bi-chat-left-text"></i></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Przełącz pasek boczny" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Szukaj" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -378,7 +381,7 @@ background: #947E76;
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Szukaj"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -432,7 +435,7 @@ background: #947E76;
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content quarto-banner-title-block column-page-right" id="quarto-document-content"><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Kod</button></div></div>
 
 
 
@@ -461,21 +464,6 @@ background: #947E76;
 <p>Kluczowe znaczenie w rozwoju zawału mają czynniki ryzyka, które mogą działać niezależnie lub wzajemnie się potęgować. Do najważniejszych modyfikowalnych czynników ryzyka należą: palenie papierosów, nadciśnienie tętnicze, wysoki poziom cholesterolu LDL, cukrzyca typu 2, otyłość brzuszna, brak aktywności fizycznej oraz przewlekły stres. W grupie czynników niemodyfikowalnych wymienia się: wiek, płeć męską oraz obciążenie rodzinne chorobami serca. Współczesne badania wykazują, że połączenie wielu z tych czynników może znacząco zwiększać ryzyko ostrego incydentu wieńcowego, a pierwsze zmiany miażdżycowe mogą pojawiać się już w młodym wieku, często bezobjawowo.</p>
 <p>Z tego względu rośnie znaczenie wczesnego wykrywania ryzyka zawału serca, obejmującego zarówno ocenę kliniczną, diagnostykę laboratoryjną i obrazową, jak i zastosowanie nowoczesnych metod analizy danych. Wczesna identyfikacja osób zagrożonych pozwala na wdrożenie strategii prewencyjnych, takich jak zmiana stylu życia, kontrola ciśnienia i lipidów, farmakoterapia czy stałe monitorowanie stanu zdrowia. Skuteczna profilaktyka może znacząco zmniejszyć liczbę zawałów, ograniczyć powikłania oraz poprawić jakość i długość życia pacjentów.</p>
 <p>W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne, precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.</p>
-<p>Zachęcamy do obejrzenia poniższego filmu dr. Marka Skoczylasa, który w swoim filmie omawia najważniejsze informacje dotyczące tego jak wyglądają pozątkowe etapy chorego serca, przebieg zawału oraz to co możemy zrobić w sytuacji zagrożenia naszego życia, aby zwiększyć szanse na otrzymanie pomocy na czas. W sytuacji nagłego zawału serca liczy się każda chwila, dlatego prawidłowe zachowanie w jego trakcie oraz wezwanie pomocy może uratować nam życie. Doktor Skoczylas porusza istotne czynniki, które mogą nas poinformować o tym, że jak najszybciej musimy wezwać pogotowie ratunkowe. Więcej informacji w filmie.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/DTX_skjG5As" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>Dodatkowo chcemy przedstawić film, w którym dr. Skoczylas porusza temat nieprawidłowego działania układu sercowo naczyniowego oraz znaki jakie daje znać o sobie w momencie występowania choroby lub nieprawidłowego działania. Oznak omówione w filmie powinny wzbudzić naszą uwagę, a następnie udać się do lekarza w celu uzyskania odpowiedniej pomocy medycznej. Pamiętajmy - wykrycie nieprawidłowości organizmu lub choroby w odpowiednim i wczesnym etapie choroby zwiększa szanse na przeżycie oraz powrót do zdrowia wielokrotnie. Dbajmy o siebie i systematycznie wykonujmy podstawowe badania.</p>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/d15oEDeoyD8" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>Podsumowując, sygnałami, które zaliczamy do <strong>początkowych znaków choroby wieńcowej</strong> są:</p>
-<ul>
-<li><p><strong>Ból lub dyskomfort w klatce piersiowej</strong> (ucisk lub pieczenie – szczególnie przy wysiłku).</p></li>
-<li><p><strong>Duszność</strong> podczas aktywności fizycznej oraz w spoczynku.</p></li>
-<li><p><strong>Zmęczenie</strong> nieadekwatne do wysiłku.</p></li>
-<li><p><strong>Ból promieniujący</strong> do ramienia, szyi, pleców i nadbrzusza.</p></li>
-<li><p><strong>Kołatanie serca</strong> lub nieregularny rytm bicia serca.</p></li>
-<li><p><strong>Zawroty głowy</strong> oraz <strong>uczucie omdlenia</strong>.</p></li>
-<li><p><strong>Nudności i zimne poty</strong> pojawiające się przy niewielkim wysiłku.</p></li>
-</ul>
-<p>Każdy z tych sygnałów, wykryty odpowiednio wcześnie może uratować nam życie. Pamiętajmy.</p>
 <p>Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze, zadamy pytania, na które poszukamy odpowiedzi w trakcie analizy danych oraz dokładniej omówimy kolejne etapy projektu.</p>
 <div>
 <div class="quarto-figure quarto-figure-center">
@@ -491,7 +479,7 @@ background: #947E76;
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Powrót do góry</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -530,12 +518,12 @@ background: #947E76;
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Skopiowano!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Skopiowano!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -964,7 +952,7 @@ background: #947E76;
         <span class="nav-page-text"><i class="bi bi-dot"></i>Plan Projektu <i class="bi bi-box-seam"></i></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Kod źródłowy</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">warning:</span><span class="co"> false</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> false</span></span>
@@ -1022,44 +1010,18 @@ background: #947E76;
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne, precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.</span>
 <span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Zachęcamy do obejrzenia poniższego filmu dr. Marka Skoczylasa, który w swoim filmie omawia najważniejsze informacje dotyczące tego jak wyglądają pozątkowe etapy chorego serca, przebieg zawału oraz to co możemy zrobić w sytuacji zagrożenia naszego życia, aby zwiększyć szanse na otrzymanie pomocy na czas. W sytuacji nagłego zawału serca liczy się każda chwila, dlatego prawidłowe zachowanie w jego trakcie oraz wezwanie pomocy może uratować nam życie. Doktor Skoczylas porusza istotne czynniki, które mogą nas poinformować o tym, że jak najszybciej musimy wezwać pogotowie ratunkowe. Więcej informacji w filmie.</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze, zadamy pytania, na które poszukamy odpowiedzi w trakcie analizy danych oraz dokładniej omówimy kolejne etapy projektu.</span>
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=DTX_skjG5As &gt;}}</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>Dodatkowo chcemy przedstawić film, w którym dr. Skoczylas porusza temat nieprawidłowego działania układu sercowo naczyniowego oraz znaki jakie daje znać o sobie w momencie występowania choroby lub nieprawidłowego działania. Oznak omówione w filmie powinny wzbudzić naszą uwagę, a następnie udać się do lekarza w celu uzyskania odpowiedniej pomocy medycznej. Pamiętajmy - wykrycie nieprawidłowości organizmu lub choroby w odpowiednim i wczesnym etapie choroby zwiększa szanse na przeżycie oraz powrót do zdrowia wielokrotnie. Dbajmy o siebie i systematycznie wykonujmy podstawowe badania.</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=d15oEDeoyD8 &gt;}}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>Podsumowując, sygnałami, które zaliczamy do **początkowych znaków choroby wieńcowej** są:</span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Ból lub dyskomfort w klatce piersiowej** (ucisk lub pieczenie – szczególnie przy wysiłku).</span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Duszność** podczas aktywności fizycznej oraz w spoczynku.</span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Zmęczenie** nieadekwatne do wysiłku.</span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Ból promieniujący** do ramienia, szyi, pleców i nadbrzusza.</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Kołatanie serca** lub nieregularny rytm bicia serca.</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Zawroty głowy** oraz **uczucie omdlenia**.</span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Nudności i zimne poty** pojawiające się przy niewielkim wysiłku.</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>Każdy z tych sygnałów, wykryty odpowiednio wcześnie może uratować nam życie. Pamiętajmy.</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze, zadamy pytania, na które poszukamy odpowiedzi w trakcie analizy danych oraz dokładniej omówimy kolejne etapy projektu.</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script src="script.js"&gt;&lt;/script&gt;</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-</code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="in">```{=html}</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="in">&lt;script src="script.js"&gt;&lt;/script&gt;</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code></pre></div><button title="Kopiuj do schowka" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

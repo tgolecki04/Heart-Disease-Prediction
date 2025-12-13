@@ -4,6 +4,10 @@ subtitle: "Zapoznanie I Praca Z Danymi"
 format: html
 editor: visual
 warning: false
+output: 
+  pdf_document:
+    includes:
+      in_header: polish_language.sty
 ---
 
 ## Rozpoczęcie
@@ -84,8 +88,6 @@ skim(data)
 ```
 
 Tak jak widać na powyższym raporcie, zaczytując dane otrzymujemy 3 zmienne typu `character` oraz 13 zmiennych typu `numeric`. Taki podział ze względu na typ zmiennych nie jest odpowiedni. Wszystkie cechy typu `character` mają w naszym przypadku błędne formatowanie. Dodatkowo będziemy musieli dodać nowe typy zmiennych takie jak `boolean` oraz `factor`, aby móc szybko i praktycznie pracować z danymi. Odpowiedni wybór typów zmiennych jest podstawowym krokiem rozpczynając analizę zbioru danych. Zrobimy to w następujący sposób.
-
-badania_sorted \<- badania\[order(is.na(badania\$glucose), decreasing = TRUE), \]
 
 ```{r}
 badania <- data |> 
@@ -323,7 +325,7 @@ round(data.frame(t(statystyki_po))[c(2:9,10:12), ], 3)
 Sprawdzając podstawowe statystki widzimy, że uzupełniając dane zachowaliśmy ich strukturę. Różnica pomiędzy wartościami statystyk polega najczęściej na zmianie części tysięcznych lub setnych, więc wartości `NA` zostały bardzo dobrze odwzorowane. Teraz możemy wykonać analizę wstępną naszego zbioru danych, aby następnie przejść do stworzenia modeli predykcyjnych oraz głębszej analizy. Ostatnim punktem pracy nad modyfikowaniem naszych danych jest zapisanie oszyszczonych i uzupełnionych danych do pliku `.csv`, który wykorzystamy m. in. podczas tworzenia modeli w języku programowania `R` lub `python.`
 
 ```{r}
-write.csv(badania, file = "data/clean_data.csv")
+write.csv(badania, file = "data/badania_clean.csv")
 ```
 
 ## Analiza Danych
@@ -513,6 +515,18 @@ ggsave("images/plots/korelacja.jpg", p)
 ![](images/plots/korelacja.jpg){fig-align="center"}
 
 Widzimy, że istnieje duża korelacja równa 0.78 pomiędzy zmiennymi `sysBP` oraz `diaBP`. Nie powinno nas to specjalnie dziwić, ponieważ wartość ciśnienia rozkurczowego ma bezpośredni wypływ na wartość ciśnienia skurczowego. Dodatkowo poziom BMI a co za tym idzie - nasza waga ma wpływ na wartośc ciśnienia rozkurczowego oraz skurczowego. W oczy może rzucić nam się również wartość korelacji na poziomie -0.19 między zmienną `age` oraz `cigsPerDay`, która oznacza, że wraz z wiekiem palimy coraz mniej papierosów dziennie. Nie są to jednak wysokie wartości współczynnika korelacji, więc nie możemy powiedzieć, że pomiędzy tymi zmiennymi istnieje statystycznie istotna korelacja. Możemy jedna informacje traktować jako wskazówki podczas dalszej analizy i zgłębić analizę w kierunku tych zmiennych.
+
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Weryfikacja Hipotezy</strong>
+
+$H_0$ : Nie istnieje zależność liniowa pomiędzy jakąkolwiek parą zmiennych.
+
+<strong>Nie.</strong> Istnieje jedna para zmiennych silnie skorelowanych. Są to zmienne `sysBP` oraz `diaBP`. Wartość korelacji dla tych zmiennych wynosi 0.78.
+:::
 
 ### Relacja pomiędzy diaBP oraz sysBP
 

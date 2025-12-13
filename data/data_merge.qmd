@@ -1,0 +1,263 @@
+---
+title: "zmiana danych"
+format: html
+editor: visual
+---
+
+## Nowe dane
+
+```{r}
+library(readr)
+badania1 <- read_csv("badania_clean.csv") |> 
+  dplyr::select(c(-1))
+badania2 <- read_csv("badania2.csv")
+
+names(badania2) <- tolower(names(badania2))
+
+
+```
+
+```{r}
+
+library(dplyr)
+
+calc_framingham_points <- function(sex, age, ldlc, totchol, hdlc, sysbp, diabp, diabetes, smoker) {
+
+  ldl_points <- 0
+  chol_points <- 0
+  # --- Age points ---
+  age_pts <- ifelse(sex == "Male",
+                    case_when(
+                      age >= 30 & age <= 34 ~ -1,
+                      age >= 35 & age <= 39 ~ 0,
+                      age >= 40 & age <= 44 ~ 1,
+                      age >= 45 & age <= 49 ~ 2,
+                      age >= 50 & age <= 54 ~ 3,
+                      age >= 55 & age <= 59 ~ 4,
+                      age >= 60 & age <= 64 ~ 5,
+                      age >= 65 & age <= 69 ~ 6,
+                      age >= 70 & age <= 74 ~ 7,
+                      TRUE ~ 7
+                    ),
+                    case_when(
+                      age >= 30 & age <= 34 ~ -9,
+                      age >= 35 & age <= 39 ~ -4,
+                      age >= 40 & age <= 44 ~ 0,
+                      age >= 45 & age <= 49 ~ 3,
+                      age >= 50 & age <= 54 ~ 6,
+                      age >= 55 & age <= 59 ~ 7,
+                      age >= 60 & age <= 64 ~ 8,
+                      age >= 65 & age <= 69 ~ 8,
+                      age >= 70 & age <= 74 ~ 8,
+                      TRUE ~ 8
+                    )
+  )
+
+  # --- Total cholesterol points ---
+  chol_pts <- ifelse(sex == "Male",
+                     case_when(
+                       totchol < 160 ~ -3,
+                       totchol < 200 ~ 0,
+                       totchol < 240 ~ 1,
+                       totchol < 280 ~ 2,
+                       totchol >= 280 ~ 3,
+                       TRUE ~ NA_real_
+                     ),
+                     case_when(
+                       totchol < 160 ~ -2,
+                       totchol < 200 ~ 0,
+                       totchol < 240 ~ 1,
+                       totchol < 280 ~ 1,
+                       totchol >= 280 ~ 3,
+                       TRUE ~ NA_real_
+                     )
+  )
+
+  # --- LDL cholesterol points ---
+  ldl_pts <- ifelse(sex == "Male",
+                    case_when(
+                      ldlc < 100 ~ -3,
+                      ldlc < 130 ~ 0,
+                      ldlc < 160 ~ 0,
+                      ldlc < 190 ~ 1,
+                      ldlc >= 190 ~ 2,
+                      TRUE ~ NA_real_
+                    ),
+                    case_when(
+                      ldlc < 100 ~ -2,
+                      ldlc < 130 ~ 0,
+                      ldlc < 160 ~ 0,
+                      ldlc <= 190 ~ 2,
+                      ldlc > 190 ~ 2,
+                      TRUE ~ NA_real_
+                    )
+  )
+
+  # --- HDL points ---
+  hdl_pts <- ifelse(sex == "Male",
+                    case_when(
+                      hdlc < 35 ~ 2,
+                      hdlc < 45 ~ 1,
+                      hdlc < 50 ~ 0,
+                      hdlc < 60 ~ 0,
+                      hdlc >= 60 ~ -2,
+                      TRUE ~ NA_real_
+                    ),
+                    case_when(
+                      hdlc < 35 ~ 5,
+                      hdlc < 45 ~ 2,
+                      hdlc < 50 ~ 1,
+                      hdlc < 60 ~ 0,
+                      hdlc >= 60 ~ -3,
+                      TRUE ~ NA_real_
+                    )
+  )
+
+  # --- Blood pressure points ---
+  sbp_pts <- ifelse(sex == "Male",
+                    case_when(
+                      sysbp < 120 ~ 0,
+                      sysbp >= 120 & sysbp <= 129 ~ 0,
+                      sysbp >= 130 & sysbp <= 139 ~ 1,
+                      sysbp >= 140 & sysbp <= 159 ~ 2,
+                      sysbp >= 160 ~ 3,
+                      TRUE ~ NA_real_
+                    ),
+                    case_when(
+                      sysbp < 120 ~ -3,
+                      sysbp >= 120 & sysbp <= 129 ~ 0,
+                      sysbp >= 130 & sysbp <= 139 ~ 0,
+                      sysbp >= 140 & sysbp <= 159 ~ 2,
+                      sysbp >= 160 ~ 3,
+                      TRUE ~ NA_real_
+                    )
+  )
+
+  dbp_pts <- ifelse(sex == "Male",
+                    case_when(
+                      diabp < 80 ~ 0,
+                      diabp >= 80 & diabp <= 84 ~ 0,
+                      diabp >= 85 & diabp <= 89 ~ 1,
+                      diabp >= 90 & diabp <= 99 ~ 2,
+                      diabp >= 100 ~ 3,
+                      TRUE ~ NA_real_
+                    ),
+                    case_when(
+                      diabp < 80 ~ -3,
+                      diabp >= 80 & diabp <= 84 ~ 0,
+                      diabp >= 85 & diabp <= 89 ~ 0,
+                      diabp >= 90 & diabp <= 99 ~ 2,
+                      diabp >= 100 ~ 3,
+                      TRUE ~ NA_real_
+                    )
+  )
+
+  bp_pts <- pmax(sbp_pts, dbp_pts, na.rm = TRUE)
+
+  # --- Diabetes points ---
+  diab_pts <- ifelse(sex == "Male",
+                     ifelse(diabetes == 1, 2, 0),
+                     ifelse(diabetes == 1, 4, 0))
+
+  # --- Smoker points ---
+  smoke_pts <- ifelse(sex == "Male",
+                      ifelse(smoker == 1, 2, 0),
+                      ifelse(smoker == 1, 2, 0))
+
+  # --- Total points ---
+  total_pts <- age_pts + chol_pts + ldl_pts + hdl_pts + bp_pts + diab_pts + smoke_pts
+
+  return(total_pts)
+}
+
+
+```
+
+```{r}
+badania2_clean <- badania2[complete.cases(badania2[, c("hdlc", "ldlc", "sysbp", "diabp", "totchol", "diabetes", "cursmoke", "age", "sex")]), ]
+badania2_clean$points <- calc_framingham_points(
+    badania2_clean$sex,
+    badania2_clean$age,
+    badania2_clean$ldlc,
+    badania2_clean$totchol,
+    badania2_clean$hdlc,
+    badania2_clean$sysbp,
+    badania2_clean$diabp,
+    badania2_clean$diabetes,
+    badania2_clean$cursmoke
+  )
+
+badania2_clean$tenyearchd <- ifelse(
+  badania2_clean$sex == 1, 
+  ifelse(badania2_clean$points >= 9, 1, 0),
+  ifelse(badania2_clean$points >= 14, 1, 0)
+)
+```
+
+```{r}
+badania2_clean |>
+  group_by(tenyearchd) |> 
+  summarise(n())
+```
+
+```{r}
+reszta <- badania2_clean |> select(c(7, 8, 12, 14, 18, 19))
+czesc_wspolna <- badania2_clean[, names(badania2_clean) %in% tolower(names(badania1))]
+badania2 <- cbind(czesc_wspolna, reszta)
+
+
+badania1 <- badania1[, sort(names(badania1))]
+badania2 <- badania2[, sort(names(badania2))]
+
+colnames(badania2) <- colnames(badania1)
+
+```
+
+```{r}
+library(mice)
+
+badania <- badania2 |> 
+  mutate(
+    sysBP = as.numeric(sysBP),
+    diaBP = as.numeric(diaBP),
+    BMI = as.numeric(BMI),
+    sex = factor(sex, levels = c("Female", "Male"), labels = c("Female", "Male")),
+    education = factor(education, ordered = TRUE),
+    currentSmoker = factor(currentSmoker, labels = c("No", "Yes")),
+    BPMeds = factor(BPMeds, labels = c("No", "Yes")),
+    prevalentStroke = factor(prevalentStroke, labels = c("No", "Yes")),
+    prevalentHyp = factor(prevalentHyp, labels = c("No", "Yes")),
+    diabetes = factor(diabetes, labels = c("No", "Yes")),
+    TenYearCHD = factor(TenYearCHD, labels = c("No", "Yes"))
+  )
+
+badania <- badania[rowSums(is.na(badania)) <= 1, ]
+
+```
+
+```{r}
+metody <- make.method(badania)
+
+metody["BPMeds"] <- "logreg"        #
+metody["education"] <- "polr" 
+metody["BMI"] <- "pmm"
+metody["cigsPerDay"] <- "pmm"
+metody["glucose"] <- "pmm"
+metody["heartRate"] <- "pmm"
+uzupelnienia <- mice(badania,
+                m = 5,
+                method = metody,
+                seed = 2025)
+badania <- complete(uzupelnienia)
+
+write_csv(badania, "badania2_clean.csv")
+
+```
+
+```{r}
+badania <- subset(badania, TenYearCHD == "Yes")
+badania_polaczone <- rbind(badania1, badania)
+
+write_csv(badania_polaczone, "badania1_plus_badania2_clean.csv")
+
+```

@@ -1,28 +1,74 @@
 ---
 title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
-subtitle: "Wstęp I Część Teoretyczna"
+subtitle: "Plan Projektu"
 format: html
 editor: visual
 warning: false
 ---
 
-## Plan Projektu
+## Wprowadznie
 
-### Wstęp Teoretyczny
+Celem projektu jest **zbadanie czynników wpływających na ryzyko wystąpienia choroby wieńcowej w ciągu 10 lat wśród pacjentów**. Analiza może pomóc w określeniu głównych predyktorów chorób układu sercowego oraz w oszacowaniu ryzyka dla różnych osób na podstawie ich cech demograficznych, stylu życia, nawyków i pomiarów medycznych. Wyniki analizy mogą mieć istotne znaczenie naukowe oraz być cennym źródłem profilaktyki zdrowotnej.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos himenaeos orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus donec rhoncus eros lobortis.
+## Temat
 
-### Wyjaśnienie Problemu
+Temat projektu brzmi: **"Wczesne wykrywanie ryzyka zawału serca w grupie wiekowej 30+ za pomocą algorytmów uczenia maszynowego"**
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos himenaeos orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus donec rhoncus eros lobortis nulla molestie mattis scelerisque maximus eget fermentum odio phasellus non purus est efficitur laoreet mauris pharetra vestibulum fusce dictum risus blandit quis suspendisse aliquet nisi sodales consequat magna ante condimentum neque at luctus nibh finibus facilisis dapibus etiam interdum tortor ligula congue sollicitudin erat viverra ac tincidunt nam porta elementum.
+## Cel Projektu
 
-### Omówienie Danych
+Głównym założeniem projektu jest stworzenie nieliniowych modeli predykcyjnych zdolnych do skutecznego przewidywania potencjalnego zawału serca w najbliższych 10 latach na podstawie czynników między innymi takich jak płeć, wiek, palenie, poziom glukozy, przyjmowane leki oraz poziom cholesterolu. Projekt zakłada stworzenie minimum 2 modeli predykcyjnych, pierwszy oparty na Neural Networks, a kolejny na Gradient Boosting. Następnie porównanie ich właściwości i statystyk oraz wybór najlepszego z nich w celu stworzenia predyktora omawianego zagrożenia. Użytkownik będzie mógł wypełnić ankietę, a uzupełnione dane zostaną wprowadzone do modelu, który poinformuje użytkownika o decyzji dotyczącej potencjalnej grupy ryzyka. Dodatkowo przeprowadzimy podstawowe testy statystyczne oraz stworzymy modele poznane w trakcie studiów, np. modell regresji logistycznej oraz testy na różnicę wartości średniej w różnych grupach.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per conubia nostra inceptos himenaeos orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus donec rhoncus eros lobortis nulla molestie mattis scelerisque maximus eget fermentum odio phasellus non purus est efficitur laoreet mauris pharetra vestibulum fusce dictum risus blandit quis suspendisse aliquet nisi sodales consequat magna ante condimentum neque at luctus nibh finibus facilisis dapibus etiam interdum tortor ligula congue sollicitudin erat viverra ac tincidunt nam porta elementum a enim euismod quam justo lectus commodo augue arcu dignissim velit aliquam imperdiet mollis nullam volutpat porttitor ullamcorper rutrum gravida cras eleifend turpis fames primis vulputate ornare sagittis vehicula praesent dui felis venenatis ultrices proin libero feugiat tristique accumsan maecenas potenti ultricies habitant morbi senectus netus suscipit auctor curabitur facilisi cubilia curae hac habitasse platea dictumst lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent.
+## Omówienie Danych
 
-### Źródło Pomysłu
+Zbiór danych Framingham Heart Study zawiera informacje o uczestnikach długoletnich badań nad chorobami sercowo-naczyniowymi. Każdy rekord odpowiada jednej osobie i obejmuje dane demograficzne, takie jak wiek i płeć, parametry kliniczne, w tym ciśnienie krwi, cholesterol, BMI i poziom glukozy, oraz informacje o stylu życia, np. palenie papierosów. Zawiera też zmienne wskazujące na wcześniejsze choroby, jak udar czy nadciśnienie. Celem tego zbioru jest przewidywanie ryzyka wystąpienia choroby wieńcowej w ciągu 10 lat, co czyni go doskonałym materiałem do ćwiczenia klasyfikacji i testowania różnych modeli uczenia maszynowego, takich jak regresja logistyczna, drzewa decyzyjne, lasy losowe, XGBoost czy sieci neuronowe.
 
-Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi pretium tellus duis convallis tempus leo eu aenean sed diam urna tempor pulvinar vivamus fringilla lacus nec metus bibendum egestas iaculis massa nisl malesuada lacinia integer nunc posuere ut hendrerit semper vel class aptent taciti sociosqu ad litora torquent per.
+## Hipotezy Badawcze
+
+-   **H1:** Istnieją zmienne, pomiędzy którymi zachodzi zależność liniowa.
+
+-   **H2:** Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.
+
+-   **H3:** Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.
+
+-   **H4:** Stworzony model klasyfikacyjny pozwala na sensowną predykcję CHD mimo nierównowagi grup w zmiennej predykcyjnej.
+
+## Pytania Badawcze
+
+-   Jak wygląda rozkład podstawowych cech: wiek, płeć, BMI, cholesterol, ciśnienie, palenie?
+
+-   Czy palenie oraz liczba spalonych dziennie papierosów koreluje z wyższym poziomem cholesterolu, ciśnieniem, BMI?
+
+-   Które zmienne cechują się największą siłą predykcyjną względem CHD?
+
+-   Czy istnieje interakcja między kilkoma zmiennymi (np. wiek, palenie i cholesterol) zwiększająca ryzyko znacząco?
+
+-   Czy model klasyfikacyjny pozwala osiągnąć dobrą jakość predykcji?
+
+## Metody i Narzędzia
+
+-   **Eksploracyjna analiza danych (EDA)**: statystyki opisowe, rozkłady zmiennych, wykresy.
+
+-   **Wizualizacje**: np. korelacje między zmiennymi, rozkłady cech, porównanie grup.
+
+-   **Przetwarzanie danych**: obsługa braków, ewentualne usunięcie/uzupełnienie, transformacje, normalizacja/standaryzacja zmiennych numerycznych.
+
+-   **Modele predykcyjne**: klasyfikacja — regresja logistyczna, drzewa decyzyjne, Random Forest, gradient boosting.
+
+-   **Ocena modeli**: metryki: accuracy, precision, recall, F1-score, AUC-ROC.
+
+## Technologie
+
+-   Zaawansowana analiza danych w języku **R**.
+
+-   Stworzenie kilku modeli predykcyjnych w **Python**.
+
+-   Wykorzystanie **Quarto** do stworzenia spójnego i przejrzystego połączenia części teoretycznych i praktycznych projektu.
+
+-   **SCSS/HTML/JavaScript** (frontend, wizualizacje)
+
+## Podsumowanie
+
+Projekt wykorzystujący bazę danych Framingham Heart Study ma w sobie duży potencjał pod względem rozwiązania realnego problemu. Pozwala zbudować predykcyjny model ryzyka choroby wieńcowej serca lepiej zrozumieć, które czynniki mają najważniejsze znaczenie. Dzięki temu można wyciągnąć wnioski zarówno badawcze, jak i praktyczne, które możemy zastosować w codziennym życiu. Jednocześnie ważne jest rzetelne przygotowanie danych, poprawna interpretacja wyników i uwzględnienie ograniczeń wynikających z posiadanych danych.
 
 <div>
 

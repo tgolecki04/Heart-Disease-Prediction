@@ -44,9 +44,11 @@ Celem jest przewidywanie wyników dla nowych, nieznanych danych.
 
 ##### Przykłady
 
--   Klasyfikacja (np. wykrywanie spamu, diagnoza chorób),
+-   Klasyfikacja (np. wykrywanie spamu, diagnoza chorób)
 
--   Regresja (np. prognoza cen, przewidywanie popytu).
+-   Regresja (np. prognoza cen, przewidywanie popytu)
+
+------------------------------------------------------------------------
 
 #### Uczenie nienadzorowane (Unsupervised Learning)
 
@@ -60,11 +62,15 @@ Model szuka struktury w danych bez etykiet. Celem jest odkrywanie ukrytych zale�
 
 -   Redukcja Wymiarów
 
+------------------------------------------------------------------------
+
 #### Uczenie półnadzorowane (Semi-Supervised Learning)
 
 ##### Wyjaśnienie
 
 Połączenie uczenia nadzorowanego i nienadzorowanego – model uczy się na niewielkiej ilości danych z etykietami i dużej ilości danych bez nich.
+
+------------------------------------------------------------------------
 
 #### Uczenie ze wzmocnieniem (Reinforcement Learning)
 
@@ -81,6 +87,8 @@ Celem jest opracowanie strategii maksymalizującej długoterminową nagrodę.
 -   Sterowanie robotami
 
 -   Autonomiczne pojazdy
+
+------------------------------------------------------------------------
 
 #### Uczenie głębokie (Deep Learning)
 
@@ -106,23 +114,25 @@ Każda warstwa przetwarza dane w inny sposób co pozwala na połączenie skompli
 
 ### Typy zadań
 
-Uczenie maszynowe można podzielić na **paradygmaty** (np. supervised, unsupervised), które określają sposób, w jaki model uczy się z danych. W ramach tych paradygmatów wyróżniamy **różne typy zadań**, czyli konkretne problemy, które chcemy rozwiązać za pomocą algorytmów ML. Każde zadanie ma specyficzny cel i wymaga odpowiednich metod i algorytmów.
+Uczenie maszynowe możemy podzielić na **paradygmaty** (np. supervised, unsupervised), które określają sposób, w jaki model uczy się informacji z danych. Omawiając te paradygmaty wyróżniamy **różne typy zadań**, czyli określone problemy, które chcemy rozwiązać za pomocą algorytmów uczenia maszynowego. Każde zadanie ma własny, zdefiniowany cel i wymaga użycia odpowiednich metod i algorytmów.
 
 #### Klasyfikacja
 
 -   Cel
 
-    -   Celem klasyfikacji jest przypisanie obserwacji do okreśłonej kategorii.
+    -   Celem klasyfikacji jest przypisanie obserwacji do określonej grupy / kategorii.
 
 -   Algorytmy
 
-    -   Decision Trees / Random Forest
+    -   Decision Trees & Random Forest
 
     -   Support Vector Machines (SVM)
 
-    -   k-Nearest Neighbors (k-NN)
+    -   k-Nearest Neighbors
 
-    -   Sieci neuronowe
+    -   Sieci Neuronowe (NN)
+
+    -   Regresja Logistyczna
 
 -   Przykłady zastosowań
 
@@ -130,19 +140,225 @@ Uczenie maszynowe można podzielić na **paradygmaty** (np. supervised, unsuperv
 
     -   Diagnoza chorób na podstawie danych medycznych
 
-    -   Klasyfikacja zdjęć zwierząt
+    -   Klasyfikacja zdjęć pojazdów
+
+------------------------------------------------------------------------
+
+#### Regresja
+
+-   Cel
+
+    -   Estymacja wartości liczbowych na podstawie danych
+
+-   Algorytmy
+
+    -   Regresja Liniowa
+
+    -   Random Forest Regression
+
+    -   Support Vector Regression
+
+    -   Sieci Neuronowe (NN)
+
+-   Przykłady zastosowań
+
+    -   Prognozowanie cen
+
+    -   Przewidywanie wartości opadów, temperatury, itp.
+
+    -   Szacowanie przychodu / wydatków
+
+------------------------------------------------------------------------
+
+#### Klasteryzacja
+
+-   Cel
+
+    -   Grupowanie obserwacji na podstawie cech oraz ich podobieństwa, bez wcześniejszego określenia etykiet i grup w danych.
+
+-   Algorytmy
+
+    -   K-means
+
+    -   DBSCAN
+
+-   Przykłady zastosowań
+
+    -   Grupowanie klientów sklepu internetowego
+
+    -   Segmentacja dokumentów
+
+    -   Wykrywanie nowych zależności w danych
+
+------------------------------------------------------------------------
+
+#### Redukcja Wymiarowości
+
+-   Cel
+
+    -   Zmniejszenie liczby zmiennych przy zachowaniu jak największej ilości informacji w danych. Taki zabieg ułatwia wizualizację oraz przyspiesza proces uczenia.
+
+-   Algorytmy
+
+    -   Principal Component Analysis (PCA)
+
+    -   Independent Component Analysis (ICA)
+
+    -   Factor Analysis (Analiza Czynnikowa)
+
+    -   Uniform Manifold Approximation and Projection (UMAP)
+
+    -   t-Distributed Stochastic Neighbor Embedding (t-SNE)
+
+-   Przykłady zastosowań
+
+    -   Wizualizacja danych wielowymiarowych w dwóch lub trzech wymiarach
+
+    -   Przygotowanie danych do przeprowadzenia dalszej analizy (np. klasteryzacji lub klasyfikacji)
 
 ### Ocena Modeli
+
+Ocena modeli uczenia maszynowego polega na sprawdzeniu, **jak dobrze model wykonuje swoje zadanie** na danych, których wcześniej nigdy nie widział. Prawidłowa ocena pozwala wykryć przeuczenie (overfitting), niedouczenie (underfitting), porównać różne algorytmy oraz wybrać najlepszy model do wdrożenia.
+
+Sposób oceny modelu zależy od typu wykonywanego zadania, każdy rodzaj problemów ocenia się inny, odpowiedni dla danego rozwiązania sposób, ale ogólny proces oceny modelu opiera się na kilku wspólnych elementach.
+
+#### Podział Danych
+
+#### Metryki
+
+#### Wykresy Diagnostyczne
+
+#### Walidacja Krzyżowa
 
 ## Rozwiązanie problemu
 
 ### Regresja Logistyczna
 
-### Las Losowy
+Regresja logistyczna to jeden z najprostszych i najczęściej używanych modeli uczenia maszynowego do **klasyfikacji binarnej.** Jest to **model klasyfikacyjny**, który przewiduje **prawdopodobieństwo przynależności do jednej z dwóch klas.** Wykorzystuje on funkcję **sigmoidalną (logistyczną),** której zadaniem jest przeskalowanie wyników do zakresu 0-1, czyli do postaci prawdopodobieństwa.
+
+Funkcja ta ma postać:
+
+$$
+\sigma(z) =\frac{1}{1+e^{-z}}
+$$
+
+Następnie, po otrzymaniu wartości prawdopodobieństwa, każdej obserwacji przypisujemy odpowiednią klasę przy użyciu progu odcięcia. Przyjmując próg równy 0.5, mamy:
+
+-   jeśli $P\ge 0.5 \rightarrow klasa~1$
+
+-   jeśli $P\ge 0.5 \rightarrow klasa~0$
+
+Warto pamiętać, że wybór wartości progu odcięcia zależy od konkretnego zastosowania i powinien być ustalany na podstawie biznesowych metryk
+
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Uwaga!</strong> Dobór wartości progu wpływa na jakość metryk, takich jak recall lub precision.
+:::
+
+Chcąc zwiększyć dokładność modelu, możemy zoptymalizować wykorzystywane parametry. W przypadku regresji liniowej w celu znalezienia optymalnych parametrów wykorzystujemy metodę najmniejszych kwadratów. Ze względu na strukturę regresji logistycznej analogiczna metoda byłaby błędna, ponieważ regresja logistyczna przewiduje prawdopodobieństwo przynależności do określonej grupy, a nie szacuje wartość parametru. W takiej sytuacji wykorzystujemy metodę największej wiarygodności (**Maximum likelihood - MLE**). MLE szuka wartości parametrów, które maksymalizują funkcję wiarygodności, czyli takich, dla których obserwowane dane są najbardziej prawdopodobne. Algorytm MLE używa gradientu i kroku uczenia optymalizując funkcję wiarygodności poprzez iteracyjne aktualizowanie wartości parametrów w kierunku maksimum funkcji.
+
+Gradient to wektor nachylenia funkcji, który mówi w jaki sposób i o jaką wartość zmienić każdą wagę modelu aby zmiejszyć błąd.
+
+Learning rate to **krok, o jaki przesuwamy parametry w dół gradientu**, odpowiada za to jak szybko wykonujemy zmiany wag w kierunku wskazanym przez gradient.
+
+### Random Forest & Drzewo Decyzyjne
+
+#### Drzewo Decyzyjne
+
+Drzewo decyzyjne to model, który polega na podejmowaniu kolejnych decyzji i podziale danych na mniejsze grupy. Taki proces powtarzamy wielokrotnie tworząc rozbudowaną strukturę stworzoną z warunków logicznych `if/else`. W zależności od odpowiedzi, poruszamy się w dół drzewa przez odpowiednie węzły, aż ostatecznie trafimy na **liść**, który oznacza:
+
+-   etykietę klasy w przypadku klasyfikacji
+
+-   estymowaną wartość w przypadku regresji
+
+Model szuka podziału, który **najlepiej porządkuje dane**, czyli minimalizuje niepewność związaną z danymi. Do najczęstszych miar podziału zaliczamy:
+
+-   Gini impurity (klasyfikacja)
+
+-   Entropia
+
+-   MSE (regresja)
+
+------------------------------------------------------------------------
+
+#### Las Losowy
+
+Las losowy jest to **duża kolekcja drzew decyzyjnych**, które uczone są w sposób losowy, a ich przewidywania są **połączone**. Takie podejście poprawia jakość podstawowego elementu składowego, jakim jest drzewo decyzyjne, ponieważ jedno drzewo może się mylić, natomiast wykorzystanie wielu drzew i wybranie predykcji na podstawie większej próby znacznie poprawia jakość modelu oraz daje dokładniejszą predykcję.
+
+##### **Koncepcje lasu losowego:**
+
+-   Bootstrap - losowanie danych z powtórzeniami. Każde drzewo uczy się na **losowej próbce danych**.
+
+-   Random subspace - losowanie podzbioru cech, dzięki temu drzewa nie są do siebie bardzo podobne.
+
+-   Agregacja wyników drzew - w przypadku klasyfikacji wybieramy modę, natomiast w przypadku regresji używamy średniej.
+
+------------------------------------------------------------------------
+
+**XGBoost (Extreme Gradient Boosting)** to wydajna i ulepszona implementacja algorytmu **gradient boosting**, używająca drzew decyzyjnych jako modeli bazowych. To jeden z najskuteczniejszych algorytmów ML. XGBoost buduje **sekwencję drzew**, z których **każde kolejne drzewo naprawia błędy poprzednich**. Model minimalizuje funkcję straty za pomocą **gradientu**.
+
+##### **Najważniejsze cechy:**
+
+-   Drzewa budowane są jedno po drugim.
+
+-   Kolejne drzewo dopasowuje się do gradientu błędu, poprawiając jakość poprzedniej predykcji.
+
+-   Wysoka wydajność dzięki równoległości i kompresji.
+
+-   Algorytm zatrzymuje się w przypadku braku poprawy swojej jakości.
+
+------------------------------------------------------------------------
+
+##### **Porównanie**
+
+Random Forest buduje wiele niezależnych drzew i uśrednia ich wyniki, dzięki czemu jest prosty, stabilny i odporny na przeuczenie. XGBoost **tworzy drzewa sekwencyjnie**, każde z nich poprawia błędy poprzednich i stosuje regularizację, dlatego zwykle osiąga najwyższą dokładność. W praktyce XGBoost jest **lepszym rozwiązaniem**, gdy zależy nam na maksymalnej jakości modelu. Dlatego też zdecydowaliśmy się na ten typ algorytmu w naszym projekcie.
 
 ### Sieci Neuronowe
 
+**Sieci neuronowe** to metoda uczenia maszynowego inspirowana działaniem ludzkiego mózgu. Składają się one z **warstw neuronów**: wejściowej, jednej lub wielu ukrytych oraz wyjściowej. Każdy neuron przetwarza odpowiednio sygnał, stosując tzw. funkcję aktywacji, a wagi między poszczególnymi neuronami są **uczone** na podstawie danych treningowych.
+
+#### Najważniejsze cechy
+
+-   Potrafią wykrywać **złożone, nieliniowe zależności** w danych.
+
+-   Wymagają rozbudowanego zbioru danych i odpowiedniego doboru parametrów.
+
+-   Są podstawą **głębokiego uczenia (Deep Learning)**, w sytuacji kiedy sieć ma wiele warstw ukrytych.
+
+#### Typy sieci neuronowych
+
+-   **Perceptron** - klasyczne sieci wykorzystywane do klasyfikacji lub regresji.
+
+-   **Sieci rekurencyjne (RNN)**, które uwzględniają zależności czasowe.
+
+-   **Konwolucyjne sieci neuronowe (CNN)** - świetnie nadają się do analizy obrazów i danych przestrzennych.
+
+-   **Sieci głębokiego wzmocnienia (Deep Reinforcment Learning)** - stosowane są w przypadku realizacji zadań w dynamicznym oraz zmiennym środowisku.
+
+#### Zastosowania
+
+-   Przetwarzanie języka naturalnego w czasie rzeczywistym.
+
+-   Systemy rekomendacyjne na stronach internetowych.
+
+-   Sterowanie robotami i gry komputerowe.
+
+-   Analiza finansowa.
+
+-   Przetwarzanie obrazów i wideo.
+
 ## Podsumowanie
+
+W tej części projektu przedstawione zostały najważniejsze modele uczenia maszynowego wykorzystywane w praktyce do rozwiązywania problemów klasyfikacyjnych. Omówiona została **regresja logistyczna**, czyli jedno z najprostszych, a jednocześnie bardzo skutecznych narzędzi do przewidywania zmiennych binarnych.
+
+Następnie opisane zostało **drzewo decyzyjne**, które dzięki swojej przejrzystej strukturze umożliwia intuicyjne podejmowanie decyzji na podstawie hierarchii warunków. Jego rozwinięciem są **metody zespołowe**, takie jak **Random Forest**, łączący wiele drzew w jeden stabilny model, oraz **XGBoost**, który buduje drzewa sekwencyjnie, stopniowo korygując błędy poprzednich i osiągając jedne z najlepszych możliwych wyników uzyskanych przy pomocy drzew decyzyjnych.
+
+Ostatnią grupą modeli były **sieci neuronowe**, inspirowane działaniem ludzkiego mózgu. Dzięki warstwowej architekturze potrafią uchwycić bardzo złożone zależności w danych i są podstawą współczesnych sukcesów w dziedzinach takich jak rozpoznawanie obrazów czy przetwarzanie języka w czasie rzeczywistym.
+
+Przedstawione modele pozwoliły w mniejszym lub większym stopniu uchwycić zależności w omawianym zbiorze danych i stały się realnym rozwiązaniem dla problemu **predykcji zagrożenia ryzyka zawału serca w ciągu najbliższych 10 lat**. Ze względu na posiadanie zmiennej predykcyjnej posłużyliśmy się klasyfikacją przy użyciu różnych metod. Od prostszej regresji logistycznej aż po zaawansowaną architekturę sieci neuronowej. Najlepsze wyniki uzyskaliśmy przy użyciu właśnie tej metody, i to właśnie z niej jesteśmy najbardziej zadowoleni. Wierzymy że predykcje osiągane za pomocą tego modelu mają faktycznie realne zastosowanie w otaczającym nas świecie, co potwierdzają **uzyskane metryki oceny jakości**. Przy pomocy tego modelu postanowiliśmy dodatkowo stworzyć ankietę, w której po uzupełnieniu odpowiednich danych medycznych, są one przetwarzane przez stworzony model. Ostatecznie każdy z nas po wypełnieniu takiej ankiety otrzymuje informacje wsteczną o przewidywanym poziomie zagrożenia zawału serca. W tym celu odsyłamy do zakładki `APLIKACJA` w górnej nawigacji strony internetowej. Teraz omówimy uzyskane do tej pory informacje i wnioski, które wyciągneliśmy w trakcie projektu oraz **odpowiemy** na postawione wcześniej **hipotezy i pytania**.
 
 <div>
 

@@ -6,3 +6,5 @@ pandas
 numpy
 scikit-learn
 joblib
+tensorflow
+torch

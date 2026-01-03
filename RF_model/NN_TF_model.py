@@ -137,33 +137,49 @@ print(f"Specyficzność:        {specificity:.3f}")
 print(f"\nRaport klasyfikacji:")
 print(classification_report(y_test, y_pred, target_names=['Niskie ryzyko', 'Wysokie ryzyko']))
 
-# 13. ZAPIS MODELU I KOMPONENTÓW
-model_artifacts = {
-    'model': model,
-    'imputer': imputer,
-    'scaler': scaler,
-    'optimal_threshold': OPTIMAL_THRESHOLD,
-    'feature_names': feature_names,
-    'training_params': {
-        'recall': float(recall),
-        'precision': float(precision),
-        'specificity': float(specificity),
-        'fn_weight': 6.0,
-        'learning_rate': 0.0005
-    }
+# 13: Zapisywanie modelu (Format keras z custom loss)
+# python
+import os
+import joblib
+import tensorflow as tf
+
+print("\nZapis modelu i artefaktów")
+
+# Ścieżki plików
+MODEL_PATH = os.path.join(os.getcwd(), "medical_heart_risk_model.keras")
+ARTIFACTS_PATH = os.path.join(os.getcwd(), "medical_heart_risk_model_artifacts.pkl")
+
+# Odtwórz model z konfiguracji (usuwa odniesienia do custom loss/optimizer)
+inference_model = tf.keras.Sequential.from_config(model.get_config())
+inference_model.set_weights(model.get_weights())
+
+# Zapis modelu gotowego do inferencji (usuń parametr save_traces)
+try:
+    inference_model.save(MODEL_PATH, include_optimizer=False)
+    print(f"Model zapisany do: {MODEL_PATH}")
+except Exception as e:
+    print(f"Błąd przy zapisie modelu: {e}")
+    raise
+
+# Zapis preprocessing i metadanych w jednym pliku .pkl
+artifacts = {
+    "imputer": imputer,
+    "scaler": scaler,
+    "feature_names": feature_names,
+    "optimal_threshold": float(OPTIMAL_THRESHOLD),
+    "note": "Preprocessing i metadane do użycia z modelem .keras"
 }
 
-joblib.dump(model_artifacts, 'medical_heart_risk_model_final.pkl')
-print(f"\n✅ Model zapisany do: medical_heart_risk_model_final.pkl")
+try:
+    joblib.dump(artifacts, ARTIFACTS_PATH, compress=3)
+    print(f"Artefakty zapisane do: {ARTIFACTS_PATH}")
+except Exception as e:
+    print(f"Błąd przy zapisie artefaktów: {e}")
+    raise
 
-print(f"\n{'=' * 60}")
-print("MODEL GOTOWY DO UŻYTKU")
-print(f"{'=' * 60}")
-print("Użycie:")
-print("1. Wczytaj model: model_data = joblib.load('medical_heart_risk_model_final.pkl')")
-print("2. Przygotuj dane pacjenta (14 cech w odpowiedniej kolejności)")
-print("3. Przetwórz: X = model_data['imputer'].transform(patient_data)")
-print("4. Skaluj: X = model_data['scaler'].transform(X)")
-print("5. Predykcja: risk = model_data['model'].predict(X)[0][0]")
-print(f"6. Jeśli risk >= {OPTIMAL_THRESHOLD}: WYSOKIE RYZYKO")
-print("   W przeciwnym razie: NISKIE RYZYKO")
+print("\nPrzykład ładowania w API:")
+print(f"1) model = tf.keras.models.load_model(r'{MODEL_PATH}', compile=False)")
+print(f"2) artifacts = joblib.load(r'{ARTIFACTS_PATH}')")
+print("   scaler = artifacts['scaler']; imputer = artifacts['imputer']")
+print("   feature_names = artifacts['feature_names']; threshold = artifacts['optimal_threshold']")
+

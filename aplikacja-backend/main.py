@@ -31,7 +31,7 @@ except ImportError:
 # 2. Plik .pkl (sam model RF/XGB)
 # 3. Plik .keras/.h5 (model sieci neuronowej)
 
-MODEL_PATH = os.environ.get("MODEL_PATH", "model/rf_baseline.pkl")
+MODEL_PATH = os.environ.get("MODEL_PATH", "model/medical_heart_risk_model.keras")
 
 # Opcjonalna ścieżka do artefaktów, jeśli None, system spróbuje znaleźć je automatycznie
 ARTIFACTS_PATH = os.environ.get("ARTIFACTS_PATH", None)

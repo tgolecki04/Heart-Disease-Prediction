@@ -1,10 +1,12 @@
 fastapi
 pydantic
 uvicorn[standard]
-xgboost
 pandas
 numpy
 scikit-learn
 joblib
+xgboost
+
+# Dodatkowe biblioteki (potrzebne tylko jeśli Keras/TensorFlow lub PyTorch jest potrzebny)
 tensorflow
 torch

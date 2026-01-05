@@ -2,6 +2,7 @@
 title: "Wczesne Wykrywanie Ryzyka Zawału Serca"
 subtitle: "Aplikacja"
 format: html
+page-layout: full
 editor: visual
 ---
 
@@ -14,21 +15,30 @@ editor: visual
 ```{=html}
 <style>
   .form-card {
-    max-width: 700px;
+    max-width: 800px;
     background: #ffffff;
     margin: 40px auto;
-    padding: 22px 32px 32px 32px;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 6px 28px rgba(35,72,135,0.12);
-    border: 1px solid #e8eaf6;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e1e4e8;
   }
 
   .form-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #234887;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1a3b5d;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .form-subtitle {
+    text-align: center;
+    color: #718096;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
   }
 
   .form-grid-container {
@@ -39,247 +49,406 @@ editor: visual
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px 30px;
-    max-width: 690px;
+    gap: 20px 30px;
+    width: 100%;
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    padding: 2px;
   }
 
   label {
-    font-weight: 500;
-    margin-bottom: 6px;
-    color: #2b4257;
-    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #2d3748;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
   }
 
   input[type="number"], select {
     width: 100%;
-    padding: 9px 12px;
+    padding: 10px 12px;
     border-radius: 6px;
-    border: 1px solid #b0bec5;
+    border: 1px solid #cbd5e0;
     font-size: 1rem;
-    background: #f5f7fa;
-    margin-bottom: 2px;
-    transition: border-color 0.2s;
+    background: #f8fafc;
     box-sizing: border-box;
+    transition: all 0.2s;
   }
 
   input[type="number"]:focus, select:focus {
     outline: none;
-    border-color: #234887;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
     background: #ffffff;
   }
 
+  .input-suffix {
+    font-size: 0.8em;
+    color: #718096;
+    font-weight: normal;
+  }
+
   input[type="submit"] {
-    width: 60%;
-    padding: 12px 0;
-    background: #234887;
+    width: 100%;
+    max-width: 300px;
+    padding: 14px 0;
+    background: #464a73;
     color: #fff;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 8px;
     border: none;
-    font-size: 1rem;
-    margin-top: 18px;
+    font-size: 1.1rem;
+    margin: 35px auto 0 auto;
     cursor: pointer;
-    box-shadow: 0 3px 13px rgba(35,72,135,0.10);
+    box-shadow: 0 4px 6px rgba(43, 108, 176, 0.2);
     transition: background 0.2s, transform 0.1s;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   input[type="submit"]:hover {
-    background: #143059;
+    background: #33354f;
     transform: translateY(-1px);
   }
 
-  input[type="submit"]:active {
-    transform: translateY(0);
+  /* Styl dla wyniku */
+  #predictionResult {
+    display: none; /* domyślnie ukryte */
+    margin-top: 30px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid transparent;
+    animation: fadeIn 0.5s ease-in;
   }
 
-  #predictionResult {
-    margin-top: 23px;
-    text-align: center;
-    font-size: 1.08rem;
-    color: #317a39;
-    background: #e8f5e9;
-    border-radius: 8px;
-    padding: 14px;
+  .result-risk {
+    background-color: #fff5f5;
+    border-color: #feb2b2;
+    color: #c53030;
+  }
+
+  .result-safe {
+    background-color: #f0fff4;
+    border-color: #9ae6b4;
+    color: #2f855a;
+  }
+
+  /* Styl dla trybu demo/offline */
+  .result-demo {
+    background-color: #fffaf0;
+    border-color: #fbd38d;
+    color: #744210;
+    border-left: 5px solid #ed8936;
+  }
+
+  .result-header {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .result-confidence {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    color: inherit;
+    opacity: 0.9;
+  }
+
+  .result-advice {
+    font-size: 1.05rem;
     font-weight: 600;
-    border: 1px solid #b9e4c3;
-    transition: opacity 0.3s;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin-top: 10px;
+  }
+
+  .demo-badge {
+    display: inline-block;
+    background-color: #ed8936;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
   }
 
   .disabled-field {
-    background-color: #e9ecef !important;
-    color: #6c757d !important;
-    cursor: not-allowed !important;
-    opacity: 0.7;
+    background-color: #e2e8f0 !important;
+    color: #a0aec0 !important;
+    cursor: not-allowed;
   }
 
-  @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
-            
-    .form-card {
-      padding: 22px 20px 30px 20px;
-      margin: 20px auto;
-    }
-        
-    input[type="submit"] {
-      width: 80%;
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
 
-
-
 <div class="form-card">
-  <div class="form-title">Ankieta sprawdzająca ryzyko wystąpienia zawału serca</div>
+  <div class="form-title">Kalkulator Ryzyka Choroby Wieńcowej</div>
+  <div class="form-subtitle">Prosimy o dokładne wypełnienie poniższych danych medycznych w celu przeprowadzenia analizy ryzyka.</div>
+          
   <form id="predictionForm">
-  <div class="form-grid-container">
-    <div class="form-grid">
-      <div class="form-group">
-        <label for="male">Płeć:</label>
-        <select id="male" name="male" required>
-          <option value="">Wybierz...</option>
-          <option value="1">Mężczyzna</option>
-          <option value="0">Kobieta</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="age">Wiek:</label>
-        <input type="number" id="age" name="age" min="0" max="120" required>
-      </div>
-      <div class="form-group">
-        <label for="currentSmoker">Czy jest palaczem:</label>
-        <select id="currentSmoker" name="currentSmoker" required>
-          <option value="">Wybierz...</option>
-          <option value="1">Tak</option>
-          <option value="0">Nie</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="cigsPerDay">Ile papierosów dziennie:</label>
-        <input type="number" id="cigsPerDay" name="cigsPerDay" min="0" max="100" required>
-      </div>
-      <div class="form-group">
-        <label for="BPMeds">Czy aktualnie leczy się na nadciśnienie:</label>
-        <select id="BPMeds" name="BPMeds" required>
-          <option value="">Wybierz...</option>
-          <option value="1">Tak</option>
-          <option value="0">Nie</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="prevalentStroke">Czy przeżył udar:</label>
-        <select id="prevalentStroke" name="prevalentStroke" required>
-          <option value="">Wybierz...</option>
-          <option value="1">Tak</option>
-          <option value="0">Nie</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="prevalentHyp">Czy występowało nadciśnienie:</label>
-        <select id="prevalentHyp" name="prevalentHyp" required>
-          <option value="">Wybierz...</option>
-          <option value="1">Tak</option>
-          <option value="0">Nie</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="diabetes">Czy jest cukrzykiem:</label>
-        <select id="diabetes" name="diabetes" required>
-          <option value="">Wybierz...</option>
-          <option value="1">Tak</option>
-          <option value="0">Nie</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="totChol">Poziom cholesterolu we krwi (mg/dL):</label>
-        <input type="number" id="totChol" name="totChol" min="0" max="1000" required>
-      </div>
-      <div class="form-group">
-        <label for="sysBP">Ciśnienie skurczowe (mm Hg):</label>
-        <input type="number" id="sysBP" name="sysBP" min="0" max="400" required>
-      </div>
-      <div class="form-group">
-        <label for="diaBP">Ciśnienie rozkurczowe (mm Hg):</label>
-        <input type="number" id="diaBP" name="diaBP" min="0" max="300" required>
-      </div>
-      <div class="form-group">
-        <label for="BMI">Współczynnik BMI:</label>
-        <input type="number" id="BMI" name="BMI" min="0" max="100" step="0.1" required>
-      </div>
-      <div class="form-group">
-        <label for="heartRate">Tętno (uderzeń/min):</label>
-        <input type="number" id="heartRate" name="heartRate" min="0" max="300" required>
-      </div>
-      <div class="form-group">
-        <label for="glucose">Poziom glukozy we krwi (mg/dL):</label>
-        <input type="number" id="glucose" name="glucose" min="0" max="600" required>
+    <div class="form-grid-container">
+      <div class="form-grid">
+              
+        <div class="form-group">
+          <label for="male">Płeć biologiczna:</label>
+          <select id="male" name="male" required>
+            <option value="">Wybierz...</option>
+            <option value="1">Mężczyzna</option>
+            <option value="0">Kobieta</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="age">Wiek pacjenta:</label>
+          <input type="number" id="age" name="age" min="18" max="120" placeholder="np. 45" required>
+        </div>
+
+        <div class="form-group">
+          <label for="currentSmoker">Status palenia tytoniu:</label>
+          <select id="currentSmoker" name="currentSmoker" required>
+            <option value="">Wybierz...</option>
+            <option value="1">Osoba paląca</option>
+            <option value="0">Osoba niepaląca</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cigsPerDay">Średnia dzienna liczba papierosów:</label>
+          <input type="number" id="cigsPerDay" name="cigsPerDay" min="0" max="100" placeholder="0">
+        </div>
+
+        <div class="form-group">
+          <label for="BPMeds">Farmakologiczne leczenie nadciśnienia:</label>
+          <select id="BPMeds" name="BPMeds" required>
+            <option value="">Wybierz...</option>
+            <option value="1">Tak, przyjmuje leki</option>
+            <option value="0">Nie</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="prevalentStroke">Przebyty udar mózgu:</label>
+          <select id="prevalentStroke" name="prevalentStroke" required>
+            <option value="">Wybierz...</option>
+            <option value="1">Tak</option>
+            <option value="0">Nie</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="prevalentHyp">Zdiagnozowane nadciśnienie tętnicze:</label>
+          <select id="prevalentHyp" name="prevalentHyp" required>
+            <option value="">Wybierz...</option>
+            <option value="1">Tak</option>
+            <option value="0">Nie</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="diabetes">Zdiagnozowana cukrzyca:</label>
+          <select id="diabetes" name="diabetes" required>
+            <option value="">Wybierz...</option>
+            <option value="1">Tak</option>
+            <option value="0">Nie</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="totChol">Cholesterol całkowity <span class="input-suffix">(mg/dL)</span>:</label>
+          <input type="number" id="totChol" name="totChol" placeholder="np. 200" required>
+        </div>
+
+        <div class="form-group">
+          <label for="sysBP">Ciśnienie tętnicze skurczowe <span class="input-suffix">(mmHg)</span>:</label>
+          <input type="number" id="sysBP" name="sysBP" placeholder="np. 120" required>
+        </div>
+
+        <div class="form-group">
+          <label for="diaBP">Ciśnienie tętnicze rozkurczowe <span class="input-suffix">(mmHg)</span>:</label>
+          <input type="number" id="diaBP" name="diaBP" placeholder="np. 80" required>
+        </div>
+
+        <div class="form-group">
+          <label for="BMI">Wskaźnik masy ciała <span class="input-suffix">(BMI)</span>:</label>
+          <input type="number" id="BMI" name="BMI" step="0.1" placeholder="np. 24.5" required>
+        </div>
+
+        <div class="form-group">
+          <label for="heartRate">Tętno spoczynkowe <span class="input-suffix">(ud./min)</span>:</label>
+          <input type="number" id="heartRate" name="heartRate" placeholder="np. 72" required>
+        </div>
+
+        <div class="form-group">
+          <label for="glucose">Poziom glukozy we krwi na czczo <span class="input-suffix">(mg/dL)</span>:</label>
+          <input type="number" id="glucose" name="glucose" placeholder="np. 90" required>
+        </div>
+
       </div>
     </div>
-  </div>
-  <input type="submit" value="Oblicz ryzyko">
-  <div id="predictionResult"></div>
+    <input type="submit" value="Wykonaj analizę ryzyka" id="submitBtn" />
+          
+    <div id="predictionResult">
+    </div>
+          
   </form>
 </div>
 
-
+<script>
+  window.API_BASE_URL = "http://127.0.0.1:8000";
+</script>
 
 <script>
-  // Funkcja kontroli pola ilości papierosów dziennie
+  const API_BASE = (typeof window !== 'undefined' && window.API_BASE_URL) ? window.API_BASE_URL : "http://127.0.0.1:8000";
+          
+  // Logika obsługi palenia
   function handleSmokingLogic() {
     const smokerField = document.getElementById('currentSmoker');
     const cigsPerDayField = document.getElementById('cigsPerDay');
-    
+          
     function updateCigsPerDayField() {
       if (smokerField.value === '0') {
-        // Jeśli nie palący, ustaw na 0 i wyłącz
         cigsPerDayField.value = '0';
         cigsPerDayField.classList.add('disabled-field');
-        cigsPerDayField.disabled = true;
+        cigsPerDayField.readOnly = true;
+        cigsPerDayField.required = false;
       } else {
-        // W przeciwnym wypadku włącz pole
         cigsPerDayField.classList.remove('disabled-field');
-        cigsPerDayField.disabled = false;
-        // Jeśli wartość to 0, wyczyść pole
+        cigsPerDayField.readOnly = false;
+        cigsPerDayField.required = true; 
         if (cigsPerDayField.value === '0') {
           cigsPerDayField.value = '';
         }
       }
     }
-    
     updateCigsPerDayField();
-    
     smokerField.addEventListener('change', updateCigsPerDayField);
+  }
+          
+  // FUNKCJA FALLBACK DEMO
+  function showDemoFallback() {
+    const resultDiv = document.getElementById('predictionResult');
+              
+    // Generowanie losowego wyniku
+    const randomProb = Math.random(); 
+    const isRisk = randomProb > 0.5;
+    const probPercent = (randomProb * 100).toFixed(1);
+
+    resultDiv.style.display = 'block';
+    resultDiv.className = 'result-demo'; // Styl demo (pomarańczowy)
+
+    let html = `
+      <div class="demo-badge">⚠️ Tryb Demonstracyjny</div>
+      <div style="margin-bottom: 15px; font-weight: bold;">
+        Brak połączenia z serwerem API. Poniżej przedstawiono symulację wyniku.
+      </div>
+    `;
+
+    if (isRisk) {
+      html += `<div class="result-header">⚠️ SYMULACJA: WYSOKIE RYZYKO</div>`;
+    } else {
+      html += `<div class="result-header">✅ SYMULACJA: NISKIE RYZYKO</div>`;
+    }
+
+    html += `<div class="result-confidence">Prawdopodobieństwo wyniku: <b>${probPercent}%</b></div>`;
+
+    if (isRisk) {
+      html += `<div class="result-advice">
+        (Tekst przykładowy) Zalecenie: Twój wynik sugeruje podwyższone ryzyko wystąpienia chorób serca. Sugerujemy konsultację z lekarzem w celu wykonania dokładniejszych badań.
+      </div>`;
+    } else {
+      html += `<div class="result-advice">
+        (Tekst przykładowy) Zalecenie: Wynik jest pomyślny, ale pamiętaj o regularnych badaniach profilaktycznych i utrzymywaniu zdrowego stylu życia.
+      </div>`;
+    }
+
+    resultDiv.innerHTML = html;
   }
 
   document.addEventListener('DOMContentLoaded', function() {
     handleSmokingLogic();
-    
-    document.getElementById('predictionForm').addEventListener('submit', function(e) {
+          
+    const form = document.getElementById('predictionForm');
+    const resultDiv = document.getElementById('predictionResult');
+          
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      
-      // Upewnienie, że 0 papierosów gdy nie palący
+          
       const smokerField = document.getElementById('currentSmoker');
       const cigsPerDayField = document.getElementById('cigsPerDay');
-      
       if (smokerField.value === '0') {
         cigsPerDayField.value = '0';
       }
-      
-      // Testowo losowa wartość predykcji
-      const randomPrediction = Math.random().toFixed(2);
-      document.getElementById('predictionResult').innerHTML =
-      "Przewidywane ryzyko zawału serca: <b>" + (randomPrediction*100).toFixed(0) + "%" + "</b>";
+          
+      const formData = new FormData(form);
+      const data = {};
+      for (const [k, v] of formData.entries()) {
+        if (v === "") data[k] = null;
+        else data[k] = Number(v);
+      }
+
+      // UI: Pokaż ładowanie wyniku
+      resultDiv.style.display = 'block';
+      resultDiv.className = ''; 
+      resultDiv.style.backgroundColor = '#f0f2f5';
+      resultDiv.style.color = '#333';
+      resultDiv.innerHTML = "Przetwarzanie danych...";
+          
+      try {
+        // Próba połączenia z API
+        const res = await fetch(API_BASE.replace(/\/$/, "") + "/predict", {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+          
+        if (!res.ok) {
+          throw new Error(`Server returned ${res.status}`);
+        }
+            
+        const json = await res.json();
+        const isRisk = (json.class === 1);
+        const hasProb = (json.probability !== null && json.probability !== undefined);
+                  
+        // Budowanie HTML dla poprawnego wyniku
+        let html = "";
+                  
+        if (isRisk) {
+          resultDiv.className = 'result-risk';
+          html += `<div class="result-header">⚠️ WYNIK: WYSOKIE RYZYKO</div>`;
+        } else {
+          resultDiv.className = 'result-safe';
+          html += `<div class="result-header">✅ WYNIK: NISKIE RYZYKO</div>`;
+        }
+  
+        if (hasProb) {
+          const pct = (json.probability * 100).toFixed(1);
+          html += `<div class="result-confidence">Prawdopodobieństwo wyniku: <b>${pct}%</b></div>`;
+        }
+  
+        if (isRisk) {
+          html += `<div class="result-advice">
+            Zalecenie: Twój wynik sugeruje podwyższone ryzyko wystąpienia chorób serca. Sugerujemy konsultację z lekarzem w celu wykonania dokładniejszych badań.
+          </div>`;
+        } else {
+          html += `<div class="result-advice">
+            Zalecenie: Wynik jest pomyślny, ale pamiętaj o regularnych badaniach profilaktycznych i utrzymywaniu zdrowego stylu życia.
+          </div>`;
+        }
+  
+        resultDiv.innerHTML = html;
+
+      } catch (err) {
+        console.warn("API Error or Offline:", err);
+        // Wywołanie fallbacku w przypadku błędu sieci lub błędu serwera
+        showDemoFallback();
+      }
     });
   });
 </script>

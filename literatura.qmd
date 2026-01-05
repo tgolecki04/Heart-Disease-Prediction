@@ -35,7 +35,11 @@ Dodatkowo użyliśmy:
 -   <https://jakevdp.github.io/PythonDataScienceHandbook/>
 -   <https://tenor.com/en-GB/view/pixel-heart-gif-17305873723364263937>
 -   <https://www.canva.com/templates>
+-   <https://scikit-learn.org/stable/user_guide.html>
 -   <https://scikit-learn.org/stable/machine_learning_map.html>
+-   <https://xgboost.readthedocs.io/en/stable/>
+-   <https://www.tensorflow.org/guide?hl=pl>
+-   <https://fastapi.tiangolo.com/learn/>
 
 <div>
 

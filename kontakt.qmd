@@ -58,7 +58,7 @@ Data Engineering & Analytics Student
 :::
 
 ::: image-column
-![](images/contact/motor.png){alt="Opis zdjęcia" width="128"}
+![](images/contact/1680123637729.jpg){alt="Opis zdjęcia" width="128"}
 :::
 :::::
 

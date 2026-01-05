@@ -60,11 +60,11 @@ Zbiór danych Framingham Heart Study zawiera informacje o uczestnikach długolet
 
 -   Zaawansowana analiza danych w języku **R**.
 
--   Stworzenie kilku modeli predykcyjnych w **Python**.
+-   Wykorzystanie języka **Python** do trenowanie modeli, wykonania predykcji i stworzenia backendu (FastAPI)
 
 -   Wykorzystanie **Quarto** do stworzenia spójnego i przejrzystego połączenia części teoretycznych i praktycznych projektu.
 
--   **SCSS/HTML/JavaScript** (frontend, wizualizacje)
+-   **SCSS/HTML/JavaScript** (frontend, wizualizacje, interakcje)
 
 ## Podsumowanie
 

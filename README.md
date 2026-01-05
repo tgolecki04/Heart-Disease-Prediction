@@ -3,12 +3,21 @@
 
 **Projekt pozwala na wykrywanie ryzyka zawału serca mogącego wystąpić w przeciągu najbliższych 10 lat przy wykorzystaniu modeli uczenia maszynowego. Celem jest opracowanie narzędzi do przewidywania ryzyka na podstawie danych medycznych.**
 
+Repozytorium zawiera:
+- interaktywną stronę (Quarto + GitHub Pages) z analizą i prezentacją wyników,
+- backend API (FastAPI) do wykonywania predykcji na podstawie danych wejściowych,
+- skrypty trenowania i ewaluacji modeli oraz zapisane modele/artefakty.
+
+> [!WARNING]
+> Projekt jest w fazie aktywnego rozwoju. Wyniki i kod mogą ulegać zmianom, a część funkcjonalności może wymagać dopracowania. Nie jest to narzędzie medyczne i nie powinno być używane do diagnostyki.
+
 ## Spis treści
 - [Zobacz pełną analizę online](#zobacz-pełną-analizę-online)
 - [Informacje ogólne](#informacje-ogólne)
 - [Zbiór danych](#zbiór-danych)
-- [Technologie](#użyte-technologie)
+- [Użyte technologie](#użyte-technologie)
 - [Struktura projektu](#struktura-projektu)
+- [Ograniczenia i zastrzeżenia](#ograniczenia-i-zastrzeżenia)
 - [Autorzy](#autorzy)
 
 ## 🔗 Zobacz pełną analizę online
@@ -16,13 +25,10 @@ Analiza projektu wraz z interaktywnymi raportami jest dostępna online:
 **[GitHub Pages – Wczesne Wykrywanie Ryzyka Zawału Serca](https://tgolecki04.github.io/Heart-Disease-Prediction/)**
 
 ## ℹ️ Informacje ogólne
-Projekt z zakresu analizy danych. Głównym założeniem projektu jest stworzenie nieliniowych modeli predykcyjnych zdolnych do skutecznego 
-przewidywania potencjalnego zawału serca w najbliższych 10 latach na podstawie czynników między innymi takich jak płeć, wiek, palenie, 
-poziom glukozy, przyjmowane leki oraz poziom cholesterolu. Projekt zakłada stworzenie minimum 2 modeli predykcyjnych, przykładowo pierwszy 
-oparty na Neural Networks, a kolejny na Gradient Boosting.
+Projekt z zakresu analizy danych i modelowania klasyfikacyjnego.  
+Celem jest zbudowanie kilku modeli predykcyjnych umożliwiających przewidywanie potencjalnego zawału serca w najbliższych 10 latach na podstawie czynników takich jak m.in.: płeć, wiek, palenie, liczba papierosów dziennie, stosowanie leków, choroby współistniejące (np. nadciśnienie), poziom cholesterolu, ciśnienie, BMI, tętno oraz glukoza.
 
-> [!WARNING]
-> Projekt jest w fazie aktywnego rozwoju. Wyniki i kod mogą ulegać zmianom, a część funkcjonalności może wymagać dopracowania.
+Modele rozważane/wykorzystane: sieci neuronowe (Keras/TensorFlow/PyTorch), XGBoost, Random Forest oraz warianty z/bez SMOTE.
 
 ## 📊 Zbiór danych
 **[Framingham Heart Study](https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study)**
@@ -30,23 +36,35 @@ oparty na Neural Networks, a kolejny na Gradient Boosting.
 ## 🛠️ Użyte technologie
 Zaawansowana analiza danych w języku R. Stworzenie kilku modeli predykcyjnych w Python. Wykorzystanie Quarto do stworzenia spójnego i przejrzystego 
 połączenia części teoretycznych i praktycznych projektu.
-- R (analiza)
-- Python (modele)
-- Quarto (raporty i prezentacja)
-- SCSS/HTML/JavaScript (frontend, wizualizacje)
-- Dodatkowe biblioteki: `tidyverse`, `sklearn`, `ggplot2` itp.
+- Python (trenowanie modeli, predykcja, backend API - FastAPI)
+- R (zaawansowana analiza zbioru danych)
+- Quarto (raporty, prezentacja, generowanie strony)
+- SCSS/CSS/JavaScript (frontend, wizualizacje, interakcje)
+- Dodatkowe biblioteki:
+  - `scikit-learn`, `xgboost`, `pandas`, `numpy`, `joblib`
+  - opcjonalnie: `tensorflow`/`keras`, `torch` (dla niektórych modeli)
+- Uwaga: Quarto notebooks (`.qmd`) mogą zawierać kod w Python i R, jednak repozytorium nie zawiera osobnych plików `.R`
 
 ## 🗂 Struktura projektu
 ```
-📄 dane.qmd                # Analiza danych
-📄 aplikacja.qmd           # Interaktywny formularz z predykcją
-📄 plan.qmd                # Plan projektu, cele
-📄 wnioski.qmd             # Wnioski
-📁 doc/                    # Wygenerowane raporty HTML
-📁 data/                   # Zbiór danych
+📁 RF_model/                      # Skrypty trenowania/ewaluacji i zapisane modele/artefakty
+📁 aplikacja-backend/             # FastAPI backend
+📁 models/                        # Bazowe/wytrenowane modele (joblib/pkl) i wykresy
+📁 styles/                        # Style SCSS/CSS
+📁 images/                        # Grafiki wykorzystywane w raportach/stronie
+📁 docs/                          # Wygenerowana strona (GitHub Pages)
+📁 data/                          # Dodatkowe dane (jeśli używane)
+📄 _quarto.yml                    # Konfiguracja Quarto
+📄 index.qmd, wstep.qmd, ...      # Sekcje raportu/strony
+📄 aplikacja.qmd                  # Interaktywny formularz z predykcją (frontend)
+📄 script.js                      # Skrypt JS strony głównej
 📄 README.md
-➕ ... (inne pliki .R, .py, .scss, .js itd.)
 ```
+
+## ⚠️ Ograniczenia i zastrzeżenia
+- Projekt ma charakter edukacyjny i demonstracyjny. Nie jest certyfikowanym wyrobem medycznym.
+- Wyniki predykcji nie powinny być podstawą decyzji diagnostycznych lub terapeutycznych.
+- Dane i modele mogą mieć ograniczenia jakościowe wynikające z doboru cech, balansu klas, metod przetwarzania i założeń.
 
 ## 👥 Autorzy
 - Damian Spodar

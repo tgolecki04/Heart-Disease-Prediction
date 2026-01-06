@@ -19,25 +19,39 @@ Wnioski zaprezentowane na tej stronie odnoszą się bezpośrednio do postawionyc
 
 ## Omówienie Hipotez
 
-### H1
+#### Nie istnieje zależność liniowa pomiędzy jakąkolwiek parą zmiennych.
 
-### H2
+Analiza danych sugeruje, że większość zmiennych w naszym zestawie danych nie wykazuje prostej zależności liniowej między sobą. Oznacza to, że np. poziom cholesterolu nie rośnie ani nie spada w sposób prosty wraz z wiekiem, a BMI nie jest jednoznacznie skorelowane z ciśnieniem. W praktyce oznacza to, że do modelowania ryzyka zawału serca musimy uwzględniać **złożone interakcje między zmiennymi**, np. nieliniowe zależności lub wpływ wielu czynników jednocześnie.
 
-### H3
+#### Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.
 
-### H4
+Badania epidemiologiczne oraz analiza danych wskazują, że wysokie ciśnienie skurczowe i rozkurczowe jest jednym z najważniejszych predyktorów ryzyka chorób sercowo-naczyniowych, w tym zawału serca. Osoby z nadciśnieniem są bardziej narażone na uszkodzenia naczyń krwionośnych i przyspieszoną miażdżycę, co zwiększa prawdopodobieństwo wystąpienia incydentów sercowych.
+
+#### Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.
+
+Farmakoterapia nadciśnieniowa, szczególnie przy stosowaniu inhibitorów ACE oraz beta-blokerów , skutecznie obniża ciśnienie krwi, zmniejszając obciążenie serca i naczyń. Analizy danych klinicznych pokazują, że osoby przyjmujące leki na nadciśnienie mają niższe ryzyko wystąpienia choroby wieńcowej i zawału serca w porównaniu z osobami nieleczonymi, nawet przy podobnych poziomach innych czynników ryzyka.
+
+#### Palenie zwiększa ryzyko zawału serca.
+
+Palenie tytoniu jest jednym z kluczowych czynników ryzyka chorób sercowo-naczyniowych. Nikotyna i inne toksyny zawarte w papierosach powodują skurcz naczyń, przyspieszenie rytmu serca, wzrost ciśnienia krwi oraz zwiększenie agregacji płytek krwi, co sprzyja powstawaniu zakrzepów. Dane wskazują, że zarówno liczba wypalanych papierosów, jak i długość okresu palenia korelują z wyższym ryzykiem zawału serca.
 
 ## Omówienie Pytań Badawczych
 
-### P1
+#### Jak wygląda rozkład podstawowych cech: wiek, płeć, BMI, cholesterol, ciśnienie, palenie?
 
-### P2
+Analiza rozkładu danych pozwala lepiej zrozumieć profil badanej populacji. Wiek nie wykazuje rozkładu normalnego, badamy osoby w grupie od 30 do 70 lat. Płeć w badanej grupie nie jest do końca zrównoważona - z lekką przewagą kobiet, BMI wskazuje na umiarkowaną nadwagę w części populacji, cholesterol i ciśnienie mają szeroki zakres wartości, a odsetek palaczy jest równy około 50%, co umożliwia analizę wpływu tego czynnika na ryzyko sercowe.
 
-### P3
+#### W jaki sposób palenie oraz liczba spalonych dziennie papierosów zmienia się wraz z wiekiem?
 
-### P4
+Dane pokazują, że młodsze osoby w badanej populacji częściej są aktywnymi palaczami, ale liczba papierosów dziennie rośnie u osób w średnim wieku, które kontynuują palenie przez wiele lat. Starsze osoby częściej rezygnują z palenia lub przyjmują mniejszą liczbę papierosów dziennie. To sugeruje, że **akumulacja lat palenia** może być istotniejsza dla ryzyka zawału niż sam wiek palacza.
 
-### P5
+#### Jak zakres pracy serca wpływa na występowanie chorób, w tym choroby wieńcowej?
+
+Zakres pracy serca, mierzony np. ciśnieniem skurczowym i rozkurczowym, często koreluje z występowaniem chorób sercowo-naczyniowych. Wyższe wartości ciśnienia są związane z większym obciążeniem serca i większym ryzykiem uszkodzeń naczyń. Dane pokazują, że osoby z utrzymującym się nadciśnieniem częściej mają rozpoznaną chorobę wieńcową i większe ryzyko incydentów sercowych.
+
+#### Dlaczego leki na nadciśnienie zmniejszają ryzyko zawału?
+
+Leki obniżające ciśnienie zmniejszają obciążenie serca i ryzyko mikrourazów naczyń krwionośnych. Z punktu widzenia danych, osoby stosujące farmakoterapię nadciśnieniową mają niższe wskaźniki zdarzeń sercowych w porównaniu z osobami nieleczonymi, nawet przy podobnym wieku i BMI. To potwierdza **kliniczne obserwacje** i wskazuje, że odpowiednia terapia może znacząco obniżyć ryzyko zawału serca.
 
 <div>
 

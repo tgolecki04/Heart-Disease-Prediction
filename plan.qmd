@@ -24,25 +24,23 @@ Zbiór danych Framingham Heart Study zawiera informacje o uczestnikach długolet
 
 ## Hipotezy Badawcze
 
--   **H1:** Istnieją zmienne, pomiędzy którymi zachodzi zależność liniowa.
+-   **H1:** Nie istnieje zależność liniowa pomiędzy jakąkolwiek parą zmiennych.
 
 -   **H2:** Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.
 
 -   **H3:** Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.
 
--   **H4:** Stworzony model klasyfikacyjny pozwala na sensowną predykcję CHD mimo nierównowagi grup w zmiennej predykcyjnej.
+-   **H4:** Palenie zwiększa ryzyko zawału serca.
 
 ## Pytania Badawcze
 
 -   Jak wygląda rozkład podstawowych cech: wiek, płeć, BMI, cholesterol, ciśnienie, palenie?
 
--   Czy palenie oraz liczba spalonych dziennie papierosów koreluje z wyższym poziomem cholesterolu, ciśnieniem, BMI?
+-   W jaki sposób palenie oraz liczba spalonych dziennie papierosów zmienia się wraz z wiekiem?
 
--   Które zmienne cechują się największą siłą predykcyjną względem CHD?
+-   Jak zakres pracy serca wpływa na występowanie chorób, w tym choroby wieńcowej?
 
--   Czy istnieje interakcja między kilkoma zmiennymi (np. wiek, palenie i cholesterol) zwiększająca ryzyko znacząco?
-
--   Czy model klasyfikacyjny pozwala osiągnąć dobrą jakość predykcji?
+-   Dlaczego leki na nadciśnienie zmniejszają ryzyko zawału?
 
 ## Metody i Narzędzia
 

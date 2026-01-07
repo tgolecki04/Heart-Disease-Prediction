@@ -13,9 +13,9 @@ website:
     type: textbox
   page-footer:
     left:
-      - text: "IAD III 2025"
+      - text: "IAD III 2026"
     right:
-      - text: "© 2025 Tomasz Golecki | Tomasz Hanusek | Damian Spodar"
+      - text: "© 2026 Tomasz Golecki | Tomasz Hanusek | Damian Spodar"
     center:
       - text: "Projekt z Zakresu Analizy Danych"
   page-navigation: true

@@ -2357,6 +2357,13 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="alert alert-dismissible alert-danger">
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Weryfikacja Hipotezy</strong></p>
+<p><span class="math inline">\(H_0\)</span> : Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.</p>
+<p><strong>Tak.</strong> Podwyższone ciśnienie skurczowe i rozkurczowe przez dłuższy okres negatywnie wpływają na pracę układu sercowo-naczyniowego oraz zwiększają ryzyko wystapienia choroby wieńcowej.</p>
+</div>
 </section>
 <section id="zakres-pracy-serca-a-ryzyko-zawału" class="level3" data-number="6.8">
 <h3 data-number="6.8" class="anchored" data-anchor-id="zakres-pracy-serca-a-ryzyko-zawału"><span class="header-section-number">6.8</span> Zakres pracy serca, a ryzyko zawału</h3>
@@ -2707,6 +2714,13 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="alert alert-dismissible alert-danger">
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Weryfikacja Hipotezy</strong></p>
+<p><span class="math inline">\(H_0\)</span> : Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.</p>
+<p><strong>Tak.</strong> Osoby z podwyższonym ciśnieniem posiadają większe ryzyko choroby wieńcowej, niż osoby z prawidłowym ciśnieniem, ponieważ ciśnienie jest jednym z głównych predyktorów zawału serca w medycynie. Osoby stosujące leki w celu obniżenia ciśnienia serca w dużej mierze ciągle mają wyższe wyniki niż osoby zdrowe, lecz przyczyniają się tym do zmniejszenia ryzyka zawału serca.</p>
+</div>
 </section>
 <section id="skutki-palenia-na-układ-krążenia" class="level3" data-number="6.12">
 <h3 data-number="6.12" class="anchored" data-anchor-id="skutki-palenia-na-układ-krążenia"><span class="header-section-number">6.12</span> Skutki palenia na układ krążenia</h3>
@@ -2954,6 +2968,13 @@ window.Quarto = {
 <figure class="figure">
 <p><img src="images/plots/fraction.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
+</div>
+<div class="alert alert-dismissible alert-danger">
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+</button>
+<p><strong>Weryfikacja Hipotezy</strong></p>
+<p><span class="math inline">\(H_0\)</span> : Palenie zwiększa ryzyko zawału serca.</p>
+<p><strong>Tak.</strong>Palenie wpływa negatywnie na układ sercowo-naczyniowy, podnosi ciśnienie serca oraz działa toksycznie na ludzki organizm. Wraz z liczbą palonych papierosów oraz okresem palenia zwiększa się ryzyko wystąpienia m.in. choroby wieńcowej.</p>
 </div>
 </section>
 </section>
@@ -4579,408 +4600,408 @@ Predicted   No  Yes
 <span id="cb65-712"><a href="#cb65-712" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
 <span id="cb65-713"><a href="#cb65-713" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb65-714"><a href="#cb65-714" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-715"><a href="#cb65-715" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zakres pracy serca, a ryzyko zawału</span></span>
-<span id="cb65-716"><a href="#cb65-716" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-719"><a href="#cb65-719" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-720"><a href="#cb65-720" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Pulse_pressure</span></span>
-<span id="cb65-721"><a href="#cb65-721" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-722"><a href="#cb65-722" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-723"><a href="#cb65-723" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">range_diff =</span> sysBP <span class="sc">-</span> diaBP) <span class="sc">|&gt;</span> </span>
-<span id="cb65-724"><a href="#cb65-724" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(range_diff) <span class="sc">|&gt;</span> </span>
-<span id="cb65-725"><a href="#cb65-725" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> range_diff, <span class="at">color =</span> TenYearCHD)) <span class="sc">+</span></span>
-<span id="cb65-726"><a href="#cb65-726" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-727"><a href="#cb65-727" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-728"><a href="#cb65-728" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-729"><a href="#cb65-729" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pulse pressure distribution"</span>, <span class="at">x =</span> <span class="st">"sysBP - diaBP"</span>)</span>
-<span id="cb65-730"><a href="#cb65-730" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-731"><a href="#cb65-731" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-732"><a href="#cb65-732" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">range_diff =</span> sysBP <span class="sc">-</span> diaBP) <span class="sc">|&gt;</span> </span>
-<span id="cb65-733"><a href="#cb65-733" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(range_diff) <span class="sc">|&gt;</span> </span>
-<span id="cb65-734"><a href="#cb65-734" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> range_diff, <span class="at">color =</span> prevalentHyp)) <span class="sc">+</span></span>
-<span id="cb65-735"><a href="#cb65-735" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-736"><a href="#cb65-736" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-737"><a href="#cb65-737" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-738"><a href="#cb65-738" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pulse pressure distribution"</span>, <span class="at">x =</span> <span class="st">"sysBP - diaBP"</span>)</span>
-<span id="cb65-739"><a href="#cb65-739" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-740"><a href="#cb65-740" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-741"><a href="#cb65-741" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">range_diff =</span> sysBP <span class="sc">-</span> diaBP) <span class="sc">|&gt;</span> </span>
-<span id="cb65-742"><a href="#cb65-742" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(range_diff) <span class="sc">|&gt;</span> </span>
-<span id="cb65-743"><a href="#cb65-743" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> range_diff, <span class="at">color =</span> diabetes)) <span class="sc">+</span></span>
-<span id="cb65-744"><a href="#cb65-744" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-745"><a href="#cb65-745" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-746"><a href="#cb65-746" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>, <span class="st">"#2C5DBF"</span>, <span class="st">"#F25041"</span>)) <span class="sc">+</span></span>
-<span id="cb65-747"><a href="#cb65-747" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pulse pressure distribution"</span>, <span class="at">x =</span> <span class="st">"sysBP - diaBP"</span>)</span>
-<span id="cb65-748"><a href="#cb65-748" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-749"><a href="#cb65-749" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/pulse_pressure_1.jpg"</span>, p1)</span>
-<span id="cb65-750"><a href="#cb65-750" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/pulse_pressure_2.jpg"</span>, p2)</span>
-<span id="cb65-751"><a href="#cb65-751" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/pulse_pressure_3.jpg"</span>, p3)</span>
-<span id="cb65-752"><a href="#cb65-752" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-753"><a href="#cb65-753" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-754"><a href="#cb65-754" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-755"><a href="#cb65-755" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Względem zmiennej TenYearCHD</span></span>
-<span id="cb65-756"><a href="#cb65-756" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-757"><a href="#cb65-757" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/pulse_pressure_1.jpg)</span>{fig-align="center"}</span>
-<span id="cb65-758"><a href="#cb65-758" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-759"><a href="#cb65-759" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Względem zmiennej prevalentHyp</span></span>
+<span id="cb65-715"><a href="#cb65-715" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-dismissible .alert-danger}</span>
+<span id="cb65-716"><a href="#cb65-716" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn-close"</span><span class="ot"> data-bs-dismiss</span><span class="op">=</span><span class="st">"alert"</span><span class="dt">&gt;</span></span>
+<span id="cb65-717"><a href="#cb65-717" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-718"><a href="#cb65-718" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb65-719"><a href="#cb65-719" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-720"><a href="#cb65-720" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Weryfikacja Hipotezy<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span></span>
+<span id="cb65-721"><a href="#cb65-721" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-722"><a href="#cb65-722" aria-hidden="true" tabindex="-1"></a>$H_0$ : Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.</span>
+<span id="cb65-723"><a href="#cb65-723" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-724"><a href="#cb65-724" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Tak.<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> Podwyższone ciśnienie skurczowe i rozkurczowe przez dłuższy okres negatywnie wpływają na pracę układu sercowo-naczyniowego oraz zwiększają ryzyko wystapienia choroby wieńcowej.</span>
+<span id="cb65-725"><a href="#cb65-725" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-726"><a href="#cb65-726" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-727"><a href="#cb65-727" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zakres pracy serca, a ryzyko zawału</span></span>
+<span id="cb65-728"><a href="#cb65-728" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-731"><a href="#cb65-731" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-732"><a href="#cb65-732" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Pulse_pressure</span></span>
+<span id="cb65-733"><a href="#cb65-733" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-734"><a href="#cb65-734" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-735"><a href="#cb65-735" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">range_diff =</span> sysBP <span class="sc">-</span> diaBP) <span class="sc">|&gt;</span> </span>
+<span id="cb65-736"><a href="#cb65-736" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(range_diff) <span class="sc">|&gt;</span> </span>
+<span id="cb65-737"><a href="#cb65-737" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> range_diff, <span class="at">color =</span> TenYearCHD)) <span class="sc">+</span></span>
+<span id="cb65-738"><a href="#cb65-738" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-739"><a href="#cb65-739" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-740"><a href="#cb65-740" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-741"><a href="#cb65-741" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pulse pressure distribution"</span>, <span class="at">x =</span> <span class="st">"sysBP - diaBP"</span>)</span>
+<span id="cb65-742"><a href="#cb65-742" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-743"><a href="#cb65-743" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-744"><a href="#cb65-744" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">range_diff =</span> sysBP <span class="sc">-</span> diaBP) <span class="sc">|&gt;</span> </span>
+<span id="cb65-745"><a href="#cb65-745" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(range_diff) <span class="sc">|&gt;</span> </span>
+<span id="cb65-746"><a href="#cb65-746" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> range_diff, <span class="at">color =</span> prevalentHyp)) <span class="sc">+</span></span>
+<span id="cb65-747"><a href="#cb65-747" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-748"><a href="#cb65-748" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-749"><a href="#cb65-749" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-750"><a href="#cb65-750" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pulse pressure distribution"</span>, <span class="at">x =</span> <span class="st">"sysBP - diaBP"</span>)</span>
+<span id="cb65-751"><a href="#cb65-751" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-752"><a href="#cb65-752" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-753"><a href="#cb65-753" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">range_diff =</span> sysBP <span class="sc">-</span> diaBP) <span class="sc">|&gt;</span> </span>
+<span id="cb65-754"><a href="#cb65-754" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(range_diff) <span class="sc">|&gt;</span> </span>
+<span id="cb65-755"><a href="#cb65-755" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> range_diff, <span class="at">color =</span> diabetes)) <span class="sc">+</span></span>
+<span id="cb65-756"><a href="#cb65-756" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-757"><a href="#cb65-757" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-758"><a href="#cb65-758" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>, <span class="st">"#2C5DBF"</span>, <span class="st">"#F25041"</span>)) <span class="sc">+</span></span>
+<span id="cb65-759"><a href="#cb65-759" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Pulse pressure distribution"</span>, <span class="at">x =</span> <span class="st">"sysBP - diaBP"</span>)</span>
 <span id="cb65-760"><a href="#cb65-760" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-761"><a href="#cb65-761" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/pulse_pressure_2.jpg)</span>{fig-align="center"}</span>
-<span id="cb65-762"><a href="#cb65-762" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-763"><a href="#cb65-763" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Względem zmiennej diabetes</span></span>
-<span id="cb65-764"><a href="#cb65-764" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-765"><a href="#cb65-765" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/pulse_pressure_3.jpg)</span>{fig-align="center"}</span>
-<span id="cb65-766"><a href="#cb65-766" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-767"><a href="#cb65-767" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-768"><a href="#cb65-768" aria-hidden="true" tabindex="-1"></a><span class="sc">:analiza:</span>:</span>
-<span id="cb65-769"><a href="#cb65-769" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-770"><a href="#cb65-770" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ciśnienie serca jako przyczyna zawału serca</span></span>
-<span id="cb65-771"><a href="#cb65-771" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-772"><a href="#cb65-772" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Z uzględnieniem płci</span></span>
-<span id="cb65-773"><a href="#cb65-773" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-776"><a href="#cb65-776" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-777"><a href="#cb65-777" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Cisnienie_wzgledem_ryzyka</span></span>
-<span id="cb65-778"><a href="#cb65-778" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-779"><a href="#cb65-779" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-780"><a href="#cb65-780" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> sysBP, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb65-781"><a href="#cb65-781" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-782"><a href="#cb65-782" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-783"><a href="#cb65-783" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span> </span>
-<span id="cb65-784"><a href="#cb65-784" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Value of sysBP by Sex"</span>)</span>
+<span id="cb65-761"><a href="#cb65-761" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/pulse_pressure_1.jpg"</span>, p1)</span>
+<span id="cb65-762"><a href="#cb65-762" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/pulse_pressure_2.jpg"</span>, p2)</span>
+<span id="cb65-763"><a href="#cb65-763" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/pulse_pressure_3.jpg"</span>, p3)</span>
+<span id="cb65-764"><a href="#cb65-764" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-765"><a href="#cb65-765" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-766"><a href="#cb65-766" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-767"><a href="#cb65-767" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Względem zmiennej TenYearCHD</span></span>
+<span id="cb65-768"><a href="#cb65-768" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-769"><a href="#cb65-769" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/pulse_pressure_1.jpg)</span>{fig-align="center"}</span>
+<span id="cb65-770"><a href="#cb65-770" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-771"><a href="#cb65-771" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Względem zmiennej prevalentHyp</span></span>
+<span id="cb65-772"><a href="#cb65-772" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-773"><a href="#cb65-773" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/pulse_pressure_2.jpg)</span>{fig-align="center"}</span>
+<span id="cb65-774"><a href="#cb65-774" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-775"><a href="#cb65-775" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Względem zmiennej diabetes</span></span>
+<span id="cb65-776"><a href="#cb65-776" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-777"><a href="#cb65-777" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/pulse_pressure_3.jpg)</span>{fig-align="center"}</span>
+<span id="cb65-778"><a href="#cb65-778" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-779"><a href="#cb65-779" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-780"><a href="#cb65-780" aria-hidden="true" tabindex="-1"></a><span class="sc">:analiza:</span>:</span>
+<span id="cb65-781"><a href="#cb65-781" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-782"><a href="#cb65-782" aria-hidden="true" tabindex="-1"></a><span class="fu">### Ciśnienie serca jako przyczyna zawału serca</span></span>
+<span id="cb65-783"><a href="#cb65-783" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-784"><a href="#cb65-784" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Z uzględnieniem płci</span></span>
 <span id="cb65-785"><a href="#cb65-785" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-786"><a href="#cb65-786" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-787"><a href="#cb65-787" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> diaBP, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb65-788"><a href="#cb65-788" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-789"><a href="#cb65-789" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-790"><a href="#cb65-790" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-791"><a href="#cb65-791" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Value of diaBP by Sex"</span>)</span>
-<span id="cb65-792"><a href="#cb65-792" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-793"><a href="#cb65-793" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_bySex_1.png"</span>, p1)</span>
-<span id="cb65-794"><a href="#cb65-794" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png"</span>, p2)</span>
-<span id="cb65-795"><a href="#cb65-795" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-796"><a href="#cb65-796" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-797"><a href="#cb65-797" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-798"><a href="#cb65-798" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie skurczowe</span></span>
-<span id="cb65-799"><a href="#cb65-799" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-800"><a href="#cb65-800" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_1.png)</span>{fig-align="center"}</span>
-<span id="cb65-801"><a href="#cb65-801" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-802"><a href="#cb65-802" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie rozkurczowe</span></span>
-<span id="cb65-803"><a href="#cb65-803" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-804"><a href="#cb65-804" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png)</span>{fig-align="center"}</span>
-<span id="cb65-805"><a href="#cb65-805" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-806"><a href="#cb65-806" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-807"><a href="#cb65-807" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Z uwzględnieniem nadciśnienia</span></span>
+<span id="cb65-788"><a href="#cb65-788" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-789"><a href="#cb65-789" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Cisnienie_wzgledem_ryzyka</span></span>
+<span id="cb65-790"><a href="#cb65-790" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-791"><a href="#cb65-791" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-792"><a href="#cb65-792" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> sysBP, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb65-793"><a href="#cb65-793" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-794"><a href="#cb65-794" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-795"><a href="#cb65-795" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span> </span>
+<span id="cb65-796"><a href="#cb65-796" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Value of sysBP by Sex"</span>)</span>
+<span id="cb65-797"><a href="#cb65-797" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-798"><a href="#cb65-798" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-799"><a href="#cb65-799" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> diaBP, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb65-800"><a href="#cb65-800" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-801"><a href="#cb65-801" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-802"><a href="#cb65-802" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-803"><a href="#cb65-803" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Value of diaBP by Sex"</span>)</span>
+<span id="cb65-804"><a href="#cb65-804" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-805"><a href="#cb65-805" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_bySex_1.png"</span>, p1)</span>
+<span id="cb65-806"><a href="#cb65-806" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png"</span>, p2)</span>
+<span id="cb65-807"><a href="#cb65-807" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb65-808"><a href="#cb65-808" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-811"><a href="#cb65-811" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-812"><a href="#cb65-812" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Cisnienie_wzgledem_ryzyka_2</span></span>
-<span id="cb65-813"><a href="#cb65-813" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-814"><a href="#cb65-814" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> sysBP, <span class="at">color =</span> prevalentHyp)) <span class="sc">+</span></span>
-<span id="cb65-815"><a href="#cb65-815" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-816"><a href="#cb65-816" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-817"><a href="#cb65-817" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span> </span>
-<span id="cb65-818"><a href="#cb65-818" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Value of sysBP by the fact of prevalent Hypothesis"</span>)</span>
-<span id="cb65-819"><a href="#cb65-819" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-820"><a href="#cb65-820" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-821"><a href="#cb65-821" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> diaBP, <span class="at">color =</span> prevalentHyp)) <span class="sc">+</span></span>
-<span id="cb65-822"><a href="#cb65-822" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-823"><a href="#cb65-823" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-824"><a href="#cb65-824" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-825"><a href="#cb65-825" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Value of diaBP by the fact of prevalent Hypothesis"</span>)</span>
-<span id="cb65-826"><a href="#cb65-826" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-827"><a href="#cb65-827" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png"</span>, p1)</span>
-<span id="cb65-828"><a href="#cb65-828" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png"</span>, p2)</span>
-<span id="cb65-829"><a href="#cb65-829" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-830"><a href="#cb65-830" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-831"><a href="#cb65-831" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-832"><a href="#cb65-832" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie skurczowe</span></span>
-<span id="cb65-833"><a href="#cb65-833" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-834"><a href="#cb65-834" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png)</span>{fig-align="center"}</span>
-<span id="cb65-835"><a href="#cb65-835" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-836"><a href="#cb65-836" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie rozkurczowe</span></span>
-<span id="cb65-837"><a href="#cb65-837" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-838"><a href="#cb65-838" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png)</span>{fig-align="center"}</span>
-<span id="cb65-839"><a href="#cb65-839" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-840"><a href="#cb65-840" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-841"><a href="#cb65-841" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Rozkład wartości ciśnienia</span></span>
+<span id="cb65-809"><a href="#cb65-809" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-810"><a href="#cb65-810" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie skurczowe</span></span>
+<span id="cb65-811"><a href="#cb65-811" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-812"><a href="#cb65-812" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_1.png)</span>{fig-align="center"}</span>
+<span id="cb65-813"><a href="#cb65-813" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-814"><a href="#cb65-814" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie rozkurczowe</span></span>
+<span id="cb65-815"><a href="#cb65-815" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-816"><a href="#cb65-816" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png)</span>{fig-align="center"}</span>
+<span id="cb65-817"><a href="#cb65-817" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-818"><a href="#cb65-818" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-819"><a href="#cb65-819" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Z uwzględnieniem nadciśnienia</span></span>
+<span id="cb65-820"><a href="#cb65-820" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-823"><a href="#cb65-823" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-824"><a href="#cb65-824" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Cisnienie_wzgledem_ryzyka_2</span></span>
+<span id="cb65-825"><a href="#cb65-825" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-826"><a href="#cb65-826" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> sysBP, <span class="at">color =</span> prevalentHyp)) <span class="sc">+</span></span>
+<span id="cb65-827"><a href="#cb65-827" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-828"><a href="#cb65-828" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-829"><a href="#cb65-829" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span> </span>
+<span id="cb65-830"><a href="#cb65-830" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Value of sysBP by the fact of prevalent Hypothesis"</span>)</span>
+<span id="cb65-831"><a href="#cb65-831" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-832"><a href="#cb65-832" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-833"><a href="#cb65-833" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> diaBP, <span class="at">color =</span> prevalentHyp)) <span class="sc">+</span></span>
+<span id="cb65-834"><a href="#cb65-834" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-835"><a href="#cb65-835" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-836"><a href="#cb65-836" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-837"><a href="#cb65-837" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ggtitle</span>(<span class="st">"Value of diaBP by the fact of prevalent Hypothesis"</span>)</span>
+<span id="cb65-838"><a href="#cb65-838" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-839"><a href="#cb65-839" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png"</span>, p1)</span>
+<span id="cb65-840"><a href="#cb65-840" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png"</span>, p2)</span>
+<span id="cb65-841"><a href="#cb65-841" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb65-842"><a href="#cb65-842" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-845"><a href="#cb65-845" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-846"><a href="#cb65-846" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: rozklad_cisnienia</span></span>
-<span id="cb65-847"><a href="#cb65-847" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-848"><a href="#cb65-848" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-849"><a href="#cb65-849" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-850"><a href="#cb65-850" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sysBP, <span class="at">color =</span> TenYearCHD)) <span class="sc">+</span></span>
-<span id="cb65-851"><a href="#cb65-851" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-852"><a href="#cb65-852" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-853"><a href="#cb65-853" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-854"><a href="#cb65-854" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of sysBP including risk of disease"</span>)</span>
-<span id="cb65-855"><a href="#cb65-855" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-856"><a href="#cb65-856" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-857"><a href="#cb65-857" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diaBP, <span class="at">color =</span> TenYearCHD)) <span class="sc">+</span></span>
-<span id="cb65-858"><a href="#cb65-858" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-859"><a href="#cb65-859" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-860"><a href="#cb65-860" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-861"><a href="#cb65-861" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of diaBP including risk of disease"</span>)</span>
-<span id="cb65-862"><a href="#cb65-862" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-863"><a href="#cb65-863" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/rozklad_cisnienia_1.png"</span>, p1)</span>
-<span id="cb65-864"><a href="#cb65-864" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/rozklad_cisnienia_2.png"</span>, p2)</span>
-<span id="cb65-865"><a href="#cb65-865" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-866"><a href="#cb65-866" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-867"><a href="#cb65-867" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-868"><a href="#cb65-868" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie skurczowe</span></span>
-<span id="cb65-869"><a href="#cb65-869" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-870"><a href="#cb65-870" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/rozklad_cisnienia_1.png)</span>{fig-align="center"}</span>
-<span id="cb65-871"><a href="#cb65-871" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-872"><a href="#cb65-872" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie rozkurczowe</span></span>
-<span id="cb65-873"><a href="#cb65-873" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-874"><a href="#cb65-874" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/rozklad_cisnienia_2.png)</span>{fig-align="center"}</span>
-<span id="cb65-875"><a href="#cb65-875" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-876"><a href="#cb65-876" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-877"><a href="#cb65-877" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wartości tętna</span></span>
+<span id="cb65-843"><a href="#cb65-843" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-844"><a href="#cb65-844" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie skurczowe</span></span>
+<span id="cb65-845"><a href="#cb65-845" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-846"><a href="#cb65-846" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_1.png)</span>{fig-align="center"}</span>
+<span id="cb65-847"><a href="#cb65-847" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-848"><a href="#cb65-848" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie rozkurczowe</span></span>
+<span id="cb65-849"><a href="#cb65-849" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-850"><a href="#cb65-850" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png)</span>{fig-align="center"}</span>
+<span id="cb65-851"><a href="#cb65-851" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-852"><a href="#cb65-852" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-853"><a href="#cb65-853" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Rozkład wartości ciśnienia</span></span>
+<span id="cb65-854"><a href="#cb65-854" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-857"><a href="#cb65-857" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-858"><a href="#cb65-858" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: rozklad_cisnienia</span></span>
+<span id="cb65-859"><a href="#cb65-859" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-860"><a href="#cb65-860" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-861"><a href="#cb65-861" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-862"><a href="#cb65-862" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sysBP, <span class="at">color =</span> TenYearCHD)) <span class="sc">+</span></span>
+<span id="cb65-863"><a href="#cb65-863" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-864"><a href="#cb65-864" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-865"><a href="#cb65-865" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-866"><a href="#cb65-866" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of sysBP including risk of disease"</span>)</span>
+<span id="cb65-867"><a href="#cb65-867" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-868"><a href="#cb65-868" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-869"><a href="#cb65-869" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diaBP, <span class="at">color =</span> TenYearCHD)) <span class="sc">+</span></span>
+<span id="cb65-870"><a href="#cb65-870" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-871"><a href="#cb65-871" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-872"><a href="#cb65-872" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-873"><a href="#cb65-873" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of diaBP including risk of disease"</span>)</span>
+<span id="cb65-874"><a href="#cb65-874" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-875"><a href="#cb65-875" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/rozklad_cisnienia_1.png"</span>, p1)</span>
+<span id="cb65-876"><a href="#cb65-876" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/rozklad_cisnienia_2.png"</span>, p2)</span>
+<span id="cb65-877"><a href="#cb65-877" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb65-878"><a href="#cb65-878" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-881"><a href="#cb65-881" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-882"><a href="#cb65-882" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: poziom_tetna</span></span>
-<span id="cb65-883"><a href="#cb65-883" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-884"><a href="#cb65-884" aria-hidden="true" tabindex="-1"></a>bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(badania<span class="sc">$</span>heartRate), <span class="fu">max</span>(badania<span class="sc">$</span>heartRate), <span class="at">length.out =</span> <span class="dv">16</span>)</span>
+<span id="cb65-879"><a href="#cb65-879" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-880"><a href="#cb65-880" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie skurczowe</span></span>
+<span id="cb65-881"><a href="#cb65-881" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-882"><a href="#cb65-882" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/rozklad_cisnienia_1.png)</span>{fig-align="center"}</span>
+<span id="cb65-883"><a href="#cb65-883" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-884"><a href="#cb65-884" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Ciśnienie rozkurczowe</span></span>
 <span id="cb65-885"><a href="#cb65-885" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-886"><a href="#cb65-886" aria-hidden="true" tabindex="-1"></a>hist_data <span class="ot">&lt;-</span> badania <span class="sc">%&gt;%</span></span>
-<span id="cb65-887"><a href="#cb65-887" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bin =</span> <span class="fu">cut</span>(heartRate, <span class="at">breaks =</span> bins, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb65-888"><a href="#cb65-888" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TenYearCHD, bin) <span class="sc">%&gt;%</span></span>
-<span id="cb65-889"><a href="#cb65-889" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">count_adj =</span> <span class="fu">ifelse</span>(TenYearCHD <span class="sc">==</span> <span class="st">"No"</span>, n, <span class="sc">-</span>n))</span>
+<span id="cb65-886"><a href="#cb65-886" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/rozklad_cisnienia_2.png)</span>{fig-align="center"}</span>
+<span id="cb65-887"><a href="#cb65-887" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-888"><a href="#cb65-888" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-889"><a href="#cb65-889" aria-hidden="true" tabindex="-1"></a><span class="fu">### Analiza wartości tętna</span></span>
 <span id="cb65-890"><a href="#cb65-890" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-891"><a href="#cb65-891" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-892"><a href="#cb65-892" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> hist_data <span class="sc">|&gt;</span> </span>
-<span id="cb65-893"><a href="#cb65-893" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> count_adj, <span class="at">fill =</span> TenYearCHD)) <span class="sc">+</span></span>
-<span id="cb65-894"><a href="#cb65-894" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb65-895"><a href="#cb65-895" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Liczebność w grupie"</span>, <span class="at">x =</span> <span class="st">"Przedziały"</span>) <span class="sc">+</span></span>
-<span id="cb65-896"><a href="#cb65-896" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-897"><a href="#cb65-897" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>))</span>
-<span id="cb65-898"><a href="#cb65-898" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-899"><a href="#cb65-899" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/poziom_tetna.png"</span>, p)</span>
-<span id="cb65-900"><a href="#cb65-900" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-901"><a href="#cb65-901" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-902"><a href="#cb65-902" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/poziom_tetna.png)</span>{fig-align="center"}</span>
+<span id="cb65-893"><a href="#cb65-893" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-894"><a href="#cb65-894" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: poziom_tetna</span></span>
+<span id="cb65-895"><a href="#cb65-895" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-896"><a href="#cb65-896" aria-hidden="true" tabindex="-1"></a>bins <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(badania<span class="sc">$</span>heartRate), <span class="fu">max</span>(badania<span class="sc">$</span>heartRate), <span class="at">length.out =</span> <span class="dv">16</span>)</span>
+<span id="cb65-897"><a href="#cb65-897" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-898"><a href="#cb65-898" aria-hidden="true" tabindex="-1"></a>hist_data <span class="ot">&lt;-</span> badania <span class="sc">%&gt;%</span></span>
+<span id="cb65-899"><a href="#cb65-899" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bin =</span> <span class="fu">cut</span>(heartRate, <span class="at">breaks =</span> bins, <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb65-900"><a href="#cb65-900" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(TenYearCHD, bin) <span class="sc">%&gt;%</span></span>
+<span id="cb65-901"><a href="#cb65-901" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">count_adj =</span> <span class="fu">ifelse</span>(TenYearCHD <span class="sc">==</span> <span class="st">"No"</span>, n, <span class="sc">-</span>n))</span>
+<span id="cb65-902"><a href="#cb65-902" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-903"><a href="#cb65-903" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-904"><a href="#cb65-904" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Rozkład zmiennej</span></span>
-<span id="cb65-905"><a href="#cb65-905" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-908"><a href="#cb65-908" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-909"><a href="#cb65-909" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: rozklad_tetna_gestosc</span></span>
-<span id="cb65-910"><a href="#cb65-910" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-911"><a href="#cb65-911" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-912"><a href="#cb65-912" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heartRate)) <span class="sc">+</span></span>
-<span id="cb65-913"><a href="#cb65-913" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"#6AAED9"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-914"><a href="#cb65-914" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(</span>
-<span id="cb65-915"><a href="#cb65-915" aria-hidden="true" tabindex="-1"></a>    <span class="at">fun =</span> dnorm,</span>
-<span id="cb65-916"><a href="#cb65-916" aria-hidden="true" tabindex="-1"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(badania<span class="sc">$</span>heartRate), <span class="at">sd =</span> <span class="fu">sd</span>(badania<span class="sc">$</span>heartRate)),</span>
-<span id="cb65-917"><a href="#cb65-917" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">1.2</span>,</span>
-<span id="cb65-918"><a href="#cb65-918" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"#F25041"</span></span>
-<span id="cb65-919"><a href="#cb65-919" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb65-920"><a href="#cb65-920" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
-<span id="cb65-921"><a href="#cb65-921" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-922"><a href="#cb65-922" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/rozklad_tetna_gestosc.png"</span>, p)</span>
-<span id="cb65-923"><a href="#cb65-923" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-924"><a href="#cb65-924" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-925"><a href="#cb65-925" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/rozklad_tetna_gestosc.png)</span>{fig-align="center"}</span>
-<span id="cb65-926"><a href="#cb65-926" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-927"><a href="#cb65-927" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Poziom tętna ze względu na inne zmienne</span></span>
-<span id="cb65-928"><a href="#cb65-928" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-931"><a href="#cb65-931" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-932"><a href="#cb65-932" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: heartRate_by</span></span>
-<span id="cb65-933"><a href="#cb65-933" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-934"><a href="#cb65-934" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-935"><a href="#cb65-935" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> heartRate, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb65-936"><a href="#cb65-936" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-937"><a href="#cb65-937" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-938"><a href="#cb65-938" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-939"><a href="#cb65-939" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"heartRate ~ TenYearCHD"</span>)</span>
+<span id="cb65-904"><a href="#cb65-904" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> hist_data <span class="sc">|&gt;</span> </span>
+<span id="cb65-905"><a href="#cb65-905" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bin, <span class="at">y =</span> count_adj, <span class="at">fill =</span> TenYearCHD)) <span class="sc">+</span></span>
+<span id="cb65-906"><a href="#cb65-906" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb65-907"><a href="#cb65-907" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Liczebność w grupie"</span>, <span class="at">x =</span> <span class="st">"Przedziały"</span>) <span class="sc">+</span></span>
+<span id="cb65-908"><a href="#cb65-908" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-909"><a href="#cb65-909" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>))</span>
+<span id="cb65-910"><a href="#cb65-910" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-911"><a href="#cb65-911" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/poziom_tetna.png"</span>, p)</span>
+<span id="cb65-912"><a href="#cb65-912" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-913"><a href="#cb65-913" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-914"><a href="#cb65-914" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/poziom_tetna.png)</span>{fig-align="center"}</span>
+<span id="cb65-915"><a href="#cb65-915" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-916"><a href="#cb65-916" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Rozkład zmiennej</span></span>
+<span id="cb65-917"><a href="#cb65-917" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-920"><a href="#cb65-920" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-921"><a href="#cb65-921" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: rozklad_tetna_gestosc</span></span>
+<span id="cb65-922"><a href="#cb65-922" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-923"><a href="#cb65-923" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-924"><a href="#cb65-924" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> heartRate)) <span class="sc">+</span></span>
+<span id="cb65-925"><a href="#cb65-925" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">color =</span> <span class="st">"#6AAED9"</span>, <span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-926"><a href="#cb65-926" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(</span>
+<span id="cb65-927"><a href="#cb65-927" aria-hidden="true" tabindex="-1"></a>    <span class="at">fun =</span> dnorm,</span>
+<span id="cb65-928"><a href="#cb65-928" aria-hidden="true" tabindex="-1"></a>    <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(badania<span class="sc">$</span>heartRate), <span class="at">sd =</span> <span class="fu">sd</span>(badania<span class="sc">$</span>heartRate)),</span>
+<span id="cb65-929"><a href="#cb65-929" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">1.2</span>,</span>
+<span id="cb65-930"><a href="#cb65-930" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="st">"#F25041"</span></span>
+<span id="cb65-931"><a href="#cb65-931" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb65-932"><a href="#cb65-932" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
+<span id="cb65-933"><a href="#cb65-933" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-934"><a href="#cb65-934" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/rozklad_tetna_gestosc.png"</span>, p)</span>
+<span id="cb65-935"><a href="#cb65-935" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-936"><a href="#cb65-936" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-937"><a href="#cb65-937" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/rozklad_tetna_gestosc.png)</span>{fig-align="center"}</span>
+<span id="cb65-938"><a href="#cb65-938" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-939"><a href="#cb65-939" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Poziom tętna ze względu na inne zmienne</span></span>
 <span id="cb65-940"><a href="#cb65-940" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-941"><a href="#cb65-941" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-942"><a href="#cb65-942" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> heartRate, <span class="at">color =</span> currentSmoker)) <span class="sc">+</span></span>
-<span id="cb65-943"><a href="#cb65-943" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-944"><a href="#cb65-944" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-945"><a href="#cb65-945" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-946"><a href="#cb65-946" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"heartRate ~ TenYearCHD"</span>)</span>
-<span id="cb65-947"><a href="#cb65-947" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-948"><a href="#cb65-948" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-949"><a href="#cb65-949" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> heartRate, <span class="at">color =</span> BPMeds)) <span class="sc">+</span></span>
-<span id="cb65-950"><a href="#cb65-950" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb65-951"><a href="#cb65-951" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-952"><a href="#cb65-952" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-953"><a href="#cb65-953" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"heartRate ~ TenYearCHD"</span>)</span>
-<span id="cb65-954"><a href="#cb65-954" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-955"><a href="#cb65-955" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/heartRate_bySex.png"</span>, p1)</span>
-<span id="cb65-956"><a href="#cb65-956" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/heartRate_bycurrentSmoker.png"</span>, p2)</span>
-<span id="cb65-957"><a href="#cb65-957" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/heartRate_byBPMeds.png"</span>, p3)</span>
-<span id="cb65-958"><a href="#cb65-958" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-943"><a href="#cb65-943" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-944"><a href="#cb65-944" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: heartRate_by</span></span>
+<span id="cb65-945"><a href="#cb65-945" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-946"><a href="#cb65-946" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-947"><a href="#cb65-947" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> heartRate, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
+<span id="cb65-948"><a href="#cb65-948" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-949"><a href="#cb65-949" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-950"><a href="#cb65-950" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-951"><a href="#cb65-951" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"heartRate ~ TenYearCHD"</span>)</span>
+<span id="cb65-952"><a href="#cb65-952" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-953"><a href="#cb65-953" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-954"><a href="#cb65-954" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> heartRate, <span class="at">color =</span> currentSmoker)) <span class="sc">+</span></span>
+<span id="cb65-955"><a href="#cb65-955" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-956"><a href="#cb65-956" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-957"><a href="#cb65-957" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-958"><a href="#cb65-958" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"heartRate ~ TenYearCHD"</span>)</span>
 <span id="cb65-959"><a href="#cb65-959" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-960"><a href="#cb65-960" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-961"><a href="#cb65-961" aria-hidden="true" tabindex="-1"></a><span class="fu">##### sex</span></span>
-<span id="cb65-962"><a href="#cb65-962" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-963"><a href="#cb65-963" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/heartRate_bySex.png)</span>{fig-align="center"}</span>
-<span id="cb65-964"><a href="#cb65-964" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-965"><a href="#cb65-965" aria-hidden="true" tabindex="-1"></a><span class="fu">##### currentSmoker</span></span>
+<span id="cb65-960"><a href="#cb65-960" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-961"><a href="#cb65-961" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> TenYearCHD, <span class="at">y =</span> heartRate, <span class="at">color =</span> BPMeds)) <span class="sc">+</span></span>
+<span id="cb65-962"><a href="#cb65-962" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb65-963"><a href="#cb65-963" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-964"><a href="#cb65-964" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-965"><a href="#cb65-965" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"heartRate ~ TenYearCHD"</span>)</span>
 <span id="cb65-966"><a href="#cb65-966" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-967"><a href="#cb65-967" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/heartRate_bycurrentSmoker.png)</span>{fig-align="center"}</span>
-<span id="cb65-968"><a href="#cb65-968" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-969"><a href="#cb65-969" aria-hidden="true" tabindex="-1"></a><span class="fu">##### BPMeds</span></span>
-<span id="cb65-970"><a href="#cb65-970" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-971"><a href="#cb65-971" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/heartRate_byBPMeds.png)</span>{fig-align="center"}</span>
-<span id="cb65-972"><a href="#cb65-972" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-973"><a href="#cb65-973" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-974"><a href="#cb65-974" aria-hidden="true" tabindex="-1"></a><span class="fu">### Leki na nadciśnienie i ich skutek</span></span>
-<span id="cb65-975"><a href="#cb65-975" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-978"><a href="#cb65-978" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-979"><a href="#cb65-979" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: leki_nadcisnienie</span></span>
-<span id="cb65-980"><a href="#cb65-980" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-981"><a href="#cb65-981" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-982"><a href="#cb65-982" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sysBP, <span class="at">color =</span> BPMeds)) <span class="sc">+</span></span>
-<span id="cb65-983"><a href="#cb65-983" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-984"><a href="#cb65-984" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-985"><a href="#cb65-985" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>))</span>
-<span id="cb65-986"><a href="#cb65-986" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-987"><a href="#cb65-987" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-988"><a href="#cb65-988" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diaBP, <span class="at">color =</span> BPMeds)) <span class="sc">+</span></span>
-<span id="cb65-989"><a href="#cb65-989" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-990"><a href="#cb65-990" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-991"><a href="#cb65-991" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>))</span>
-<span id="cb65-992"><a href="#cb65-992" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-993"><a href="#cb65-993" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/leki_nadcisnienie_rozklad1.png"</span>, p1)</span>
-<span id="cb65-994"><a href="#cb65-994" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/leki_nadcisnienie_rozklad2.png"</span>, p2)</span>
-<span id="cb65-995"><a href="#cb65-995" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-996"><a href="#cb65-996" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-997"><a href="#cb65-997" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-998"><a href="#cb65-998" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ciśnienie skurczowe</span></span>
-<span id="cb65-999"><a href="#cb65-999" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1000"><a href="#cb65-1000" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/leki_nadcisnienie_rozklad1.png)</span>{fig-align="center"}</span>
-<span id="cb65-1001"><a href="#cb65-1001" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1002"><a href="#cb65-1002" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ciśnienie rozkurczowe</span></span>
-<span id="cb65-1003"><a href="#cb65-1003" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1004"><a href="#cb65-1004" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/leki_nadcisnienie_rozklad2.png)</span>{fig-align="center"}</span>
-<span id="cb65-1005"><a href="#cb65-1005" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-1006"><a href="#cb65-1006" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1007"><a href="#cb65-1007" aria-hidden="true" tabindex="-1"></a><span class="fu">### Skutki palenia na układ krążenia</span></span>
+<span id="cb65-967"><a href="#cb65-967" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/heartRate_bySex.png"</span>, p1)</span>
+<span id="cb65-968"><a href="#cb65-968" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/heartRate_bycurrentSmoker.png"</span>, p2)</span>
+<span id="cb65-969"><a href="#cb65-969" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/heartRate_byBPMeds.png"</span>, p3)</span>
+<span id="cb65-970"><a href="#cb65-970" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-971"><a href="#cb65-971" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-972"><a href="#cb65-972" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-973"><a href="#cb65-973" aria-hidden="true" tabindex="-1"></a><span class="fu">##### sex</span></span>
+<span id="cb65-974"><a href="#cb65-974" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-975"><a href="#cb65-975" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/heartRate_bySex.png)</span>{fig-align="center"}</span>
+<span id="cb65-976"><a href="#cb65-976" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-977"><a href="#cb65-977" aria-hidden="true" tabindex="-1"></a><span class="fu">##### currentSmoker</span></span>
+<span id="cb65-978"><a href="#cb65-978" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-979"><a href="#cb65-979" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/heartRate_bycurrentSmoker.png)</span>{fig-align="center"}</span>
+<span id="cb65-980"><a href="#cb65-980" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-981"><a href="#cb65-981" aria-hidden="true" tabindex="-1"></a><span class="fu">##### BPMeds</span></span>
+<span id="cb65-982"><a href="#cb65-982" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-983"><a href="#cb65-983" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/heartRate_byBPMeds.png)</span>{fig-align="center"}</span>
+<span id="cb65-984"><a href="#cb65-984" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-985"><a href="#cb65-985" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-986"><a href="#cb65-986" aria-hidden="true" tabindex="-1"></a><span class="fu">### Leki na nadciśnienie i ich skutek</span></span>
+<span id="cb65-987"><a href="#cb65-987" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-990"><a href="#cb65-990" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-991"><a href="#cb65-991" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: leki_nadcisnienie</span></span>
+<span id="cb65-992"><a href="#cb65-992" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-993"><a href="#cb65-993" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-994"><a href="#cb65-994" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sysBP, <span class="at">color =</span> BPMeds)) <span class="sc">+</span></span>
+<span id="cb65-995"><a href="#cb65-995" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-996"><a href="#cb65-996" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-997"><a href="#cb65-997" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>))</span>
+<span id="cb65-998"><a href="#cb65-998" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-999"><a href="#cb65-999" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1000"><a href="#cb65-1000" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> diaBP, <span class="at">color =</span> BPMeds)) <span class="sc">+</span></span>
+<span id="cb65-1001"><a href="#cb65-1001" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-1002"><a href="#cb65-1002" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1003"><a href="#cb65-1003" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>))</span>
+<span id="cb65-1004"><a href="#cb65-1004" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1005"><a href="#cb65-1005" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/leki_nadcisnienie_rozklad1.png"</span>, p1)</span>
+<span id="cb65-1006"><a href="#cb65-1006" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/leki_nadcisnienie_rozklad2.png"</span>, p2)</span>
+<span id="cb65-1007"><a href="#cb65-1007" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb65-1008"><a href="#cb65-1008" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1011"><a href="#cb65-1011" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1012"><a href="#cb65-1012" aria-hidden="true" tabindex="-1"></a>osoby_palace <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1013"><a href="#cb65-1013" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(currentSmoker <span class="sc">==</span> <span class="st">"Yes"</span>)</span>
-<span id="cb65-1014"><a href="#cb65-1014" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1015"><a href="#cb65-1015" aria-hidden="true" tabindex="-1"></a>osoby_niepalace <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1016"><a href="#cb65-1016" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(cigsPerDay <span class="sc">==</span> <span class="dv">0</span>)</span>
-<span id="cb65-1017"><a href="#cb65-1017" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1018"><a href="#cb65-1018" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">osoby_palace =</span> <span class="fu">nrow</span>(osoby_palace),</span>
-<span id="cb65-1019"><a href="#cb65-1019" aria-hidden="true" tabindex="-1"></a>           <span class="at">osoby_niepalace =</span> <span class="fu">nrow</span>(osoby_niepalace),</span>
-<span id="cb65-1020"><a href="#cb65-1020" aria-hidden="true" tabindex="-1"></a>           <span class="at">row.names =</span> <span class="st">"Liczba osób"</span></span>
-<span id="cb65-1021"><a href="#cb65-1021" aria-hidden="true" tabindex="-1"></a>           )</span>
-<span id="cb65-1022"><a href="#cb65-1022" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1009"><a href="#cb65-1009" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-1010"><a href="#cb65-1010" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ciśnienie skurczowe</span></span>
+<span id="cb65-1011"><a href="#cb65-1011" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1012"><a href="#cb65-1012" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/leki_nadcisnienie_rozklad1.png)</span>{fig-align="center"}</span>
+<span id="cb65-1013"><a href="#cb65-1013" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1014"><a href="#cb65-1014" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Ciśnienie rozkurczowe</span></span>
+<span id="cb65-1015"><a href="#cb65-1015" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1016"><a href="#cb65-1016" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/leki_nadcisnienie_rozklad2.png)</span>{fig-align="center"}</span>
+<span id="cb65-1017"><a href="#cb65-1017" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1018"><a href="#cb65-1018" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1019"><a href="#cb65-1019" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-dismissible .alert-danger}</span>
+<span id="cb65-1020"><a href="#cb65-1020" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn-close"</span><span class="ot"> data-bs-dismiss</span><span class="op">=</span><span class="st">"alert"</span><span class="dt">&gt;</span></span>
+<span id="cb65-1021"><a href="#cb65-1021" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1022"><a href="#cb65-1022" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
 <span id="cb65-1023"><a href="#cb65-1023" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1024"><a href="#cb65-1024" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Podział pacjentów ze względu na palenie</span></span>
+<span id="cb65-1024"><a href="#cb65-1024" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Weryfikacja Hipotezy<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span></span>
 <span id="cb65-1025"><a href="#cb65-1025" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1028"><a href="#cb65-1028" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1029"><a href="#cb65-1029" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1026"><a href="#cb65-1026" aria-hidden="true" tabindex="-1"></a>$H_0$ : Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.</span>
+<span id="cb65-1027"><a href="#cb65-1027" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1028"><a href="#cb65-1028" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Tak.<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span> Osoby z podwyższonym ciśnieniem posiadają większe ryzyko choroby wieńcowej, niż osoby z prawidłowym ciśnieniem, ponieważ ciśnienie jest jednym z głównych predyktorów zawału serca w medycynie. Osoby stosujące leki w celu obniżenia ciśnienia serca w dużej mierze ciągle mają wyższe wyniki niż osoby zdrowe, lecz przyczyniają się tym do zmniejszenia ryzyka zawału serca.</span>
+<span id="cb65-1029"><a href="#cb65-1029" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb65-1030"><a href="#cb65-1030" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1031"><a href="#cb65-1031" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1032"><a href="#cb65-1032" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> currentSmoker, <span class="at">fill =</span> currentSmoker)) <span class="sc">+</span></span>
-<span id="cb65-1033"><a href="#cb65-1033" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>), <span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb65-1034"><a href="#cb65-1034" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1035"><a href="#cb65-1035" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Smokers vs No Smokers"</span>)</span>
-<span id="cb65-1036"><a href="#cb65-1036" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1037"><a href="#cb65-1037" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1038"><a href="#cb65-1038" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> currentSmoker, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb65-1039"><a href="#cb65-1039" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.7</span>), <span class="at">color =</span> <span class="st">"black"</span>,  <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb65-1040"><a href="#cb65-1040" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1041"><a href="#cb65-1041" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1042"><a href="#cb65-1042" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Smoking including sex"</span>)</span>
-<span id="cb65-1043"><a href="#cb65-1043" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1044"><a href="#cb65-1044" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1045"><a href="#cb65-1045" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> currentSmoker, <span class="at">fill =</span> TenYearCHD)) <span class="sc">+</span></span>
-<span id="cb65-1046"><a href="#cb65-1046" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.7</span>), <span class="at">color =</span> <span class="st">"black"</span>,  <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb65-1047"><a href="#cb65-1047" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1048"><a href="#cb65-1048" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1049"><a href="#cb65-1049" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Smoking including potential risk of disease"</span>)</span>
-<span id="cb65-1050"><a href="#cb65-1050" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1051"><a href="#cb65-1051" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/number_of_smokers.png"</span>, p1)</span>
-<span id="cb65-1052"><a href="#cb65-1052" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/number_of_smokers_bySex.png"</span>, p2)</span>
-<span id="cb65-1053"><a href="#cb65-1053" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/number_of_smokers_byTenYearCHD.png"</span>, p3)</span>
-<span id="cb65-1054"><a href="#cb65-1054" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1055"><a href="#cb65-1055" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1056"><a href="#cb65-1056" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-1057"><a href="#cb65-1057" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Distribution by Smoking Status</span></span>
-<span id="cb65-1058"><a href="#cb65-1058" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1059"><a href="#cb65-1059" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/number_of_smokers.png)</span>{fig-align="center"}</span>
+<span id="cb65-1031"><a href="#cb65-1031" aria-hidden="true" tabindex="-1"></a><span class="fu">### Skutki palenia na układ krążenia</span></span>
+<span id="cb65-1032"><a href="#cb65-1032" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1035"><a href="#cb65-1035" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1036"><a href="#cb65-1036" aria-hidden="true" tabindex="-1"></a>osoby_palace <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1037"><a href="#cb65-1037" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(currentSmoker <span class="sc">==</span> <span class="st">"Yes"</span>)</span>
+<span id="cb65-1038"><a href="#cb65-1038" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1039"><a href="#cb65-1039" aria-hidden="true" tabindex="-1"></a>osoby_niepalace <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1040"><a href="#cb65-1040" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(cigsPerDay <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb65-1041"><a href="#cb65-1041" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1042"><a href="#cb65-1042" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">osoby_palace =</span> <span class="fu">nrow</span>(osoby_palace),</span>
+<span id="cb65-1043"><a href="#cb65-1043" aria-hidden="true" tabindex="-1"></a>           <span class="at">osoby_niepalace =</span> <span class="fu">nrow</span>(osoby_niepalace),</span>
+<span id="cb65-1044"><a href="#cb65-1044" aria-hidden="true" tabindex="-1"></a>           <span class="at">row.names =</span> <span class="st">"Liczba osób"</span></span>
+<span id="cb65-1045"><a href="#cb65-1045" aria-hidden="true" tabindex="-1"></a>           )</span>
+<span id="cb65-1046"><a href="#cb65-1046" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1047"><a href="#cb65-1047" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1048"><a href="#cb65-1048" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Podział pacjentów ze względu na palenie</span></span>
+<span id="cb65-1049"><a href="#cb65-1049" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1052"><a href="#cb65-1052" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1053"><a href="#cb65-1053" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1054"><a href="#cb65-1054" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1055"><a href="#cb65-1055" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1056"><a href="#cb65-1056" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> currentSmoker, <span class="at">fill =</span> currentSmoker)) <span class="sc">+</span></span>
+<span id="cb65-1057"><a href="#cb65-1057" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>), <span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb65-1058"><a href="#cb65-1058" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1059"><a href="#cb65-1059" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Smokers vs No Smokers"</span>)</span>
 <span id="cb65-1060"><a href="#cb65-1060" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1061"><a href="#cb65-1061" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Number of Smokers by sex</span></span>
-<span id="cb65-1062"><a href="#cb65-1062" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1063"><a href="#cb65-1063" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/number_of_smokers_bySex.png)</span>{fig-align="center"}</span>
-<span id="cb65-1064"><a href="#cb65-1064" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1065"><a href="#cb65-1065" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Number of smokers including disease risk</span></span>
-<span id="cb65-1066"><a href="#cb65-1066" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1067"><a href="#cb65-1067" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/number_of_smokers_byTenYearCHD.png)</span>{fig-align="center"}</span>
-<span id="cb65-1068"><a href="#cb65-1068" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-1069"><a href="#cb65-1069" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1070"><a href="#cb65-1070" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Nawyki palenia papierosów</span></span>
-<span id="cb65-1071"><a href="#cb65-1071" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1074"><a href="#cb65-1074" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1075"><a href="#cb65-1075" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cigs_per_Day</span></span>
-<span id="cb65-1076"><a href="#cb65-1076" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-1077"><a href="#cb65-1077" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1078"><a href="#cb65-1078" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1079"><a href="#cb65-1079" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cigsPerDay)) <span class="sc">+</span></span>
-<span id="cb65-1080"><a href="#cb65-1080" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#6AAED9"</span>) <span class="sc">+</span></span>
-<span id="cb65-1081"><a href="#cb65-1081" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
+<span id="cb65-1061"><a href="#cb65-1061" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1062"><a href="#cb65-1062" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> currentSmoker, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb65-1063"><a href="#cb65-1063" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.7</span>), <span class="at">color =</span> <span class="st">"black"</span>,  <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb65-1064"><a href="#cb65-1064" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1065"><a href="#cb65-1065" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1066"><a href="#cb65-1066" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Smoking including sex"</span>)</span>
+<span id="cb65-1067"><a href="#cb65-1067" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1068"><a href="#cb65-1068" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1069"><a href="#cb65-1069" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> currentSmoker, <span class="at">fill =</span> TenYearCHD)) <span class="sc">+</span></span>
+<span id="cb65-1070"><a href="#cb65-1070" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.7</span>), <span class="at">color =</span> <span class="st">"black"</span>,  <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb65-1071"><a href="#cb65-1071" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1072"><a href="#cb65-1072" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1073"><a href="#cb65-1073" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Smoking including potential risk of disease"</span>)</span>
+<span id="cb65-1074"><a href="#cb65-1074" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1075"><a href="#cb65-1075" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/number_of_smokers.png"</span>, p1)</span>
+<span id="cb65-1076"><a href="#cb65-1076" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/number_of_smokers_bySex.png"</span>, p2)</span>
+<span id="cb65-1077"><a href="#cb65-1077" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/number_of_smokers_byTenYearCHD.png"</span>, p3)</span>
+<span id="cb65-1078"><a href="#cb65-1078" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1079"><a href="#cb65-1079" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1080"><a href="#cb65-1080" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-1081"><a href="#cb65-1081" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Distribution by Smoking Status</span></span>
 <span id="cb65-1082"><a href="#cb65-1082" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1083"><a href="#cb65-1083" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1084"><a href="#cb65-1084" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> osoby_palace <span class="sc">|&gt;</span> </span>
-<span id="cb65-1085"><a href="#cb65-1085" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cigsPerDay)) <span class="sc">+</span></span>
-<span id="cb65-1086"><a href="#cb65-1086" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#6AAED9"</span>) <span class="sc">+</span></span>
-<span id="cb65-1087"><a href="#cb65-1087" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
+<span id="cb65-1083"><a href="#cb65-1083" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/number_of_smokers.png)</span>{fig-align="center"}</span>
+<span id="cb65-1084"><a href="#cb65-1084" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1085"><a href="#cb65-1085" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Number of Smokers by sex</span></span>
+<span id="cb65-1086"><a href="#cb65-1086" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1087"><a href="#cb65-1087" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/number_of_smokers_bySex.png)</span>{fig-align="center"}</span>
 <span id="cb65-1088"><a href="#cb65-1088" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1089"><a href="#cb65-1089" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cigsPerDay1.png"</span>, p1)</span>
-<span id="cb65-1090"><a href="#cb65-1090" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cigsPerDay2.png"</span>, p2)</span>
-<span id="cb65-1091"><a href="#cb65-1091" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1092"><a href="#cb65-1092" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1093"><a href="#cb65-1093" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-1094"><a href="#cb65-1094" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Uwzględniając wszystkich pacjentów</span></span>
+<span id="cb65-1089"><a href="#cb65-1089" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Number of smokers including disease risk</span></span>
+<span id="cb65-1090"><a href="#cb65-1090" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1091"><a href="#cb65-1091" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/number_of_smokers_byTenYearCHD.png)</span>{fig-align="center"}</span>
+<span id="cb65-1092"><a href="#cb65-1092" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1093"><a href="#cb65-1093" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1094"><a href="#cb65-1094" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Nawyki palenia papierosów</span></span>
 <span id="cb65-1095"><a href="#cb65-1095" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1096"><a href="#cb65-1096" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cigsPerDay1.png)</span>{fig-align="center"}</span>
-<span id="cb65-1097"><a href="#cb65-1097" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1098"><a href="#cb65-1098" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Uwzględnając tylko osoby palące</span></span>
-<span id="cb65-1099"><a href="#cb65-1099" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1100"><a href="#cb65-1100" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cigsPerDay2.png)</span>{fig-align="center"}</span>
-<span id="cb65-1101"><a href="#cb65-1101" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-1102"><a href="#cb65-1102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1103"><a href="#cb65-1103" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Wpływ poziomu palenia na ryzyko choroby</span></span>
-<span id="cb65-1104"><a href="#cb65-1104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1107"><a href="#cb65-1107" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1108"><a href="#cb65-1108" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: impact_of_smkoing</span></span>
-<span id="cb65-1109"><a href="#cb65-1109" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-1110"><a href="#cb65-1110" aria-hidden="true" tabindex="-1"></a>paczki <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1111"><a href="#cb65-1111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay, TenYearCHD) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1112"><a href="#cb65-1112" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1113"><a href="#cb65-1113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span></span>
-<span id="cb65-1114"><a href="#cb65-1114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span>
-<span id="cb65-1115"><a href="#cb65-1115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1116"><a href="#cb65-1116" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> paczki[<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, ] <span class="sc">|&gt;</span> </span>
-<span id="cb65-1117"><a href="#cb65-1117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay), <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD))) <span class="sc">+</span></span>
-<span id="cb65-1118"><a href="#cb65-1118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>)) <span class="sc">+</span></span>
-<span id="cb65-1119"><a href="#cb65-1119" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb65-1120"><a href="#cb65-1120" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cigarettes per Day"</span>,</span>
-<span id="cb65-1121"><a href="#cb65-1121" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Liczba osób"</span>,</span>
-<span id="cb65-1122"><a href="#cb65-1122" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"TenYearCHD"</span></span>
-<span id="cb65-1123"><a href="#cb65-1123" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb65-1124"><a href="#cb65-1124" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1125"><a href="#cb65-1125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1126"><a href="#cb65-1126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Impact of smoking for potential risk"</span>)</span>
-<span id="cb65-1127"><a href="#cb65-1127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1128"><a href="#cb65-1128" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> paczki[<span class="dv">3</span><span class="sc">:</span><span class="dv">28</span>, ] <span class="sc">|&gt;</span> </span>
-<span id="cb65-1129"><a href="#cb65-1129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay), <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD))) <span class="sc">+</span></span>
-<span id="cb65-1130"><a href="#cb65-1130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>)) <span class="sc">+</span></span>
-<span id="cb65-1131"><a href="#cb65-1131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb65-1132"><a href="#cb65-1132" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cigarettes per Day"</span>,</span>
-<span id="cb65-1133"><a href="#cb65-1133" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Liczba osób"</span>,</span>
-<span id="cb65-1134"><a href="#cb65-1134" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"TenYearCHD"</span></span>
-<span id="cb65-1135"><a href="#cb65-1135" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb65-1136"><a href="#cb65-1136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1137"><a href="#cb65-1137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1138"><a href="#cb65-1138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Impact of smoking for potential risk"</span>)</span>
+<span id="cb65-1098"><a href="#cb65-1098" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1099"><a href="#cb65-1099" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cigs_per_Day</span></span>
+<span id="cb65-1100"><a href="#cb65-1100" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1101"><a href="#cb65-1101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1102"><a href="#cb65-1102" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1103"><a href="#cb65-1103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cigsPerDay)) <span class="sc">+</span></span>
+<span id="cb65-1104"><a href="#cb65-1104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#6AAED9"</span>) <span class="sc">+</span></span>
+<span id="cb65-1105"><a href="#cb65-1105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
+<span id="cb65-1106"><a href="#cb65-1106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1107"><a href="#cb65-1107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1108"><a href="#cb65-1108" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> osoby_palace <span class="sc">|&gt;</span> </span>
+<span id="cb65-1109"><a href="#cb65-1109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cigsPerDay)) <span class="sc">+</span></span>
+<span id="cb65-1110"><a href="#cb65-1110" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"#6AAED9"</span>) <span class="sc">+</span></span>
+<span id="cb65-1111"><a href="#cb65-1111" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>()</span>
+<span id="cb65-1112"><a href="#cb65-1112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1113"><a href="#cb65-1113" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cigsPerDay1.png"</span>, p1)</span>
+<span id="cb65-1114"><a href="#cb65-1114" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/cigsPerDay2.png"</span>, p2)</span>
+<span id="cb65-1115"><a href="#cb65-1115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1116"><a href="#cb65-1116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1117"><a href="#cb65-1117" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-1118"><a href="#cb65-1118" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Uwzględniając wszystkich pacjentów</span></span>
+<span id="cb65-1119"><a href="#cb65-1119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1120"><a href="#cb65-1120" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cigsPerDay1.png)</span>{fig-align="center"}</span>
+<span id="cb65-1121"><a href="#cb65-1121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1122"><a href="#cb65-1122" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Uwzględnając tylko osoby palące</span></span>
+<span id="cb65-1123"><a href="#cb65-1123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1124"><a href="#cb65-1124" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/cigsPerDay2.png)</span>{fig-align="center"}</span>
+<span id="cb65-1125"><a href="#cb65-1125" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1126"><a href="#cb65-1126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1127"><a href="#cb65-1127" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Wpływ poziomu palenia na ryzyko choroby</span></span>
+<span id="cb65-1128"><a href="#cb65-1128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1131"><a href="#cb65-1131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1132"><a href="#cb65-1132" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: impact_of_smkoing</span></span>
+<span id="cb65-1133"><a href="#cb65-1133" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1134"><a href="#cb65-1134" aria-hidden="true" tabindex="-1"></a>paczki <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1135"><a href="#cb65-1135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay, TenYearCHD) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1136"><a href="#cb65-1136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1137"><a href="#cb65-1137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span></span>
+<span id="cb65-1138"><a href="#cb65-1138" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span>
 <span id="cb65-1139"><a href="#cb65-1139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1140"><a href="#cb65-1140" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> paczki[<span class="dv">29</span><span class="sc">:</span><span class="fu">nrow</span>(paczki), ] <span class="sc">|&gt;</span> </span>
+<span id="cb65-1140"><a href="#cb65-1140" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> paczki[<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, ] <span class="sc">|&gt;</span> </span>
 <span id="cb65-1141"><a href="#cb65-1141" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay), <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD))) <span class="sc">+</span></span>
 <span id="cb65-1142"><a href="#cb65-1142" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>)) <span class="sc">+</span></span>
 <span id="cb65-1143"><a href="#cb65-1143" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
@@ -4992,184 +5013,220 @@ Predicted   No  Yes
 <span id="cb65-1149"><a href="#cb65-1149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
 <span id="cb65-1150"><a href="#cb65-1150" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Impact of smoking for potential risk"</span>)</span>
 <span id="cb65-1151"><a href="#cb65-1151" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1152"><a href="#cb65-1152" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/impact_of_smoking_all.png"</span>, p1)</span>
-<span id="cb65-1153"><a href="#cb65-1153" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/impact_of_smoking_part1.png"</span>, p2)</span>
-<span id="cb65-1154"><a href="#cb65-1154" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/impact_of_smoking_part2.png"</span>, p3)</span>
-<span id="cb65-1155"><a href="#cb65-1155" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1156"><a href="#cb65-1156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1157"><a href="#cb65-1157" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-1158"><a href="#cb65-1158" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Uwzględniając osoby niepalące</span></span>
-<span id="cb65-1159"><a href="#cb65-1159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1160"><a href="#cb65-1160" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/impact_of_smoking_all.png)</span>{fig-align="center"}</span>
-<span id="cb65-1161"><a href="#cb65-1161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1162"><a href="#cb65-1162" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Osoby palące do 15 papierosów dziennie</span></span>
+<span id="cb65-1152"><a href="#cb65-1152" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> paczki[<span class="dv">3</span><span class="sc">:</span><span class="dv">28</span>, ] <span class="sc">|&gt;</span> </span>
+<span id="cb65-1153"><a href="#cb65-1153" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay), <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD))) <span class="sc">+</span></span>
+<span id="cb65-1154"><a href="#cb65-1154" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>)) <span class="sc">+</span></span>
+<span id="cb65-1155"><a href="#cb65-1155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb65-1156"><a href="#cb65-1156" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cigarettes per Day"</span>,</span>
+<span id="cb65-1157"><a href="#cb65-1157" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Liczba osób"</span>,</span>
+<span id="cb65-1158"><a href="#cb65-1158" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"TenYearCHD"</span></span>
+<span id="cb65-1159"><a href="#cb65-1159" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb65-1160"><a href="#cb65-1160" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1161"><a href="#cb65-1161" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1162"><a href="#cb65-1162" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Impact of smoking for potential risk"</span>)</span>
 <span id="cb65-1163"><a href="#cb65-1163" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1164"><a href="#cb65-1164" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/impact_of_smoking_part1.png)</span>{fig-align="center"}</span>
-<span id="cb65-1165"><a href="#cb65-1165" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1166"><a href="#cb65-1166" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Osoby palące powyżej 15 papierosów dziennie</span></span>
-<span id="cb65-1167"><a href="#cb65-1167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1168"><a href="#cb65-1168" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/impact_of_smoking_part2.png)</span>{fig-align="center"}</span>
-<span id="cb65-1169"><a href="#cb65-1169" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb65-1170"><a href="#cb65-1170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1173"><a href="#cb65-1173" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1174"><a href="#cb65-1174" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Fraction_of_risk</span></span>
-<span id="cb65-1175"><a href="#cb65-1175" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-1176"><a href="#cb65-1176" aria-hidden="true" tabindex="-1"></a>paczki_procenty <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1177"><a href="#cb65-1177" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1178"><a href="#cb65-1178" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cigsSum =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1179"><a href="#cb65-1179" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(cigsSum <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1180"><a href="#cb65-1180" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay, TenYearCHD) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1181"><a href="#cb65-1181" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1182"><a href="#cb65-1182" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span></span>
-<span id="cb65-1183"><a href="#cb65-1183" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span>
-<span id="cb65-1184"><a href="#cb65-1184" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb65-1185"><a href="#cb65-1185" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> paczki_procenty <span class="sc">|&gt;</span></span>
-<span id="cb65-1186"><a href="#cb65-1186" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay),</span>
-<span id="cb65-1187"><a href="#cb65-1187" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> perc,</span>
-<span id="cb65-1188"><a href="#cb65-1188" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD)</span>
-<span id="cb65-1189"><a href="#cb65-1189" aria-hidden="true" tabindex="-1"></a>)) <span class="sc">+</span></span>
-<span id="cb65-1190"><a href="#cb65-1190" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb65-1191"><a href="#cb65-1191" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb65-1192"><a href="#cb65-1192" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cigarettes per Day"</span>,</span>
-<span id="cb65-1193"><a href="#cb65-1193" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Procent"</span>,</span>
-<span id="cb65-1194"><a href="#cb65-1194" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Ten-Year CHD"</span></span>
-<span id="cb65-1195"><a href="#cb65-1195" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb65-1196"><a href="#cb65-1196" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1197"><a href="#cb65-1197" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1198"><a href="#cb65-1198" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Fraction of risk group"</span>)</span>
-<span id="cb65-1199"><a href="#cb65-1199" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1200"><a href="#cb65-1200" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/fraction.png"</span>, p1)</span>
-<span id="cb65-1201"><a href="#cb65-1201" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1202"><a href="#cb65-1202" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1203"><a href="#cb65-1203" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1204"><a href="#cb65-1204" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/fraction.png)</span>{fig-align="center"}</span>
-<span id="cb65-1205"><a href="#cb65-1205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1206"><a href="#cb65-1206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Relacja pomiędzy zmienną `age`, a zmienną `cigsPerDay`</span></span>
-<span id="cb65-1207"><a href="#cb65-1207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1210"><a href="#cb65-1210" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1211"><a href="#cb65-1211" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: smoking_byAge</span></span>
-<span id="cb65-1212"><a href="#cb65-1212" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-1213"><a href="#cb65-1213" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1214"><a href="#cb65-1214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> age, <span class="at">color =</span> currentSmoker)) <span class="sc">+</span></span>
-<span id="cb65-1215"><a href="#cb65-1215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">lwd =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb65-1216"><a href="#cb65-1216" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1217"><a href="#cb65-1217" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1218"><a href="#cb65-1218" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb65-1219"><a href="#cb65-1219" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb65-1220"><a href="#cb65-1220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of age"</span>)</span>
-<span id="cb65-1221"><a href="#cb65-1221" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1222"><a href="#cb65-1222" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1223"><a href="#cb65-1223" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">color =</span> currentSmoker)) <span class="sc">+</span></span>
-<span id="cb65-1224"><a href="#cb65-1224" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
-<span id="cb65-1225"><a href="#cb65-1225" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span> </span>
-<span id="cb65-1226"><a href="#cb65-1226" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
-<span id="cb65-1227"><a href="#cb65-1227" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of age"</span>)</span>
-<span id="cb65-1228"><a href="#cb65-1228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1229"><a href="#cb65-1229" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/smoking_byAge_1.png"</span>, p1)</span>
-<span id="cb65-1230"><a href="#cb65-1230" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/smoking_byAge_2.png"</span>, p2)</span>
-<span id="cb65-1231"><a href="#cb65-1231" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1232"><a href="#cb65-1232" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1233"><a href="#cb65-1233" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1234"><a href="#cb65-1234" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
-<span id="cb65-1235"><a href="#cb65-1235" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Boxplot</span></span>
+<span id="cb65-1164"><a href="#cb65-1164" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> paczki[<span class="dv">29</span><span class="sc">:</span><span class="fu">nrow</span>(paczki), ] <span class="sc">|&gt;</span> </span>
+<span id="cb65-1165"><a href="#cb65-1165" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay), <span class="at">y =</span> n, <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD))) <span class="sc">+</span></span>
+<span id="cb65-1166"><a href="#cb65-1166" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.8</span>)) <span class="sc">+</span></span>
+<span id="cb65-1167"><a href="#cb65-1167" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb65-1168"><a href="#cb65-1168" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cigarettes per Day"</span>,</span>
+<span id="cb65-1169"><a href="#cb65-1169" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Liczba osób"</span>,</span>
+<span id="cb65-1170"><a href="#cb65-1170" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"TenYearCHD"</span></span>
+<span id="cb65-1171"><a href="#cb65-1171" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb65-1172"><a href="#cb65-1172" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1173"><a href="#cb65-1173" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1174"><a href="#cb65-1174" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Impact of smoking for potential risk"</span>)</span>
+<span id="cb65-1175"><a href="#cb65-1175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1176"><a href="#cb65-1176" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/impact_of_smoking_all.png"</span>, p1)</span>
+<span id="cb65-1177"><a href="#cb65-1177" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/impact_of_smoking_part1.png"</span>, p2)</span>
+<span id="cb65-1178"><a href="#cb65-1178" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/impact_of_smoking_part2.png"</span>, p3)</span>
+<span id="cb65-1179"><a href="#cb65-1179" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1180"><a href="#cb65-1180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1181"><a href="#cb65-1181" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-1182"><a href="#cb65-1182" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Uwzględniając osoby niepalące</span></span>
+<span id="cb65-1183"><a href="#cb65-1183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1184"><a href="#cb65-1184" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/impact_of_smoking_all.png)</span>{fig-align="center"}</span>
+<span id="cb65-1185"><a href="#cb65-1185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1186"><a href="#cb65-1186" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Osoby palące do 15 papierosów dziennie</span></span>
+<span id="cb65-1187"><a href="#cb65-1187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1188"><a href="#cb65-1188" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/impact_of_smoking_part1.png)</span>{fig-align="center"}</span>
+<span id="cb65-1189"><a href="#cb65-1189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1190"><a href="#cb65-1190" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Osoby palące powyżej 15 papierosów dziennie</span></span>
+<span id="cb65-1191"><a href="#cb65-1191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1192"><a href="#cb65-1192" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/impact_of_smoking_part2.png)</span>{fig-align="center"}</span>
+<span id="cb65-1193"><a href="#cb65-1193" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1194"><a href="#cb65-1194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1197"><a href="#cb65-1197" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1198"><a href="#cb65-1198" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: Fraction_of_risk</span></span>
+<span id="cb65-1199"><a href="#cb65-1199" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1200"><a href="#cb65-1200" aria-hidden="true" tabindex="-1"></a>paczki_procenty <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1201"><a href="#cb65-1201" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1202"><a href="#cb65-1202" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cigsSum =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1203"><a href="#cb65-1203" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(cigsSum <span class="sc">&gt;</span> <span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1204"><a href="#cb65-1204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay, TenYearCHD) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1205"><a href="#cb65-1205" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1206"><a href="#cb65-1206" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span></span>
+<span id="cb65-1207"><a href="#cb65-1207" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">perc =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb65-1208"><a href="#cb65-1208" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb65-1209"><a href="#cb65-1209" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> paczki_procenty <span class="sc">|&gt;</span></span>
+<span id="cb65-1210"><a href="#cb65-1210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cigsPerDay),</span>
+<span id="cb65-1211"><a href="#cb65-1211" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> perc,</span>
+<span id="cb65-1212"><a href="#cb65-1212" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill =</span> <span class="fu">factor</span>(TenYearCHD)</span>
+<span id="cb65-1213"><a href="#cb65-1213" aria-hidden="true" tabindex="-1"></a>)) <span class="sc">+</span></span>
+<span id="cb65-1214"><a href="#cb65-1214" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb65-1215"><a href="#cb65-1215" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb65-1216"><a href="#cb65-1216" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Cigarettes per Day"</span>,</span>
+<span id="cb65-1217"><a href="#cb65-1217" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Procent"</span>,</span>
+<span id="cb65-1218"><a href="#cb65-1218" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Ten-Year CHD"</span></span>
+<span id="cb65-1219"><a href="#cb65-1219" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb65-1220"><a href="#cb65-1220" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1221"><a href="#cb65-1221" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1222"><a href="#cb65-1222" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Fraction of risk group"</span>)</span>
+<span id="cb65-1223"><a href="#cb65-1223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1224"><a href="#cb65-1224" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/fraction.png"</span>, p1)</span>
+<span id="cb65-1225"><a href="#cb65-1225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1226"><a href="#cb65-1226" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1227"><a href="#cb65-1227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1228"><a href="#cb65-1228" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/fraction.png)</span>{fig-align="center"}</span>
+<span id="cb65-1229"><a href="#cb65-1229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1230"><a href="#cb65-1230" aria-hidden="true" tabindex="-1"></a>::: {.alert .alert-dismissible .alert-danger}</span>
+<span id="cb65-1231"><a href="#cb65-1231" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">button</span><span class="ot"> type</span><span class="op">=</span><span class="st">"button"</span><span class="ot"> class</span><span class="op">=</span><span class="st">"btn-close"</span><span class="ot"> data-bs-dismiss</span><span class="op">=</span><span class="st">"alert"</span><span class="dt">&gt;</span></span>
+<span id="cb65-1232"><a href="#cb65-1232" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1233"><a href="#cb65-1233" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">button</span><span class="dt">&gt;</span></span>
+<span id="cb65-1234"><a href="#cb65-1234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1235"><a href="#cb65-1235" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Weryfikacja Hipotezy<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span></span>
 <span id="cb65-1236"><a href="#cb65-1236" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1237"><a href="#cb65-1237" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/smoking_byAge_1.png)</span>{fig-align="center"}</span>
+<span id="cb65-1237"><a href="#cb65-1237" aria-hidden="true" tabindex="-1"></a>$H_0$ : Palenie zwiększa ryzyko zawału serca.</span>
 <span id="cb65-1238"><a href="#cb65-1238" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1239"><a href="#cb65-1239" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Density</span></span>
-<span id="cb65-1240"><a href="#cb65-1240" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1241"><a href="#cb65-1241" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/smoking_byAge_2.png)</span>{fig-align="center"}</span>
-<span id="cb65-1242"><a href="#cb65-1242" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1239"><a href="#cb65-1239" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">strong</span><span class="dt">&gt;</span>Tak.<span class="dt">&lt;/</span><span class="kw">strong</span><span class="dt">&gt;</span>Palenie wpływa negatywnie na układ sercowo-naczyniowy, podnosi ciśnienie serca oraz działa toksycznie na ludzki organizm. Wraz z liczbą palonych papierosów oraz okresem palenia zwiększa się ryzyko wystąpienia m.in. choroby wieńcowej.</span>
+<span id="cb65-1240"><a href="#cb65-1240" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1241"><a href="#cb65-1241" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1242"><a href="#cb65-1242" aria-hidden="true" tabindex="-1"></a><span class="fu">### Relacja pomiędzy zmienną `age`, a zmienną `cigsPerDay`</span></span>
 <span id="cb65-1243"><a href="#cb65-1243" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-1246"><a href="#cb65-1246" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1247"><a href="#cb65-1247" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
-<span id="cb65-1248"><a href="#cb65-1248" aria-hidden="true" tabindex="-1"></a>paczki_mean <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
-<span id="cb65-1249"><a href="#cb65-1249" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1250"><a href="#cb65-1250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb65-1251"><a href="#cb65-1251" aria-hidden="true" tabindex="-1"></a>    <span class="at">cigsSum =</span> <span class="fu">n</span>(),</span>
-<span id="cb65-1252"><a href="#cb65-1252" aria-hidden="true" tabindex="-1"></a>    <span class="at">sysBP_mean =</span> <span class="fu">mean</span>(sysBP),</span>
-<span id="cb65-1253"><a href="#cb65-1253" aria-hidden="true" tabindex="-1"></a>    <span class="at">diaBP_mean =</span> <span class="fu">mean</span>(diaBP)</span>
-<span id="cb65-1254"><a href="#cb65-1254" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb65-1255"><a href="#cb65-1255" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(cigsSum <span class="sc">&gt;</span> <span class="dv">50</span>)</span>
-<span id="cb65-1256"><a href="#cb65-1256" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1257"><a href="#cb65-1257" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> paczki_mean <span class="sc">|&gt;</span> </span>
-<span id="cb65-1258"><a href="#cb65-1258" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cigsPerDay)) <span class="sc">+</span></span>
-<span id="cb65-1259"><a href="#cb65-1259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diaBP_mean), <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"#6AAED9"</span>) <span class="sc">+</span></span>
-<span id="cb65-1260"><a href="#cb65-1260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> sysBP_mean), <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"#F2A391"</span>) <span class="sc">+</span></span>
-<span id="cb65-1261"><a href="#cb65-1261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
-<span id="cb65-1262"><a href="#cb65-1262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Mean values of sysBP and diaBP including smoking"</span>)</span>
-<span id="cb65-1263"><a href="#cb65-1263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1264"><a href="#cb65-1264" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/mean_BP.png"</span>, p)</span>
-<span id="cb65-1265"><a href="#cb65-1265" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1266"><a href="#cb65-1266" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1267"><a href="#cb65-1267" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/mean_BP.png)</span>{fig-align="center"}</span>
-<span id="cb65-1268"><a href="#cb65-1268" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1271"><a href="#cb65-1271" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1272"><a href="#cb65-1272" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: concatenation</span></span>
-<span id="cb65-1273"><a href="#cb65-1273" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1247"><a href="#cb65-1247" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: smoking_byAge</span></span>
+<span id="cb65-1248"><a href="#cb65-1248" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1249"><a href="#cb65-1249" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1250"><a href="#cb65-1250" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> age, <span class="at">color =</span> currentSmoker)) <span class="sc">+</span></span>
+<span id="cb65-1251"><a href="#cb65-1251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">lwd =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb65-1252"><a href="#cb65-1252" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1253"><a href="#cb65-1253" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1254"><a href="#cb65-1254" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb65-1255"><a href="#cb65-1255" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb65-1256"><a href="#cb65-1256" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of age"</span>)</span>
+<span id="cb65-1257"><a href="#cb65-1257" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1258"><a href="#cb65-1258" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1259"><a href="#cb65-1259" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> age, <span class="at">color =</span> currentSmoker)) <span class="sc">+</span></span>
+<span id="cb65-1260"><a href="#cb65-1260" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">lwd =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb65-1261"><a href="#cb65-1261" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span> </span>
+<span id="cb65-1262"><a href="#cb65-1262" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#6AAED9"</span>, <span class="st">"#F2A391"</span>)) <span class="sc">+</span></span>
+<span id="cb65-1263"><a href="#cb65-1263" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Distribution of age"</span>)</span>
+<span id="cb65-1264"><a href="#cb65-1264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1265"><a href="#cb65-1265" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/smoking_byAge_1.png"</span>, p1)</span>
+<span id="cb65-1266"><a href="#cb65-1266" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/smoking_byAge_2.png"</span>, p2)</span>
+<span id="cb65-1267"><a href="#cb65-1267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1268"><a href="#cb65-1268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1269"><a href="#cb65-1269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1270"><a href="#cb65-1270" aria-hidden="true" tabindex="-1"></a>::: panel-tabset</span>
+<span id="cb65-1271"><a href="#cb65-1271" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Boxplot</span></span>
+<span id="cb65-1272"><a href="#cb65-1272" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1273"><a href="#cb65-1273" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/smoking_byAge_1.png)</span>{fig-align="center"}</span>
 <span id="cb65-1274"><a href="#cb65-1274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1275"><a href="#cb65-1275" aria-hidden="true" tabindex="-1"></a> p <span class="ot">&lt;-</span> <span class="fu">ggVennDiagram</span>(<span class="fu">list</span>(</span>
-<span id="cb65-1276"><a href="#cb65-1276" aria-hidden="true" tabindex="-1"></a>  <span class="at">Udar =</span> <span class="fu">which</span>(badania<span class="sc">$</span>prevalentStroke <span class="sc">==</span> <span class="st">"Yes"</span>),</span>
-<span id="cb65-1277"><a href="#cb65-1277" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nadcisnienie =</span> <span class="fu">which</span>(badania<span class="sc">$</span>prevalentHyp <span class="sc">==</span> <span class="st">"Yes"</span>),</span>
-<span id="cb65-1278"><a href="#cb65-1278" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ryzyko =</span> <span class="fu">which</span>(badania<span class="sc">$</span>TenYearCHD<span class="sc">==</span> <span class="st">"Yes"</span>)</span>
-<span id="cb65-1279"><a href="#cb65-1279" aria-hidden="true" tabindex="-1"></a>), <span class="at">set_size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
-<span id="cb65-1280"><a href="#cb65-1280" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
-<span id="cb65-1281"><a href="#cb65-1281" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"#6AAED9"</span>, <span class="at">high =</span> <span class="st">"#F2A391"</span>) <span class="sc">+</span></span>
-<span id="cb65-1282"><a href="#cb65-1282" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb65-1283"><a href="#cb65-1283" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Concatenation of dangerous diseases"</span>)</span>
-<span id="cb65-1284"><a href="#cb65-1284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1285"><a href="#cb65-1285" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/concatenation.png"</span>, p)</span>
-<span id="cb65-1286"><a href="#cb65-1286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1287"><a href="#cb65-1287" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1288"><a href="#cb65-1288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1289"><a href="#cb65-1289" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/concatenation.png)</span>{fig-align="center"}</span>
-<span id="cb65-1290"><a href="#cb65-1290" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1291"><a href="#cb65-1291" aria-hidden="true" tabindex="-1"></a><span class="fu">### Model regresji logistycznej</span></span>
+<span id="cb65-1275"><a href="#cb65-1275" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Density</span></span>
+<span id="cb65-1276"><a href="#cb65-1276" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1277"><a href="#cb65-1277" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/smoking_byAge_2.png)</span>{fig-align="center"}</span>
+<span id="cb65-1278"><a href="#cb65-1278" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb65-1279"><a href="#cb65-1279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1282"><a href="#cb65-1282" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1283"><a href="#cb65-1283" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1284"><a href="#cb65-1284" aria-hidden="true" tabindex="-1"></a>paczki_mean <span class="ot">&lt;-</span> badania <span class="sc">|&gt;</span> </span>
+<span id="cb65-1285"><a href="#cb65-1285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cigsPerDay) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1286"><a href="#cb65-1286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb65-1287"><a href="#cb65-1287" aria-hidden="true" tabindex="-1"></a>    <span class="at">cigsSum =</span> <span class="fu">n</span>(),</span>
+<span id="cb65-1288"><a href="#cb65-1288" aria-hidden="true" tabindex="-1"></a>    <span class="at">sysBP_mean =</span> <span class="fu">mean</span>(sysBP),</span>
+<span id="cb65-1289"><a href="#cb65-1289" aria-hidden="true" tabindex="-1"></a>    <span class="at">diaBP_mean =</span> <span class="fu">mean</span>(diaBP)</span>
+<span id="cb65-1290"><a href="#cb65-1290" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb65-1291"><a href="#cb65-1291" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(cigsSum <span class="sc">&gt;</span> <span class="dv">50</span>)</span>
 <span id="cb65-1292"><a href="#cb65-1292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1293"><a href="#cb65-1293" aria-hidden="true" tabindex="-1"></a>::DO PRZENIESIENIA !!!::</span>
-<span id="cb65-1294"><a href="#cb65-1294" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1297"><a href="#cb65-1297" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1298"><a href="#cb65-1298" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(badania)</span>
+<span id="cb65-1293"><a href="#cb65-1293" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> paczki_mean <span class="sc">|&gt;</span> </span>
+<span id="cb65-1294"><a href="#cb65-1294" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> cigsPerDay)) <span class="sc">+</span></span>
+<span id="cb65-1295"><a href="#cb65-1295" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> diaBP_mean), <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"#6AAED9"</span>) <span class="sc">+</span></span>
+<span id="cb65-1296"><a href="#cb65-1296" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> sysBP_mean), <span class="at">lwd =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"#F2A391"</span>) <span class="sc">+</span></span>
+<span id="cb65-1297"><a href="#cb65-1297" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum_rc</span>() <span class="sc">+</span></span>
+<span id="cb65-1298"><a href="#cb65-1298" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Mean values of sysBP and diaBP including smoking"</span>)</span>
 <span id="cb65-1299"><a href="#cb65-1299" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1300"><a href="#cb65-1300" aria-hidden="true" tabindex="-1"></a>logit_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> sex <span class="sc">+</span> education <span class="sc">+</span> sysBP <span class="sc">+</span> diaBP <span class="sc">+</span> heartRate <span class="sc">+</span> BMI <span class="sc">+</span></span>
-<span id="cb65-1301"><a href="#cb65-1301" aria-hidden="true" tabindex="-1"></a>                     totChol <span class="sc">+</span> glucose <span class="sc">+</span> diabetes <span class="sc">+</span> cigsPerDay <span class="sc">+</span> currentSmoker <span class="sc">+</span> BPMeds <span class="sc">+</span></span>
-<span id="cb65-1302"><a href="#cb65-1302" aria-hidden="true" tabindex="-1"></a>                     prevalentStroke <span class="sc">+</span> prevalentHyp,</span>
-<span id="cb65-1303"><a href="#cb65-1303" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> badania,</span>
-<span id="cb65-1304"><a href="#cb65-1304" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
-<span id="cb65-1305"><a href="#cb65-1305" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1306"><a href="#cb65-1306" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logit_model)</span>
-<span id="cb65-1307"><a href="#cb65-1307" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1308"><a href="#cb65-1308" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(logit_model))</span>
-<span id="cb65-1309"><a href="#cb65-1309" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1310"><a href="#cb65-1310" aria-hidden="true" tabindex="-1"></a>step_model <span class="ot">&lt;-</span> <span class="fu">step</span>(logit_model, <span class="at">direction =</span> <span class="st">"both"</span>)</span>
-<span id="cb65-1311"><a href="#cb65-1311" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(step_model)</span>
-<span id="cb65-1312"><a href="#cb65-1312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1313"><a href="#cb65-1313" aria-hidden="true" tabindex="-1"></a>badania<span class="sc">$</span>pred_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(logit_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb65-1314"><a href="#cb65-1314" aria-hidden="true" tabindex="-1"></a>badania<span class="sc">$</span>pred_class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(badania<span class="sc">$</span>pred_prob <span class="sc">&gt;</span> <span class="fl">0.2</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb65-1315"><a href="#cb65-1315" aria-hidden="true" tabindex="-1"></a>badania<span class="sc">$</span>pred_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(badania<span class="sc">$</span>pred_class, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span>
-<span id="cb65-1316"><a href="#cb65-1316" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1317"><a href="#cb65-1317" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
-<span id="cb65-1318"><a href="#cb65-1318" aria-hidden="true" tabindex="-1"></a>roc_obj <span class="ot">&lt;-</span> <span class="fu">roc</span>(badania<span class="sc">$</span>TenYearCHD, badania<span class="sc">$</span>pred_prob)</span>
-<span id="cb65-1319"><a href="#cb65-1319" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_obj)</span>
-<span id="cb65-1320"><a href="#cb65-1320" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc_obj)</span>
-<span id="cb65-1321"><a href="#cb65-1321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1300"><a href="#cb65-1300" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/mean_BP.png"</span>, p)</span>
+<span id="cb65-1301"><a href="#cb65-1301" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1302"><a href="#cb65-1302" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1303"><a href="#cb65-1303" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/mean_BP.png)</span>{fig-align="center"}</span>
+<span id="cb65-1304"><a href="#cb65-1304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1307"><a href="#cb65-1307" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1308"><a href="#cb65-1308" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: concatenation</span></span>
+<span id="cb65-1309"><a href="#cb65-1309" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb65-1310"><a href="#cb65-1310" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1311"><a href="#cb65-1311" aria-hidden="true" tabindex="-1"></a> p <span class="ot">&lt;-</span> <span class="fu">ggVennDiagram</span>(<span class="fu">list</span>(</span>
+<span id="cb65-1312"><a href="#cb65-1312" aria-hidden="true" tabindex="-1"></a>  <span class="at">Udar =</span> <span class="fu">which</span>(badania<span class="sc">$</span>prevalentStroke <span class="sc">==</span> <span class="st">"Yes"</span>),</span>
+<span id="cb65-1313"><a href="#cb65-1313" aria-hidden="true" tabindex="-1"></a>  <span class="at">Nadcisnienie =</span> <span class="fu">which</span>(badania<span class="sc">$</span>prevalentHyp <span class="sc">==</span> <span class="st">"Yes"</span>),</span>
+<span id="cb65-1314"><a href="#cb65-1314" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ryzyko =</span> <span class="fu">which</span>(badania<span class="sc">$</span>TenYearCHD<span class="sc">==</span> <span class="st">"Yes"</span>)</span>
+<span id="cb65-1315"><a href="#cb65-1315" aria-hidden="true" tabindex="-1"></a>), <span class="at">set_size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb65-1316"><a href="#cb65-1316" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span> </span>
+<span id="cb65-1317"><a href="#cb65-1317" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"#6AAED9"</span>, <span class="at">high =</span> <span class="st">"#F2A391"</span>) <span class="sc">+</span></span>
+<span id="cb65-1318"><a href="#cb65-1318" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb65-1319"><a href="#cb65-1319" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Concatenation of dangerous diseases"</span>)</span>
+<span id="cb65-1320"><a href="#cb65-1320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1321"><a href="#cb65-1321" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"images/plots/concatenation.png"</span>, p)</span>
 <span id="cb65-1322"><a href="#cb65-1322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1323"><a href="#cb65-1323" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb65-1324"><a href="#cb65-1324" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(logit_model)</span>
-<span id="cb65-1325"><a href="#cb65-1325" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1326"><a href="#cb65-1326" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">Predicted =</span> badania<span class="sc">$</span>pred_class, <span class="at">Actual =</span> badania<span class="sc">$</span>TenYearCHD)</span>
-<span id="cb65-1327"><a href="#cb65-1327" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1328"><a href="#cb65-1328" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(badania<span class="sc">$</span>pred_class <span class="sc">==</span> badania<span class="sc">$</span>TenYearCHD)</span>
-<span id="cb65-1329"><a href="#cb65-1329" aria-hidden="true" tabindex="-1"></a>accuracy</span>
-<span id="cb65-1330"><a href="#cb65-1330" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1331"><a href="#cb65-1331" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1334"><a href="#cb65-1334" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb65-1335"><a href="#cb65-1335" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb65-1336"><a href="#cb65-1336" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1337"><a href="#cb65-1337" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
-<span id="cb65-1338"><a href="#cb65-1338" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1339"><a href="#cb65-1339" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
-<span id="cb65-1340"><a href="#cb65-1340" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb65-1341"><a href="#cb65-1341" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb65-1323"><a href="#cb65-1323" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1324"><a href="#cb65-1324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1325"><a href="#cb65-1325" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/plots/concatenation.png)</span>{fig-align="center"}</span>
+<span id="cb65-1326"><a href="#cb65-1326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1327"><a href="#cb65-1327" aria-hidden="true" tabindex="-1"></a><span class="fu">### Model regresji logistycznej</span></span>
+<span id="cb65-1328"><a href="#cb65-1328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1329"><a href="#cb65-1329" aria-hidden="true" tabindex="-1"></a>::DO PRZENIESIENIA !!!::</span>
+<span id="cb65-1330"><a href="#cb65-1330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1333"><a href="#cb65-1333" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1334"><a href="#cb65-1334" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(badania)</span>
+<span id="cb65-1335"><a href="#cb65-1335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1336"><a href="#cb65-1336" aria-hidden="true" tabindex="-1"></a>logit_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(TenYearCHD <span class="sc">~</span> age <span class="sc">+</span> sex <span class="sc">+</span> education <span class="sc">+</span> sysBP <span class="sc">+</span> diaBP <span class="sc">+</span> heartRate <span class="sc">+</span> BMI <span class="sc">+</span></span>
+<span id="cb65-1337"><a href="#cb65-1337" aria-hidden="true" tabindex="-1"></a>                     totChol <span class="sc">+</span> glucose <span class="sc">+</span> diabetes <span class="sc">+</span> cigsPerDay <span class="sc">+</span> currentSmoker <span class="sc">+</span> BPMeds <span class="sc">+</span></span>
+<span id="cb65-1338"><a href="#cb65-1338" aria-hidden="true" tabindex="-1"></a>                     prevalentStroke <span class="sc">+</span> prevalentHyp,</span>
+<span id="cb65-1339"><a href="#cb65-1339" aria-hidden="true" tabindex="-1"></a>                   <span class="at">data =</span> badania,</span>
+<span id="cb65-1340"><a href="#cb65-1340" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"logit"</span>))</span>
+<span id="cb65-1341"><a href="#cb65-1341" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1342"><a href="#cb65-1342" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(logit_model)</span>
+<span id="cb65-1343"><a href="#cb65-1343" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1344"><a href="#cb65-1344" aria-hidden="true" tabindex="-1"></a><span class="fu">exp</span>(<span class="fu">coef</span>(logit_model))</span>
+<span id="cb65-1345"><a href="#cb65-1345" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1346"><a href="#cb65-1346" aria-hidden="true" tabindex="-1"></a>step_model <span class="ot">&lt;-</span> <span class="fu">step</span>(logit_model, <span class="at">direction =</span> <span class="st">"both"</span>)</span>
+<span id="cb65-1347"><a href="#cb65-1347" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(step_model)</span>
+<span id="cb65-1348"><a href="#cb65-1348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1349"><a href="#cb65-1349" aria-hidden="true" tabindex="-1"></a>badania<span class="sc">$</span>pred_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(logit_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb65-1350"><a href="#cb65-1350" aria-hidden="true" tabindex="-1"></a>badania<span class="sc">$</span>pred_class <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(badania<span class="sc">$</span>pred_prob <span class="sc">&gt;</span> <span class="fl">0.2</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb65-1351"><a href="#cb65-1351" aria-hidden="true" tabindex="-1"></a>badania<span class="sc">$</span>pred_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(badania<span class="sc">$</span>pred_class, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"No"</span>, <span class="st">"Yes"</span>))</span>
+<span id="cb65-1352"><a href="#cb65-1352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1353"><a href="#cb65-1353" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span>
+<span id="cb65-1354"><a href="#cb65-1354" aria-hidden="true" tabindex="-1"></a>roc_obj <span class="ot">&lt;-</span> <span class="fu">roc</span>(badania<span class="sc">$</span>TenYearCHD, badania<span class="sc">$</span>pred_prob)</span>
+<span id="cb65-1355"><a href="#cb65-1355" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_obj)</span>
+<span id="cb65-1356"><a href="#cb65-1356" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc_obj)</span>
+<span id="cb65-1357"><a href="#cb65-1357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1358"><a href="#cb65-1358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1359"><a href="#cb65-1359" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb65-1360"><a href="#cb65-1360" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(logit_model)</span>
+<span id="cb65-1361"><a href="#cb65-1361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1362"><a href="#cb65-1362" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="at">Predicted =</span> badania<span class="sc">$</span>pred_class, <span class="at">Actual =</span> badania<span class="sc">$</span>TenYearCHD)</span>
+<span id="cb65-1363"><a href="#cb65-1363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1364"><a href="#cb65-1364" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">mean</span>(badania<span class="sc">$</span>pred_class <span class="sc">==</span> badania<span class="sc">$</span>TenYearCHD)</span>
+<span id="cb65-1365"><a href="#cb65-1365" aria-hidden="true" tabindex="-1"></a>accuracy</span>
+<span id="cb65-1366"><a href="#cb65-1366" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1367"><a href="#cb65-1367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1370"><a href="#cb65-1370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb65-1371"><a href="#cb65-1371" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb65-1372"><a href="#cb65-1372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1373"><a href="#cb65-1373" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb65-1374"><a href="#cb65-1374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1375"><a href="#cb65-1375" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/article/picture_2.png)</span>{style="margin-top: 25px;" fig-align="center"}</span>
+<span id="cb65-1376"><a href="#cb65-1376" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-1377"><a href="#cb65-1377" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
 </code></pre></div><button title="Kopiuj do schowka" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

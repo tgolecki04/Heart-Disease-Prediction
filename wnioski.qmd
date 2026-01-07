@@ -7,7 +7,7 @@ editor: visual
 
 ## Wnioski
 
-Analiza zbioru danych *Framingham Heart Study* pozwoliła nam na prześledzenie, w jaki sposób różne czynniki zdrowotne oraz styl życia wpływają bezpośrednio lub pośrednio na ryzyko wystąpienia choroby sercowo-naczyniowej w perspektywie 10 najbliższych lat. Zastosowane metody statystyczne i modele uczenia maszynowego pozwoliły na ocenę znaczenia poszczególnych zmiennych oraz sprawdzenie, które z nich mają największy wpływ na ryzyko zachorowania. W ten sposób uzyskaliśmy istotne informacje na temat głównych czynników powodujących wystąpienie choroby oraz wskazówki, na temat tego jakie środki profilaktyki powinniśmy rozważyć, aby w przyszłości zminimalizować ryzyko zawału serca.
+Analiza zbioru danych Framingham Heart Study pozwoliła nam na prześledzenie, w jaki sposób różne czynniki zdrowotne oraz styl życia wpływają bezpośrednio lub pośrednio na ryzyko wystąpienia choroby sercowo-naczyniowej w perspektywie 10 najbliższych lat. Zastosowane metody statystyczne i modele uczenia maszynowego pozwoliły na ocenę znaczenia poszczególnych zmiennych oraz sprawdzenie, które z nich mają największy wpływ na ryzyko zachorowania. W ten sposób uzyskaliśmy istotne informacje na temat głównych czynników powodujących wystąpienie choroby oraz wskazówki, na temat tego jakie środki profilaktyki powinniśmy rozważyć, aby w przyszłości zminimalizować ryzyko zawału serca.
 
 ------------------------------------------------------------------------
 

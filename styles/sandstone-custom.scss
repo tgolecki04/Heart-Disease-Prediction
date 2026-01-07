@@ -372,4 +372,14 @@ input,
 
 // quarto-scss-analysis-annotation { "origin": null }
 
+.bi {
+  color: darkred !important;
+}
 
+.header-section-number {
+  color: darkred !important;
+}
+
+.quarto-title-banner {
+  background-color: darkred !important; /* Zmień na dowolny kolor, np. blue, #00ff00, rgb(255, 100, 50) */
+}

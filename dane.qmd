@@ -660,6 +660,18 @@ badania |>
   theme_ipsum_rc()
 ```
 
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Weryfikacja Hipotezy</strong>
+
+$H_0$ : Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.
+
+<strong>Tak.</strong> Podwyższone ciśnienie skurczowe i rozkurczowe przez dłuższy okres negatywnie wpływają na pracę układu sercowo-naczyniowego oraz zwiększają ryzyko wystapienia choroby wieńcowej.
+:::
+
 ### Zakres pracy serca, a ryzyko zawału
 
 ```{r}
@@ -936,6 +948,18 @@ ggsave("images/plots/leki_nadcisnienie_rozklad2.png", p2)
 ![](images/plots/leki_nadcisnienie_rozklad2.png){fig-align="center"}
 :::
 
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Weryfikacja Hipotezy</strong>
+
+$H_0$ : Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.
+
+<strong>Tak.</strong> Osoby z podwyższonym ciśnieniem posiadają większe ryzyko choroby wieńcowej, niż osoby z prawidłowym ciśnieniem, ponieważ ciśnienie jest jednym z głównych predyktorów zawału serca w medycynie. Osoby stosujące leki w celu obniżenia ciśnienia serca w dużej mierze ciągle mają wyższe wyniki niż osoby zdrowe, lecz przyczyniają się tym do zmniejszenia ryzyka zawału serca.
+:::
+
 ### Skutki palenia na układ krążenia
 
 ```{r}
@@ -1124,6 +1148,18 @@ ggsave("images/plots/fraction.png", p1)
 ```
 
 ![](images/plots/fraction.png){fig-align="center"}
+
+::: {.alert .alert-dismissible .alert-danger}
+<button type="button" class="btn-close" data-bs-dismiss="alert">
+
+</button>
+
+<strong>Weryfikacja Hipotezy</strong>
+
+$H_0$ : Palenie zwiększa ryzyko zawału serca.
+
+<strong>Tak.</strong>Palenie wpływa negatywnie na układ sercowo-naczyniowy, podnosi ciśnienie serca oraz działa toksycznie na ludzki organizm. Wraz z liczbą palonych papierosów oraz okresem palenia zwiększa się ryzyko wystąpienia m.in. choroby wieńcowej.
+:::
 
 ### Relacja pomiędzy zmienną `age`, a zmienną `cigsPerDay`
 

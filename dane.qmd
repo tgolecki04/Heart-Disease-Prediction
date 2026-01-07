@@ -585,10 +585,20 @@ ggsave("images/plots/diaBP_byEducation.jpg", p2)
 ggsave("images/plots/diaBP_byCurrentSmoker.jpg", p3)
 ```
 
+```{r}
+#| warning: false
+p1 <- badania |> 
+  ggplot(aes(x = education, y = diaBP, color = education)) +
+  geom_boxplot() +
+  theme_ipsum_rc() +
+  scale_x_discrete(labels = c("1", "2", "3", "4"))
+ggsave("images/plots/diabp_boxplot.jpg", p1)
+```
+
 ::: panel-tabset
 #### Względem zmiennej sex
 
-![](images/clipboard-1376958334.jpeg)
+![](images/plots/diaBP_bySex.jpg)
 
 #### Względem zmiennej education
 
@@ -599,13 +609,35 @@ ggsave("images/plots/diaBP_byCurrentSmoker.jpg", p3)
 ![](images/plots/diaBP_byCurrentSmoker.jpg){fig-align="center"}
 :::
 
-Analizująć powyższe wykresy dotyczące rozkładu zmiennej `sysyBP` możemy określić następujące wnioski:
+Analogicznie wpływ edukacji możemy przedstawić następująco:
+
+![](images/plots/diabp_boxplot.jpg){fig-align="center"}
+
+Analizując powyższe wykresy dotyczące rozkładu zmiennej `diaBP` możemy określić następujące wnioski:
 
 -   Rozkłady zmiennej ze względu na płeć są do siebie zbliżone. Są one delikatnie prawostronnie asymetryczne, jednocześnie kobiety mają tendencję do przyjmowania lekko niższych wartości podczas badania.
 
 -   Podział na poziom wykształcenia mówi nam, że rozkłady są między sobą analogiczne z drobnymi odstępstwami. Dla wartości ciśnienia równych około 70mmHg do 80mmHg czyli wartości najczęstszych, większą gęstość mają grupy wykształcenia 3 oraz 4. Widzimy, że osoby z wyższym wykształceniem minimalnie częściej posiadają niższą wartość ciśnienia.
 
+-   Wartość ciśnienia rozkurczowego u osób palących jest niższa niż u osób niepalących, wydaje się to nieintuicyjne. Możemy to tłumaczyć faktem, że osoby palące są często młodsze, co łączy się z średnio niższym ciśnieniem. Aby uzasadnić tą tezę sprawdzimy średni wiek oraz medianę w obu grupach.
+
+```{r}
+cisnienie_porownanie <- badania |> 
+  group_by(currentSmoker) |> 
+  summarise(
+    Liczebnosc = n(),
+    Srednia_wieku = round(mean(age), 2),
+    Mediana_wieku = median(age)
+  )
+
+cisnienie_porownanie
+```
+
 ### Ciśnienie skurczowe
+
+Ciśnienie skurczowe to wyższa wartość ciśnienia krwi, mierzona w momencie skurczu serca, gdy mięsień sercowy kurczy się i wypycha krew do tętnic. Jego prawidłowa wartość u osób dorosłych wynosi zazwyczaj około 100–120 mmHg. Ciśnienie skurczowe jest ważnym wskaźnikiem siły, z jaką serce pompuje krew oraz stanu naczyń krwionośnych. Odchylenia od normy mogą świadczyć o zaburzeniach w pracy układu krążenia.
+
+Zbyt wysokie ciśnienie skurczowe może wskazywać na nadciśnienie tętnicze i prowadzić do uszkodzenia naczyń krwionośnych oraz narządów wewnętrznych, natomiast zbyt niskie może być objawem osłabionej pracy serca lub odwodnienia organizmu. Oba stany są groźne dla zdrowia i życia, dlatego wymagają regularnej kontroli oraz, w razie potrzeby, odpowiedniego leczenia. Nieprawidłowe wartości ciśnienia skurczowego mogą zwiększać ryzyko poważnych powikłań, takich jak zawał serca czy udar mózgu.
 
 Analogicznie postepujemy dla zmiennej `sysBP`. Pamiętamy że omawiane zmienne są silnie ze sobą skorelowane, więc spodziewamy się podobnych rezultatów.
 
@@ -637,6 +669,16 @@ ggsave("images/plots/sysBP_byEducation.jpg", p2)
 ggsave("images/plots/sysBP_byCurrentSmoker.jpg", p3)
 ```
 
+```{r}
+#| warning: false
+p1 <- badania |> 
+  ggplot(aes(x = education, y = sysBP, color = education)) +
+  geom_boxplot() +
+  theme_ipsum_rc() +
+  scale_x_discrete(labels = c("1", "2", "3", "4"))
+ggsave("images/plots/sysbp_boxplot.jpg", p1)
+```
+
 ::: panel-tabset
 #### Względem zmiennej sex
 
@@ -651,13 +693,30 @@ ggsave("images/plots/sysBP_byCurrentSmoker.jpg", p3)
 ![](images/plots/sysBP_byCurrentSmoker.jpg){fig-align="center"}
 :::
 
-analiza::
+Dla ułatwienia wnioskowania względem poziomu edukacji wykorzystamy `boxplot`.
+
+![](images/plots/sysbp_boxplot.jpg){fig-align="center"}
+
+Analizując powyższe wykresy dotyczące rozkładu zmiennej `sysBP` możemy określić następujące wnioski:
+
+-   Rozkłady zmiennej ze względu na płeć są do siebie podobne. Są one prawostronnie asymetryczne ze względu na występowanie wartości odstających, które są powszechne w medycynie. Widać, że w większości przypadków to mężczyźni mają lekko wyższy poziom ciśnienia skurczowego.
+
+-   Podział na poziom wykształcenia zachowuje się analogicznie do ciśnienia rozkurczowego, osoby z niższym wykształceniem cechują się delikatnie wyższymi wartościami podczas badania ciśnienia
+
+-   Ze względu na różnicę wieku w grupie osób palących i niepalących możemy wysnuć podobne wnioski jak wcześniej, dokładniejszą analizę dotyczącą wpływu palenia na ryzyko zawału przeprowadzimy później.
+
+Sprawdźmy jakie wartości ciśnień cechują osoby ze względu na ryzyko zawału.
 
 ```{r}
-badania |> 
-  ggplot(aes(y = diaBP, color = education)) +
-  geom_boxplot() +
-  theme_ipsum_rc()
+cisnienie_w_grupach <- badania |> 
+  group_by(TenYearCHD) |> 
+  summarise(
+    Srednia_sysBP = mean(sysBP),
+    Srednia_diaBP = mean(diaBP),
+    Mediana_sysBP = median(sysBP),
+    Mediana_diaBP = median(diaBP)
+  )
+cisnienie_w_grupach
 ```
 
 ::: {.alert .alert-dismissible .alert-danger}
@@ -673,6 +732,10 @@ $H_0$ : Ciśnienie serca jest istotnym czynnikiem powodującym zawał serca.
 :::
 
 ### Zakres pracy serca, a ryzyko zawału
+
+Zakres pracy serca, określany jako różnica pomiędzy ciśnieniem skurczowym (sysBP) a rozkurczowym (diaBP), nazywany jest również **ciśnieniem tętna**. Wartość ta odzwierciedla elastyczność naczyń krwionośnych oraz siłę, z jaką serce wypompowuje krew do układu krążenia. U osób dorosłych prawidłowy zakres pracy serca wynosi zazwyczaj około **30–50 mmHg**.
+
+Zbyt wysoki zakres pracy serca może świadczyć o sztywności naczyń krwionośnych, nadciśnieniu tętniczym lub zwiększonym obciążeniu serca, natomiast zbyt niski może wskazywać na osłabioną kurczliwość mięśnia sercowego, niewydolność serca lub znaczne obniżenie ciśnienia krwi. Oba te stany są niekorzystne dla zdrowia i mogą prowadzić do poważnych powikłań. Nieprawidłowa różnica pomiędzy ciśnieniem skurczowym a rozkurczowym zwiększa ryzyko chorób sercowo-naczyniowych, w tym zawału serca, dlatego regularna kontrola parametrów ciśnienia krwi jest niezwykle istotna.
 
 ```{r}
 #| label: Pulse_pressure
@@ -723,7 +786,47 @@ ggsave("images/plots/pulse_pressure_3.jpg", p3)
 ![](images/plots/pulse_pressure_3.jpg){fig-align="center"}
 :::
 
-:analiza::
+Wpływ pracy zakresu serca możemy przedstawić również następująco:
+
+```{r}
+zakres_pracy_serca <- badania |> 
+  group_by(TenYearCHD) |> 
+  summarise(
+    Sredni_zakres = mean(sysBP - diaBP),
+    Mediana_zakres = median(sysBP - diaBP)
+  )
+zakres_pracy_serca
+```
+
+```{r}
+#| warning: false
+p1 <- badania |> 
+  ggplot(aes(x = sysBP - diaBP)) +
+  geom_histogram(fill = "#6AAED9") +
+  theme_ipsum_rc() +
+  ggtitle("Value of sysBP - diaBP by TenYearCHD")
+
+p2 <- badania |> 
+  ggplot(aes(x = TenYearCHD, y = sysBP - diaBP, color = TenYearCHD)) +
+  geom_boxplot() +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) + 
+  ggtitle("Value of sysBP - diaBP by TenYearCHD")
+ggsave("images/plots/zakres_pracy_serca_histogram.png", p1)
+ggsave("images/plots/zakres_pracy_serca_boxplot.png", p2)
+```
+
+::: panel-tabset
+#### Histogram
+
+![](images/plots/zakres_pracy_serca_histogram.png){fig-align="center"}
+
+#### Boxplot
+
+![](images/plots/zakres_pracy_serca_boxplot.png){fig-align="center"}
+:::
+
+Analizując powyższe wykresy oraz tabele możemy wywnioskować, że osoby w grupie ryzyka zawału serca mają średnio wyższe ciśnienie tętna od osób zdrowych. Wysoki zakres pracy serca działa niekorzystnie w dużym okresie czasu i przyczynia się do osłabienia serca i całego układu krwionośnego. Duża liczba badanych osób posiada ciśnienite tętna wyższe od 50 mmHg, co jest umownie granicznym poziomem prawidłowego zakresu pracy serca. Dodatkowo choroby takie jak nadciśnienie tętnicze oraz cukrzyca negatywnie wpływają na serce oraz zwiększają zakres jego pracy, co dodatkowo je wysila.
 
 ### Ciśnienie serca jako przyczyna zawału serca
 
@@ -760,6 +863,8 @@ ggsave("images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png", p2)
 ![](images/plots/cisnienie_wzlgedem_ryzyka_bySex_2.png){fig-align="center"}
 :::
 
+Widzimy, że osoby w grupie ryzyka cechują się średnio wyższymi wartościami mierzonego ciśnienia. Możemy przez to rozumieć, że wyższy poziom ciśnienia wiąże się w pośrednio większym ryzykiem wystąpienia choroby wieńcowej. Rozkłady tych wartości ze względu na płeć badanych osób są do siebie podobne, z delikatną przewagą średniej mężczyzn dla ciśnienia rozkurczowego.
+
 #### Z uwzględnieniem nadciśnienia
 
 ```{r}
@@ -791,6 +896,8 @@ ggsave("images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png", p2)
 
 ![](images/plots/cisnienie_wzlgedem_ryzyka_byprevHyp_2.png){fig-align="center"}
 :::
+
+Biorąc pod uwagę fakt wystepowania nadciśnienia tętniczego widzimy, że ma on istotny wpływ w ocenie ryzka choroby. Jednocześnie wartości ciśnienia skurczowego jak i rozkurczowego są znacząco wyższe wśród osób z przewlekłym nadciśnieniem tętniczy. Widać, że pierwszy kwartyl osób `prevalentHyp` = `Yes`, zawsze jest ponad trzecim kwartylem osób `prevalenHyp` = `No`.
 
 #### Rozkład wartości ciśnienia
 
@@ -825,6 +932,8 @@ ggsave("images/plots/rozklad_cisnienia_2.png", p2)
 
 ![](images/plots/rozklad_cisnienia_2.png){fig-align="center"}
 :::
+
+W obu przypadkach widzimy przewagę grupy objętej ryzykiem wsród wyższych wartości odpowiednich ciśnień. Potwierdza to nasze dotychczasowe wnioski, że wartości badanego ciśnienia wpływają bezpośrednio na pracę układu sercowo-naczyniowego oraz są jedną z głównych przyczyn wystąpienia zawału serca.
 
 ### Analiza wartości tętna
 

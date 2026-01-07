@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{float}
+
+\geometry{
+	a4paper,
+	left=25mm,
+	right=25mm,
+	top=25mm,
+	bottom=25mm
+}
+
+\lstset{
+	basicstyle=\ttfamily\footnotesize,
+	breaklines=true,
+	frame=single,
+	captionpos=b
+}
+
+\title{Analiza danych i modelowanie klasyfikacyjne ryzyka zawału serca}
+\author{tom}
+\date{01.01.2026}
+
+\begin{document}
+	
+	\maketitle
+	\tableofcontents
+	\newpage
+	
+	\section{Wstęp}
+	Analiza zbioru danych \textit{Framingham Heart Study} pozwoliła na prześledzenie, w jaki sposób różne czynniki zdrowotne oraz styl życia wpływają bezpośrednio lub pośrednio na ryzyko wystąpienia choroby sercowo-naczyniowej w perspektywie 10 najbliższych lat. Zastosowane metody statystyczne i modele uczenia maszynowego pozwoliły na ocenę znaczenia poszczególnych zmiennych oraz sprawdzenie, które z nich mają największy wpływ na ryzyko zachorowania. W ten sposób uzyskano istotne informacje na temat głównych czynników powodujących wystąpienie choroby oraz wskazówki dotyczące środków profilaktyki, które mogą w przyszłości zmniejszyć ryzyko zawału serca.
+	
+	Celem projektu jest zbadanie czynników wpływających na ryzyko wystąpienia choroby wieńcowej w ciągu 10 lat wśród pacjentów. Analiza może pomóc w określeniu głównych predyktorów chorób układu sercowego oraz w oszacowaniu ryzyka dla różnych osób na podstawie ich cech demograficznych, stylu życia, nawyków i pomiarów medycznych. Wyniki analizy mogą mieć istotne znaczenie naukowe oraz być cennym źródłem profilaktyki zdrowotnej.
+	
+	Głównym założeniem projektu jest stworzenie nieliniowych modeli predykcyjnych zdolnych do skutecznego przewidywania potencjalnego zawału serca w najbliższych 10 latach na podstawie czynników takich jak płeć, wiek, palenie, poziom glukozy, przyjmowane leki oraz poziom cholesterolu. Projekt zakłada stworzenie minimum dwóch modeli predykcyjnych: pierwszy oparty na sieciach neuronowych (Neural Networks), a drugi na Gradient Boosting. Następnie zostanie przeprowadzone porównanie ich właściwości i statystyk oraz wybór najlepszego z nich w celu stworzenia predyktora omawianego zagrożenia. 
+	
+	Użytkownik będzie mógł wypełnić ankietę, a uzupełnione dane zostaną wprowadzone do modelu, który poinformuje o potencjalnej grupie ryzyka. Dodatkowo przeprowadzono podstawowe testy statystyczne oraz stworzone zostały modele poznane w trakcie studiów, takie jak regresja logistyczna czy testy różnicy wartości średniej w różnych grupach.
+	
+	\section{Opis projektu}
+	W tej części projektu przedstawiono najważniejsze modele uczenia maszynowego wykorzystywane w praktyce do rozwiązywania problemów klasyfikacyjnych.
+	
+	\subsection{Regresja logistyczna}
+	Regresja logistyczna to jedno z najprostszych, a jednocześnie bardzo skutecznych narzędzi do przewidywania zmiennych binarnych. Pozwala ocenić wpływ poszczególnych zmiennych na prawdopodobieństwo wystąpienia zdarzenia, jakim jest zawał serca.
+	
+	\subsection{Drzewa decyzyjne i metody zespołowe}
+	Drzewo decyzyjne umożliwia intuicyjne podejmowanie decyzji na podstawie hierarchii warunków. Jego rozwinięciem są metody zespołowe, takie jak:
+	\begin{itemize}
+		\item \textbf{Random Forest} – łączy wiele drzew w jeden stabilny model, zmniejszając wariancję i poprawiając dokładność predykcji.
+		\item \textbf{XGBoost} – buduje drzewa sekwencyjnie, stopniowo korygując błędy poprzednich, osiągając jedne z najlepszych wyników w zastosowaniach drzew decyzyjnych.
+	\end{itemize}
+	
+	\subsection{Sieci neuronowe}
+	Sieci neuronowe, inspirowane działaniem ludzkiego mózgu, dzięki warstwowej architekturze potrafią uchwycić bardzo złożone zależności w danych i są podstawą współczesnych sukcesów w dziedzinach takich jak rozpoznawanie obrazów czy przetwarzanie języka w czasie rzeczywistym.
+	
+	\subsection{Cele funkcjonalne}
+	\begin{itemize}
+		\item Ocena wpływu różnych czynników zdrowotnych i stylu życia na ryzyko zawału serca.
+		\item Budowa modeli predykcyjnych dla ryzyka wystąpienia choroby sercowo-naczyniowej.
+		\item Porównanie skuteczności różnych modeli uczenia maszynowego.
+		\item Udostępnienie narzędzia umożliwiającego użytkownikowi oszacowanie indywidualnego ryzyka.
+	\end{itemize}
+	
+	\section{Implementacja}
+	Projekt został zrealizowany w Pythonie z wykorzystaniem bibliotek Pandas, NumPy, Scikit-learn, XGBoost, TensorFlow/Keras oraz PyTorch.
+	
+	\subsection{Struktura projektu}
+	% TU_UZUPELNIJ - przykładowo:
+	% data/ - dane wejściowe
+	% notebooks/ - notatniki Jupyter
+	% src/ - kod źródłowy
+	% results/ - wyniki eksperymentów
+	
+	\subsection{Najważniejsze fragmenty kodu}
+	\begin{lstlisting}[language=Python]
+		# TU_UZUPELNIJ - wczytywanie danych, preprocessing
+		import pandas as pd
+		data = pd.read_csv('data/heart_data.csv')
+		
+		# TU_UZUPELNIJ - trening modeli
+	\end{lstlisting}
+	
+	\section{Testy i wyniki}
+	% TU_UZUPELNIJ - tabele porównawcze accuracy, F1-score, AUC dla Neural Networks, XGBoost, Random Forest
+	
+	\subsection{Analiza wyników}
+	% TU_UZUPELNIJ - interpretacja wyników, wpływ SMOTE, znaczenie poszczególnych cech
+	
+	\section{Wnioski}
+	% TU_UZUPELNIJ - podsumowanie projektu, trudności, możliwe usprawnienia, wskazówki profilaktyczne
+	
+	\section{Bibliografia}
+	% TU_UZUPELNIJ - np. dokumentacja bibliotek, książki, artykuły, tutoriale
+	% Przykład:
+	% \begin{itemize}
+		%     \item Géron, Aurélien. "Hands-On Machine Learning with Scikit-Learn, Keras & TensorFlow." O'Reilly Media, 2019.
+		%     \item \url{https://xgboost.readthedocs.io/}
+		% \end{itemize}
+	
+\end{document}

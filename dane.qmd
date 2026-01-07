@@ -633,6 +633,8 @@ cisnienie_porownanie <- badania |>
 cisnienie_porownanie
 ```
 
+Widać, że osoby palące są średnio młodsze, co przekłada się na zaburzenie wcześniej omawianych rozkładów oraz fakt, że wiek jest nawet ważniejszym czynnikiem wpływającym na wartość ciśnienia, niż fakt czy osoba pali. Nie powinno nas to dziwić, ponieważ z upływem lat serce człowieka słabnie, a zakres jego pracy ulega zmianie, szczególnie podczas obecności chorób układu sercowo-naczyniowego oraz ukłądu oddechowego.
+
 ### Ciśnienie skurczowe
 
 Ciśnienie skurczowe to wyższa wartość ciśnienia krwi, mierzona w momencie skurczu serca, gdy mięsień sercowy kurczy się i wypycha krew do tętnic. Jego prawidłowa wartość u osób dorosłych wynosi zazwyczaj około 100–120 mmHg. Ciśnienie skurczowe jest ważnym wskaźnikiem siły, z jaką serce pompuje krew oraz stanu naczyń krwionośnych. Odchylenia od normy mogą świadczyć o zaburzeniach w pracy układu krążenia.
@@ -718,6 +720,8 @@ cisnienie_w_grupach <- badania |>
   )
 cisnienie_w_grupach
 ```
+
+Jak widać wszystkie wartości są wyższe dla osób w grupie ryzyka.
 
 ::: {.alert .alert-dismissible .alert-danger}
 <button type="button" class="btn-close" data-bs-dismiss="alert">
@@ -953,33 +957,66 @@ p <- hist_data |>
   geom_col(position = "identity") +
   labs(y = "Liczebność w grupie", x = "Przedziały") +
   theme_ipsum_rc() +
-  scale_fill_manual(values = c("#6AAED9", "#F2A391"))
+  scale_fill_manual(values = c("#6AAED9", "#F2A391")) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank()) +
+  ggtitle("Distribution of heart rate including risk of disease") + 
+  geom_vline(xintercept = 2.5, linetype = "dashed", color = "darkred", lwd = 1) +
+  geom_vline(xintercept = 7.5, linetype = "dashed", color = "darkred", lwd = 1)
   
 ggsave("images/plots/poziom_tetna.png", p)
 ```
 
 ![](images/plots/poziom_tetna.png){fig-align="center"}
 
+Dla porównania rozkładu w obu grupach użyliśmy wykresu typu `histogram` , wskazując jak wygląda rozkład dla każdej z tych grup. Ze względu na niższą liczbę osób w grupie ryzyka słupki histogramu mają znacznie mniejszą wartość, ale ich rozkład jest podobny do siebie. Większość badanych osób posiada wartość tętna w zakresie od około 64mmHg do 84mmHg co jest prawidłowym zakresem ciśnienia tętniczego. Widać to lepiej na wykresie poniżej, który przedstawia wykres gęstości prawdopodobieństwa dla zmiennej `heartRate` ze względu na osoby zagrożone chorbą oraz nie.
+
 #### Rozkład zmiennej
 
 ```{r}
 #| label: rozklad_tetna_gestosc
 #| warning: false
-p <- badania |> 
-  ggplot(aes(x = heartRate)) +
-  geom_density(color = "#6AAED9", lwd = 1.2) +
-  stat_function(
-    fun = dnorm,
-    args = list(mean = mean(badania$heartRate), sd = sd(badania$heartRate)),
-    linewidth = 1.2,
-    col = "#F25041"
-  ) +
-  theme_ipsum_rc()
+p1 <- badania |> 
+  ggplot(aes(x = heartRate, color = TenYearCHD)) +
+  geom_density(lwd = 1.2) +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Heart rate distribution including TenYearCHD")
 
-ggsave("images/plots/rozklad_tetna_gestosc.png", p)
+p2 <- badania |> 
+  ggplot(aes(x = heartRate, color = diabetes)) +
+  geom_density(lwd = 1.2) +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Heart rate distribution including diabetes")
+
+p3 <- badania |> 
+  ggplot(aes(x = diabetes, y = heartRate, color = diabetes)) +
+  geom_boxplot() +
+  theme_ipsum_rc() +
+  scale_color_manual(values = c("#6AAED9", "#F2A391")) +
+  ggtitle("Heart rate distribution including diabetes")
+
+ggsave("images/plots/rozklad_tetna_gestosc_CHD.png", p1)
+ggsave("images/plots/rozklad_tetna_gestosc_diabetes.png", p2)
+ggsave("images/plots/rozklad_tetna_gestosc_diabetes_boxplot.png", p3)
 ```
 
+::: panel-tabset
+#### Względem TenYearCHD
+
 ![](images/plots/rozklad_tetna_gestosc.png){fig-align="center"}
+
+#### Względem diabetes
+
+![](images/plots/rozklad_tetna_gestosc_diabetes.png){fig-align="center"}
+
+#### Względem diabetes - boxplot
+
+![](images/plots/rozklad_tetna_gestosc_diabetes_boxplot.png){fig-align="center"}
+:::
+
+Na podstawie powyższych wykresów możemy twierdzić, że ciśnienie tętnicze wpływa delikatnie na fakt, czy daną osobę kwalifikujemy do grupy ryzyka, szczególnie jeżeli poziom tego ciśnienia jest wyższy niż 80mmHg. Dodatkowo możemy zauważyć fakt, że cukrzyca wpływa na zmianę ciśnienia tętniczego i podwyższa je względem osób zdrowych. Zatem cukrzyca jest czynnikiem podnoszącym ciśnienie tętnicze.
 
 #### Poziom tętna ze względu na inne zmienne
 
@@ -1013,18 +1050,26 @@ ggsave("images/plots/heartRate_byBPMeds.png", p3)
 ```
 
 ::: panel-tabset
-##### sex
+##### Zmienna sex
 
 ![](images/plots/heartRate_bySex.png){fig-align="center"}
 
-##### currentSmoker
+##### Zmienna currentSmoker
 
 ![](images/plots/heartRate_bycurrentSmoker.png){fig-align="center"}
 
-##### BPMeds
+##### Zmienna BPMeds
 
 ![](images/plots/heartRate_byBPMeds.png){fig-align="center"}
 :::
+
+Analizując wykresy zależności ciśnienia tętniczego od innych zmiennych możemy zauważyć:
+
+-   Kobiety posiadają lekko wyższe wartości ciśnienia tętniczego, brak znaczących różnić w grupach osób zdrowych i zagrożonych ryzykiem. Osoby zdrowe posiadają więcej wartości odstających co świadczy o tym, że sam fakt odmiennej wartości ciśnienia nie wiąże się od razu z kwalifikacją osoby do osób zagrożonych zawałem serca.
+
+-   Palenie zwiększa delikatnie ciśnienie tętniecze, jest to jednak delikatny wpływ tego czynnika.
+
+-   Do osób zagrożonych zaliczamy często osoby z wysokim ciśnieniem tętniczym, które przyjmują leki obniżające ciśnienie.
 
 ### Leki na nadciśnienie i ich skutek
 
@@ -1057,6 +1102,8 @@ ggsave("images/plots/leki_nadcisnienie_rozklad2.png", p2)
 ![](images/plots/leki_nadcisnienie_rozklad2.png){fig-align="center"}
 :::
 
+Wykresy pokazują jasno, że istnieją znaczące rożnice w rozkładzie wartości ciśnienia skurczowego i rozkurczowego względem osób przyjmujących leki na nadciśnienie oraz osób zdrowych. Fakt ten jest oczywistym skutkiem nadciśnienia tętniczego. Osoby przyjmujące takie leki mają znacząco podwyższone ciśnienie. Przyjmowanie takich leków obniża co prawda jego wartość, ale nie na tyle, aby poziom ciśnienia był jednakowy jak u osób zdrowych. Przyjmowanie leków u pacjentów z wysokim poziomem ciśnienia przyczynia się do zmniejszenia ryzyka wystąpienia zawału serca, gdyby nie ten fakt ciśnienie było by jeszcze wyższe, a co za tym idzie - ryzyko choroby wieńcowej byłoby bardzo wysokie, ponieważ ciśnienie jest jednym z głównych predyktorów zawału serca.
+
 ::: {.alert .alert-dismissible .alert-danger}
 <button type="button" class="btn-close" data-bs-dismiss="alert">
 
@@ -1071,6 +1118,10 @@ $H_0$ : Leki na nadciśnienie zmniejszają ryzyko choroby wieńcowej.
 
 ### Skutki palenia na układ krążenia
 
+Palenie papierosów jest jednym z najważniejszych czynników ryzyka chorób układu sercowo-naczyniowego. Substancje toksyczne zawarte w dymie tytoniowym, takie jak nikotyna i tlenek węgla, powodują zwężenie naczyń krwionośnych oraz przyspieszają pracę serca, co prowadzi do jego nadmiernego obciążenia. Palenie wpływa również na wzrost ciśnienia tętniczego i pogorszenie dotlenienia tkanek.
+
+Długotrwałe palenie sprzyja rozwojowi miażdżycy, uszkodzeniu ścian naczyń krwionośnych oraz zwiększonej krzepliwości krwi. W efekcie znacząco rośnie ryzyko zawału serca, choroby wieńcowej oraz udaru mózgu. Nawet bierne palenie może negatywnie wpływać na funkcjonowanie serca. Zaprzestanie palenia przynosi wymierne korzyści zdrowotne — już po krótkim czasie poprawia się praca układu krążenia, a ryzyko chorób serca stopniowo się zmniejsza.
+
 ```{r}
 osoby_palace <- badania |> 
   subset(currentSmoker == "Yes")
@@ -1083,6 +1134,8 @@ data.frame(osoby_palace = nrow(osoby_palace),
            row.names = "Liczba osób"
            )
 ```
+
+W badanej grupie pacjentów mamy podobny podział na osoby palące oraz osoby niepalące. Grupy te posiadają około 50% całej próbki. Fakt ten jest ważnym czynnikiem w dalszej analizie, taki stan rzeczy pozwala na dokładniejsze informacje i wnioski, ponieważ zachowana jest równoliczność grup.
 
 #### Podział pacjentów ze względu na palenie
 
@@ -1127,6 +1180,14 @@ ggsave("images/plots/number_of_smokers_byTenYearCHD.png", p3)
 
 ![](images/plots/number_of_smokers_byTenYearCHD.png){fig-align="center"}
 :::
+
+Analizując wykresy, otrzymujemy następujące wnioski:
+
+-   Ponad dwa razy więcej kobiet nie pali papierosów niż mężczyzn
+
+-   Podział wsród palaczy ze względu na płeć jest równomierny.
+
+-   Odsetek osób zakwalifikowanych jako osoby zagrożone wystąpieniem zawału serca w grupach osób palących i niepalących jest podobny.
 
 #### Nawyki palenia papierosów
 

@@ -8,7 +8,8 @@ RF_model/__pycache__/
 .idea/
 .quarto/
 
-# R / RStudio artifacts
+_quarto_internal_scss_error.scss
+
 .Rhistory
 .Rapp.history
 .RData

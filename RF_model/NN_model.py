@@ -46,8 +46,7 @@ model = MLPClassifier(
     random_state=42
 )
 weights = np.where(y_train_sm==1, 10, 1)
-model.fit(X_train_sm, y_train_sm, sample_weight=weights)
-
+model.fit(X_train_sm, y_train_sm)
 
 # Wyliczanie prawdopodobieństw
 y_proba = model.predict_proba(X_test)[:, 1]

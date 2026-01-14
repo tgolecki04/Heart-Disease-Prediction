@@ -8,6 +8,18 @@ def load_data(path):
     df = pd.read_csv(path)
     return df
 
+
+def load_data2(path):
+    df = pd.read_csv(path)
+
+    for col in df.columns:
+        if df[col].dtype == 'object':
+            if df[col].isin(['Yes', 'No']).any():
+                df[col] = df[col].map({'Yes': 1, 'No': 0})
+            else:
+                df[col] = pd.to_numeric(df[col], errors='coerce')
+    return df
+
 def basic_eda(df):
     print("Shape:", df.shape)
     print("\nTarget distribution:\n", df['TenYearCHD'].value_counts(dropna=False))

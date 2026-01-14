@@ -21,10 +21,12 @@ RANDOM_STATE = 123
 # hiperparametry baseline XGBoost
 XGB_PARAMS = dict(
     n_estimators=300,
-    learning_rate=0.05,
-    max_depth=4,
+    learning_rate=0.01,
+    max_depth=5,
     subsample=0.8,
     colsample_bytree=0.8,
+    min_child_weight=3,
+    gamma=0.1,
     use_label_encoder=False,
     eval_metric='logloss',
     random_state=RANDOM_STATE,

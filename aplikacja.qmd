@@ -301,11 +301,11 @@ editor: visual
 </div>
 
 <script>
-  window.API_BASE_URL = "http://127.0.0.1:8000";
+  window.API_BASE_URL = "http://127.0.0.1:8000"; // w produkcji zamienić na właściwy adres
 </script>
 
 <script>
-  const API_BASE = (typeof window !== 'undefined' && window.API_BASE_URL) ? window.API_BASE_URL : "http://127.0.0.1:8000";
+  const API_BASE = (typeof window !== 'undefined' && window.API_BASE_URL) ? window.API_BASE_URL : "http://127.0.0.1:8000"; // w produkcji zamienić na właściwy adres
           
   // Logika obsługi palenia
   function handleSmokingLogic() {
@@ -356,7 +356,7 @@ editor: visual
       html += `<div class="result-header">✅ SYMULACJA: NISKIE RYZYKO</div>`;
     }
 
-    html += `<div class="result-confidence">Prawdopodobieństwo wyniku: <b>${probPercent}%</b></div>`;
+    html += `<div class="result-confidence">Pewność modelu: <b>${probPercent}%</b></div>`;
 
     if (isRisk) {
       html += `<div class="result-advice">
@@ -429,7 +429,7 @@ editor: visual
   
         if (hasProb) {
           const pct = (json.probability * 100).toFixed(1);
-          html += `<div class="result-confidence">Prawdopodobieństwo wyniku: <b>${pct}%</b></div>`;
+          html += `<div class="result-confidence">Pewność modelu: <b>${pct}%</b></div>`;
         }
   
         if (isRisk) {

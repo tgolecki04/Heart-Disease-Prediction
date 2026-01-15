@@ -1,5 +1,5 @@
 # ❤️ Wczesne Wykrywanie Ryzyka Zawału Serca
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active")
 
 **Projekt pozwala na wykrywanie ryzyka zawału serca mogącego wystąpić w przeciągu najbliższych 10 lat przy wykorzystaniu modeli uczenia maszynowego. Celem jest opracowanie narzędzi do przewidywania ryzyka na podstawie danych medycznych.**
 
@@ -9,7 +9,7 @@ Repozytorium zawiera:
 - skrypty trenowania i ewaluacji modeli oraz zapisane modele/artefakty.
 
 > [!WARNING]
-> Projekt jest w fazie aktywnego rozwoju. Wyniki i kod mogą ulegać zmianom, a część funkcjonalności może wymagać dopracowania. Nie jest to narzędzie medyczne i nie powinno być używane do diagnostyki.
+> Nie jest to narzędzie medyczne i nie powinno być używane do diagnostyki.
 
 ## Spis treści
 - [Zobacz pełną analizę online](#zobacz-pełną-analizę-online)

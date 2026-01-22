@@ -1410,49 +1410,6 @@ ggsave("images/plots/concatenation.png", p)
 
 ![](images/plots/concatenation.png){fig-align="center"}
 
-### Model regresji logistycznej
-
-::DO PRZENIESIENIA !!!::
-
-```{r}
-str(badania)
-
-logit_model <- glm(TenYearCHD ~ age + sex + education + sysBP + diaBP + heartRate + BMI +
-                     totChol + glucose + diabetes + cigsPerDay + currentSmoker + BPMeds +
-                     prevalentStroke + prevalentHyp,
-                   data = badania,
-                   family = binomial(link = "logit"))
-
-summary(logit_model)
-
-exp(coef(logit_model))
-
-step_model <- step(logit_model, direction = "both")
-summary(step_model)
-
-badania$pred_prob <- predict(logit_model, type = "response")
-badania$pred_class <- ifelse(badania$pred_prob > 0.2, 1, 0)
-badania$pred_class <- factor(badania$pred_class, labels = c("No", "Yes"))
-
-library(pROC)
-roc_obj <- roc(badania$TenYearCHD, badania$pred_prob)
-plot(roc_obj)
-auc(roc_obj)
-
-
-library(car)
-vif(logit_model)
-
-table(Predicted = badania$pred_class, Actual = badania$TenYearCHD)
-
-accuracy <- mean(badania$pred_class == badania$TenYearCHD)
-accuracy
-```
-
-```{r}
-
-```
-
 <div>
 
 ![](images/article/picture_2.png){style="margin-top: 25px;" fig-align="center"}

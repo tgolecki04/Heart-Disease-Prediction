@@ -55,7 +55,7 @@ Z tego względu rośnie znaczenie wczesnego wykrywania ryzyka zawału serca, obe
 
 W kontekście rosnącej liczby zachorowań na choroby układu krążenia oraz starzenia się społeczeństw, rozwój narzędzi umożliwiających wczesne, precyzyjne i dostępne dla szerokiej populacji wykrywanie ryzyka zawału serca staje się jednym z priorytetów współczesnej medycyny i zdrowia publicznego. Niniejszy projekt koncentruje się na analizie tych zagadnień oraz przedstawieniu metod pozwalających na identyfikację osób znajdujących się w grupie podwyższonego ryzyka.
 
-Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze, zadamy pytania, na które poszukamy odpowiedzi w trakcie analizy danych oraz dokładniej omówimy kolejne etapy projektu. test dla tomka
+Teraz przejdziemy do etapu planu projektu, w którym postawimy hipotezy badawcze, zadamy pytania, na które poszukamy odpowiedzi w trakcie analizy danych oraz dokładniej omówimy kolejne etapy projektu.
 
 <div>
 

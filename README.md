@@ -31,7 +31,10 @@ Celem jest zbudowanie kilku modeli predykcyjnych umożliwiających przewidywanie
 Modele rozważane/wykorzystane: sieci neuronowe (Keras/TensorFlow/PyTorch), XGBoost, Random Forest oraz warianty z/bez SMOTE.
 
 ## 📊 Zbiór danych
-**[Framingham Heart Study](https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study)**
+Projekt wykorzystuje zbiór danych „Framingham Heart Study” z Kaggle:
+**[Framingham Heart Study](https://www.kaggle.com/datasets/noeyislearning/framingham-heart-study)**\
+Licencja zbioru danych: **CC0 (Public Domain)**.\
+Uwaga: licencja `LICENSE` dotyczy kodu źródłowego projektu. Dane (oraz ewentualne znaki towarowe/nazwy podmiotów trzecich) podlegają własnym warunkom/licencjom.
 
 ## 🛠️ Użyte technologie
 Zaawansowana analiza danych w języku R. Stworzenie kilku modeli predykcyjnych w Python. Wykorzystanie Quarto do stworzenia spójnego i przejrzystego 
@@ -74,3 +77,5 @@ połączenia części teoretycznych i praktycznych projektu.
 <a href="https://github.com/tgolecki04/team-project/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=tgolecki04/team-project"/>
 </a>
+
+Kod źródłowy w tym repozytorium jest udostępniany na licencji **Apache License 2.0** — zobacz plik `LICENSE`.
